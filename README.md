@@ -1,10 +1,26 @@
-# Template DataForGood
+# EU Fact Force
 
 This file will become your README and also the index of your
 documentation.
 
+
 # Contributing
 
+## Project structure
+
+```
+14_EUFactForce/
+├── .github/
+│   └── workflows/
+│       ├── d4g-utils.yml
+│       └── pre-commit.yaml
+├── docs/
+├── eu_fact_force/
+│   ├── exploration/ # code to keep track of benchmarks
+│   ├── ingestion/ # ingestion and indexing of documents
+│   └── web/ # web app
+├── tests/
+```
 
 ## Installation
 
