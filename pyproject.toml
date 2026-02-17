@@ -12,3 +12,7 @@ dev = [
     "pytest>=9.0.2",
     "ruff>=0.15.0",
 ]
+parsing = [
+    "docling>=2.73.1",
+    "docling-hierarchical-pdf>=0.1.3",
+]
