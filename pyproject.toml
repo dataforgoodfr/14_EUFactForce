@@ -12,3 +12,9 @@ dev = [
     "pytest>=9.0.2",
     "ruff>=0.15.0",
 ]
+parsing = [
+    "llama-index-core>=0.12.0",
+    "llama-index-readers-llama-parse>=0.4.0",
+    "pymupdf>=1.25.0",
+    "python-dotenv>=1.0.0",
+]

@@ -1,0 +1,883 @@
+    Misinformation in and about science
+
+    Jevin D. Westa,1         and Carl T. Bergstromᵇ
+
+    aInformation School, University of Washington, Seattle, WA 98195; and bDepartment of Biology, University of Washington, Seattle, WA 98195
+
+    Edited by Dietram A. Scheufele, University of Wisconsin–Madison, Madison, WI, and accepted by Editorial Board Member Susan T. Fiske October 11, 2020
+    (received for review November 15, 2019)
+    Humans learn about the world by collectively acquiring infor-                       broadcast media (14), many of these sources are dangerously
+    mation, filtering it, and sharing what we know. Misinformation                      hyperpartisan.
+    undermines this process. The repercussions are extensive. With-                     Nearly 40% of Americans viewed content from untrustworout reliable and accurate sources of information, we cannot hope                    thy websites during the 2016 US election, but these articles
+    to halt climate change, make reasoned democratic decisions, or                      only represented about 6% of all news articles consumed (16),
+    control a global pandemic. Most analyses of misinformation focus                    and sharing of “fake news” may be less prevalent than often
+    on popular and social media, but the scientific enterprise faces                    reported in the media (17). That said, even seemingly trusta parallel set of problems—from hype and hyperbole to publi-                        worthy news sites push misleading headlines. Headlines from
+    cation bias and citation misdirection, predatory publishing, and                    rival publishers appear side by side on our phones, competfilter bubbles. In this perspective, we highlight these parallels and               ing for the ensuing clicks that drive advertising revenue. The
+    discuss future research directions and interventions.                               unvarnished truth is not always enough to capture our attention. Thorough, detailed, accurate reporting has to compete
+    misinformation | disinformation | fake news | data reasoning |                      with clickbait that manufactures emotional responses, curiosity,
+    science communication                                                               and anticipation (18). How can thoughtful analysis of mini-
+
+M
+     isinformation has reached crisis proportions. It poses a risk
+                   to international peace (1), interferes with democratic decision making (2), endangers the well-being of the planet (3), and
+threatens public health (4, 5). Public support for policies to control the spread of severe acute respiratory syndrome coronavirus
+2 (SARS-CoV-2) is being undercut by misinformation, leading
+to the World Health Organization’s “infodemic” declaration (6).
+Ultimately, misinformation undermines collective sense making
+and collective action. We cannot solve problems of public health,
+social inequity, or climate change without also addressing the
+growing problem of misinformation.
+                  Most of the research efforts and interventions examine broad,
+public consumption of misinformation—modeling the spreading
+dynamics of falsehoods (7, 8), examining social network effects
+(9, 10), and evaluating crowd-sourced mediation (11), with a special focus on crisis events (12) and political elections (13). In this
+article, we turn the spotlight on science. We look at the ways
+that misinformation can travel within science due to misaligned
+incentives, out-of-date publishing norms, and sociotechnical systems that concentrate attention and credit on a small subset of
+the literature.
+                    Appealing as it may be to view science as occupying a privileged epistemic position, scientific communication has fallen
+victim to the ill effects of an attention economy. This is not to
+say that science is broken. Far from it. Science is the greatest of
+human inventions for understanding our world, and it functions
+remarkably well despite these challenges. Still, scientists compete
+for eyeballs just as journalists do. They face incentives to hype
+their work and to publish selectively those findings that are surprising and “clickable.” Like other information consumers and
+producers, researchers rely on search engines, recommendation
+systems, and social media to find relevant information. In turn,
+scientists can be susceptible to filter bubbles, predatory publishers, and undue deference to the authority of numbers, P values,
+and black box algorithms.
+
+
+Hype and Hyperbole
+The internet has changed the way we interact with the media.
+Some of us         still read the morning paper at the            breakfast
+table, but many more get the majority of their information
+on the internet. More people consume news online through
+social media (20%) or online news sites (33%) than in print
+form (16%) (14), especially among younger readers (15). While
+nearly half of Americans still get the bulk of their news from
+mum wage rates and unemployment trends possibly compete
+with yet another celebrity breakup, the one hygiene trick your
+dentist does not want you to know, or nine cats who look
+like characters from The Office? Publishers need flair, fluff,
+and sparkle to draw our attention—and they have responded
+enthusiastically.
+                                  Nuance falls by the wayside. Headlines often replace factual statements with promises of emotional experiences. Highly
+shared Facebook headlines pledge to “make you cry tears of
+joy,” “give you goosebumps,” or “melt your heart” (19). Rather
+than summarize the contents of the story, headlines deliberately obscure them to incite a click: “How to avoid the leading
+cause of death”; “Do economists think the Fed will cut rates?”
+Forward reference headlines (20) exploit our curiosity (21)
+by replacing key pieces of information with forward-referring
+pronouns. The reader has to click the story to discover their
+referents: “These pets are adorable but may carry a deadly
+disease”; “One-fifth of this occupation has a serious drinking
+problem”; “Many scientists overlook this crucial detail when
+reading PNAS.”
+                               Parallel changes have taken place in the way that scientists
+write and read scholarly articles. Two decades ago, we received
+hard copies of journals and browsed through them regularly.
+Now, we mostly find articles using search engines or sometimes
+through social media. The result is a head-to-head competition
+between journal articles that parallels the competition among
+news stories on a smartphone. Among scientific papers, titles
+
+
+This paper results from the Arthur M. Sackler Colloquium of the National Academy of
+Sciences, “Advancing the Science and Practice of Science Communication: Misinformation
+About Science in the Public Sphere,” held April 3–4, 2019, at the Arnold and Mabel
+Beckman Center of the National Academies of Sciences and Engineering in Irvine, CA.
+NAS colloquia began in 1991 and have been published in PNAS since 1995. From February
+2001 through May 2019, colloquia were supported by a generous gift from The Dame
+Jillian and Dr. Arthur M. Sackler Foundation for the Arts, Sciences, & Humanities, in
+memory of Dame Sackler’s husband, Arthur M. Sackler. The complete program and video
+recordings of most presentations are available on the NAS website at http://www.
+nasonline.org/misinformation about science.y
+Author contributions: J.D.W. and C.T.B. performed research and wrote the paper.y
+The authors declare no competing interest.y
+This article is a PNAS Direct Submission. D.A.S. is a guest editor invited by the Editorial
+Board.y
+Published under the PNAS license.y
+1To whom correspondence may be addressed. Email: jevinw@uw.edu.y
+Published April 9, 2021.
+
+    PNAS 2021 Vol. 118 No. 15 e1912444117                                                                       https://doi.org/10.1073/pnas.1912444117 |                    1 of 8
+
+
+
+with positive, more interesting framing receive higher Altmetric
+scores (22).
+Scientists likely feel increased pressure to hype their results
+because productivity metrics have taken on a greater role in scientific advancement (23). A publication is no longer merely a
+way of reporting results; it is a coveted prize that can make or
+break an early career (24). In some countries, a publication in a
+top venue draws bonuses—in China, up to $165,000 US dollars
+(25), although this practice was recently banned (26). Given that
+top journals often look for exciting results of broad impact, these
+policies encourage researchers to hype their work. Worse still,
+they may encourage fraud.
+       During a crisis, science can be forced into the media spotlight.
+Eager to accelerate the research cycle during the ongoing pandemic, scientists are making extensive use of preprint servers
+for polished papers and preliminary work alike (27). This can
+be a valuable mode of communication among researchers, but
+because it takes place in the open, journalists pick up on the
+work and do not always approach the findings with sufficient
+caution.
+              For example, there is no credible evidence that SARS-CoV-
+2 responsible for the COVID-19 pandemic has a bioengineered
+origin, but a series of preprints has pushed false narratives
+along these lines. One such paper, posted to bioRxiv (28), was
+quickly refuted by bioinformaticians and formally withdrawn—
+but in the interim, the paper received extensive media attention.
+If preprint servers try to vet the material, authors find other
+outlets. A two-page note—not even a research paper—claimed
+that SARS-CoV-2 is an escaped bioweapon and was posted to
+the academic social media platform ResearchGate (29). Though
+quickly deleted from the site, this document took off, particularly
+within conspiracy circles. A deeply flawed paper making similar
+arguments was posted to the file-sharing site https://zenodo.org/
+(30).  It    received considerable   attention          after  the author
+appeared on cable news promoting the claims and the US president tweeted a video clip of a cable news host praising the
+work (31).
+              Increasingly, we see research being released to the media
+prior to any publication even available for critique. Controversial work on detecting sexual orientation from photographs using
+artificial intelligence (32) was reported in      The Economist and
+The Guardian before a preprint or white paper was available.
+Reports went viral about a research paper on the spread of
+COVID-19 by respiratory droplets from joggers—but no such
+paper existed, only an animated computer visualization (33).
+Controversial results from a Los Angeles County COVID-19
+seroprevalence study were reported worldwide based on a press
+conference (34), but detailed information about methods and
+results was unavailable until weeks later.
+        In addition, researchers commonly misstate or overstate the
+implications of their work (35). In concert with researchers,
+university press offices play a particularly important role in
+communicating science—but too frequently do so in ways that
+prioritize web traffic over accuracy. Sometimes spin is carried
+over from the journal article itself (36); other times, it is added
+in the press release. A biomedical report might omit important
+caveats, draw inappropriate extrapolations from mouse models,
+and exaggerate prescriptive implications. One analysis found that
+nearly a third of 525 papers in top obesity or nutrition journals
+make inappropriate causal claims in their abstracts or titles (37);
+in another study, roughly the same fraction of health-related
+papers widely shared on social media used inappropriately strong
+causal language (38). Some fields may be more prone to hype
+than others. A new result on the geometry of Banach spaces may
+be more difficult to hype than a bioweapon claim, but we surmise
+that most fields are susceptible.
+          Much of this truth bending may be unnecessary. Most studies (39–41) fail to find an association between exaggeration and
+uptake by the news media. Admittedly, selection bias may play a
+role: perhaps the stories that are not exaggerated are those that
+do not need to be. In any case, high-quality press releases appear
+to drive higher-quality news stories on that research (42, 43).
+Publication Bias
+
+If you get your ideas about risk and safety from watching crime
+dramas—or even the local news—you probably think the world
+is a dangerous place (44). Intruders attack sleeping homeowners,
+children are kidnapped, and museums are burgled. “If it bleeds,
+it leads”—news outlets eager to attract views know that frightening stories of danger and tragedy capture our attention. We
+all want to learn what circumstances to avoid. The stories do
+not even have to be true; we all tend to talk about what scares
+us. In the 1970s and 1980s, urban legends about razor blades
+in apples led local police stations to set up X-ray machines for
+scanning Halloween treats and drove some communities to contemplate trick-or-treating bans—despite the fact that the scare
+was almost entirely fictitious (45, 46). An urban legend from
+our youth, about a parking lot slasher who hides under cars to
+slice his victims’ Achilles tendons (47), has reemerged in 2020,
+updated for the social media platform TikTok with a new twist
+about human trafficking (48).
+         Science features an analogous filtering process, though the
+bias trends toward good news rather than bad. One of the more
+disturbing realizations of the past decade is that many established scientific results in the social (49, 50) and biomedical
+(51–53) sciences cannot readily be replicated. This so-called
+“replication crisis” has been driven in part by the incentive
+structure of scientific publishing. Journals preferentially publish
+positive results with statistically significant outcomes. Scientists
+who obtain negative results or nonsignificance may choose to
+move on to another project rather than to invest in writing and
+publishing work thought to be of only modest interest. The result
+is publication bias, whereby the published literature provides a
+biased sample of the research actually conducted (54). With negative results buried in file drawers (55), conclusions drawn from
+the published record can be misleading, and “false facts” can
+become canonized in the literature (56).
+How bad is the problem? We do not really know. It is relatively
+straightforward to measure the fraction of published results that
+are negative. One study found that only 15% of results published across the sciences are negative, with even lower levels in
+some fields such as ecology and psychology (57). However, to
+evaluate the effect of publication bias, we need to know what
+fraction of negative results is unpublished. To get at this more
+difficult estimate, Turner et al. (58) compared the Food and
+Drug Administration (FDA) registrations of antidepressant clinical trials with the published record in biomedical journals. In the
+published literature, 94% of the reported trials obtained positive
+results of drug efficacy. However, looking at the original registrations and the results as reported to the FDA, the team saw
+a different picture. Only 51% of the studies yielded definitively
+positive results according to the original outcome measures. Why
+the discrepancy? Almost all of the positive results were published, whereas fewer than half of the questionable or negative
+results were published. Moreover, many of the questionable or
+negative results were recast as positive via “outcome switching,” the questionable practice of reporting different outcome
+measures than those specified in the original trial registration.
+Reading the published literature, you would think antidepressants were ubiquitously effective. Seeing the full picture, the
+prognosis is more nuanced.
+In response, researchers and publishers are beginning to
+experiment with registered reports (59, 60). Under this publishing model, reviewers evaluate proposed studies before they
+are conducted and offer in-principle acceptance: irrespective of
+the results, the study will be published if properly conducted.
+
+
+
+Advocates suggest that reviewing proposals instead of completed         went down at 39% of schools but were up at 35% of schools.
+experiments will create a more reliable literature, both by reduc-      That is not news; it is Brownian motion.
+ing the incentive for scientists to mine data for surprising findings   Sadly, this is a common phenomenon. As information moves
+and by reducing publication bias against negative results. How-         from primary literature to social media to popular press and
+ever, we do not see preregistration as a panacea. It may not be         back to social media, it is often distorted both intentionally
+appropriate for all types of research; it discourages exploratory       and unintentionally like the messages in the children’s game of
+research, which can generate important, unexpected findings,            telephone.
+and there is little evidence to date that it will appreciably reduce    One might think that the rigorous, disciplined nature of scholpublication bias (61–63).                                               arly writing would prevent errors of this sort from arising in the
+A form of publication bias arises in popular science report-            scientific literature. Unfortunately, this is not so. Numerous studing as well. News media eagerly report potential breakthroughs,         ies have investigated the frequency of “quotation errors” (i.e.,
+often failing to clearly indicate their preliminary nature. COVID-      citations that are used to justify claims that are not factually sup-
+19 reporting is no exception (33, 64). The withdrawn bioRxiv            ported by the cited documents). Depending on the field and the
+preprint mentioned previously was promoted so broadly that it           methodology, most analyses of the problem reveal that between
+garnered one of the highest Altmetric scores of all time (28).          1 in 5 and 1 in 10 citations are used to support claims incongru-
+As another example, a        Financial Times  headline proclaimed       ous with the results of the cited paper (refs. 74–76 and references
+“Coronavirus may have infected half of UK population—Oxford             therein).
+study,” even though it was reporting on a preliminary white                    Intentions are difficult to measure; it is likely that many of
+paper that neither showed nor attempted to show anything of the         these citations are due to honest mistake or laziness rather than
+sort (65, 66).                                                          deliberate obfuscation. When a paper misrepresents the papers
+In pursuit of a splashy result, journalists sometimes extrapolate       it cites, this can be grounds for retraction (77). A bigger problem
+too far from scientific reports. One striking instance occurred         arises when one paper is frequently misrepresented by no fault of
+when the Centers for Disease Control and Prevention (CDC)               its own. In one notable case, a short letter published in the New
+released guidelines indicating that because of acquired immu-           England Journal of Medicine reported on opioid use and addicnity, patients ordinarily did not have to be retested in the            tion among patients at the Boston University Medical Center
+3 mo after recovering from COVID-19. What the CDC was                   (78). The authors concluded that “despite widespread use of narsaying was that if you are within 3 mo of a previous infec-             cotic drugs in hospitals, the development of addiction is rare in
+tion (p), then you will ordinarily not be susceptible to rein-          medical patients with no history of addiction.” This five-sentence
+fection (q ). While the CDC asserted   p → ¬q , media reversed          letter has been cited over 600 times, most often as evidence for
+this, incorrectly interpreting the CDC as saying that    ¬p → q .       the incorrect assertion that opioids are not addictive. As of 2017,
+That is, if you are not within 3 mo of a previous infection,            fewer than 20% of those citations acknowledged that the report
+you are necessarily susceptible to reinfection. Based on that           was restricted to the hospital setting and does not apply to the
+misunderstanding, numerous news media erroneously reported              in-home use where much of opioid addiction arises (79).
+that immunity to COVID-19 was now thought to be extremely               Retracted papers are frequently cited as legitimate even after
+short lived.                                                            retraction. In a recent study in radiation oncology, Daniel Hamil-
+    Another problem with reporting on preliminary studies is that       ton (80) found that 92% of articles citing retracted articles
+journalists seldom report when the studies covered previously           subsequent to retraction cited them as if the retraction had never
+fail to pan out (67). Additionally, because journalism favors           occurred. Presumably, this stems primarily from a lack of awareclicks, there is a heavy focus on findings that are highly surpris-     ness, not deceitful intentions. The website retractionwatch.org/
+ing and perhaps, less likely to be correct. Reading about science       lists the mostly highly cited retracted articles. A few observations
+in the mass media, one might reasonably conclude that man               are that retracted papers come from top-tier journals including
+frequently bites dog but rarely, the converse.                          New England Journal of Medicine, Science, and The Lancet; the
+Exaggeration in popular scientific writing misinforms the pub-          top papers are cited thousands of times; and some papers are
+lic, but it also misleads researchers. Even before the advent of        actually cited more after retraction than before retraction.
+online news and social media, scientific reporting in the popu-         Citation bias is a related phenomenon, in which the claims
+lar press has been an important conduit for information even            associated with citations accurately report the           results—but
+among professional researchers. A study based on papers pub-            authors preferentially cite papers that support a claim over those
+lished in 1978 and 1979 found that         New England Journal of       that undermine it (81–84). Citation bias exacerbates the prob-
+Medicine papers covered in the New York Times were cited at             lems created by publication bias. If authors preferentially write
+much higher rates than control papers, especially shortly after         up positive results and journals preferentially publish them, the
+publication (68). Today, news articles, blogs, and social media         citation record will be biased toward positive results even for
+are a valuable source of information about new research, partic-        incorrect hypotheses. If researchers also more likely cite posiularly for younger scientists (69, 70). To the degree that those        tive results, the citation record will further distort our view of
+environments provide a distorted view and influence citations           experimental findings.
+(71), scholars could be accordingly misled.                             Fake News and Predatory Publishing
+Citation Misdirection                                                   The most successful fake story of 2016, “Pope Francis Shocks
+In March of 2017, as the Trump administration’s aggressive anti-        World, Endorses Donald Trump for President,” was published
+immigration stance stirred protests around the country, NBC             and spread by Macedonian teenagers who did not care a whit
+News posted a tweet asserting that “International applications          whether Trump or Clinton won the election (85). They were simat American schools are down nearly 40%.” This struck us as an          ply trying to generate advertising revenue—and they were wildly
+implausibly large effect size, given that many of these applica-        successful, bringing in hundreds of thousands of dollars.
+tions were submitted before Trump even took office. Indeed, if          This type of exploit became possible because of massive shifts
+you trace back to the actual NBC News story (72), you will find         in communication technology and associated economic structhat international applications went down at 40% of schools (by         tures for monetizing information. When the revenue model for
+an unspecified amount), not by 40% total. That is a very differ-        news was based on subscriptions and circulation, there was little
+ent story. If you dig back further to the original scholarly report     value to publishing a single catchy article; one needed an estabdescribed in the news story (73), you will find that applications       lished paper, magazine, radio station, or television channel. Prior
+
+
+
+
+to the internet, authenticity was also hard to spoof. What malicious agent could print a million copies of a fake newspaper or
+take over television bandwidth with professional-quality broadcast content? Finally, how to attract readers or viewers? The
+onus was on the publisher to grow an audience through advertising and other costly measures. Social media and online ad
+revenue models allow anonymous or previously unknown actors
+to create and make money from content that can reach tens of
+millions of people.
+      A similar racket operates within the scientific ecosystem, in the
+guise of predatory publishers. Again, a shift in information technology made this possible. Digital typesetting and online distribution make authenticity easy to spoof: with a bit of know-how and a
+few days’ work, one can put together a website that looks like that
+of a scientific publisher. Changing economic models created new
+opportunities for malfeasance. The rise of electronic distribution
+established a market for online open access, in which the costs of
+publishing are borne by the authors instead of the readers. While
+the open access model has numerous advantages (86), it also
+results in a transfer of purchasing decisions from highly trained,
+highly motivated librarians deciding on journal subscriptions to
+untrained and heterogeneously motivated authors shopping for
+venues in which to publish single articles (87).
+Predatory publishers are not invested in the gate-keeping,
+curation, and manuscript improvement roles of traditional journal publishers. They are focused on collecting open access publication fees, the funds that authors pay to make their work
+available to the world without subscription charges. How serious
+is the problem? According to one study (88), predatory publishers produced nearly half a million articles in 2014, bringing in
+around $74 million in publication fees. For comparison, the estimated market for reputable open access journals is around $250
+million annually, and the number of articles in the Web of Science in 2014 was about 2.5 million. When including the entire
+literature, predatory publishing likely comprises about 5 to 10%.
+            So why do authors publish in these venues? Some authors may
+be duped by spam emails, but we suspect that in many cases,
+researchers are complicit. Scientists face strong pressures to publish frequently. With minimal or nonexistent peer review, predatory publishers offer an easy route to rapid publication (89).
+Thus, a predatory publisher may not need to fool prospective
+authors about its legitimacy. The publisher instead may be offering authors an opportunity to fool any bureaucracy or committee
+that assesses productivity by merely counting publications.
+Yet more worrisome are the ways in which these publications
+mislead the public. Con artists publish fabricated or otherwise
+deceptive trials of snake oil therapies and use the publications in their sales pitches. The unapproved cancer treatment,
+Gc protein-derived macrophage activating factor (GcMAF), has
+been touted in several predatory journals (90). Denialists of various stripes—antivaxxers, creationists, HIV denialists, climate
+skeptics, chemtrail believers—use these venues for “peer review”
+legitimacy. This can be confusing to a public that has little
+training in detecting imposter science.
+       Scientists and the public need better ways of detecting untrustworthy publishers. We have developed methods for identifying
+suspicious journals that are exceedingly costly given their low
+influence (87), but more needs to be done to spot fictitious editorial boards and recently assigned web domains. Ultimately,
+the best solution will be to train the next generation of scientists, journalists, and the public to recognize legitimate scientific
+research (for a primer, see https://callingbullshit.org/tools/tools
+legit.html).
+Filter Bubbles and Echo Chambers
+
+In the midtwentieth century, we relied on Edward Murrow
+and Walter Cronkite for nightly news. The rise of cable television and the 1987 repeal of the Federal Communication
+Commission’s fairness doctrine set into motion an increasing
+polarization of news (91). Today, algorithms learn to select
+content that our friends share, feeding us what we want to
+hear and not always what we need to know. As a result, we
+may be retreating into proverbial “filter bubbles” or “echo
+chambers,” despite increased access to diverse ideas, sources,
+and opinions. Some studies observe reinforcement of this sort
+(92); others provide conflicting evidence in both magnitude and
+direction (93–96).
+         Just as in society, gatekeepers are changing in science. Traditionally, journals have been the primary arbiters of content.
+Editors pick candidate papers; reviewers adjudicate. That has
+been the basic model for the last half century (97). However, over
+the past two decades, a new information milieu has emerged.
+Preprint archives, academic search engines, article recommendation systems, and social media do not require bound journals
+to deliver content. In this new communication environment, do
+journals still matter as gatekeepers, and do echo chambers exist
+in science?
+        In a recent study, we tracked citations of papers published on
+the arXiv before and after journal publication (98). After controlling for article quality, we find that arXiv articles published in
+higher-ranked journals received more citations than articles published in lower-tier journals. This indicates that journals retain
+gatekeeper roles for consumers. For producers, the story changes
+somewhat. We find that papers highly cited as preprints are less
+likely to be published in journals at all (98).
+             Changes in the curation and delivery of scholarly content
+extend beyond journals. Are search engines and recommender
+systems promoting epistemic diversity, or are they narrowing
+our view of the literature? One could easily imagine it going
+either way. Online access lowers the search cost of obtaining most articles; search engines and recommendation systems
+reduce the reliance on disciplinary journals. Thus, we might not
+be surprised that some studies have found that scientists read
+more broadly than previously (99). However, search engines
+such as Google Scholar return articles in an order influenced
+by previous citation counts and related criteria. This could easily accentuate a form of the Matthew Effect (100, 101) in which
+frequently cited papers attract an increasingly disproportionate
+share of citations as their fame grows. In our own investigations
+(102), we find minimal changes when correcting for marginals
+bias, which counters previous findings that show a narrowing
+of citation distributions (103, 104), but this result varies across
+disciplines.
+       Viewpoint diversity is important for science (105–107), so better understanding technology’s impact on this diversity is needed.
+In particular, we need to better understand the systemic effects
+of search engines on the literature. Google Scholar is one of the
+most important tools in science (108). Yet, the tool is a black
+box; the rules for ordering results are a mystery; the algorithms
+are continually changing, obviating any hope of reproducibility;
+the corpus is unknown, and estimates of its size differ dramatically (108); it is nonextensible and minimally customizable; and
+there has been little effort by Google Scholar to engage with
+researchers. Fortunately, there has been a flurry of development
+from other academic search engines including Semantic Scholar,
+Microsoft Academic Graph, Web of Science, and others.
+
+Data and Science Distortion
+Our world is quantified to an unprecedented degree. Our cell
+phones track our every move; arrays of ambient sensors monitor
+our cities; the internet of things tallies our domestic activity; and
+data exhaust from our online lives provides intricate detail about
+our interests, needs, and desires. Readily available data play an
+increasingly important role in decision making and public communication alike—but often, those data are misinterpreted by
+accident or cherry-picked to promote specific agendas.
+
+
+
+             Yet for all of the importance of data in contemporary decision making, we tend to associate misinformation with fake news
+or snake oil and less often think about how data—even accurate
+data—can misinform. Data appear objective, precise, and replicable but offer a near-endless array of presentations, framings,
+and comparisons that can be used to tell a wide range of stories.
+Matters get even worse with data visualization: choice of type,
+the scales and ranges of the axes, the bin sizes of histograms, the
+presence or absence of visual decoration, and other graphical conceits can influence a story in any direction a designer may desire
+(109–111). Without training, readers can be fooled readily. One
+recent study found that poor numerical literacy was associated
+with higher susceptibility to COVID-19 misinformation (112).
+One of the most direct ways that numbers mislead is unfair
+comparison. For example, in the popular An Inconvenient Truth
+documentary about climate change, Al Gore showed increased
+monetary damages due to hurricanes (113). The data were correct, but costs were not corrected for inflation and rising home
+prices in coastal areas. Making these adjustments, the massive
+increase in hurricane damage largely disappears.
+Even with the best of intentions, researchers can stumble when
+interpreting their data. Researchers try to navigate around statistical traps, including selection bias and confounds (114), data
+censoring (115), Simpson’s paradox (116), Will Rogers effect,
+(117), and observation selection effects (118). The ubiquitous but
+oft-misused P value even received a formal statement of caution
+from the American Statistician (119). With so many potential pitfalls, every statistical analysis deserves careful scrutiny. We need
+to better understand the scope across which numeric research
+findings can be generalized. While we often have intuitions about
+this, new work is finding ways to formalize it (120).
+In the meantime, purveyors of propaganda go out of their way
+to create doubt even where it is unmerited. The field of agnotology studies how business interests, governments, and other
+agencies systemically create doubt around scientific findings and
+manipulate what we know and do not know about science (121).
+Whether designed to discredit the link between tobacco and cancer or to deny the reality of anthropogenic climate change, efforts
+at agnotogenesis—creating and spreading doubt—use a similar
+playbook (122). The aim is rarely to disprove the undesirable
+facts but rather, to induce sufficient doubt to “keep the controversy alive” and thereby, stave off regulatory action. The smoking
+gun is there for everyone to see; the goal is to provide people with
+alternative reasons to believe it might be smoking.
+           The “falsehood firehose” is another strategy that pushes huge
+volumes of self-contradictory disinformation (123), meant to
+deceive, confuse, disorient, and agitate (124, 125). The goal is not
+to promote one particular untruth but instead, to so thoroughly
+confound truth and falsehood that confidence in institutions—
+and even in the notion of truth itself—is undermined (123, 126).
+Recently, we have seen this approach adopted by science denialist factions as well (127). While perhaps accidental, the bungled
+COVID-19 risk communications out of the White House during
+February had similar effects. In late February 2020, for example,
+the president and director of the National Economic Council assured the US public that the epidemic had already been
+contained—at the same time as the director of the CDC was
+trying to brace the US public for extensive domestic spread and
+substantial disruption to everyday life. These and related blunders contributed to a growing sense of bewilderment and distrust
+toward the public health community.
+Interventions
+
+So what can we do about misinformation in and about science?
+Volumes have been written on regulatory, technological, and
+educational approaches to online misinformation (128–130), but
+this literature has largely focused on society broadly construed
+rather than on science in particular.
+As a start, we should focus on incentives. The so-called New
+Economics of Science (131–133) models scientists as approximately rational actors motivated by nonepistemic considerations
+such as prestige and salary. Using this approach, we might be
+able to improve the efficiency of the scientific process by nudging science’s norms and institutions in the right directions. The
+aim is to create incentives that are compatible with the behaviors
+we want to encourage and that discourage the behaviors we want
+to eliminate (134).
+        Much of the present pathology of hype, hyperbole, and publication bias is associated with an overreliance on productivity
+metrics (23). Researchers, journals, and institutions are subjected to high-stakes quantification, from hiring to promotion
+and funding (135, 136). Goodhart’s law predicts the consequences. Restated concisely by Marilyn Strathern (137), the law
+observes that “when a measure becomes a target, it ceases to be a
+good measure.” Because universities and scientists are measured
+on these metrics, they face strong pressure to publish at high
+rates, and journal prestige takes on an inordinate significance
+(138). Scientific papers are “salami-sliced” into minimal publishable units, and claims are oversold. Though full-on P hacking
+may not be all that common (139), questionable research practices abound (140, 141), and the scientific enterprise rewards
+them (142–144) (but see ref. 145).
+       The peer review system is overtaxed by the volume of papers
+being written, and in many fields, there is no way for researchers
+to read the literature exhaustively (146). Changing the incentives
+around publication would help. Hiring committees, promotion
+committees, and funding agencies would do well to look closely
+at some fixed number of publications, thereby creating incentives
+for researchers to publish a smaller number of higher-quality
+papers (147).
+     We need to develop methods for identifying errors and statistical anomalies (148). We need to consider integrating preregistration (where appropriate) as standard practice to reduce the
+effects of publication bias, continue to develop tools for open
+science, and reward those scientists that adhere to these new
+standards. We need to encourage researchers to broaden their
+search platforms to reduce a possible “Google Scholar bubble.”
+We need better ways to evaluate reference lists to reduce citation errors. References are used not only by researchers but also,
+as primary input for search engine algorithms (149). They affect
+both the consumption and production of the literature. This may
+require an independent step in an already overtaxed peer review
+system, whereby additional reviewers examine only the citations.
+We need to do a better job helping the public identify legitimate
+science venues and strongly discourage scientists from publishing their research in predatory journals. Additionally, we need
+more science writers both within and outside science institutions. In 2009, there were only 79 full-time science reporters at
+newspapers in the United States (150). This paucity of science
+writers likely impacts public perception of, understanding of, and
+interest in science.
+As society increasingly relies upon quantitative data, data reasoning skills become paramount. In 2017, we began developing a
+curriculum to address these issues of quantitative literacy (151).
+Our aims are twofold. First, we seek to teach students from
+nonscience, nonquantitative backgrounds how to hold their own
+in a data-driven society. We aim to dissolve the myth of numbers as impartial, hard, and unbiased; we show our students
+how to question numbers without technical training; and we do
+this, importantly, with a focus on how science works. Second,
+we aim to redress a major oversight in science, techology, engineering, and mathematics (STEM) education. In our experience,
+students develop impressive technical proficiency in coding, calculating, and conducting laboratory procedures. They less often
+receive adequate training in the elements of critical and humanistic thinking that underlie the productive use of these skills.
+
+
+
+
+Our class fills with students from more than 40 different majors,
+including many in the arts and humanities. We have shared our
+teaching materials with faculty from across the disciplinary landscape working at dozens of universities across the globe, and a
+number of universities now offer a similar course.
+In our class, we present students with a simple schema for
+reasoning about data. Whether we are looking at statistical
+methodology, machine learning algorithms, or any other modes
+of data processing, there is a common structure to the analysis.
+First, data are collected. These go into a “black box” wherein
+the technical operations occur: logistic regression, random forest algorithm, or some other technology. The block box spits
+out summary statistics, data classifiers, or other forms of output.
+From that output, the investigator then derives various conclusions and interpretations. The black box may be inscrutable to
+most readers, but that is all right. Often, one does not need
+to open the box—to delve into the formal mechanics—to think
+critically about the analysis. When something goes wrong, the
+problem seldom resides within the black box (i.e., it is seldom a technical artifact of the analysis). Far more often, the
+data are flawed or unrepresentative, or the conclusions and
+interpretation are unjustified. Students do not need a great
+deal of technical training to spot these problems. Instead, we
+stress concepts such as selection bias, correlation vs. causation,
+relative vs. absolute risk, and plausibility checking via Fermi
+estimation.
+For all these interventions, few will be effective if the public
+distrusts science. Pew Foundation surveys∗ of US residents have
+revealed declining trust in government, religious organizations,
+universities, business leaders, news media, and fellow citizens,
+with young people exhibiting particularly low levels of trust
+(152, 153). Fortunately, science remains among the few trusted
+institutions in the United States (154–157); however, that trust is
+declining in some regions and among some political orientations
+(158, 159).
+Public engagement and understanding of science should be
+a priority for all scientists. This is not a matter of just teaching
+more astronomy or biology. Rather, it involves nurturing innate
+curiosity and teaching people to understand how science works,
+how to consider evidence when making conclusions, and how
+popular media distorts these conclusions. In our class, we spend
+nearly a quarter of our time talking about the nature of science
+and about the issues we have described here, from publication
+bias to predatory journals. We stress that while science has its
+problems, it incorporates mechanisms to correct mistakes. In our
+efforts, we have been inspired by the many other related courses
+developed elsewhere, notably Sense and Sensibility and Science
+at the University of California, Berkeley and Think Critically at
+the University of Texas at Austin and the University of Idaho.
+We are optimistic that science and society alike will survive
+their immersion into new information technologies—but this will
+require education efforts in media literacy, data reasoning, and
+the philosophy of science. It will require policy makers and funders to support both research and public outreach, especially in
+rural regions of the world and in marginalized populations. Most
+importantly, this all needs to be done with a recognition that science relies on public trust for its funding and opportunities to
+interface with the world. Misinformation in and about science
+could easily undermine this trust. We cannot afford to let that
+happen.
+
+Data Availability. There are no new data associated with this article.
+
+                                                                                              ACKNOWLEDGMENTS. The research highlighted was supported by NSF
+                                                                                              Award 1735194 and the Knight Foundation. We thank three anonymous
+    *Pew Foundation surveys are available at https://www.pewresearch.org/topics/trust-in-     reviewers and the editor for useful comments and questions. We published
+    government/.                                                                              a trade book on misinformation with Penguin Random House in 2020.
+
+     1. R. Goldman, Reading fake news, Pakistani minister directs nuclear threat at Israel. NY        17. A. Guess, J. Nagler, J. Tucker, Less than you think: Prevalence and predictors of fake
+      Times, 24 December 2016. https://www.nytimes.com/2016/12/24/world/asia/pakistan-                 news dissemination on Facebook. Sci. Adv. 5, eaau4586 (2019).
+      israel-khawaja-asif-fake-news-nuclear.html. Accessed 7 December 2020.                           18. B. Gardiner, You’ll be outraged at how easy it was to get you to click on this headline.
+     2. US Senate, “Select committee intelligence United States Senate: Russian active mea-            Wired, 18 December 2015. https://www.wired.com/2015/12/psychology-of-clickbait/.
+      sures campaigns and interference in the 2016 U.S. election” (Rep.             116–290, US        Accessed 7 December 2020.
+      Government, 2019).                                                                              19. S. Rayson, BuzzSumo research: 100 Mil headlines analysis. Here’s what we learned.
+     3. S. Van der Linden, A. Leiserowitz, S. Rosenthal, E. Maibach, Inoculating the public            Buzzsumo (26 June 2017). https://buzzsumo.com/blog/most-shared-headlines-study/.
+      against misinformation about climate change. Global Challenges 1, 1600008 (2017).                Accessed 7 December 2020.
+     4. D. A. Salmon,  M. Z.  Dudley, J. M. Glanz,    S. B. Omer, Vaccine    hesitancy: Causes,       20. J. N. Blom, K. R. Hansen, Click bait: Forward-reference as lure in online news
+      consequences, and a call to action. Vaccine 33, D66–D71 (2015).                                  headlines. J. Pragmat. 76, 87–100 (2015).
+     5. D. L. Chi, Parent refusal of topical fluoride for their children: Clinical strategies and     21. G. Loewenstein, The psychology of curiosity: A review and reinterpretation. Psychol.
+      future research priorities to improve evidence-based pediatric dental practice. Dent.            Bull. 116, 75–98 (1994).
+      Clin. 61, 607–617 (2017).                                                                       22. G. Lockwood, Academic clickbait: Articles with positively-framed titles, interesting
+     6. J. Zarocostas, How to fight an infodemic. Lancet 395, 676 (2020).                              phrasing, and no wordplay get more attention online. Winnower (29 June 2016).
+     7. M. Del Vicario et al., The spreading of misinformation online. Proc. Natl. Acad. Sci.          https://thewinnower.com/papers/4892-academic-clickbait-articles-with-positively-
+      U.S.A. 113, 554–559 (2016).                                                                      framed-titles-interesting-phrasing-and-no-wordplay-get-more-attention-online.
+     8. S. Vosoughi, D. Roy, S. Aral, The spread of true and false news online. Science 359,           Accessed 7 December 2020.
+      1146–1151 (2018).                                                                               23. M. Fire, C. Guestrin, Over-optimization of academic publishing metrics: Observing
+     9. C. T. Bergstrom, J. B. Bak-Coleman, Gerrymandering in social networks. Nature 573,             Goodhart’s law in action. GigaScience 8, giz053 (2019).
+      40–41 (2019).                                                                                   24. A. E. Attema, W. B. Brouwer, J. Van Exel, Your right arm for a publication in AER?
+    10. A. J. Stewart et al., Information gerrymandering and undemocratic decisions. Nature            Econ. Inq. 52, 495–502 (2014).
+      573, 117–121 (2019).                                                                            25. A. Abritis, A. McCook, R. Watch, Cash bonuses for peer-reviewed papers go global.
+    11. G. Pennycook, D. G. Rand, Fighting misinformation on social media using crowdsourced           Science 357, 541 (2017).
+      judgments of news source quality. Proc. Natl. Acad. Sci. U.S.A. 116, 2521–2526 (2019).          26. S. Mallapaty, China bans cash rewards for publishing papers. Nature 579, 18 (2020).
+    12. K. Starbird, J. Maddock, M. Orand, P. Achterman, R. M. Mason, “Rumors, false flags,           27. P. Soltani, R. Patini, Retracted COVID-19 articles: A side-effect of the hot race to
+      and digital vigilantes: Misinformation on Twitter after the 2013 Boston marathon                 publication. Scientometrics 125, 819–822 (2020).
+      bombing” in IConference 2014 Proceedings (iSchools, 2014).                                      28. P. Pradhan et al., Uncanny similarity of unique inserts in the 2019-nCoV spike protein
+    13. H. Allcott, M. Gentzkow, Social media and fake news in the 2016 election. J. Econ.             to HIV-1 gp120 and Gag. https://doi.org/10.1101/2020.01.30.927871 (2 February 2020).
+      Perspect. 31, 211–36 (2017).                                                                    29. B. Xiao, L. Xiao, The possible origins of 2019-nCoV coronavirus. https://chanworld.org/
+    14. E. Shearer, Social media outpaces print newspapers in the U.S. as a news source. Pew           wp-content/uploads/wpforo/default attachments/1581810860-447056518-
+      Research Center (10 December 2018). https://www.pewresearch.org/fact-tank/2018/                  Originsof2019-NCoV-XiaoB-Res.pdf. (6 February 2020).
+      12/10/social-media-outpaces-print-newspapers-in-the-u-s-as-a-news-source/. Accessed             30. L.-M. Yan, W. Kang, J. Guan, S. Hu, Unusual features of the SARS-CoV-2 genome
+      7 December 2020.                                                                                 suggesting sophisticated laboratory modification rather than natural evolution and
+    15. J. M. Twenge, G. N. Martin, B. H. Spitzberg, Trends in us adolescents’ media use, 1976–        delineation of its probable synthetic route. (14 September 2020).
+      2016: The rise of digital media, the decline of TV, and the (near) demise of print.             31. A. Ward, The bogus Steve Bannon-backed study claiming China created the coron-
+      Psychol. Pop. Media Cult. 8, 329–345 (2019).                                                     avirus, explained. Vox (18 September 2020). https://www.msn.com/en-us/news/world/
+    16. A. M. Guess, B. Nyhan, J. Reifler, Exposure to untrustworthy websites in the 2016 US           the-bogus-steve-bannon-backed-study-claiming-china-created-the-coronaviruselection. Nat. Hum. Behav. 4, 472–480 (2020).                                                    explained/ar-BB19buS6. Accessed 7 December 2020.
+
+
+
+32. Y. Wang, M. Kosinski, Deep neural networks are more accurate than humans at
+ detecting sexual orientation from facial images. J. Pers. Soc. Psychol. 114, 246–257
+33. J. Koebler, The viral ‘study’ about runners spreading coronavirus is not actually
+ a study.    Motherboard (9   April   2020). https://www.vice.com/en/article/v74az9/theviral-study-about-runners-spreading-coronavirus-is-not-actually-a-study.  Accessed    7
+ December 2020.
+34. LA County Public Health, USC-LA county study: Early results of antibody testing
+ suggest number of COVID-19 infections far exceeds number of confirmed cases
+ in Los Angeles County (20 April 2020). publichealth.lacounty.gov/phcommon/public/
+ media/mediapubhpdetail.cfm?prid=2328. Accessed 16 September 2020.
+35. F. Gonon, E. Bezard, T. Boraud, Misrepresentation of neuroscience data might give
+ rise to misleading conclusions in the media: The case of attention deficit hyperactivity
+ disorder. PloS One 6, e14618 (2011).
+36. A. Yavchitz et al., Misrepresentation of randomized controlled trials in press releases
+ and news coverage: A cohort study. PLoS Med. 9, e1001308 (2012).
+37. S. S. Cofield, R. V. Corona, D. B. Allison, Use of causal language in observational
+ studies of obesity and nutrition. Obesity facts 3, 353–356 (2010).
+38. N. Haber et al., Causal language and strength of inference in academic and media
+ articles shared in social media (claims): A systematic review. PloS One 13, e0196346
+39. P. Sumner et al., The association between exaggeration in health related science news
+ and academic press releases: Retrospective observational study.BMJ349, g7015 (2014).
+40. P. Sumner et al., Exaggerations and caveats in press releases and health-related
+ science news. PloS One 11, e0168217 (2016).
+41. L. Bratton et al., The association between exaggeration in health-related science news
+ and academic press releases: A replication study. Wellcome Open Res. 4, 148 (2019).
+42. R. C. Adams et al., Claims of causality in health news: A randomised trial. BMC Med.
+43. L. M. Schwartz, S. Woloshin, A. Andrews, T. A. Stukel, Influence of medical journal
+ press releases on the quality of associated newspaper coverage: Retrospective cohort
+ study. BMJ 344, d8164 (2012).
+44. D. Romer, K. H. Jamieson, S. Aday, Television news and the cultivation of fear of
+ crime. J. Commun. 53, 88–104 (2003).
+45. J. Best, G. T. Horiuchi, The razor blade in the apple: The social construction of urban
+ legends. Soc. Probl. 32, 488–499 (1985).
+46. H. A. Bajwa, Needle ingestion via Halloween caramel apples. Mayo Clinic Proc. 78,
+
+47. P. Kendall, R. Kozial, H. Dardick, Urban yarn of ‘mall slasher’ just won’t die. Chicago
+ Tribute, 11 October 1991, News.
+48. A. Schroeder, A decades-old ‘slasher’ tale is circulating on TikTok now. Daily Dot (19
+ June     2020).           https://www.dailydot.com/unclick/slasher-under-car-tiktok-kidnapping/.
+49. R. Rahal et al., Estimating the reproducibility of psychological science. Science 349,
+ aac4716 (2015).
+50. C. F. Camerer et al., Evaluating replicability of laboratory experiments in economics.
+ Science 351, 1433–1436 (2016).
+51. C. G. Begley, L. M. Ellis, Drug development: Raise standards for preclinical cancer
+ research. Nature 483, 531–533 (2012).
+52. T. M. Errington et al., An open investigation of the reproducibility of cancer biology
+
+ research. eLife 3, e04333 (2014).
+53. S. Ebrahim et al., Reanalyses of randomized clinical trial data. J. Am. Med. Assoc. 312,
+54. T. D. Sterling, Publication decisions and their possible effects on inferences drawn
+ from tests of significance—or vice versa. J. Am. Stat. Assoc. 54, 30–34 (1959).
+55. R. Rosenthal, The file drawer problem and tolerance for null results. Psychol. Bull. 86,
+56. S. B. Nissen,  T.  Magidson, K.   Gross, C. T.  Bergstrom, Publication bias and  the
+ canonization of false facts. eLife 5, e21451 (2016).
+57. D. Fanelli, Negative results are disappearing from most disciplines and countries.
+ Scientometrics 90, 891–904 (2012).
+58. E. H. Turner, A. M. Matthews, E. Linardatos, R. A. Tell, R. Rosenthal, Selective publication of antidepressant trials and its influence on apparent efficacy. N. Engl. J. Med.
+59. B. A. Nosek, D. Lakens, Registered reports: A method to increase the credibility of
+ published results. Soc. Psychol. 45, 137–141 (2014).
+60. T. E. Hardwicke, J. P. Ioannidis, Mapping the universe of registered reports. Nat. Hum.
+ Behav. 2, 793–796 (2018).
+61. National  Academies       of Sciences,   Engineering, and  Medicine,   Reproducibility      and replicability   in  science (2019). https://www.nationalacademies.org/ourwork/reproducibility-and-replicability-in-science. Accessed 7 December 2020.
+62. R. M. Shiffrin, K. B ¨
+                  orner, S. M. Stigler, Scientific progress despite irreproducibility: A
+
+ seeming paradox. Proc. Natl. Acad. Sci. U.S.A. 115, 2632–2639 (2018).
+63. S. Goldin-Meadow, Why preregistration makes me nervous. APS Observer 29, 5–6
+64. A. Marcus, The science of this pandemic is moving at dangerous speeds. Wired, 28
+ March 2020. https://www.wired.com/story/the-science-of-this-pandemic-is-moving-atdangerous-speeds/. Accessed 7 December 2020.
+65. C. Cookson, Coronavirus may have infected half of UK population—Oxford study.
+ Financial    Times,   24 March 2020.     https://www.ft.com/content/5ff6469a-6dd8-11ea-
+ 89df-41bea055720b. Accessed 7 December 2020.
+66. J. Lourenc
+                         ¸o et al., Fundamental principles of epidemic spread highlight the immediate need for large-scale serological surveys to assess the stage of the SARS-CoV-2
+ epidemic. https://doi.org/10.1101/2020.03.24.20042291 (26 March 2020).
+ 67. E. Dumas-Mallet, A. Smith, T. Boraud, F. Gonon, Poor replication validity of biomedical
+ association studies reported by newspapers. PloS One 12, e0172650 (2017).
+ 68. D. P. Phillips, E. J. Kanter, B. Bednarczyk, P. L. Tastad, Importance of the lay press in
+ the transmission of medical knowledge to the scientific community. N. Engl. J. Med.
+ 69. V. Spezi, Is information-seeking behavior of doctoral students changing?: A review of
+ the literature (2010–2015). New Rev. Acad. Librarian. 22, 78–106 (2016).
+ 70. D. Nicholas et al., Where and how early career researchers find scholarly information.
+ Learn. Publ. 30, 19–29 (2017).
+ 71. P. S. Anderson et al., A case study exploring associations between popular media
+ attention of scientific research and scientific citations. PloS One 15, e0234912 (2020).
+ 72. R. Allen, Survey finds foreign students aren’t applying to American colleges. NBC
+ News, 25 March 2017. https://www.nbcnews.com/nightly-news/survey-finds-foreignstudents-aren-t-applying-american-colleges-n738411. Accessed 7 December 2020.
+ 73. American Association of Collegiate Registrars and Admissions Officers, International
+ Student Applications Decline, Concerns about Visas and U.S. Political Climate Rise
+ (AACRAO, 2017).
+ 74. P. A. Todd, J. R. Guest, J. Lu, L. M. Chou, One in four citations in marine biology papers
+ is inappropriate. Mar. Ecol. Prog. Ser. 408, 299–303 (2010).
+ 75. H. Jergas, C. Baethge, Quotation accuracy in medical journal articles—a systematic
+ review and meta-analysis. PeerJ 3, e1364 (2015).
+ 76. G. De Lacey, C. Record, J. Wade, How accurate are quotations and references in
+ medical journals?. Br. Med. J. 291, 884–886 (1985).
+ 77. M. A. M. Iesa, Medical students’ perception of their education and training to cope
+ with future market trends [retraction]. Adv. Med. Educ. Pract. 11, 337–338 (2020).
+ 78. J. Porter, H. Jick, Addiction rare in patients treated with narcotics. N. Engl. J. Med.
+ 79. P. T. Leung, E. M. Macdonald, M. B. Stanbrook, I. A. Dhalla, D. N. Juurlink, A 1980
+ letter on the risk of opioid addiction. N. Engl. J. Med. 376, 2194–2195 (2017).
+ 80. D. G. Hamilton, Continued citation of retracted radiation oncology literature—do we
+ have a problem? Int. J. Radiat. Oncol. Biol. Phys. 103, 1036–1042 (2019).
+ 81. S. A. Greenberg, How citation distortions create unfounded authority: Analysis of a
+ citation network. BMJ 339, b2680 (2009).
+ 82. A. S. Jannot, T. Agoritsas, A. Gayet-Ageron, T. V. Perneger, Citation bias favoring statistically significant studies was present in medical research. J. Clin. Epidemiol. 66,
+ 83. J. A. Bastiaansen, Y. A. de Vries, M. R. Munaf `
+                                         o, Citation distortions in the literature on
+ the serotonin-transporter-linked polymorphic region and amygdala activation. Biol.
+ Psychiatr. 78, E35–E36 (2015).
+ 84. B. Duyx, M. J. Urlings, G. M. Swaen, L. M. Bouter, M. P. Zeegers, Scientific citations
+         favor positive results: A systematic review and meta-analysis. J. Clin. Epidemiol. 88,
+ 85. S. Subramanian, Inside the Macedonian fake-news complex. Wired, 15 February 2017.
+ https://www.wired.com/2017/02/veles-macedonia-fake-news/. Accessed 7 December
+ 2020.
+ 86. T. C. Bergstrom, C. T. Bergstrom, Can ‘author pays’ journals compete with ‘reader
+ pays?’ Nature (2004).
+ 87. J. D. West, T.  Bergstrom, C. T.  Bergstrom,    Cost effectiveness of open          access
+ publications. Econ. Inq. 52, 1315–1321 (2014).
+ 88. C. Shen, B. C. Bj ¨
+                     ork, Predatory open access: A longitudinal study of article volumes
+ and market characteristics. BMC Med. 13, 230 (2015).
+ 89. D. Pyne, The rewards of predatory publications at a small business school. J. Sch.
+ Publish. 48, 137–160 (2017).
+ 90. J. Beall, Medical publishing and the threat of predatory journals. Int. J. Womens.
+ Dermatol. 2, 115–116 (2016).
+ 91. G. J. Martin, A. Yurukoglu, Bias in cable news: Persuasion and polarization. Am. Econ.
+ Rev. 107, 2565–2599 (2017).
+ 92. W.    Quattrociocchi, A. Scala,   C. R.  Sunstein,  Echo chambers  on Facebook.
+ dx.doi.org/10.2139/ssrn.2795110 (13 June 2016).
+ 93. M. Haim, A. Graefe, H. B. Brosius, Burst of the filter bubble? Effects of personalization
+ on the diversity of Google News. Digit. J. 6, 330–343 (2018).
+ 94. S. Flaxman, S. Goel, J. M. Rao, Filter bubbles, echo chambers, and online news
+ consumption. Publ. Opin. Q. 80, 298–320 (2016).
+ 95. R. K. Garrett, Echo chambers online?: Politically motivated selective exposure among
+ internet news users. J. Comput. Mediated Commun. 14, 265–285 (2009).
+ 96. G. Eady, J. Nagler, A. Guess, J. Zilinsky, J. A. Tucker, How many people live in political
+ bubbles on social media? Evidence from linked survey and twitter data. SAGE Open
+ 97. R. Spier, The history of the peer-review process. Trends Biotech. 20, 357–358 (2002).
+ 98. L. Kim, J. Portenoy, J. D. West, K. Stovel, Scientific journals still matter in the era of
+ academic search engines and preprint archives. JASIST 71, 1218–1226 (2020).
+           `               ´
+ 99. V. Larivi
+           ere, Y. Gingras, E. Archambault, The decline in the concentration of citations,
+ 1900–2007. JASIST 60, 858–862 (2009).
+100. R. K. Merton, The Matthew effect in science: The reward and communication systems
+ of science are considered. Science 159, 56–63 (1968).
+101. R. K. Merton, The Matthew effect in science. II. Cumulative advantage and the
+ symbolism of intellectual property. Isis 79, 606–623 (1988).
+102. L. Kim, C. Adolph, J. D. West, K. Stovel, The influence of changing marginals on measures of inequality in scholarly citations: Evidence of bias and a resampling correction.
+ Soc. Sci. 7, 314–341 (2020).
+103. J. A. Evans, Electronic publication and the narrowing of science and scholarship.
+
+ Science 321, 395–399 (2008).
+104. R. K. Pan, A. M. Petersen, F. Pammolli, S. Fortunato, The memory of science: Inflation,
+ myopia, and the knowledge network. J. Inform. 12, 656–678 (2018).
+
+
+
+
+105. K. J. Zollman, The epistemic benefit of transient diversity. Erkenntnis 72, 17 (2010).
+106. J. Weatherall, C. O’Connor, Conformity in scientific networks. arXiv:1803.09905v1 (27
+ March 2018).
+107. K. R. Larsen, D. Hovorka, A. Dennis, J. D. West, Understanding the elephant: The
+ discourse approach to boundary identification and corpus construction for theory
+ review articles. J. Assoc. Inf. Syst. Online 20, 15 (2019).
+108. M. Gusenbauer, Google Scholar to overshadow them all? Comparing the sizes of 12
+ academic search engines and bibliographic databases. Scientometrics 118, 177–214
+109. C. T. Bergstrom, J. D. West,  Vizualization:   Misleading  axes        on graphs   (2017).
+ https://www.callingbullshit.org/tools/tools misleading axes.html. Accessed 7 December 2020.
+110. C. T. Bergstrom, J. D. West, Vizualization: The principle of proportional ink (2017)
+ https://www.callingbullshit.org/tools/tools proportional ink.html. Accessed 7 December 2020.
+111. A. Cairo, How Charts Lie. (WW Norton & Company, 2019).
+112. J. Roozenbeek et al., Susceptibility to misinformation about COVID-19 around the
+ world. R. Soc. Open. Sci. 7, 201199 (2020).
+113. R. A. Muller, Physics for Future Presidents: The Science behind the Headlines (WW
+ Norton & Company, 2008).
+
+114.          ´             ´
+ M. A. Hern an, S. Hern andez-D´
+                                   ıaz, J. M. Robins, A structural approach to selection
+ bias. Epidemiology 15, 615–625 (2004).
+115. S. W. Lagakos, General right censoring and its impact on the analysis of survival data.
+ Biometrics 35, 139–156 (1979).
+
+116. C. H. Wagner, Simpson’s paradox in real life. Am. Statistician 36, 46–48 (1982).
+117. A. R. Feinstein, D. M. Sosin, C. K. Wells, The Will Rogers phenomenon: Stage migration and new diagnostic techniques as a source of misleading statistics for survival in
+ cancer. N. Engl. J. Med. 312, 1604–1608 (1985).
+118. N. Bostrom, Anthropic Bias: Observation Selection Effects in Science and Philosophy
+ (Routledge, 2013).
+119. R. L. Wasserstein, N. A. Lazar, The ASA statement on p-values: Context, process, and
+ purposeAm. Stat. 70, 129–133 (2016).
+120. T. Yarkoni, The generalizability crisis (2019). https://psyarxiv.com/jqw35. Accessed 7
+ December 2020.
+121. R.  N. Proctor, L. Schiebinger, Eds. Agnotology: The       Making      and Unmaking     of
+ Ignorance (Stanford University Press, Stanford, CA, 2008).
+122. N. Oreskes, E. M. Conway, Merchants of Doubt: How a Handful of Scientists Obscured
+ the Truth on Issues from Tobacco Smoke to Global Warming (Bloomsbury Publishing
+ USA, 2011).
+123. C. Paul, M. Matthews, The Russian “Firehose of Falsehood” Propaganda Model: Why
+ It Might Work and Options to Counter It. RAND Corporation (2016). https://www.
+ rand.org/pubs/perspectives/PE198.html. Accessed 7 December 2020.
+124. D. Fallis, What is disinformation? Libr. Trends 63, 401–426 (2015).
+125. K. Starbird, A. Arif, T. Wilson, “Disinformation as collaborative work: Surfacing the
+ participatory nature of strategic information operations” in Proceedings of the ACM
+ on Human-Computer Interaction (ACM, 2019), vol. 3, pp. 1–26 (2019).
+126. A. Arif, L. G. Stewart, K. Starbird, Acting the part: Examining information operations within #blacklivesmatter discourse. Proc. ACM Hum. Comput. Interaction 2, 20
+127. L. Tran, Firehosing: The systemic strategy that anti-vaxxers are using to spread
+ misinformation.                    The Guardian, 7 November 2019. https://www.theguardian.com/
+ commentisfree/2019/nov/07/firehosing-the-systemic-strategy-that-anti-vaxxers-areusing-to-spread-misinformation. Accessed 7 December 2020.
+128. A. K. Wood, A. M. Ravel, Fool me once: Regulating fake news and other online
+ advertising. S. Cal. L. Rev. 91, 1223 (2017).
+129. K. Shu, A. Sliva, S. Wang, J. Tang, H. Liu, Fake news detection on social media: A data
+ mining perspective. ACM SIGKDD Explorations Newsletter 19, 22–36 (2017).
+130. S. McGrew, T. Ortega, J. Breakstone, S. Wineburg, The challenge that’s bigger than
+ fake news: Civic reasoning in a social media environment. Am. Educat. 41, 4 (2017).
+131. D. Partha, P. A. David, Toward a new economics of science. Res. Pol.           23, 487–521
+132. P. E. Stephan, The economics of science. J. Econ. Lit. 34, 1199–1235 (1996).
+133. P. Mirowski, E. M. Sent, Science Bought and Sold: Essays in the Economics of Science
+ (University of Chicago Press, 2002).
+134. J. D. West, How to improve the use of metrics: Learn from game theory. Nature 465,
+135. D. Van Dijk, O. Manor, L. B. Carey, Publication metrics and success on the academic
+ job market. Curr. Biol. 24, R516–R517 (2014).
+136. F. Brischoux, F.  Angelier,  Academia’s never-ending selection      for productivity.
+ Scientometrics 103, 333–336 (2015).
+137. M. Strathern, ‘Improving ratings’: Audit in the British university system. Eur. Rev. 5,
+138. D. Geman, S. Geman, Opinion: Science in the age of selfies.Proc. Natl. Acad. Sci. U.S.A.
+139. M. L. Head, L. Holman, R. Lanfear, A. T. Kahn, M. D. Jennions, The extent and
+ consequences of p-hacking in science. PLoS Biol. 13, e1002106 (2015).
+140. N. L. Kerr, Harking: Hypothesizing after the results are known. Pers. Soc. Psychol. Rev.
+141. J. P. Simmons, L. D. Nelson, U. Simonsohn, False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant.Psychol.
+ Sci. 22, 1359–1366 (2011).
+142. S. Haustein, V. Larivi `
+                       ere, “The use of bibliometrics for assessing research: Possibilities, limitations and adverse effects” in Incentives and Performance: Governance of
+ Research Organizations, I. M. Welpe, J. Wollersheim, S. Ringelhan, M. Osterloh, Eds.
+ (Springer, Cham, Switzerland, 2015), pp. 121–139.
+143. A. D. Higginson, M. R. Munaf `
+                                  o, Current incentives for scientists lead to underpowered
+ studies with erroneous conclusions. PLoS Biol. 14, e2000995 (2016).
+144. P. E. Smaldino, R. McElreath, The natural selection of bad science. R. Soc. Open Sci. 3,
+ 160384 (2016).
+145. A. J. Stewart, J. B. Plotkin, The natural selection of good science. arXiv:2003.00928
+ (2 March 2020).
+146. D. Siegel, P. Baveye, Battling the paper glut. Science 329, 1466 (2010).
+147. M. C. Frank, N-best evaluation for academic hiring and promotion.Trends Cognit. Sci.
+148. N. J. Brown, J. A. Heathers, The grim test: A simple technique detects numerous
+ anomalies in the reporting of results in psychology. Soc. Psychol. Personal. Sci. 8,
+149. I. Wesley-Smith, C. T. Bergstrom, J. D. West, Static ranking of scholarly papers using
+ article-level eigenfactor (alef). arXiv:1606.08534 (28 June 2016).
+150. M. Waldrop, “AAAS: Science journalism in crisis?” Nature. In the field (14 February
+ 2009). http://blogs.nature.com/inthefield/2009/02/aaas science journalism in cri.html.
+151. C. T. Bergstrom, J. D. West, Calling Bullshit: The Art of Skepticism in a Data-Driven
+ World (Random House, 2020).
+152. K. Parker, The    growing    partisan divide in views of higher     education.  Pew
+ Research  Center      (19   August 2019).   https://www.pewsocialtrends.org/essay/thegrowing-partisan-divide-in-views-of-higher-education/. Accessed 7 December 2020.
+153. J. Gramlich, Young Americans are less trusting of other people – and key institutions –
+ than their elders.    Pew Research Center (6 August 2019). https://www.pewresearch.
+ org/fact-tank/2019/08/06/young-americans-are-less-trusting-of-other-people-andkey-institutions-than-their-elders/. Accessed 7 December 2020.
+154. C. Funk, Mixed messages about public trust in science. Issues Sci. Technol. 34, 86–88
+155. C. Funk, B.   Kennedy,  Public confidence    in scientists has remained stable      for
+ decades.            Pew Research Center (27 August 2020). https://www.pewresearch.org/facttank/2020/08/27/public-confidence-in-scientists-has-remained-stable-for-decades/.
+156. N. M. Krause,  D. Brossard,   D. A.   Scheufele, M. A. Xenos,  K.   Franke,     Trends—
+ Americans’ Trust in Science and Scientists. Publ. Opin. Q. 83, 817–836 (2019).
+157. N. S. Board, Science and Engineering Indicators (NSF, 2018), vol. 1.
+158. G. Gauchat, Politicization of science in the public sphere: A study of public trust in
+ the United States, 1974 to 2010. Am. Socio. Rev. 77, 167–187 (2012).
+159. S. Iyengar, D. S. Massey, Scientific communication in a post-truth society. Proc. Natl.
+ Acad. Sci. U.S.A. 116, 7656–7661 (2019).
