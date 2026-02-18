@@ -17,5 +17,5 @@
 
 ### Next 
 - Ajouter Docling au benchmark complet
-- Investiguer une métrique d'évaluation de la qualité des sections / sous-sections identifiées (ex: est-ce que ce text est bien détecté comme appartenant à cette section?). Le libraire de post-processing retourne des warnings qui pourraient être utilisés comme indicateur de qualité. 
+- Investiguer une métrique d'évaluation de la qualité des sections / sous-sections identifiées (ex: est-ce que ce text est bien détecté comme appartenant à cette section?). La libraire de post-processing retourne des warnings qui pourraient être utilisés comme indicateur de qualité. 
 - Convertir les résultats en une liste de chunks comme attendu (metadata du document, page du chunk, contenu de l'extrait, metadata des sections correspondantes...)
