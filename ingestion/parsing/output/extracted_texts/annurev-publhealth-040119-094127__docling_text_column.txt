@@ -1,0 +1,316 @@
+Annu. Rev. Public Health 2020. 41:433-51
+
+First published as a Review in Advance on December 24, 2019
+
+The Annual Review of Public Health is online at publhealth.annualreviews.org https://doi.org/10.1146/annurev-publhealth040119-094127
+
+Copyright © 2020 by Annual Reviews. This work is licensed under a Creative Commons Attribution 4.0 International License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited. See credit lines of images or other third-party material in this article for license information.
+
+## Annual Review of Public Health
+
+## Public Health and Online Misinformation: Challenges and Recommendations
+
+Briony Swire-Thompson 1,2 and David Lazer 1,2
+
+1 Network Science Institute, Northeastern University, Boston, Massachusetts 02115, USA; email: b.swire-thompson@northeastern.edu, d.lazer@northeastern.edu
+
+2 Institute for Quantitative Social Science, Harvard University, Cambridge, Massachusetts 02138, USA
+
+## Keywords
+
+misinformation, fake news, misconceptions, health, social media
+
+## Abstract
+
+The internet has become a popular resource to learn about health and investigate one's own health condition. However, given the large amoun inaccurate information online, people can easily become misinformed. In viduals have always obtained information from outside the formal he care system, so how has the internet changed people's engagement health information? This review explores how individuals interact health misinformation online, whether it be through search, user-genera content, or mobile apps. We discuss whether personal access to informat is helping or hindering health outcomes and how the perceived trustw thiness of the institutions communicating health has changed over time. conclude, we propose several constructive strategies for improving the
+
+## INTRODUCTION
+
+The internet has become a popular resource to learn about health and to investigate one's own health condition. However, given the large amount of inaccurate information online, people can easily become misinformed. For example, the notion that eating apricot seeds will cure cancer is a misconception that can be found online (16). There is no scientific evidence to support the claim; in fact, it is well established that eating apricot seeds may even cause cyanide poisoning (124). Individuals have always obtained information from outside the formal health care system, and health misinformation and disinformation are not new. For instance, between 1921 and 1974, Listerine advertised that their mouthwash could cure colds and sore throats, resulting in a corrective advertising order from the Federal Trade Commission (4). Understanding how the internet has changed our engagement with health (mis)information, and whether individuals can successfully evaluate veracity, is an important task. This is because misinformation concerning health has particularly severe consequences with regard to people's quality of life and even their risk of mortality.
+
+In recent years, the quintessential example of misinformation in public health is the misconception that the measles, mumps, rubella (MMR) vaccine causes autism, a concept popularized by a 1998 study published in The Lancet (127). The link was immediately refuted by the scientific community [for example, T aylor et al. (117)], and eventually the publication itself was retracted, with the lead author being barred from practicing medicine. However, the misconception has gained substantial currency with predictable negative societal impact. In 2019, the United States saw multiple declarations of public health emergencies due to measles outbreaks (19, 20). In Europe, the World Health Organization revoked the measles eradication status of four countries: Albania, Czechia, Greece, and the United Kingdom (131).
+
+Poland & Spier (89) argued that this tragedy has occurred for a number of reasons: a 'too little, too late' response from public health authorities, corrective information filled with scientific jargon and low-quality content, and lack of reasoning by both the press and the public, resulting in a retreat from evidence-based medicine and a step toward media- and celebrity-based medicine. The blame is not on one institution alone, and we can all make improvements to decrease the likelihood of such crises occurring and to reduce the prevalence of public health misinformation in general. This review aims to explore ( a ) how health seekers are engaging with misinformation online, ( b ) whether personal access to information is helping or hurting health outcomes, ( c ) how trustworthiness for institutions communicating health has changed over time, and ( d ) constructive strategies for improving the information ecosystem.
+
+## DEFINING MISINFORMATION AND DISINFORMATION
+
+Defining misinformation can be a complex task (128). For the purpose of this article, we define science and health misinformation as information that is contrary to the epistemic consensus of the scientific community regarding a phenomenon. By this definition, what is considered true and false is constantly changing as new evidence comes to light and as techniques and methods are advanced. T o illustrate, presently we would consider the claim that thalidomide is not harmful during pregnancy to be misinformation.However,in the late 1950s,the apparent consensus was that treat-
+
+Disinformation is a coordinated or deliberate effort to knowingly circulate misinformation in order to gain money, power, or reputation. Because public health is a field in which there are obvious winners and losers, and the losers have significant financial loss at stake, it is a venue where disinformation can thrive. While the usage of the term disinformation is somewhat mixed in the literature, we eschew the use of the term to refer to a subtype of misinformation because disinformation incorporates the notion of intentionality, which is an attribute of the people spreading the information rather than of the information itself. An example of disinformation would be when the sugar industry funded research that successfully cast doubt on the health risks of sugar (and fat was blamed as the culprit instead; 57, 72). By contrast, the popular misconception that sugar causes hyperactivity in children does not have an apparent vested interest behind it, and so it can be considered misinformation (61). Unfortunately, teasing apart disinformation from misinformation can be extremely difficult, given that intent behind a message is not always transparent or constant from messenger to messenger.
+
+## HOWAREINDIVIDUALS ENGAGING WITH HEALTH (MIS)INFORMATION ONLINE?
+
+There is an extensive literature on health information-seeking behavior, and the ways that people learn about their various illnesses, risks, and protective behaviors (63). We get our information from a multitude of places: Knowledge regarding health and well-being is cobbled together from health care professionals, family, friends, books, newspapers, magazines, educational pamphlets, radio, television, and pharmaceutical advertisements (129). However, we are increasingly heading online for answers rather than pursuing information through these other avenues (54). In 2013, 72% of US adults looked online for health information (34). Although some individuals are less likely to get health information from the internet, such as older adults and those with less education and income (23), there is no doubt that the internet has democratized medicine. The internet is often viewed as a singular entity for content, but it contains a myriad of very different platforms and functionalities. We now turn to the various pathways of misinformation online.
+
+## Direct to Online Sources
+
+Some health seekers bypass search engines altogether and go straight to online domains to read information regarding health, for instance, if a person were to go directly to the online version of The New York Times . The quality of direct sources depends on whether people choose to go to reputable sites such as the Centers for Disease Control and Prevention (CDC) website or, for example, to a disreputable blog. We discuss the general quality of online sources below.
+
+## Search
+
+In using the term search, we include all general search engines, Google being by far the most prominent example. When Google Search started in 1998, it simply identified which pages on the internet contained words that were being searched for and presented a top list of matching websites based on PageRank (66). Search is vastly more complex today and becoming ever more
+
+Keselman et al. (59) investigated online health information-seeking by asking laypeople to read a hypothetical scenario regarding a relative who was experiencing stable angina symptoms (chest pain) and subsequently search the internet for information. The authors found that initially incorrect knowledge often led individuals to search for information on irrelevant websites and to seek out data that would confirm their initial incorrect hypothesis. This phenomenon is otherwise known as confirmation bias, where individuals selectively expose themselves to evidence that supports prior beliefs (79). Confirmation bias is problematic because online one can find evidence to support many different hypotheses, particularly in fields such as nutrition (99). The vast amount of information that is possible to be retrieved makes it difficult to separate fact from fiction and interpret the findings, even for highly motivated individuals.
+
+## User-Generated Content
+
+There are many different platforms that provide an ecosystem for coproduction and consumption of content by users. These include content-rating sites such as Yelp, content-editing sites such as Wikipedia, and social media platforms such as Facebook and T witter. Furthermore, user content is frequently embedded in many other sites, often in the form of comments. For example, WebMD and Amazon permit comments on products, and news media sites house discussion threads. Some of these platforms appear to be more permeable to misinformation than others. Although Wikipedia provides wide access to editing, individuals are required to follow a strict set of norms about what constitutes information worthy of inclusion, and a hierarchical authority structure gives various editors, who have earned trust, more authority in the editing system than others. As such, scientific articles in Wikipedia have a similar, if not lower, rate of errors as that of the Encyclopedia Britannica (39, 65).
+
+By contrast, T witter's framework, including the capacity to post content, to reshare, and to reply to posts, and WhatsApp's framework, consisting of group chats, have left these platforms less resilient to misinformation threats (96, 125). Even more concerning, sites that are generally considered credible sources of health information are vulnerable to misinformation. For example, as of September 2019, WebMD presents numerous unverified testimonials to the effectiveness of apricot seeds (otherwise known as apricot kernels) for cancer treatment, with an effectiveness rating of 4.60 on a 5-point scale (130; see Figure 1 ). Despite WebMD accurately describing apricot kernels as 'likely unsafe' in the side effects tab and that it 'could cause serious harm, including death' in the overview tab, the addition of an uncurated and unsupervised comments section creates a vector for misinformation testimonials. Similarly, as of September 2019, one could find positive testimonials regarding apricot kernels on Amazon.com ( https://www.amazon.com/ s?k=apricot+kernels ). Perhaps greater oversight of health information on content rater systems is warranted, particularly for pages where we know health misinformation is likely to thrive.
+
+Unfortunately, misinformation on many of these platforms is not well understood, given that the data are not publicly available for researchers to analyze. Most of the current social media research relies on T witter owing to more open data sharing by the platform, even though Facebook remains the most popular with more than 2 billion users, and YouTube and WhatsApp are not far behind (21). Furthermore, the visual nature of Instagram, YouTube, TikT ok, and Pinterest creates additional difficulties for researchers. T o highlight the importance of studying these platforms,
+
+## Figure 1
+
+User ratings of apricot kernels receive a 4.60 out of 5 efficacy score for cancer on WebMD (130).
+
+## Mobile Apps
+
+The proliferation of mobile health apps has largely been without oversight or regulation, and the quality of these apps is highly variable. For example, smoking cessation apps were found to rarely adhere to established medical guidelines (1). In addition, while 95% of cancer information apps aimed at health care workers contained scientifically valid information, this was true of only 32% of apps aimed at the general public (85). One example of such an app was The Whole Pantry. The app was created by Belle Gibson, a popular Australian wellness blogger who publicly revealed that she had terminal cancer. Although she reportedly tried radiation and chemotherapy, she gave up on traditional treatment and was successfully managing her cancer with diet, exercise, and alternative therapies. The app was downloaded 200,000 times within the first month, voted Apple's Best Food and Drink App of 2013 and ranked #1 in the App store (76). However, in April 2015, Belle admitted that she in fact did not have cancer and never did (70). Personal anecdotes like Belle Gibson's can have powerful sway. Below, we discuss the ramifications of the misconception that cancer can be managed by using diet and alternative therapies alone.
+
+## THE SPREAD OF MISINFORMATION ON SOCIAL MEDIA
+
+## How Misinformation Spreads
+
+Misinformation and disinformation are introduced online by many different sources: vested interests, politicians (120), news media (12), gossip, and works of fiction (71). For a comprehensive
+
+Studies focusing on health misinformation have found similar outcomes. For example, misinformation about Zika was three times more likely to be shared than were verified stories on multiple social media sites, with half of the top 10 news stories regarding Zika considered to be misinformation (106; see also 102). Vosoughi et al. (125) posited that the reason that false information diffused farther, faster, and deeper than true information was because the content was more novel and elicited more disgust, fear, and surprise. Although this finding is consistent with psychological literature suggesting that content eliciting high-arousal emotions is more likely to be shared (7, 49, 87), this relationship is associative and further experimental research is required to determine causality.
+
+It is also important to note that large-scale virality-where information rapidly spreads from person to person-is a fairly rare occurrence. Goel et al. (40) investigated the structure of how content spread on T witter and the likelihood that it was to spread by either virality (i.e., personto-person diffusion) versus being broadcast. A broadcast is where many people receive the information directly from the same source, and the information becomes popular simply because influential accounts share it with their audiences (for example, T aylor Swift or CNN). The authors found that popularity of the information was predicted primarily by the largest broadcast, and viral cascades were a relatively uncommon occurrence. Even internet memes that are described as spreading virally also often receive substantial media coverage. This finding suggests that individuals and corporations with large social media audiences have a greater responsibility to check that the health information they are sharing is correct. It also suggests that encouraging individuals with high follower rates to share corrective or high-quality information could be an effective strategy to reduce the spread of misinformation.
+
+## Who Is Spreading Misinformation?
+
+Many entities spread misinformation and disinformation online, whether it be corporations and multinationals attempting to shape the public debate owing to economic interests (84) or social media bots that amplify low-credibility sources (101). It is also important to understand who is sharing disproportionately more misinformation at an individual human level. Much of what we know about who engages with false information online currently comes from studying politics or news. Grinberg et al. (42) found that political fake news engagement was extremely concentrated on T witter. Approximately 1% of individuals saw 80% of the fake news sources, and just 0.1% of individuals shared 80% of the fake news sources. Aside from the 0.1% 'supersharers,' individuals most likely to engage with fake news were conservative leaning, highly engaged with political news, and older adults. In fact, Guess et al. (43) found that adults over the age of 65 were seven times more likely to share political fake news on Facebook than were those between 18 and 29. Future research must further investigate why certain demographics are sharing disproportionately more misinformation [see Brashier & Schacter (14) for a review regarding older adults]. Additionally, it is important to investigate whether these findings are replicated for health misinformation because the extent to which these political findings generalize is uncertain.
+
+## Echo Chambers
+
+vaccine-hesitant and mainstream media community, potentially indicating that these communities rarely interact with one another. Furthermore, Seymour et al. (100) investigated the interconnectedness of antifluoride activists on Facebook who lobby against fluoride. The authors found that antifluoride networks were highly interconnected, significantly more so than the social networking site overall (in line with 42).
+
+## IS PERSONAL ACCESS TO INFORMATION HELPING OR HURTING HEALTH OUTCOMES?
+
+No longer is a patient a passive recipient of health advice but they can have an active role in consuming and evaluating health information. However, laypeople are not health experts, and there may be a cost to people having the freedom to research their own ailments. Is the ability to access one's own health information helping or hindering? Answering this question feasibly depends on three factors: ( a ) the general quality of health information online, ( b ) whether people are able to come to the correct health conclusions themselves, and ( c ) if people do not come to the correct conclusions, how much harm is it causing them?
+
+## Quality of Health Information Online
+
+Several meta-analyses of studies have investigated the quality of online health information. In 2002, Eysenbach et al. (31) performed a meta-analysis of 79 studies evaluating the quality of information online. Grouping together quality criteria into the categories of accuracy and completeness/comprehensiveness, the authors reported that 70% of the studies concluded that quality was a problem on the internet. Zhang et al. (134) continued this line of research, subsequently reviewing 165 articles published between 2002 and 2013. Although many studies noted an improvement in quality over time, 55% of the articles reviewed concluded that the quality of online health information was problematic. Given that quality of general health information online cannot be guaranteed, it is currently up to individuals to be discerning and critically evaluate information they read.
+
+## Evaluation of Health Information
+
+eHealth literacy is the ability to seek, find, and understand health information from electronic sources in order to make appropriate health decisions (83). T ools for measuring health literacy include Rapid Estimate of Adult Literacy in Medicine (REALM; 78), T est of Functional Health Literacy in Adults (TOFHLA; 86), and the eHealth Literacy Scale (eHEALS; 82). The most comprehensive estimate of health literacy was conducted in 2003 by the Department of National Assessment. The report stated that 36% of US adults had basic or below basic health literacy levels (62). The estimated economic drain of this low health literacy could be up to $238 billion annually (123). Individuals with low health literacy are more likely to delay or not receive health care, have more hospitalizations, have poorer overall health status, and have higher mortality rates (9). However, it seems that the vast majority of people, not only those with basic health literacy, use low-quality websites when looking for health information. Quinn et al. (91) asked participants to search for six common health questions and monitored whether the participants went to acquality and viewer engagement for information regarding prostate cancer on YouTube. In other words, as scientific quality decreased, engagement (such as views and likes) increased. Perhaps this is an indication that creators of high-scientific-quality content also need to consider how to make their educational information easier to understand and more captivating. One example of an engaging public health campaign that was highly effective at changing attitude and behavior was the Australian SunSmart 'Slip! Slop! Slap!' campaign, which began in the 1980s. An animated seagull that provided the simple message to 'slip' on protective clothing, 'slop' on sunscreen, and 'slap' on a hat ultimately helped to reverse the trends of increasing skin cancer incidence and morbidity (53, 77). The challenge will be to bring similar campaigns into the social media age.
+
+## Are People Being Harmed by Online Misinformation?
+
+Crocco et al. (24) conducted a systematic review to evaluate the number of reported cases of harm associated with the use of health information on the internet. Of the 1,512 abstracts and 186 papers fully reviewed, only three articles reported cases of actual harm: a case where three dogs were accidentally poisoned, an individual who had kidney and liver failure after self-medicating for cancer, and an individual who experienced emotional distress after reading misinformation regarding fetal irregularities. In addition, a Pew Research Center report found that just 3% of people reported being harmed, or reported knowing someone who has been harmed, by information found online (34). On the one hand, it could be that individuals are not being noticeably harmed by information they find online. However, it could also be that people do not remember where they learned the information or do not consider the information to be inaccurate or causing harm.
+
+The true proportion of harm is likely to be higher simply due to the reported rates of people adhering to unofficial medical advice. For example, take the misconception that alternative medicines alone can cure cancer. Approximately 39% of the population will be diagnosed with cancer during their lifetime (80). Furthermore, 39% of people in the United States believe that alternative medicine such as dieting, herbs, and vitamins can cure cancer without the use of standard cancer treatments (6). This percentage is extremely problematic given that there is an increased risk of mortality for people who use alternative cancer therapies in lieu of traditional treatment, even when controlling for cancer severity. Johnson et al. (56) found that the overall hazard ratio after a 5-year period was 2.50. In other words, on average, choosing alternative medicines alone was associated with more than double the risk of death. In subgroups with lung, colorectal, and breast cancers, the hazard ratio was 2.17, 4.57, and 5.68, respectively. See Figure 2 for the overall survival of colorectal cancer patients receiving alternative medicine versus conventional cancer treatment. The people who were more likely to use alternative medicines were younger, female, more educated, and had a higher income (56). It is therefore clear that we need better ways of measuring the real impact of misinformation online that do not rely on self-report alone.
+
+## TRUSTWORTHINESS IN INSTITUTIONS THAT PROVIDE HEALTH INFORMATION
+
+Source credibility is often considered to be made up of two components: expertise and trustworthiness. Whereas expertise is the extent to which the source is able to give accurate information, trustworthiness reflects the extent that one is willing to provide accurate information (90). When
+
+|                  | 0.75 1.00 fraction   | 0.25 0.50      |                |                |                |                |                |                |                |
+|------------------|----------------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|
+|                  | 0.00                 | 0              | 12             | 24             | 36             | 48             | 60             | 72             | 84             |
+| Number at risk   | Number at risk       | Number at risk | Number at risk | Number at risk | Number at risk | Number at risk | Number at risk | Number at risk | Number at risk |
+| Standard of care | 68                   | 66             |                | 61             | 48             | 40             | 35             | 30             | 16             |
+| Alternative      | medicine 34          | 28             |                | 22             | 20             | 12             | 4              | 2              | 0              |
+| Figure 2         |                      |                |                |                |                |                |                |                |                |
+
+Survival of patients with colorectal cancers receiving alternative medicine ( blue solid line ) versus conventional cancer treatment ( orange dashed line ). Figure adapted with permission from Johnson et al. (56).
+
+## The Media
+
+The media continues to be an integral source of information on health (32). However, trust in the media has dramatically decreased over time. In 1972, when Gallup started its poll, 68% of people reported that they had either a 'great deal' or a 'fair amount' of trust that the US mass media was reporting the news fully, accurately, and fairly (110). In 2016, this percentage sank to a new low of 35% (110). Worldwide, media is now one of the least trusted institutions, on par only with government (31). Needless to say, the media ecosystem has changed significantly; whereas in 1972 the typical individual had access to only a handful of media sources, today the media represents an eclectic array of outlets.
+
+While the decrease in public trust in the media should not be taken lightly, how much trust does the institution of media deserve as a whole? If the perception of quality overall has decreased, so should perceived trust. Ideally, trust should remain high for quality media and decrease for low-quality media. A cause for concern is when public trust in both reputable and disreputable media sources decreases simultaneously and individuals struggle to distinguish between the two. Indeed, in 2018, 59% of people reported that it was becoming harder to tell if a piece of news was produced by a respected media organization (29). Perhaps we should be less concerned with the overall decrease in trust in the media and more concerned about the inability to discern and place trust in sources that provide evidence-based health information.
+
+When discerning between high- and low-quality sources, it is tempting to idealize the media ecosystem prior to the internet and assume that traditional news media is always more accurate.
+
+## Figure 3
+
+Percentage of US adults who say they have a great deal of confidence in the people in the scientific community, medicine, and the press between 1972 and 2018. Figure adapted with permission from Pew Research Center (36).
+
+## Science
+
+Public confidence in science has remained more or less stable since the 1970s (36). Figure 3 demonstrates how US adults rate their confidence in the scientific community as a whole. Trust in medical scientists appears to be even greater than in scientists in general; 84% of individuals report having confidence that medical scientists will act in the best interest of the public, compared with 76% reporting having confidence in scientists in general (58). Furthermore, people report trusting scientists to provide scientific information far more than other institutions. When asked how much people trusted medical scientists to give full and accurate information on the health benefits of the MMR vaccine, 55% said 'a lot.' This percentage was substantially greater than for pharmaceutical industry leaders, holistic health groups, news media, and elected officials at 13%, 9%, 8%, and 6%, respectively (36). Science generally has broad public support, although there is a partisan divide. The majority of Democrats trust science 'a lot,' whereas the majority of Republicans trust science 'a little' (36).
+
+## The Government
+
+Trust in the government is important because people with high governmental trust are more likely to be vaccinated (92), use health care services, adhere to medication instructions (60), and take disease precautions during epidemics (11). Although trust in government and political leaders is low worldwide (29), this is not necessarily mirrored in the bodies that provide health information, such as the CDC. For example, in 2015, only 19% of Americans reported that they trusted the federal government, yet 70% reported that they viewed the CDC favorably (88). Furthermore, experimental evidence indicates that official bodies such as the CDC can be extremely effective in
+
+## Health Professionals
+
+While trust in the institution of medicine seems to have slowly declined since the 1970s (36), health professionals as individuals seem to be at the top of nearly all scales for public trustworthiness. For example, in 2018, the top three professions in the Gallup poll for honesty and ethics were nurses, medical doctors, and pharmacists (15). In fact, nurses were rated the highest for a seventeenth consecutive year, where 84% of people rated nurses' honesty and ethical standards as high or very high (15). Despite some health practitioners feeling that they have suffered a blow to respect and social status (68), trust in physicians remains high even though the internet has allowed patients to take their health care into their own hands (47).
+
+## TACKLING HEALTH MISINFORMATION
+
+Science on the effectiveness of interventions regarding health misinformation is sparse. Here we discuss several approaches based on the available research, though they require further examination prior to making broader policy recommendations. We propose ( a ) improving ehealth literacy, ( b ) using the internet as a collaborative tool with physicians, ( c ) strengthening the signal of source quality online, ( d ) increasing accuracy of information from health communicators, ( e ) increasing the frequency of corrections, and ( f ) taking advantage of technological advances.
+
+## Improved eHealth Literacy
+
+Evidence suggests that critical thinking is a skill that can be taught (3, 75, 98), and new resources to teach ehealth and media literacy are becoming increasingly available [for example, the News Literacy Project (105) and the Center for Media Literacy's MediaLit Kit (119)]. However, gauging the efficacy of health literacy programs is extremely difficult, and findings have been mixed (8, 17, 97). One meta-analysis evaluated the efficacy of enhancing students' skills to critically appraise health claims (81). The authors found that while there were beneficial short-term effects on appraisal abilities, none of the studies evaluated any long-term effects of interventions. Furthermore, if it is older adults who are spreading most of the online misinformation (42, 43), then health literacy classes in schools will have limited efficacy to improve the online information ecosystem in the near future. It may be necessary to study the efficacy of public health campaigns for the general public or that specifically target older adults.
+
+## Using the Internet Collaboratively with Physicians
+
+Although laypeople may not always have the expertise to separate health myths from facts, the internet can be an extremely powerful tool when individuals collaborate with their physicians. A meta-analysis showed that online information seeking had the potential to help patients be more actively involved in decision making, prepare for their doctor's visit, aid communication, and improve the patient-doctor relationship (116). Doctors and nurses themselves suffer from a whole host of biases that impact decision making (13), are extremely busy, and thus can feasibly be assisted by an individual who is motivated to learn about their own health. Although health practitioners have the potential to feel threatened, online health information seeking is generally seen as a way to have a more collaborative relationship with patients (74, 107).
+
+of this, people with medical credentials who stoke unfounded fears are among the most dangerous for spreading misinformation (64) [for example, the lead author of the study suggesting the MMRautism link (129)]. Similarly, those who claim to be experts by either fabricating a degree or buying one online can be particularly impactful when spreading misinformation (41). Anyone can assert that they have a doctoral degree or claim to be a medical expert on the internet, and so it would be beneficial to explore how often this takes place. Henle et al. (51) found that even on job resumes, 72% of job seekers embellished or exaggerated information, 61% omit information such as being fired, and 31% outright fabricated information such as listing credentials or degrees that were never earned. Developing online systems hosted by universities to allow for easy checks of earned credentials could help solve this problem. In addition, health mobile apps could require the creator's credentials such as university affiliations or previous training, as well as the literature or data that support their recommendations. At a time when people are confused about who can provide quality information, it would be helpful to give users a clearer signal for who has earned expertise.
+
+Of course, some individuals will trust nonexperts over experts. For example, Jenny McCarthy, one of the faces of the antivaxx movement, is known as an actress and has never claimed to be a medical expert. Some comfort is that these individuals appear to be in the minority; only 2% of parents reportedly trust celebrities 'a lot' for vaccine safety information, compared with 76% who do 'not trust at all' (35). In addition, a 2019 study showed that factual tweets regarding cervical cancer were shared more frequently than personal anecdote tweets (133). Nonetheless, it is important to further our understanding of the mechanisms behind trust in celebrity health advice and the power of the personal anecdote to be able to better educate individuals using evidencebased methods (see 52).
+
+## Creation and Distribution of Accurate Information
+
+Ideally, scientists would create quality information, and the media would communicate it accurately to the public. Unfortunately, the peer-review process does not always guarantee high-quality science. The MMR vaccine misconception is a salient reminder of the high stakes and potential consequences in a field such as public health. There have been some movements toward change, and the replication crisis has been a positive jolt to the life sciences (83). However, even when quality research is produced, health communicators should be careful not to overstate causal inference between an intervention and a health outcome. Haber et al. (46) found that 34% of academic studies and 48% of media articles used language that was too strong for their strength of causal inference.
+
+Scientists can also have an impact by publishing in open access journals, being more involved on social media platforms to communicate with the public, and directly contributing to information online. For example, Wikipedia is often at the top of health online searches, and there have long been calls to action for scientists to edit Wikipedia articles [for example, Heilman et al. (50)]. Furthermore, scientists and the media can collaborate more closely. It is often reported that the relationship between scientists and the media is somewhat fraught, where scientists believe media reports are inaccurate and journalists believe scientists lack the communication skills to relay information to the public (10). It is important for journalists to both assist scientists in presenting information in ways that are accessible for laypeople and also allow scientists to review articles prior to publication to minimize errors. For advice on how to clearly communicate statistics of
+
+However, on the whole, people are actually quite good at reducing their belief in misinformation when faced with a clear evidence-based correction (111, 113). Where once it was a common concern that retractions may backfire and people may believe even more in the misinformation after the correction is presented, recent research has found this phenomenon to be rare (111, 113, 132).Therefore,all health communicators-the media,scientists,governmental bodies,and health practitioners-should be eliciting corrective information. Particularly during breaking news and disasters, governmental agencies can successfully use social media to spread truthful information and dispel misinformation (28).
+
+We highlight several practical recommendations for effectively correcting misinformation, given our understanding of cognitive psychology. For instance, providing factual alternatives helps to switch out the incorrect information with correct information [i.e., 'Gas cylinders did not start the fire; it was arson' (55)]. Furthermore, repetition of corrections also appears to be helpful for reducing the continued influence effect (26, 27). For further information, see Swire & Ecker (112).
+
+## Taking Advantage of Technology
+
+Advances in technology can also be part of the solution. For instance, aids can help individuals sort reputable from disreputable websites, such as NewsGuard, a browser extension that provides a green-red signal to indicate whether a website adheres to basic standards of credibility and transparency (33). In addition, other tools can communicate health advice in real time. In response to a rapid decline in human papillomavirus (HPV) vaccine uptake, Danish public health officials created a Facebook page where professionals answered parents' questions in a timely manner (109). These technologies can be particularly useful for rural communities. For example, GiftedMom, a text-messaging app, gives women in communities across Cameroon free health advice from doctors (118). Avenues where fast, affordable health advice is readily available from experts can only be beneficial for reducing misinformation.
+
+## Future Research
+
+Misinformation in public health is still an emerging field, and many unanswered questions remain. For example, are people more or less misinformed than prior to the internet? We must also be cognizant that much of the research has been performed with political misinformation rather than health misinformation, and most of the research was conducted within the United States. Given that belief in misinformation and the way it is processed depend on the sociocultural context (see 2, 114), it is important to study misconceptions outside of the United States. One destructive example of a misconception that prevails in sub-Saharan Africa is that albinos' body parts bring good luck and wealth (94), which has led to an estimated 75 deaths in T anzania alone between 2000 and 2016 (30). Studying misinformation internationally would provide more generalizable insights into public health misinformation. Finally, a large step forward would be if platforms such as Google conducted randomized controlled trials on interventions. For instance, if they were to experiment with how information is presented or how expertise and trust are signaled to the public, they could develop better systems to help individuals tease apart reputable from disreputable health sources.
+
+of source reputability and the veracity of information is an extremely difficult task. Additionally, the internet is a fluid, ever-changing system, making the study of health misinformation online even more complex. A limitation of our review is that this space can change rapidly . As researchers, we must attempt to find robust solutions that function even when the system is dynamic. The recommendations above can serve as guidelines, but further research that can inform the development of policy is desperately needed (18). All health communicators must work together to keep misinformation at bay, given that the ramifications of health misinformation can be particularly serious.
+
+## DISCLOSURE STATEMENT
+
+The authors are not aware of any affiliations, memberships, or financial holdings that might be perceived as affecting the objectivity of this review. Financial support was provided to D.L. from the Hewlett Packard Foundation.
+
+## ACKNOWLEDGMENTS
+
+We thank Stefan McCabe for comments on the review and for adapting Figure 3 .
+
+## LITERATURE CITED
+
+1. Abroms LC, Padmanabhan N, Thaweethai L, Phillips T. 2011. iPhone apps for smoking cessation: a content analysis. Am. J. Prev. Med. 40(3):279-85
+2. Aird MJ, Ecker UK, Swire B, Berinsky AJ, Lewandowsky S. 2018. Does truth matter to voters? The effects of correcting political misinformation in an Australian sample. R. Soc. Open Sci. 5(12):180593
+3. Aizikovitsh-Udi E, Cheng D. 2015. Developing critical thinking skills from dispositions to abilities: mathematics education from early childhood to high school. Creat. Educ. 6:455-62
+4. Armstrong GM, Gurol MN, Russ FA. 1983. A longitudinal evaluation of the Listerine corrective advertising campaign. J. Public Policy Mark. 2(1):16-28
+5. Asch JM, Asch DA, Klinger EV, Marks J, Sadek N, Merchant RM. 2019. Google search histories of patients presenting to an emergency department: an observational study. BMJ Open 9(2):e024791
+6. ASCO(Am.Soc.Clin.Oncol.). 2018. National Cancer Opinion Survey, Harris poll on behalf of ASCO, 2018 . Rep., ASCO/Harris Poll, Alexandria, VA/Rochester, NY. https://www.asco.org/research-guidelines/ reports-studies/national-cancer-opinion-survey
+7. Berger J, Milkman KL. 2012. What makes online content viral? J. Mark. Res. 49(2):192-205
+8. Bergsma LJ, Carney ME.2008.Effectiveness of health-promoting media literacy education: a systematic review. Health Educ. Res. 23(3):522-42
+9. Berkman ND, Sheridan SL, Donahue KE, Halpern DJ, Crotty K. 2011. Low health literacy and health outcomes: an updated systematic review. Ann. Intern. Med. 155(2):97-107
+10. Besley JC, T anner AH. 2011. What science communication scholars think about training scientists to communicate. Sci. Commun. 33(2):239-63
+11. Blair RA, Morse BS, T sai LL. 2017. Public health and public trust: survey evidence from the Ebola Virus Disease epidemic in Liberia. Soc. Sci. Med. 172:89-97
+12. Bode L, Vraga EK. 2015. In related news, that was wrong: the correction of misinformation through related stories functionality in social media. J. Commun. 65(4):619-38
+13. Bornstein BH, Emler AC. 2001. Rationality in medical decision making: a review of the literature on doctors' decision-making biases. J. Eval. Clin. Pract. 7(2):97-107
+
+17. Chinn D. 2011. Critical health literacy: a review and critical analysis. Soc. Sci. Med. 73(1):60-67
+18. Chou W-YS, Oh A, Klein WMP. 2018. Addressing health-related misinformation on social media. JAMA 320(23):2417-18
+19. City N. Y. 2019. De Blasio Administration's Health Department declares public health emergency due to measles crisis . Press Release, April 9. https://www1.nyc.gov/office-of-the-mayor/news/186-19/deblasio-administration-s-health-department-declares-public-health-emergency-due-measlescrisis#/0
+20. Clark County Public Health. 2019. County declares public health emergency due to measles outbreak . News Release, Jan. 18. https://www.clark.wa.gov/public-health/county-declares-public-healthemergency-due-measles-outbreak
+21. Clement J. 2019. Most famous social network sites worldwide as of April 2019, ranked by number of active users (in millions). Statista , Sept. 6. https://www.statista.com/statistics/272014/global-socialnetworks-ranked-by-number-of-users/
+22. Cooper BE, Lee WE, Goldacre BM, Sanders TA. 2012. The quality of the evidence for dietary advice given in UK national newspapers. Public Underst. Sci. 21(6):664-73
+23. Cotten SR, Gupta SS. 2004. Characteristics of online and offline health information seekers and factors that discriminate between them. Soc. Sci. Med. 59(9):1795-806
+24. Crocco AG, Villasis-Keever M, Jadad AR. 2002. Analysis of cases of harm associated with use of health information on the Internet. JAMA 287(21):2869-71
+25. Eagly AH, Chaiken S. 1993. The Psychology of Attitudes . Orlando, FL: Harcourt Brace Jovanovich Coll.
+26. Ecker UK, Hogan JL, Lewandowsky S. 2017. Reminders and repetition of misinformation: helping or hindering its retraction? J. Appl. Res. Mem. Cogn. 6(2):185-92
+27. Ecker UK, Lewandowsky S, Swire B, Chang D. 2011. Correcting false information in memory: manipulating the strength of misinformation encoding and its retraction. Psychon. Bull. Rev. 18(3):57078
+28. Eckert S, Sopory P, Day A, Wilkins L, Padgett D, et al. 2018. Health-related disaster communication and social media: mixed-method systematic review. Health Commun . 33(12):1389-400
+29. Edelman.2018. 2018 Edelman trust barometer. Annual global study . Rep., Edelman, Chicago. https://www. edelman.com/research/2018-edelman-trust-barometer
+30. Engstrand-Neacsu A, Wynter A. 2009. Through albino eyes: the plight of albino people in Africa's Great Lakes region and a Red Cross response . Advocacy Rep., Int. Fed. Red Cross Red Crescent Soc., Geneva. https:// reliefweb.int/sites/reliefweb.int/files/resources/E492621871523879C12576730045A2F4-Full_ Report.pdf
+31. Eysenbach G, Powell J, Kuss O, Sa ER. 2002. Empirical studies assessing the quality of health information for consumers on the World Wide Web: a systematic review. JAMA 287(20):2691-700
+32. Fernández-Celemín L, Jung A. 2006. What should be the role of the media in nutrition communication? Br. J. Nutr. 96(S1):S86-88
+33. Fischer S. 2018. NewsGuard launches first product with help from Microsoft. Axios , Aug. 23. https:// www.axios.com/newsguard-launches-first-product-2143fc9e-470f-44b6-b8f1-6006646d26db. html
+34. Fox S, Duggan M. 2013. Health online 2013 . Pew Res. Cent., Internet T echnol., Jan. 15. https://www. pewinternet.org/2013/01/15/health-online-2013/
+35. Freed GL, Clark SJ, Butchart AT, Singer DC, Davis MM. 2011. Sources and perceived credibility of vaccine-safety information for parents. Pediatrics 127(Suppl. 1):S107-12
+36. Funk C, Kennedy B. 2019. Public confidence in scientists has remained stable for decades . Pew Res. Cent., Fact T ank, March 22. https://www.pewresearch.org/fact-tank/2019/03/22/public-confidence-inscientists-has-remained-stable-for-decades/
+
+40. Goel S, Anderson A, Hofman J, Watts DJ. 2016. The structural virality of online diffusion. Manag. Sci. 62(1):180-96
+41. Goldacre B. 2010. Bad Science: Quacks, Hacks, and Big Pharma Flacks . T oronto: McClelland & Stewart
+42. Grinberg N, Joseph K, Friedland L, Swire-Thompson B, Lazer D. 2019. Fake news on T witter during the 2016 US presidential election. Science 363(6425):374-78
+43. Guess A, Nagler J, Tucker J. 2019. Less than you think: prevalence and predictors of fake news dissemination on Facebook. Sci. Adv. 5(1):eaau4586
+44. Guess A, Nyhan B, Lyons B, Reifler J. 2018. Avoiding the echo chamber about echo chambers: why selective exposure to like-minded political news is less prevalent than you think . White Pap., Knight Found., Miami, FL. https://kf-site-production.s3.amazonaws.com/media_elements/files/000/000/133/original/ Topos_KF_White-Paper_Nyhan_V1.pdf
+45. Guidry JP, Carlyle K, Messner M, Jin Y. 2015. On pins and needles: how vaccines are portrayed on Pinterest. Vaccine 33(39):5051-56
+46. Haber N, Smith ER, Moscoe E, Andrews K, Audy R, et al. 2018. Causal language and strength of inference in academic and media articles shared in social media (CLAIMS): a systematic review. PLOS ONE 13(5):e0196346
+47. Hart A, Henwood F, Wyatt S. 2004. The role of the Internet in patient-practitioner relationships: findings from a qualitative research study. J. Med. Internet Res. 6(3):e36
+48. Hawke B, Przybylo AR, Paciulli D, Caulfield T, Zarzeczny A, Master Z. 2019. How to peddle hope: an analysis of YouTube patient testimonials of unproven stem cell treatments. Stem Cell Rep . 12(6):1186-89
+49. Heath C, Bell C, Sternberg E. 2001. Emotional selection in memes: the case of urban legends. J. Personal. Soc. Psychol. 81(6):1028-41
+50. Heilman JM, Kemmann E, Bonert M, Chatterjee A, Ragar B, et al. 2011. Wikipedia: a key tool for global public health promotion. J. Med. Internet Res. 13(1):e14
+51. Henle CA, Dineen BR, Duffy MK. 2019. Assessing intentional resume deception: development and nomological network of a resume fraud measure. J. Bus. Psychol. 34(1):87-106
+52. HoffmanSJ,TanC.2015.Biological,psychological and social processes that explain celebrities' influence on patients' health-related behaviors. Arch. Public Health 73(1):3
+53. Iannacone MR, Green AC. 2014. T owards skin cancer prevention and early detection: evolution of skin cancer awareness campaigns in Australia. Melanoma Manag . 1(1):75-84
+54. Jacobs W,Amuta AO, Jeon KC.2017.Health information seeking in the digital age: an analysis of health information seeking behavior among US adults. Cogent. Soc. Sci. 3(1):1302785
+55. Johnson HM, Seifert CM. 1994. Sources of the continued influence effect: when misinformation in memory affects later inferences. J. Exp. Psychol. Learn. Mem. Cogn. 20(6):1420-36
+56. Johnson SB, Park HS, Gross CP, Yu JB. 2017. Use of alternative medicine for cancer and its impact on survival. J. Natl. Cancer Inst. 110(1):121-24
+57. Kearns CE, Schmidt LA, Glantz SA. 2016. Sugar industry and coronary heart disease research: a historical analysis of internal industry documents. JAMA Intern. Med. 176(11):1680-85
+58. Kennedy B. 2016. Most Americans trust the military and scientists to act in the public's interest . Pew Res. Cent., Fact T ank, Oct. 18. https://www.pewresearch.org/fact-tank/2016/10/18/most-americanstrust-the-military-and-scientists-to-act-in-the-publics-interest/
+59. Keselman A, Browne AC, Kaufman DR. 2008. Consumer health information seeking as hypothesis testing. J. Am. Med. Inform. Assoc. 15(4):484-95
+60. Kowitt SD, Schmidt AM, Hannan A, Goldstein AO. 2017. Awareness and trust of the FDA and CDC: results from a national sample of US adults and adolescents. PLOS ONE 12(5):e0177546
+61. Krummel DA, Seligson FH, Guthrie HA, Gans DA. 1996. Hyperactivity: Is candy causal? Crit. Rev. Food Sci. Nutr. 36(1-2):31-47
+
+65. Leithner A, Maurer-Ertl W, Glehr M, Friesenbichler J, Leithner K, Windhager R. 2010. Wikipedia and osteosarcoma: a trustworthy patients' information? J. Am. Med. Inform. Assoc. 17(4):373-74
+66. Levin L. 2018. 20 things you didn't know you could do with Search. Google Off. Blog , Sept. 11. https:// www.blog.google/products/search/20-things-you-didnt-know-you-could-do-search/
+67. Lewandowsky S, Ecker UKH, Seifert CM, Schwarz N, Cook J. 2012. Misinformation and its correction: continued influence and successful debiasing. Psychol. Sci. Public Interest 13(3):106-31
+68. Lipworth W, Little M, Markham P, Gordon J, Kerridge I. 2013. Doctors on status and respect: a qualitative study. J. Bioeth. Inq. 10(2):205-17
+69. Loeb S, Sengupta S, Butaney M, Macaluso JN Jr., Czarniecki SW, et al. 2019. Dissemination of misinformative and biased information about prostate cancer on YouTube. Eur. Urol. 75(4):564-67
+70. Lui K. 2017. An Australian wellness blogger has been fined $322,000 for lying about having cancer. Time Magazine , Sept. 28. http://time.com/4960515/australia-belle-gibson-fined-lying-cancer/
+71. Marsh EJ, Fazio LK. 2006. Learning errors from fiction: difficulties in reducing reliance on fictional stories. Mem. Cogn. 34(5):1140-49
+72. McGandy RB, Hegsted DM, Stare FJ. 1967. Dietary fats, carbohydrates and atherosclerotic vascular disease. N. Engl. J. Med. 277(4):186-92
+73. McGinnies E, Ward CD. 1980. Better liked than right: trustworthiness and expertise as factors in credibility. Personal. Soc. Psychol. Bull. 6(3):467-72
+74. McMullan M. 2006. Patients using the Internet to obtain health information: how this affects the patient-health professional relationship. Patient Educ. Couns. 63(1-2):24-28
+75. Mehta SR, Al-Mahrooqi R. 2015. Can thinking be taught? Linking critical thinking and writing in an EFL context. RELC J . 46(1):23-36
+76. Miller M. 2013. Melbourne mum Belle Gibson on taking the world by storm with her app The Whole Pantry, while fighting terminal brain cancer. Herald Sun , Dec. 5. https://www. news.com.au/lifestyle/health/melbourne-mum-belle-gibson-on-taking-the-world-bystorm-with-her-app-the-whole-pantrywhile-fighting-terminal-brain-cancer/news-story/ 1cd87c19a066f88d22fc0434fb0bfc55
+77. Montague M, Borland R, Sinclair C. 2001. Slip! Slop! Slap! and SunSmart, 1980-2000: skin cancer control and 20 years of population-based campaigning. Health Educ. Behav. 28(3):290-305
+78. Murphy PW, Davis TC, Long SW, Jackson RH, Decker BC. 1993. Rapid estimate of adult literacy in medicine (REALM): a quick reading test for patients. J. Read. 37(2):124-30
+79. Nickerson RS. 1998. Confirmation bias: a ubiquitous phenomenon in many guises. Rev. Gen. Psychol. 2:175-220
+80. NIH (Natl. Inst. Health), NCI (Natl. Cancer Inst.). 2016. Cancer stat facts: cancer of any site. Surveillance, Epidemiology, and End Results Program . https://seer.cancer.gov/statfacts/html/all.html
+81. Nordheim LV, Gundersen MW, Espehaug B, Guttersrud Ø, Flottorp S. 2016. Effects of school-based educational interventions for enhancing adolescents abilities in critical appraisal of health claims: a systematic review. PLOS ONE 11(8):e0161485
+82. Norman CD, Skinner HA. 2006. eHEALS: the eHealth literacy scale. J. Med. Internet Res. 8(4):e27
+83. Open Sci. Collab. 2015. Estimating the reproducibility of psychological science. Science 349(6251):aac4716
+84. Oreskes N, Conway EM. 2010. Defeating the merchants of doubt. Nature 465(7299):686-87
+85. Pandey A, Hasan S, Dubey D, Sarangi S. 2013. Smartphone apps as a source of cancer information: changing trends in health information-seeking behavior. J. Cancer Educ. 28(1):138-42
+86. Parker RM, Baker DW, Williams MV, Nurss JR. 1995. The test of functional health literacy in adults: a new instrument for measuring patients' literacy skills. J. Gen. Intern. Med. 10(10):537-41
+87. Peters K, Kashima Y, Clark A. 2009. T alking about others: emotionality and the dissemination of social
+
+89. Poland GA, Spier R. 2010. Fear, misinformation, and innumerates: how the Wakefield paper, the press, and advocacy groups damaged the public health. Vaccine 28(12):2361-62
+90. Pornpitakpan C. 2004. The persuasiveness of source credibility: a critical review of five decades' evidence. J. Appl. Soc. Psychol. 34(2):243-81
+91. Quinn S, Bond R, Nugent C. 2017. Quantifying health literacy and eHealth literacy using existing instruments and browser-based software for tracking online health information seeking behavior. Comput. Hum. Behav. 69:256-67
+92. Quinn SC, Parmer J, Freimuth VS, Hilyard KM, Musa D, Kim KH. 2013. Exploring communication, trust in government, and vaccination intention later in the 2009 H1N1 pandemic: results of a national survey. Biosecur. Bioterror. 11(2):96-106
+93. Ramaswami P. 2015. A remedy for your health-related questions: health info in the Knowledge Graph. Google Off. Blog , Feb. 10. https://blog.google/products/search/health-info-knowledge-graph/
+94. Rao P. 2018. Ending albino persecution in Africa. Afr. Renew. 31(3):26-27
+95. Rennis L, McNamara G,Seidel E,Shneyderman Y.2015.Google it!: urban community college students' use of the Internet to obtain self-care and personal health information. Coll. Stud. J. 49(3):414-26
+96. Resende G, Melo P, Sousa H, Messias J, Vasconcelos M, et al. 2019. (Mis)information dissemination in WhatsApp: gathering, analyzing and countermeasures. In Proceedings of the WWW '19: The World Wide Web Conference , pp. 818-28. New York: Assoc. Comput. Lit. (ACM)
+97. Schilder E, Lockee B, Saxon DP. 2016. The challenges of assessing media literacy education. J. Media Lit. Educ. 8(1):32-48
+98. Schmaltz R, Lilienfeld SO. 2014. Hauntings, homeopathy, and the Hopkinsville Goblins: using pseudoscience to teach scientific thinking. Front. Psychol. 5:336
+99. Schoenfeld JD, Ioannidis JP . 2013. Is everything we eat associated with cancer? A systematic cookbook review. Am. J. Clin. Nutr. 97(1):127-34
+100. Seymour B, Getman R, Saraf A, Zhang LH, Kalenderian E. 2015. When advocacy obscures accuracy online: digital pandemics of public health misinformation through an antifluoride case study. Am. J. Public Health 105(3):517-23
+101. Shao C, Ciampaglia GL, Varol O, Yang K-C, Flammini A, Menczer F. 2018. The spread of lowcredibility content by social bots. Nat. Commun. 9(1):4787
+102. Sharma M, Yadav K, Yadav N, Ferdinand KC. 2017. Zika virus pandemic-analysis of Facebook as a social media health information platform. Am. J. Infect. Control 45(3):301-2
+103. Shrivastava SR, Shrivastava PS, Ramasamy J. 2017. World Health Organization validated websites provide reliable information on vaccine safety. J. Res. Med. Sci. 22:78
+104. Shwed U, Bearman PS. 2010. The temporal structure of scientific consensus formation. Am. Sociol. Rev. 75(6):817-40
+105. Siegel J. 2018. Resources for teaching news literacy. Soc. Educ. 82(4):242-44
+106. Sommariva S, Vamos C, Mantzarlis A, Đ ào LUL, Martinez Tyson D. 2018. Spreading the (fake) news: exploring health messages on social media and the implications for health professionals using a case study. Am. J. Health Educ. 49(4):246-55
+107. Stevenson FA,Kerr C,Murray E,Nazareth I.2007.Information from the Internet and the doctor-patient relationship: the patient perspective-a qualitative study. BMC Fam. Pract. 8(1):47
+108. Sunstein CR. 2018. #Republic: Divided democracy in the age of social media . Princeton, NJ: Princeton Univ. Press
+109. Suppli CH, Hansen ND, Rasmussen M, Valentiner-Branth P, Krause TG, Mølbak K. 2018. Decline in HPV-vaccination uptake in Denmark-the association between HPV-related media coverage and HPV-vaccination. BMC Public Health 18(1):1360
+110. Swift A. 2016. Americans' trust in mass media sinks to new low. Gallup News , Sept. 14. https://news.
+
+113. Swire B, Ecker UKH, Lewandowsky S. 2017. The role of familiarity in correcting inaccurate information. J. Exp. Psychol. Learn. Mem. Cogn. 43(12):1948-61
+114. Swire-Thompson B, Ecker UKH, Lewandowsky S, Berinsky AJ. 2020. They might be a liar but they're my liar: source evaluation and the prevalence of misinformation. Political Psychol . 41(1):21-34
+115. Takayasu M, Sato K, Sano Y, Yamada K, Miura W, T akayasu H. 2015. Rumor diffusion and convergence during the 3.11 earthquake: a T witter case study. PLOS ONE 10(4):e0121443
+116. Tan SSL, Goonawardene N. 2017. Internet health information seeking and the patient-physician relationship: a systematic review. J. Med. Internet Res. 19(1):e9
+117. Taylor B, Miller E, Farrington C, Petropoulos MC, Favot-Mayaud I, et al. 1999. Autism and measles, mumps, and rubella vaccine: no epidemiological evidence for a causal association. Lancet 353(9169):2026-29
+118. Temgoua MN, Tochie JN, Danwang C, Aletum VM, Tankeu R. 2018. An innovative technology to curb maternal and child mortality in sub-Saharan Africa: the GiftedMom TM approach. Clin. Res. Obstet. Gynecol. 1(1):1-3
+119. Thoman E, Jolls T. 2005. Literacy for the 21st century: an overview and orientation guide to media literacy education . MediaLit Kit, Cent. Media Lit., Los Angeles. http://www.medialit.org/sites/default/files/ 01_MLKorientation.pdf
+120. Tucker JA, Guess A, Barberá P, Vaccari C, Siegel A, et al. 2018. Social media, political polarization, and political disinformation: a review of the scientific literature . Rep., Hewlett Found., Menlo Park, CA. https:// hewlett.org/wp-content/uploads/2018/03/Social-Media-Political-Polarization-and-PoliticalDisinformation-Literature-Review.pdf
+121. Vargesson N. 2009. Thalidomide-induced limb defects: resolving a 50-year-old puzzle. Bioessays 31(12):1327-36
+122. Vargesson N. 2015. Thalidomide-induced teratogenesis: history and mechanisms. Birth Defects Res. C Embryo Today 105(2):140-56
+123. Vernon JA, Trujillo A, Rosenbaum SJ, DeBuono B. 2007. Low health literacy: implications for national health policy . Rep., George Wash. Univ., Washington, DC. https://publichealth.gwu.edu/departments/ healthpolicy/CHPR/downloads/LowHealthLiteracyReport10_4_07.pdf
+124. Vogel SN, Sultan TR, T en Eyck RP. 1981. Cyanide poisoning. Clin. T oxicol. 18(3):367-83
+125. Vosoughi S, Roy D, Aral S. 2018. The spread of true and false news online. Science 359(6380):1146-51
+126. Vraga EK, Bode L. 2017. Using expert sources to correct health misinformation in social media. Sci. Commun. 39(5):621-45
+127. Wakefield AJ, Murch SH, Anthony A, Linnell J, Casson DM, et al. 1998. RETRACTED: Ileallymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children. Lancet 351:637-41
+128. Wardle C. 2017. Fake news. It's complicated. First Draft News , Feb. 16. https://firstdraftnews.org/ latest/fake-news-complicated/
+129. Warner D,Procaccino JD.2004.T oward wellness: women seeking health information. J. Am. Soc. Inform. Sci. T echnol. 55(8):709-30
+130. WebMD.2019.User reviews & ratings-apricot kernel. WebMD . https://www.webmd.com/vitaminssupplements/ingredientreview-1190-APRICOT+KERNEL
+131. WHO (World Health Organ.). 2019. European Region loses ground in effort to eliminate measles . Press Release, Aug. 29. http://www.euro.who.int/en/media-centre/sections/press-releases/2019/ european-region-loses-ground-in-effort-to-eliminate-measles
+132. Wood T, Porter E. 2019. The elusive backfire effect: mass attitudes' steadfast factual adherence. Political Behav . 41(1):135-63
+133. Zhang J, Le G, Larochelle D, Pasick R, Sawaya GF, et al. 2019. Facts or stories? How to use social media

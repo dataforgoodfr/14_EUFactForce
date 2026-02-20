@@ -1,0 +1,876 @@
+
+Addressing the digital determinants of youth mental health and well-being: policy brief
+
+Web annex: Findings from an evidence review and policy mapping
+
+Addressing the digital determinants of youth mental health and well-being
+
+Abstract
+
+This web annex references 'Addressing the digital determinants of youth mental health and well -being: policy brief', detailing in full the results of a review of 226 peer-reviewed articles and mapping of policies for 42 countries as well as European Union regulatory frameworks. The findings of the evidence review indicate a complex relationship between digital technology use and youth mental health and well-being. In general, they suggest that social media and other forms of digital technology pose a credible risk to young people. The policy mapping revealed a diversity of approaches to addressing these risks, noting a lack of meaningful involvement of young people and public health experts in the design and implementation of policy. Document number: WHO/EURO:2025-12187-51959-79851 (PDF)
+
+© World Health Organization 2025
+
+Some rights reserved. This work is available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO licence (CC BY-NC-SA 3.0 IGO; https://creativecommons.org/licenses/by-nc-sa/3.0/igo). Under the terms of this licence, you may copy, redistribute and adapt the work for non-commercial purposes, provided the work is appropriately cited, as indicated below. In any use of this work, there should be no suggestion that WHO endorses any specific organization, products or services. The use of the WHO logo is not permitted. If you adapt the work, then you must license your work under the same or equivalent Creative Commons licence. If you create a translation of this work, you should add the following disclaimer along with the suggested citation: ' This translation was not created by the World Health Organization (WHO). WHO is not responsible for the content or accuracy of this translation. The original English edition shall be the binding and authentic edition: Addressing the digital determinants of young people's mental health and well -being: policy brief. Web annex: findings from evidence review and policy mapping. Copenhagen: WHO Regional Office for Europe; 2025'. Any mediation relating to disputes arising under the licence shall be conducted in accordance with the mediation rules of the World Intellectual Property Organization (http://www.wipo.int/amc/en/mediation/rules/). Suggested citation . Addressing the digital determinants of young people's mental health and well -being: policy brief. Web annex: findings from evidence review and policy mapping. Copenhagen: WHO Regional Office for Europe; 2025. Licence: CC BY-NC-SA 3.0 IGO. Cataloguing-in-Publication (CIP) data. CIP data are available at http://apps.who.int/iris. Sales, rights and licensing. To purchase WHO publications, see http://apps.who.int/bookorders. To submit requests for commercial use and queries on rights and licensing, see https://www.who.int/about/policies/publishing/copyright Third-party materials. If you wish to reuse material from this work that is attributed to a third party, such as tables, figures or images, it is your responsibility to determine whether permission is needed for that reuse and to obtain permission from the copyright holder. The risk of claims resulting from infringement of any third-party-owned component in the work rests solely with the user. General disclaimers. The designations employed and the presentation of the material in this publication do not imply the expression of any opinion whatsoever on the part of WHO concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries. Dotted and dashed lines on maps represent approximate border lines for which there may not yet be full agreement. The mention of specific companies or of certain manufacturers' products does not imply that they are endorsed or recommended by WHO in preference to others of a similar nature that are not mentioned. Errors and omissions excepted, the names of proprietary products are distinguished by initial capital letters.
+
+All reasonable precautions have been taken by WHO to verify the information contained in this publication. However, the published material is being distributed without warranty of any kind, either expressed or implied. The responsibility for the interpretation and use of the material lies with the reader. In no event shall WHO be liable for damages arising from its use.
+
+CONTENTS
+
+Acknowledgements  ..................................................................................................................................................  v
+
+| Abbreviations.............................................................................................................................................................v                                                                                         |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Background.................................................................................................................................................................1                                                                                        |
+| Methodology..............................................................................................................................................................2                                                                                          |
+| Evidence review....................................................................................................................................................2                                                                                                |
+| Policy mapping......................................................................................................................................................2                                                                                               |
+| Findings: evidence review......................................................................................................................................3                                                                                                    |
+| Focus of research conducted in 2020 - 2024...............................................................................................3                                                                                                                          |
+| Key findings on the relationship between young people's technology use and mental health outcomes ................................................................................................................................................................4 |
+| Mediators and moderators of the relationship between young people's technology use and mental health outcomes.....................................................................................................................................8                 |
+| Protective and risk factors that influence young people's vulnerability and resilience ..................9                                                                                                                                                          |
+| Biological and developmental factors that increase vulnerability ......................................................10                                                                                                                                           |
+| The role of technology design features in mental health outcomes..................................................11                                                                                                                                                |
+| Potential impact pathways.............................................................................................................................12                                                                                                            |
+| Evidence quality.................................................................................................................................................13                                                                                                 |
+| Limitations of existing research ....................................................................................................................15                                                                                                             |
+| Recommendations emerging from studies ................................................................................................15                                                                                                                            |
+| Findings: policy mapping.....................................................................................................................................18                                                                                                     |
+| EU policies and regulatory frameworks......................................................................................................18                                                                                                                       |
+| National policy and regulatory frameworks..............................................................................................19                                                                                                                           |
+| Snapshots of national approaches ...............................................................................................................20                                                                                                                  |
+| Non-regulatory measures to protect children..........................................................................................26                                                                                                                             |
+| Policy content analysis.....................................................................................................................................27                                                                                                      |
+| Gaps and limitations of existing approaches.............................................................................................30                                                                                                                          |
+| References...............................................................................................................................................................33                                                                                         |
+| Annex 1. Research questions.............................................................................................................................43                                                                                                          |
+| Annex 2. Evidence review methodology........................................................................................................45                                                                                                                      |
+| Annex 3. Documents reviewed for the policy mapping exercise............................................................47                                                                                                                                           |
+
+## Acknowledgements
+
+This document was prepared for WHO Regional Office for Europe by the Digital Transformations for Health Lab (DTH-Lab), led by Director and Founding Member Ilona Kickbusch. The primary authors were Ananya Choyal, Louise Holly, and Padmini Vishwanath, with additional contributions from Preetika Banerjee and Sofia Castro Lopes (DTH-Lab). The project was coordinated by Aferdita Bytyqi (DTH-Lab).
+
+The initiative to undertake the work described in this document was launched and guided by the Mental Health Flagship of the WHO Regional Office for Europe. Coordination of the drafting process and stakeholder consultations was led by Cassie Redlich (WHO Regional Office for Europe), with the valuable support of Georgina Grundy-Campbell and Jason Maurer (WHO Regional Office for Europe). Natasha Azzopardi-Muscat (WHO Regional Office for Europe) and Ledia Lazeri (WHO Regional Office for Europe) provided strategic technical oversight.
+
+## Abbreviations
+
+app application AVMSD Audiovisual and Media Services Directive BIK+ Better Internet for Kids [strategy] COVID-19 coronavirus disease DSA Digital Services Act EU European Union FOMO fear of missing out OSA Online Safety Act [of the United Kingdom] UNICEF United Nations Children's Fund
+
+## Background
+
+Childhood and adolescence provide a unique window of opportunity to support mental health: 75% of mental health conditions begin by the age of 24 years. Mental health care and support are most effective when received early; hence, intervening during this period can treat and prevent mental health difficulties. In the WHO European Region in 2021, an estimated one in five adolescents had a mental health condition. Life satisfaction has been declining among adolescents, and suicide ranks as the fourth leading cause of death among those aged 15 -19 years. However, the majority of children and adolescents in need of mental health care do not receive the necessary support (1) . To address these issues, the WHO Regional Office for Europe has prioritized the mental health and well-being of children and adolescents within the WHO European framework for action on mental health 2021 -2025 (2) , and operationalized it as one of the working packages of the panEuropean Mental Health Coalition. Through WHO 's Mental Health Flagship, a range of initiatives are under way to prevent and treat mental ill health, and to create supportive environments that promote well-being. The impact of digital environments on young people's mental health and well -being is a growing concern for many countries. Every four years, WHO Regional Office for Europe conducts the Health Behaviour in School-aged Children survey, which identifies the status of and trends in health and well-being among young people, including factors affecting their mental health. The latest data from this survey revealed a sharp rise in problematic social media use among adolescents, with rates increasing from 7% in 2018 to 11% in 2022. This, coupled with findings that 12% of adolescents are at risk of problematic gaming, raises urgent questions about the impact of digital technology on the mental health and well-being of young people (3) . To understand the state of current evidence on the relationships between digital technology use and young people's mental health, and to inform the development of the WHO publication 'Addressing the Digital Determinants of Youth Mental Health and Well -being: Policy Brief' 1 , the authors conducted:
+
+- a review of evidence from peer-reviewed literature on the impact of social media and digital technologies on young people ' s mental health; and
+- an exercise mapping policy actions implemented globally, with a focus on the WHO European R egion, related to digital technology use and young people's mental health.
+
+Annex 1 includes the research questions used for each of these exercises. This document summarizes the overall findings and serves as a web annex to the policy brief.
+
+
+people in digital environments, and to mitigate the potential harms related to social media, artificial intelligence and other digital
+
+The policy brief suggests eight priority actions for countries to promote and protect the mental health and well-being of young technologies: Addressing the digital determinants of youth mental health and well-being: policy brief. Copenhagen:
+
+WHO Regional Office for Europe; 2025 (https://iris.who.int/handle/10665/381496, accessed 23 May 2025).
+
+## Methodology
+
+### Evidence review
+
+A rapid scoping review was carried out by two authors in December 2024 and January 2025 using systematic search strategies. Initially, a thorough literature search was conducted across three global databases. The resulting records were imported into Rayyan software to streamline the screening process.
+
+The initial search yielded a substantial 7420 articles, which were then subjected to an iterative screening process using predefined inclusion and exclusion criteria (detailed in Annex 2) to refine the pool of studies. This process culminated in a full-text review of 226 articles, comprising 63 reviews and 163 individual studies, all published between 2020 and 2024.
+
+Content analysis followed a descriptive approach to extract key themes and findings from the literature that responded to the predetermined research questions (see Annex 1). To enrich the analysis, findings from a separate review of 69 longitudinal studies focusing on digital media use and young people ' s mental health, which was conducted for the Digital Transformations for Health Lab (DTH-Lab), were incorporated into the overall analysis (4) . An evidence quality assessment was not conducted, as the aim of the review was not to validate the quality of the included studies but rather to summarize the scope and findings of evidence to date.
+
+### Policy mapping
+
+In 2024, researchers from DTH-Lab carried out a global policy mapping exercise to examine policy approaches for protecting young people from online harms and promoting safe digital experiences. This process resulted in the identification of 74 policy documents from 27 countries (5) .
+
+The mapping exercise was subsequently expanded in December 2024 and January 2025 through a second online search, with a particular focus on the WHO European Region. This extended search used official government websites, press releases and other online sources to locate relevant legislation, acts, policies, guidelines and programmatic documents. Due to time constraints, the search concentrated on reviewing policies from 15 countries in the Region (Albania, Armenia, Austria, Azerbaijan, Belgium, Croatia, Czechia, France, Germany, Hungary, Ireland, Italy, Poland, Spain and the United Kingdom) and the European Union (EU).
+
+The collected data were systematically extracted into an Excel spreadsheet, which facilitated categorization of general policy information and identification of major features and themes that responded to the predetermined research questions (see Annex 1). To enrich the final analysis, additional findings and insights from the initial global mapping exercise were incorporated, ensuring a comprehensive overview of the current policy landscape. The full list of policies reviewed will be made available on DTH-Lab 's website (6) .
+
+## Findings: evidence review
+
+### Focus of research conducted in 2020 -2024
+
+A thematic analysis of the 226 papers included in the review was carried out to identify the types of digital media use studied (Table 1) and the types of mental health or well-being outcomes studied (Table 2). The tables illustrate the diversity in types of digital media use studied over a five-year period and the broad spectrum of mental health and well-being outcomes studied.
+
+Table 1. Types of digital media uses studied
+
+| Theme                                     | Description and terms used                                                     | Specific use types                                                                                                                                                                                                                                               |
+|-------------------------------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Quantity of social media use              | Quantity of use; addiction; time of use; screen time; problematic internet use | Excessive use; addictive use; compulsive use; night-time use; pre-bedtime use                                                                                                                                                                                    |
+| Type of social media use                  | Nature of social media use: passive/active; social/non-social; visual          | Posting exaggerated materials; watching/scrolling; influencers; likes/comments; social media trends; oversharing; experiencing triggering posts; viewing/exposure to idyllic body images; viewing body positivity; sharing selfies; using filters/editing photos |
+| Communication                             | Communication between users who know each other; communication with strangers  | Sharing messages, content, videos or images; sexting or sexualized communication                                                                                                                                                                                 |
+| Harmful content or threatening behaviours | Crimes or content that have clear harmful implications                         | Cyberbullying; victimization; sex trafficking or harassment; pornography; self-harm content; disordered eating content; violent content                                                                                                                          |
+| Information seeking or dissemination      | Information seeking or dissemination on various topics, such as mental health  | Seeking mental health information; connecting with others on mental health; peer support groups; nutritional knowledge                                                                                                                                           |
+| Other entertainment                       | Other digital technologies that are not related to social media use            | Gaming, gambling; TV; video watching; streaming                                                                                                                                                                                                                  |
+
+Table 2. Types of mental health and well-being outcomes studied
+
+| Intermediate outcomes            | Overall mental health/well-being impact           | Specific types of mental health and well-being outcomes                                                                                                                                                           |
+|----------------------------------|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Peer comparison                  | Depression and anxiety                            | Clinical depression/anxiety or self-reported depression/anxiety based on scale                                                                                                                                    |
+| Social upward comparison         |                                                   |                                                                                                                                                                                                                   |
+| Appearance-related consciousness | Psychological and emotional well-being and affect | General well-being; negative affect; sadness; guilt; momentary affective well-being; life satisfaction; self-esteem and confidence; resilience; emotional problems (strengths and difficulties); boredom; stress; |
+| Feedback seeking                 |                                                   |                                                                                                                                                                                                                   |
+| Suicidal contagion               |                                                   | personal identity                                                                                                                                                                                                 |
+| Sleep                            | Social well-being                                 | Loneliness and isolation; perceived social support; social connectedness; belongingness; social craving;                                                                                                          |
+| Fear of missing out (FOMO)       |                                                   | peer relationship problems                                                                                                                                                                                        |
+| Nomophobia                       | Suicide or self-harm                              | Suicide; suicidal ideation; suicide attempts; self- harm                                                                                                                                                          |
+| Body/image dissatisfaction       |                                                   |                                                                                                                                                                                                                   |
+| Addiction                        | Behavioural or developmental problems             | Psychosocial development; conduct problems; hyperactivity/inattention; self-control; sensation                                                                                                                    |
+| Overeating or unhealthy eating   |                                                   | seeking; aggression                                                                                                                                                                                               |
+| Obesity                          |                                                   | satisfaction; learning outcomes                                                                                                                                                                                   |
+| Thwarted belongingness           |                                                   |                                                                                                                                                                                                                   |
+| Fatigue                          |                                                   |                                                                                                                                                                                                                   |
+| Irritability                     |                                                   |                                                                                                                                                                                                                   |
+| Apathy                           |                                                   |                                                                                                                                                                                                                   |
+| Racing thoughts                  |                                                   |                                                                                                                                                                                                                   |
+| Rumination                       |                                                   |                                                                                                                                                                                                                   |
+| Declining grades                 |                                                   |                                                                                                                                                                                                                   |
+
+### Key findings on the relationship between young people's technology use and mental health outcomes
+
+Social media use has a complex and multifaceted relationship with mental health and well-being -influenced by how, why and how much it is used. Since a wide variety of mental health and well-being outcomes have been studied in the literature, the authors classified these into four categories:
+
+- depression, anxiety and suicide-related behaviours
+- psychological and emotional well-being
+
+- social well-being
+- behavioural, physical and developmental impacts.
+
+Much of the evidence on the nature, strength and direction of the relationship between social media use and these outcomes is mixed. For depression and anxiety, passive use, online victimization and appearance-focused content are often linked to negative outcomes -such as depressive symptoms or suicidality -although some evidence suggests a bidirectional relationship, where pre-existing symptoms drive increased social media use. Similarly, psychological and emotional well-being is shaped by the type of engagement: passive use and appearance-related content reduce well-being, while moderate use and positive interactions may enhance empathy and self-esteem. Social media use also affects social well-being, offering opportunities for connection and belonging -particularly for vulnerable groups -but carrying risks such as loneliness and hate speech. Developmental and behavioural impacts include mixed outcomes: some users benefit from improved problem-solving skills while others face challenges like disordered eating, poor sleep and increased aggression. These findings highlight the nuanced effects of social media use, where context and individual factors play critical roles in determining outcomes.
+
+#### Depression, anxiety and suicide-related behaviours
+
+Evidence is mixed, with some studies showing a very small, positive association between higher social media use and depression and others showing no association. However, the existence of a causal relationship and direction between the two outcomes is still unclear. Additionally, anxiety is less examined in the literature than depression. Key findings from the review include the following.
+
+- Type of use may influence association between digital technology use and depressive symptoms. Passive versus active use, and public versus private Facebook use have shown greater association with depressive symptoms (7 -10) .
+- Online victimization and other harmful social media uses may be associated with depressive symptoms (11,12) .
+- Associations with onset of anxiety disorders have been found, but the magnitude and nature of the relationship is still unclear (13 -16) .
+- Associations between social media use and suicidality may exist, but the nature of the relationship remains unclear, and is likely to vary across individuals and types of online experiences (10,11,17 -19) .
+- Some studies have shown that cyberbullying and victimization may be key moderators or mediators of the association between social media use and suicidality (20,21) .
+- Exposure to self-harm images, while understudied, have shown some association with suicidal ideation (22,23) .
+- Social media use and depression may be negatively associated: some studies have shown reduced depression among heavier users in some contexts (24) .
+- The relationship is bidirectional: depressive symptoms may also increase social media use in an attempt to boost mood (7) .
+
+#### Psychological and emotional well-being
+
+Evidence on the nature of the association between social media use and psychological and emotional well-being is mixed. Studies have shown both positive and negative associations, depending on the nature and magnitude of social media or digital technology use. Key findings from the review include the following.
+
+- Type of use/content matters: passive use, compared to active use, has stronger associations with reduced well-being, and both low and high social media use are associated with reduced well-being (25 -27) .
+- Some studies found positive effects such as being inspired or relaxed from certain types of content.
+- Amount of use matters: moderate use may be associated with increased well-being and may even facilitate empathy towards others (8,26,28) .
+- Impacts may be short term. Social media or digital technology use may be more likely to have short-term momentary effects than longer-term impacts such as lifelong satisfaction (8) .
+- Appearance-related social media use shows strong associations with psychological and emotional well-being.
+- While sharing selfies may be associated with negative impacts on self-esteem and confidence, some studies have shown that it could lead to an immediate increase in selfesteem and confidence due to reinforcement from peers. However, the sustainability of such a positive impact has been questioned (26,29) .
+- Viewing idyllic images has been largely associated with negative well-being, especially among girls and those with internalized norms of body ideals (7,30) .
+- Body positivity content, while understudied, has shown a mixed impact on well-being. While there is some potential positive impact, it also poses a risk of triggering body consciousness by initiating thoughts on body image (31) .
+- Identity development and other positive impacts on personality growth have been seen through the ability to self-express on social media (32,33) .
+
+#### Social well-being
+
+Evidence on the nature of the association between social media use and social well-being is mixed. Studies have shown both positive and negative associations, depending on factors such as the type of use and who the communication is with. Key findings from the review include the following.
+
+- Evidence on loneliness and ostracism is mixed. Some studies show that increased social media use may be associated with greater loneliness and ostracism, especially among at-risk young people (34 -37) . Others show that certain uses -such as providing online social support to friends, posting uplifting content and joining online communities -could reduce loneliness and ostracism (38) .
+- Social belongingness may be enhanced, but with risks. Some studies show that social media use was associated with enhanced social connection and a greater sense of acceptance, by
+
+- giving adolescents a platform to connect with others and for self-disclosure/expression and validation, especially among vulnerable groups (26,39 -41) . However, these groups also face the risk of hate speech on such platforms (11) .
+- The relationship with the person being communicated with matters. Studies show that online communication with close friendships can have a beneficial effect, but with strangers or online-only friends it can have harmful effects (35,42) .
+- It may provide a source of intimacy for displaced or refugee young people. Social media and other online platforms could provide new avenues to foster and sustain intimacy by creating opportunities for exchange and emotional support across distances (43) .
+- Moderate use is key in maximizing the social benefits while minimizing the harmful effects of social media use on social well-being (26) .
+- Relationships could be bidirectional: poor social well-being outcomes -such as poor family support and loneliness -may result in increased social media use to fulfil social needs (12) .
+
+#### Behavioural, physical and developmental impacts
+
+Evidence on behaviours and other developmental areas related to mental health and well-being shows potential impact of social media use on eating disorders. Key findings from the review include the following.
+
+- There may be a relationship between body imagery and unhealthy food choices. Links have been found between visual social media use and unhealthy, disordered eating and overeating (34,44,45) .
+- Insomnia and sleep quality are associated with excessive or time of use but not type of use. Poor sleep quality may be associated with night-time/pre-bedtime use or increased/problematic screen time, but not with actual emotional investment in social media use (21,46,47) .
+- The impact on brain and intellectual development is mixed. Some studies have demonstrated a positive impact on developmental areas such as executive control, visual-spatial attention, visual motor integration, problem solving, working memory and strategic planning through video games. Others have shown that intellectual deficits may be associated with excessive gaming and screen time (48,49) .
+- Social media use may increase aggression or other externalizing symptoms. Some evidence shows that social media use may be associated with increased aggressive behaviours, sensation seeking or other inattention/hyperactivity problems. One study also points to the specific role of influencer-generated content or challenges that may exaggerate imitation of dangerous behaviours (50,51) .
+- Links may be seen with fatigue and lack of physical activity. Studies have shown some association between sedentary lifestyles and increased social media use (15,52,53) .
+- There may be reverse causality: some evidence shows that maladaptive behaviours such as inattention and disengagement may be associated with increased social media use (50,54) .
+
+### Mediators and moderators of the relationship between young people ' s technology use and mental health outcomes
+
+Moderating and mediating factors shape the relationship between social media use and mental health outcomes, influencing the extent or direction (positive/negative) of its impact. Researchers have studied these factors extensively to understand how and why social media use affects mental health and well-being. Moderators are variables that change the strength or nature of the relationship, such as gender -for example, girls and gender-diverse young people often face worse outcomes, particularly around body image-related content. Mediators, on the other hand, explain how or why social media use affects well-being, such as engagement in upward social comparison leading to depressive symptoms. While psychosocial and behavioural factors -like low self-esteem, social anxiety and excessive investment in online self-presentation -exacerbate negative outcomes, especially among vulnerable groups, resilience and emotional self-regulation may temper these harms. Additionally, motivations for using social media, importance given to peer feedback and perceived self-control moderate the relationship. Sociodemographic factors such as socioeconomic status, age and digital literacy also play a key role in moderating risks and benefits, highlighting the complexity of understanding social media's effects or association with mental health.
+
+Psychosocial and behavioural mediators and moderators include the following.
+
+- Increased investment in social media use -such as adding filters and wanting to receive comments or likes -may increase the impact of social media use on depression (35,55) .
+- Lower self-esteem as an existing factor may worsen the negative impacts of social media use, but could also mediate the relationship (44,56) .
+- Independent traits such as resilience and emotional self-regulation may temper harm experienced from online risks (22,57) .
+- Existing disorders -including anxiety disorders, rumination, social anxiety and nomophobia -may mediate or moderate the association and worsen well-being (13,58) .
+- Internalized norms around thin/fit idyllic images and self-objectification could worsen the impact of viewing idyllic images, especially among girls (59) .
+- Engagement in upward social comparison can be a mediator between social media use and onset or worsening of depressive symptoms (17,60) .
+- Motivations for using social media have an impact. Intentions to view sad or negative content could worsen co-occurring depressive/well-being impacts, while positive intentions to view uplifting content may result in positive impacts on well-being (24,61) .
+- Reinforcement or feedback from peers on selfies or content may boost self-confidence, but excessive importance placed on feedback may worsen well-being outcomes. Similarly, excessive investment in online self-presentation may worsen body dissatisfaction -especially for girls (33,62,63) .
+- Existing social factors such as low social belongingness and low social support may worsen impacts: those who are already isolated and craving social validation have worse outcomes (17) .
+
+- Perceived self-control and agency of adolescents could moderate the impact of social media use (64) .
+
+Sociodemographic mediators and moderators include the following.
+
+- Gender plays an important role. Girls and gender-diverse young people were often found to have worse outcomes for well-being and depression -particularly in relation to visual content focused on body image (18,22,25,39) .
+- In certain instances, sexual minority young people experienced an opposite effect (improved well-being) from social media use, owing to improved social belongingness and social support from online platforms (40) .
+- Some studies found that those from lower socioeconomic groups may experience worse outcomes from social media use (65,66) .
+- While some studies found that younger users have worse outcomes, others found no associations with age (13,22,42) .
+- Digital literacy of an adolescent can moderate the risks experienced on social media and reduce the harm experienced from those risks (57,66) .
+
+### Protective and risk factors that influence young people's vulnerability and resilience
+
+Some researchers attribute differences in mental health and well-being outcomes resulting from technology use to young people's varying levels of vulnerability or resilience (19,57) . This means that some children are better equipped than others to withstand, adapt to or recover from negative experiences associated with technology use. Several studies have explored evidence on what factors can contribute to greater resilience or vulnerability. Numerous protective and risk factors were identified in the literature; these can broadly be categorized into individual factors related to the young digital technology user and environmental factors that reflect what is happening in the young person's family, community and society. Many of these factors can coexist and interact in complex ways. A frequent observation in studies is that children who are generally exposed to higher levels of adversity tend to have fewer protective factors (67) . Protective factors that may increase resilience include both individual and environmental factors. Individual factors include:
+
+- individual temperament -for example, self-confidence or body appreciation (33,68,69) ;
+- positive, intrinsic motivations for going online -for example, information seeking, enrichment or learning (70,71) ;
+- adopting strategies to protect privacy or self-regulate use, such as turning notifications off (19,72,73) ;
+- developing digital literacy and skills (74) ;
+- learning about self-acceptance, body positivity and healthy digital practices (33,59) ; and
+- adopting positive strategies to manage emotions and cope with negative experiences -for example, reporting incidents and seeking help (53,57) .
+
+Environmental factors include:
+
+- higher socioeconomic status or family education level (16,66) ;
+- social support (online and offline) and close family/peer relationships (19,75 -77) ;
+- parental interest and active mediation of the child's tech nology use (16,35) ;
+- open discussions with family and setting boundaries on technology use together (21,78) ; and
+- parents modelling healthy digital habits (76,79) .
+
+Risk factors that may increase vulnerability can also be characterized as individual and environmental. Individual factors include:
+
+- existing mental health conditions (10,23,58) ;
+- individual temperament -for example, low self-esteem, impulsivity or FOMO (68,80,81) ;
+- experience of offline risks or stressors, such as violence or bullying (61) ;
+- negative or extrinsic motivations -for example, seeking approval, avoidance or to talk to strangers (39) ;
+- remaining passive after an upsetting online experience (57) ; and
+- maladaptive coping skills -using social media to avoid dealing with negative emotions (50,74) .
+
+Environmental factors include:
+
+- lower socioeconomic status or family education level (16,62) ;
+- lack of social support or weak family communication (19,77,82) ;
+- uncontrolled use of technology or internet access in bedroom (52,83);
+- strict parental monitoring (70,78) ;
+- parental phubbing (ignoring one's immediate social interactions in favour of engaging with a smartphone) and negative modelling (16) ; and
+- restrictions on other activities -for example, restrictions during the coronavirus disease (COVID-19) pandemic pushing more children online (52) .
+
+Gender and digital literacy were two key factors that were identified as both protective and risk factors in different studies. Some studies found gender-specific effects. For example, boys and sexual minority young people are more likely to engage in risky online behaviours, while girls have higher levels of appearancerelated social media consciousness and are more likely to engage in comparison, seek approval from peers (25,32,36,58,59,84) . While most studies indicate that digital literacy helps to build resilience and promote positive technology use, some researchers propose that it can lead to more time online and greater exposure to online risks (19,57) .
+
+### Biological and developmental factors that increase vulnerability
+
+Most studies included in this review suggested that all children and adolescents are particularly vulnerable to online risks to their health and well-being due to their age. This vulnerability was frequently cited as the primary reason for focusing on adolescents in research studies.
+
+Biological and developmental factors play a significant role in how young people engage with technology and navigate online risks. Younger children in particular often struggle to manage their use of digital devices due to their limited cognitive development and digital literacy (28) . Their ability to recognize and respond to online dangers is also less developed compared to older children or adolescents. During adolescence, the brain undergoes crucial developmental changes -particularly in areas responsible for emotion regulation and executive functions (16,43) . This period is characterized by a heightened drive for novelty seeking and social reward, and a growing sensitivity to external feedback, which can influence online behaviour (85,86) . Adolescence is also a time of intense self-discovery and identity formation (33,87) . Young people during this stage are more likely to experience heightened self-consciousness, a stronger need for peer acceptance and a desire for social belonging (74) . The pursuit of autonomy and independence is central to their development, but so is the increased susceptibility to impulsivity and risk-taking behaviours (88,89) . The adolescent brain ' s sensitivity to rewards further contributes to this, making adolescents particularly vulnerable to the allure of online platforms that provide instant gratification and social validation (90) . It is during this period that mental health issues -such as anxiety, depression and body dissatisfaction -commonly emerge, and young people may struggle with issues of identity and self-worth (59,91) . Some young people appear to be more vulnerable than others owing to pre-existing vulnerabilities (23,59) . Those with mental health problems -such as low self-esteem or body dissatisfaction -often face increased risks in online environments, as they may be more sensitive to negative feedback or social comparison (92) . Additionally, children who experience vulnerabilities offline -whether due to family circumstances, lack of support or other factors -are more likely to encounter greater online risks and find it harder to access the help they need (24) . Gender minority young people and those from lower socioeconomic backgrounds may also experience additional stressors that exacerbate mental health challenges, making them more susceptible to the negative effects of online engagement (30,32) . Evidence is mixed regarding gender-related differences in vulnerability to various online risks, but certain trends have emerged. For instance, girls are often subject to greater societal pressures related to physical appearance, which can make them more vulnerable to issues concerning body image and self-esteem (11) . These pressures may be amplified in online spaces, where social comparison is frequent, and where appearance-related content is pervasive. As a result, the impact of online risks such as cyberbullying or social media comparisons may be more pronounced for some young people -particularly those already dealing with mental health issues or negative self-perceptions (24) .
+
+### The role of technology design features in mental health outcomes
+
+New affordances of social media and smartphones can shape young people's developmental experiences in several ways. While a limited number of studies explored the impact of specific design features or affordances of social media, the importance of several features was identified in the literature. One of the most notable changes brought about by digital technologies is the greater frequency, immediacy and permanence of communication and experiences (80,93) . Unlike previous forms of communication, smartphones allow constant connectivity, facilitating a wider range of
+
+simultaneous interactions (94) . With direct messaging and chat functions, young people can engage with both friends and strangers at any time, further amplifying the potential for both positive and negative experiences (21,43,95) . Current 24/7 connectivity means that young people are constantly accessible, which can intensify peer demands and expectations , contributing to feelings of stress and pressure. Smartphone notifications and alerts, designed to capture attention, often function as a source of distraction and anxiety (39) . The desire to stay connected is frequently reinforced by features like rewards, streaks and reminders, which encourage regular communication and content sharing (50,96) . These features can create a cycle of engagement that becomes difficult to disengage from, contributing to feelings of dependency and stress. The nature of online relationships has shifted (97) . Social interactions are increasingly quantified through likes, followers and comments, which can lead to unhealthy comparisons and a distorted sense of self-worth (11,33,71) . Anonymity online, while allowing freedom of expression, can also reduce stigma but simultaneously enable harmful behaviours such as cyberbullying (22,33,59) . Digital platforms offer new opportunities for connection and information sharing (8) . Young people can access social networks, support groups and resources related to mental health, which may not be readily available in their offline lives (24) . However, the same platforms that offer valuable support also host inaccurate and harmful content, with hashtags and trends making it easier for users to encounter both positive and detrimental material (22) . The availability of information on mental health, for example, may help users seek support, but it can also expose them to potentially triggering content if not curated carefully (98) . The importance of imagery has increased . The visual nature of many platforms has led to a heightened focus on appearance, perfection and comparison (32) . Smartphone cameras and photo editing applications (apps) enable user-generated content to be created and posted quickly (26) . Features such as filters and image-altering tools encourage the creation of idealized versions of self, further contributing to body image concerns and mental health struggles (29,44,59,85,99). Data and business models play a major role in shaping user experiences, and platforms are competing for users' attention (90,100) . Algorithms that personalize, curate and suggest content are central to the design of most social media platforms, and these algorithms can reinforce both positive and negative patterns of behaviour (74) . The drive for data monetization through targeted advertising and influencer marketing often blurs the lines between content and advertising, making it difficult for users to discern what is authentic (101) . These business-driven features can heighten the pressure young people feel to conform to certain ideals or behaviours, amplifying the impact on their mental health.
+
+### Potential impact pathways
+
+Several major theoretical frameworks were identified in the literature to explain how using digital technologies -particularly social media -may affect young people's well -being. Five potential impact theories dominated within the studies.
+
+Transformation and affordances approaches were identified frequently in the literature. The online world offers young people new opportunities for navigating developmental processes like relationships and identity exploration. However, it also exposes them to harmful content and behaviours (such as sexual or violent material or self-harm imagery) that they might not encounter offline or at such a young age. Prolonged online activities and multitasking can strain attention systems and internal stimuli (80,97) . Some studies referred to a socioecological model of development . Digital technology use affects young people ' s mental health through complex interactions between individual traits, their environment and societal influences. These effects are mediated by how young people engage with digital devices and online content, which evolves over time (16,48) . Uses and gratification theory was another model mentioned in some articles. Young people use technology to meet specific needs, such as belonging, connection or information seeking. The online world offers greater freedom to fulfil these needs compared to the structured offline world. Those with mental health issues may also turn to technology for coping or support (55,61,81) . The developmental sociocultural framework was cited. This theory is linked to the impact of social media use on body image concerns, depression, self-harm and suicide. Social media can amplify appearance-focused behaviours, objectification and unhealthy norms -particularly on visual platforms. Social comparison among social media users is particularly linked to body dissatisfaction and other negative outcomes (17,25,26,29) . However, body-positive content can promote self-esteem and confidence (85) . The final framework identified was time displacement theory . Excessive time spent online can displace other activities that support health and well-being -such as physical exercise, face-toface socializing and engaging in hobbies. Technology use is often a sedentary and solitary activity, which can reduce the time a young person spends being physically active. Device use before bedtime can lead to hyper-arousal, making it harder to unwind and negatively affecting sleep quality. Together, these factors may contribute to depression, anxiety and externalizing behaviours (21,25,60,66,81) .
+
+### Evidence quality
+
+The objective of this rapid scoping review was to provide an overview of the current evidence base on the mental health impacts of young people's social media use , and not to assess the quality of that evidence. However, the review found that a lack of high-quality evidence in this field was a concern for many scholars. Of the 63 review articles included in this study, 39 (63%) discussed methodological limitations that they believe diminish the overall quality of the evidence base, and may have resulted in conflicting findings on the relationship between young people's technology use and mental health. The most significant limitations of existing evidence are summarized in the next section. The majority of studies on young people's technology use are cross -sectional (observational studies that analyse data from a population at a single point in time) or repeated cross-sectional studies. Of the 226 studies published between 2020 and 2024 that were analysed in this scoping review, 107 were cross-sectional (Table 3). This type of study methodology is generally
+
+considered to be less rigorous and reliable than other types, such as experimental designs or studies using longitudinal methods. The predominance of cross-sectional studies in this field has led some researchers to conclude that the overall evidence base on the relationship between technology use and mental health outcomes is weak, and that the direction of the relationship between variables cannot be determined, since cross-sectional studies rarely establish temporality. Additionally, there is a lack of e xploration of young people's lived experiences and their complex relationships with digital technologies: only seven studies employed qualitative approaches such as focus group discussions and in-depth interviews.
+
+Table 3. Types of study included in the scoping review
+
+| Group      | Study type                                                                           |   Number |
+|------------|--------------------------------------------------------------------------------------|----------|
+| Individual | Cross-sectional (including repeated and cohort)                                      |      107 |
+|            | Longitudinal                                                                         |       37 |
+|            | Experimental or quasi-experimental (including randomized trials and pre-post)        |       10 |
+|            | Qualitative                                                                          |        7 |
+|            | Modelling                                                                            |        2 |
+| Review     | Narrative review                                                                     |       15 |
+|            | Systematic review                                                                    |       14 |
+|            | Scoping review                                                                       |       10 |
+|            | Meta review/analysis                                                                 |        6 |
+|            | Mixed review (a combination of different types of reviews)                           |        5 |
+|            | Umbrella review                                                                      |        4 |
+|            | Others (rapid, consensus, critical, literature, theoretical, concept and commission) |        9 |
+
+Between 2020 and 2024, 24 systematic reviews, meta-analyses and umbrella reviews were published that included an assessment of evidence quality and/or risk of bias. Cross-sectional and longitudinal studies assessed within meta-analyses and systematic reviews were generally judged to be of moderate to high quality; low-quality studies were usually excluded (23,49,57,59,69,81,87) . Other reviews judged the overall quality of studies to be poor (9,102) . Where assessed, study quality was not found to moderate the results (103) . Some reviews found high levels of bias within studies -largely due to the composition of study cohorts, lack of control for relevant confounders, and limitations in the measurement of social media exposure and mental health outcomes (51,101,102) . Levels of publication bias were found to be low (37,96) , although the relatively small body of evidence on the benefits of social media may skew the overall evidence base (90) . Narrative and scoping reviews, on the other hand, usually did not conduct quality assessments.
+
+No standard methodology was used for assessing quality of evidence. A range of different quality appraisal frameworks, tools and checklists were applied -for example, to assess study
+
+design, statistical credibility, risk of bias or weight of evidence. This heterogeneity of methods and thresholds for quality makes it difficult to compare or aggregate the different conclusions about evidence quality. There is a growing awareness of the need for more rigorous and systematic evaluation of evidence in this field, and for more studies of longitudinal and experimental design. Researchers caution policy-makers against basing decisions on suboptimal methodologies and inconsistent effect sizes.
+
+### Limitations of existing research
+
+Researchers have identified several limitations in the current evidence base regarding the impact of technology use on young people ' s well-being and mental health. One primary concern is the rapid evolution of social media platforms, which causes research to become outdated quickly. Popular platforms like Snapchat and TikTok are often underrepresented in studies, creating gaps in understanding of their effects. Another major limitation is the lack of longitudinal or experimental evidence. The majority of studies are cross-sectional, which prevents establishment of causation or the direction of relationships. These studies also fail to capture the transient, momentary effects of technology use. Additionally, there is still a strong focus on screen time as a measure, which does not account for the quality and context of user experiences. The ubiquity and increasingly personalized nature of social media make it very difficult to study the relationship between exposure and outcomes. Many studies rely on self-reported data about technology use and mental health status, which may be subject to bias or inaccuracy. The diversity in reporting measures and definitions used for well-being/mental health and levels/types of technology use further complicates comparisons across studies. This lack of standardization, coupled with differences in study characteristics such as sample populations, study design and measurement tools, often limits the generalizability of findings. Another issue is that the impact of different social media platforms or types of technology use is often grouped together, potentially disguising their distinct effects. Studies tend to focus on a small number of variables, neglecting many possible confounding, mediating and moderating factors. Few studies consider young people ' s personal vulnerabilities, characteristics and environmental factors, either at baseline or over time. Moreover, other stressors that may have a more significant impact on well-being and mental health -including those related to the COVID19 pandemic -are understudied. Lastly, many samples used in these studies are small and non-representative, with an overrepresentation of female participants in surveys. These limitations highlight the need for more comprehensive, longitudinal and diverse studies to better understand the complex relationship between technology use and young people ' s mental health and well-being.
+
+### Recommendations emerging from studies
+
+The majority of studies included in this review concluded with recommendations for future research. They also offered recommendations for actions to be taken by technology companies, policy-makers, caregivers, educators and clinicians to both protect young people from digital
+
+harms and encourage positive uses of technology. Compilations of these recommendations are summarized below.
+
+Priority areas for future research include:
+
+- measuring the strength and significance of different mediators and confounding factors that influence the relationship between technology use and mental health outcomes;
+- examining the mental health impacts of different social media features, types of content and types of online interactions;
+- exploring the individual differences of study participants and differences between subgroups to understand motivations for using different platforms and why some young people are more affected by technology uses than others;
+- conducting more longitudinal research to examine the direction of associations and withinperson impacts over time, and to assess whether momentary associations on well-being have long-lasting effects;
+- including younger children in future studies to understand the impacts of early exposure to technology and how mental health outcomes differ according to age;
+- expanding the number of experimental designs to test for causal relationships and the effect of different interventions to modify young people's technology use ;
+- reaching greater consistency in measures of technology use and mental health outcomes to enable results to be pooled; and
+- increasing research into the positive uses of social media and how they contribute to wellbeing.
+
+Actions for tech companies include:
+
+- limiting features that encourage compulsive and prolonged use and that focus on physical appearance;
+- enforcing age limits on platforms and strengthening efforts to remove harmful content; and
+- allowing researchers to use data generated by social media companies to enhance understanding of the relationship between technology use and young people's health and well-being.
+
+Actions for caregivers, policy-makers, educators and clinicians include:
+
+- strengthening regulation of social media -particularly the highly visual platforms;
+- implementing person-centred approaches to minimize the harmful effects of technology use rather than introducing blanket restrictions;
+- supporting young people to limit excessive technology use (for which some researchers propose daily time limits, and some reference WHO's screen time recommendations (104) );
+- supporting young people to use alternative emotion regulation strategies and to create healthy habits -for example, around sleep, physical activity and opportunities for in-person social interaction;
+- building young people's knowledge and skills on social media literacy, online safety, promoting healthy technology use and where to get support if they need help;
+- staying informed about the social platforms that young people use and their different
+
+- benefits and risks;
+- investing in mechanisms to build young people's resilience and make support available for those who experience negative impacts of technology use; and
+- expanding school-based, gender-sensitive education on topics such as well-being, building self-esteem and positive body image.
+
+
+## Findings: policy mapping
+
+### EU policies and regulatory frameworks
+
+#### Key insights on EU frameworks for protecting minors in digital environments
+
+Across the EU, legislative and policy instruments such as the Digital Services Act (DSA) and the Audiovisual Media Services Directive (AVMSD) underscore the importance of safeguarding minors in online spaces. These frameworks prioritize content moderation and platform accountability, requiring digital service providers to maintain transparent processes for identifying and managing harmful or illegal content that could affect children. Although both the DSA and the AVMSD aim to protect minors, they approach responsibilities in distinct yet complementary ways. Under the AVMSD, there is strong emphasis on self-regulation and industry-led solutions. Platforms are encouraged to adopt parental controls, age ratings and other tools that empower families to manage children's exposure to online risks. In contrast, the DSA places a heightened legal obligation on digital platforms -especially very large ones -to safeguard young people. Measures include robust age-verification systems, parental control options, rapid responses to flagged content and transparent algorithms that explain how content is recommended or moderated. Beyond legal mandates, the EU also supports child participation in shaping digital policy. The Better Internet for Kids (BIK+) strategy actively involves children and young people in decisions about the digital decade through consultations, co-creation initiatives and inclusive policy development. By fostering direct feedback from minors, the EU seeks to craft regulations that truly refle ct children's needs and experiences. Amid ongoing technological advances, EU frameworks are evolving to address emerging risks. These include potential threats arising from augmented reality, cryptocurrency, deep fakes and algorithmic manipulation. A guiding principle in mitigating such risks is the promotion of safetyby-design approaches: digital platforms are encouraged (and, in some cases, required) to investigate and modify features -such as social media recommendation systems -that may inadvertently foster addiction or manipulation. Finally, the EU continues to gather and analyse emerging evidence on young people's digital behaviours. An EU-wide social media survey found that how children use digital platforms is often more significant than how much time they spend online (105) . This is highlighted by the researchers as a need for further research into the drivers of loneliness and strategies to mitigate its digital correlates, ensuring that Europe's online environment remains as safe, inclusive and supportive for minors as possible. Fig. 1 shows a timeline of key EU policies and strategies.
+
+### National policy and regulatory frameworks
+
+Policies from 15 countries in the WHO Europe Region were included in the mapping exercise. A wide variety of strategies address the protection of children in digital environments. Although these approaches differ in scope and implementation, they can broadly be categorized into five key measures that illustrate emerging practices and ongoing challenges. The first measure is stronger content moderation . A common feature of national policies is the drive to remove or restrict access to harmful content, such as pornography, violence and cyberbullying. Governments emphasize swift and effective mechanisms for reporting and addressing harmful content, although precise definitions of 'harmful' vary from one country to another. Typical moderation measures include time-based restrictions, providing filtering software to limit exposure, offering easy mechanisms for content reporting and issuing automated notifications on the status of their reports. These efforts reflect a growing consensus that content moderation is central to safeguarding minors online. Many countries use strict age restrictions and verification systems . Recognizing that minors often access content meant for older audiences, some countries now legislate or otherwise enforce minimum age limits on social media and online platforms. To achieve this, some governments require the use of age-assurance technologies or digital identity systems to ensure compliance and protect minors from accessing harmful or age-inappropriate content. Content labelling and clear age classifications is another tool used by some countries. However, in the absence of strong regulations or practical enforcement mechanisms, age verification tends to remain a challenge. Consequently, the degree of protection children receive varies widely across countries. Policies frequently promote or mandate the adoption of parental control tools that help manage children's online activities. Device manufacturers and platform providers are encouraged -or, in
+
+some cases, required -to provide tools that enable parents to monitor, restrict and manage their children's online activities. These tools include content filters, time limits and reporting mechanisms. In some cases, notifications are triggered if children encounter harmful content, enabling parents to intervene quickly. A fourth measure involves tackling addictive design features . Beyond limiting harmful content, a growing number of policies address the potentially addictive qualities of certain digital platforms. Recognizing the risks of features such as infinite scrolling, loot boxes and aggressive notifications, policies are increasingly holding platforms accountable for designing safer digital space, and scrutiniz ing platforms for their impact on children's behaviour and well -being. Some policies have encouraged platforms to ensure algorithmic oversight and consider redesigning features to minimize addiction and foster healthier usage habits. Industry is being held accountable for design choices, and encouraged to adopt a child-centric approach to platform development. Finally , several digital literacy and youth empowerment strategies emphasize education as the cornerstone of online protection. This includes offering digital literacy programmes for children, parents and educators about digital risks and safe online behaviours, and presenting initiatives that advocate introducing screens gradually to younger users. Critical thinking skills, responsible digital engagement and personal data awareness are seen as vital tools for empowering young people. By fostering greater digital resilience, these measures aim to equip young people with the knowledge and confidence needed to navigate the digital world responsibly.
+
+### Snapshots of national approaches
+
+National approaches to protecting young people in digital environments vary across the 15 countries examined. This section provides a snapshot of key policies, regulatory measures and emerging trends shaping each country's response. A full list of all poli cies and related documents reviewed is included in Annex 3.
+
+#### Albania
+
+Albania has placed focus on youth participation and skills development. The country promotes digital literacy through a focus on information and communication technology education, coding programmes and vocational training. These efforts aim to equip young people with digital skills while fostering governance and community engagement. Policies also address mental health and online safety, highlighting key mental health challenges -including self-comparison, inappropriate materials and cyberbullying. To enhance child safety in public digital spaces, regulations mandate that children aged under 14 years must be accompanied when accessing internet centres. Additionally, filtering systems are implemented in schools and public spaces to block access to harmful content.
+
+#### Armenia
+
+Armenia promotes digital innovation and literacy by providing children with large-scale learning opportunities through a creative technology centre where children can learn digital literacy. The country claims to be one of the leaders in digital innovation and digital literacy. Recognizing the importance of equipping young people with critical thinking skills in the digital age, Armenia supports innovative youth-led media literacy initiatives. Programmes like CoMedia, supported by the United Nations Children's Fund ( UNICEF), use creative and engaging methods -such as board games -to help young people combat online misconceptions. Armenia takes a unique approach to bullying and cyberbullying prevention by emphasizing kindness as a key strategy. Rooted in insights from global youth consultations, efforts emphasize empathy and positive digital interactions.
+
+#### Austria
+
+The Austrian Youth Strategy emphasizes enhancing media and information literacy as a key pillar in empowering young people in digital spaces. The Strategy is heavily focused on digital literacy and the involvement of young people in the policy creation process. A youth-centred participatory approach is central to the Youth Strategy: young people are actively involved in shaping policies. Initiatives undergo 'reality checks' -a validation process where you ng people's perspectives are incorporated into decision-making. This ensures that policies reflect the concerns and needs of young people. Austria's approach to youth digital engagement is structured around strategic goals of strengthening digital skills in classrooms (by integrating media literacy), promoting safe online
+
+behaviour and enabling conscious use of technology for safer digital experiences.
+
+#### Azerbaijan
+
+Azerbaijan has implemented mandatory age labelling, required age classifications to be displayed to enhance child protection in digital environments. The regulation aims to create clear boundaries around ageappropriate content, and categorize 'harmful content'. As part of the Law on Protection of Children from Harmful Information, Azerbaijan launched the Parental Control and Internet Security programme in 2018. This is an app that aims to help parents and institutions to create safe experiences. When the app is running, it filters the internet directly. It also records information such as websites, programmes and words used by the child and passes it to the parent. A dedicated filtering system helps prevent exposure to harmful content, such as suicide, pornography, terrorism and bad habits-related content. The system also offers parents tools to use remotely, such as time limits and content blocking, allowing oversight of children's digital
+
+activities.
+
+#### Belgium
+
+Belgium's approach has a youth policy focus . The country's regional youth work emphasizes outreach and support in public and digital spaces, ensuring that young people have access to resources that promote engagement, inclusion and well-being. In 2022, the Wallonia -Brussels Federation adopted a comprehensive media education plan featuring 62 actions aimed at strengthening critical thinking and interactivity with media. Belgium has also set the minimum age for registering on social media networks as 13 years, avoiding an overly restrictive approach and focusing on digital literacy. Belgium introduced a mental health pilot project that provides reimbursed first-line psychological treatment for young people facing mild to moderate mental health issues, including screen addiction and behavioural or social problems.
+
+#### Croatia
+
+Croatia enforces measures to prohibit activities to protect minors from online exploitation, including banning meeting proposals, data sharing or publishing photos of children under the age of 15 years for the purpose of sexual exploitation and harm. These regulations aim to prevent grooming and other kinds of digital abuse. National guidelines emphasize time restrictions on content based on age groups and clear labelling of inappropriate material to help guardians and young users navigate digital spaces safely. The recommendations are structured around key developmental periods -at 12, 15 and 18 years old -ensuring that digital exposure aligns with cognitive, emotional and social maturity.
+
+The guidelines promote a graduated, age-appropriate approach to online safety.
+
+#### Czechia
+
+Czechia has an integrated addiction strategy : the National Strategy to Prevent and Reduce Harm Associated with Addictive Behaviour. This approach encompasses both substance and nonsubstance addictions -including gambling, gaming and other non-substance addictions. Since 2017, new regulatory measures have targeted technical games and problem gambling, introducing regulations to mitigate addiction-related harm. While digital addiction is integrated into the National Strategy, there is no unified definition, reflecting an ongoing debate on its classification. The country's efforts focus on awareness, child protection and monitoring risks in digital environments.
+
+#### France
+
+New parental control legislation came into force in 2024. This requires device manufacturers to pre-install parental controls to block harmful content. Non-compliance with this law carries penalties, ensuring stronger enforcement of child protection measures in digital environments. Under the Digital Majority Law No. 2023-566 , minors under 15 years must obtain parental consent to access social networks. The legislation also promotes risk education, ensuring that young users are informed about online dangers.
+
+France's national strategy addresses addictive behaviours including digital addiction, focusing on preventing excessive screen use, expanding care for digital addiction and encouraging healthy digital habits among children and adolescents. Under the Influencer's Law , to protect young users, influencers must disclose paid partnerships, ensuring transparency in digital marketing. Additionally, earnings of minors aged under 16 years who work online are safeguarded, with funds placed in protective accounts until they turn 16. To address content safety , France commissioned a national report on children and screens. This investigates the neurological, mental and socio-relational impact of digital engagement. It also examines the risks associated with exposure to harmful content.
+
+#### Germany
+
+Germany's Youth Protection Act enforces strict time-based age restrictions to shield children from media content. Service providers must implement technical measures -including ageverification checks and personal identification number-protected access -to prevent minors from accessing unsuitable content. Additionally, age labelling must align with officially approved youth protection software, ensuring consistent standards for child safety in digital spaces. National recommendations for physical activity include clear screen time guideline limits based on age. The recommended limits are 30 minutes/day for preschoolers, 60 minutes/day for primary schoolchildren and a maximum of 2 hours/day for adolescents. The guidelines emphasize a gradual approach to screen exposure, promoting balanced digital engagement. Recognizing the link between sedentary behaviour and health risks, Germany integrates limited screen use into broader physical activity promotion strategies. The guideline promotes an active lifestyle and balanced screen usage. In response to concerns about children's exposure to harmful content, German officials have proposed a TikTok ban for children aged under 12 years. This proposal aims to reduce early exposure to harmful content and addictive digital practices.
+
+#### Hungary
+
+Hungary's Digital Child Protection Strategy aims to shield children from hazardous content through a combination of filtering software, warning notices and awareness campaigns. The Strategy also introduces simplified procedures for parents to request filtered internet services. New proposed legislative measures focus on strengthening penalties for sexual offenses against minors, including lifetime inclusion in a public paedophile database and a zero-tolerance policy for negligence by child protection professionals. Additionally, school-based psychological support is mandated, requiring regular psychological discussions in schools on issues such as online gaming and digital dependency to promote early intervention and awareness. Hungary has also implemented advertising and content regulations : from January 2025, videosharing platforms must restrict product placements and inappropriate content for children aged under 14 years. Advertisements targeting minors must be clearly labelled, and alcohol advertisements are banned around child-targeted content. The regulations aim to reduce commercial exploitation and exposure to harmful content.
+
+#### Ireland
+
+Ireland ' s Online Safety Code imposes new obligations on video-sharing platforms to enhance child protection. Platforms must update terms of service to reflect stricter safety standards, enforce age-verification checks for accessing harmful content, provide parental controls to limit exposure to inappropriate material, offer reporting tools, and publish annual media literacy action plans to promote responsible digital engagement. The Online Health Taskforce addresses online harms affecting mental, physical and sexual health, and broader societal issues such as racism and extremism. The Taskforce focuses on identifying gaps in protective tools, public awareness and age-verification measures. In response to rising concerns over youth well-being, social media restrictions have been proposed -banning social media for those aged under16 years and restricting on smartphone use in secondary schools, comparing their harm to smoking. The Irish Medical Organisation has backed this stance, calling for smartphone and social media use to be treated as a public health emergency. Experts link this crisis to addictive features, such as infinite scrolling, which are believed to exacerbate mental health issues, including anxiety, depression and loneliness.
+
+#### Italy
+
+Italy's Decree Law No. 123 (effective 2024) mandates device manufacturers to provide parental control features and ensure that devices support these tools. To protect user privacy, personal data collected through parental controls cannot be used for profiling or commercial purposes. A proposed bill on social media restriction and age-verification systems seeks to restrict social media access for children aged under 13 years, while those aged 13 -15 years require parental consent. The legislation proposes robust age-verification systems, where users will be required to verify eligibility through digital identity services such as the Public Digital Identity System. To preserve user anonymity, social platforms would only receive confirmation of eligibility without acces sing users' personal data. A proposed ' sharenting ' regulation aims to mitigate risks arising from online oversharing of images by parents. It includes provisions ensuring that profits generated from a child's online presence must be transferred to child-owned accounts. Additionally, children will have the right to request ' digital oblivion ' at 14 years, allowing them to erase their digital footprint.
+
+#### Poland
+
+Poland focuses on improving digital literacy and competencies through initiatives like the Nationwide Educational Network, which provides fast, secure internet access in schools while also providing digital literacy training for students. Advanced digital media use is integrated into the school curriculum , with an emphasis on updating teacher training to equip educators with the skills to guide students in responsible digital engagement. To address parental responsibility and sharenting , Poland promotes child protection and privacy awareness through a handbook on the image of the child on the internet. This guide advocates
+
+parental consent and caution in sharing children's images to mitigate long -term risks associated with sharenting and overexposure. To strengthen online safety protections, Poland requires video-sharing platforms to implement age-verification systems, parental controls and accessible mechanisms for reporting illegal content.
+
+#### Spain
+
+Spain has implemented parental controls and content regulation . The country mandates that parental control features are available on devices at no extra cost, ensuring that families can manage children's digital access without financial barriers. Additionally, time -based restrictions on harmful content have been implemented, limiting exposure to inappropriate material. Spanish officials have called for device manufactures to have health risk labels on devices to inform users of potentially digital-related health concerns. To address social media and privacy , a proposed bill on protection of children in digital environments plans to raise the minimum age for social media accounts from 14 to 16 years, owing to evolving digital technologies. The bill also addresses sharenting, aiming to introduce measures to protect children's privacy and digital image, ensuring that minors have greater control over their online presence. A Spanish expert committee has recommended redesigning addictive features , such as infinite scrolling and notifications to reduce compulsive digital behaviours. The recommendations also call for the establishment of a child protection strategy in digital environments, developed with youth participation and civil society contributions.
+
+#### United Kingdom
+
+The United Kingdom's Online Safety Act (OSA) establishes strict obligations for digital platforms, requiring them to remove illegal content, implement age-assurance technologies, assess algorithmic risks and enforce a safety-by-design approach to minimize harm. The OSA strengthens oversight , introducing tighter regulations for internet companies and imposing penalties for non-compliance. It ensures that platforms are proactively responsible for content moderation and user safety. Platforms are mandated to disclose content moderation policies, verification measures and content removal practices, ensuring greater transparency requirements in how digital services regulate harmful content. The government has issued non-statutory guidance recommending a mobile phone ban in schools, with exemptions for children with special needs. The guidance aims to reduce distractions and improve student well-being while allowing necessary accommodations. A policy briefing on loneliness promotes digital literacy and responsible technology use while ensuring that individuals have access to digital communication technology. At the same time, it respects non-digital preferences, recognizing that social connections should be fostered both online and offline.
+
+### Non-regulatory measures to protect children
+
+Several countries also implement non-regulatory measures such as digital literacy programmes and capacity-building for young people to address digital risks. By integrating skill-building directly into school curricula or through government-supported programmes, countries aim to foster a generation of digitally resilient, critically aware young people. Equally significant is the acknowledgement that vulnerable populations and children themselves must have a voice in shaping the policies designed to protect them. A common approach is integration of digital literacy into education systems . In Armenia, an EUfunded programme focuses on digital literacy schools for young women and creative technology centres for children -efforts that address gender imbalances in technology. Austria similarly prioritizes inclusive education -highlighting participatory learning, resilience to extremism and digital skill development to help young people navigate online spaces safely. With media and information literacy, young Austrians are guided to become active and responsible participants in societal dialogue. In Poland, advanced digital media use is integrated into educational settings, supported by specialized teacher training. Particular emphasis is placed on critical thinking about privacy settings and the responsible sharing of images. While formal educational channels are recognized, some countries use creative approaches to digital literacy , leveraging innovative, media-driven methods to reach children and adolescents effectively. In Czechia, modern tools like video games and podcasts are used to convey key messages on internet safety. The Emmy-winning television series # Martyisdead highlights cyberbullying awareness, exemplifying how impactful storytelling can foster public discourse (106) . Several countries focus on vulnerable groups . Inclusive strategies ensure that the most at-risk children benefit from digital education initiatives. Belgium, for example, emphasizes media literacy initiatives tailored to children with disabilities and those in low-connectivity or otherwise vulnerable situations. Some strategies, like Belgium's, aim to narrow the digital divide. Some countries complement school-based learning with broader awareness campaigns and capacity-building efforts . Albania aims to develop a 'train the trainer' programme supported by a child-friendly manual and a unified message for online security awareness, ensuring wide dissemination of child protection guidelines. Capacity-building activities target both information and communication technology professionals and industry stakeholders. Hungary similarly encourages the production of child-friendly websites, and conducts awareness campaigns that promote active, informed usage of these resources. Some countries focus on clearer guidance for parents and children to navigate digital risks responsibly via labelling of risks and promoting gradual access . In Spain, guidelines emphasize clear labelling of risks associated with digital devices and content. Croatia, France and Germany advocate gradual access to digital media and family-based rules governing screen time. Very few policies explicitly promote children's participation and inclusion of young people in decision-making processes. Spain encourages minors to participate actively in policy-making and become aware of their digital rights. Few policies foreground the voices of young people in conversations about digital safety.
+
+A notable national report on protecting children online is France's Enfants et écrans: a la recherche du temps perdu (107) . The report, authored by 10 specialists following a scientific literature review and consultations with 150 young people, outlines a six-axis strategy that prioritizes child protection rather than control. It includes several priorities such as preparing children for screen autonomy, and equipping parents, teachers and educators to support young people in responsible digital use. It also emphasizes balanced screen usage along with an ambitious governance system to define strategy, support stakeholders and inform citizens. The report outlines 29 proposals for measures including, but not limited to, parental control, platform regulation and digital training. Adopted on 11 May 2022, t he EU's BIK+ strategy is one of the central EU-wide strategies on child protection (108) . The strategy aims to involve children in its monitoring and implementation. It is built on a vision of ensuring that every child in Europe is protected, empowered and respected online, and is based on three pillars -safe digital experiences, digital empowerment and active participation. The strategy supports digital literacy and online safety with the provision of resources, helplines and awareness activities. Complementing the BIK+ strategy, the Age-Appropriate Design Code under the DSA prioritizes safety and privacy for minors, while the Healthy Screens, Healthy Youth programme provides practical guidance and monitors the impact of digital transformation on you ng people's mental health (109) .
+
+### Policy content analysis
+
+#### Countries ' definitions of mental health and well-being
+
+Countries and the EU vary in how they conceptualize mental health impacts, with definitions ranging from behavioural addictions to emotional well-being, while others emphasize physical health. Notably, while some explicitly recognize digital addiction, others adopt broader health frameworks. Impacts on emotional well-being are recognized by several countries. While recognized, however, the definition and scope of emotional well-being varies. The scope includes emotional outcomes such as stress, isolation, self-esteem, loss of dignity, loneliness and irritability. Countries including Azerbaijan, France, Poland, Spain and the United Kingdom and the EU recognize the impact of digital use on emotional health. Cyberbullying remains a central focus for several countries within the WHO European Region, and is also prioritized within EU policies. While some countries have addressed broader emotional impacts, some have explicitly pointed out the relationship between digital use and specific mental health disorders . Croatia, Czechia, Ireland and Spain reference conditions such as anxiety, anorexia, bulimia, depression, eating disorders, attention deficit hyperactivity disorder and suicidal tendencies. While these links are sometimes made as causal, countries including Czechia caution about links being bidirectional, taking a cautious and evidence-based approach before drawing causal conclusions between digital use and mental health outcomes. Few policies underscore the potential physical health repercussions of digital overuse, ranging from obesity and lower fitness levels to poor academic performance. For example, while Germany enforces strict regulations on service providers to protect children, it makes little to no mention of mental health in its strategies, and remains limited to addressing physical health
+
+impacts. Similar attention to screen use contributing to physical health issues can also be found in the EU and France. A smaller group of countries -including Croatia, France and the United Kingdom -specifically highlight how increased exposure to audiovisual content may result in poorer cognitive and thought process development . In France, for instance, reports call for further investigation into screen use and neurodevelopment and socio-relational development. Some countries describe digital addiction in terms comparable to substance abuse, with parallels to gambling. Spain explicitly acknowledges digital addiction as a significant risk for young people, treating it as a behavioural condition. Meanwhile, France notes that screen addiction is not officially recognized as a disorder but aims to investigate screen use and its impact on mental health and children's development. Likewise, at the EU level, concerns over algorithm -driven addictive behaviours underscore the need to monitor how digital platforms engage young users. Increasingly some governments -including France, Ireland, Spain and the United Kingdom -are framing excessive screen use as a broader public health concern , responding with emerging health-care measures . Even though formal recognition of screen addiction remains limited, the increasing prevalence of interventions and dialogue around this issue suggests a growing sense of urgency. While policies are merging on protecting children online, some countries -such as Belgium and Spain -are already implementing mental health measures aimed at treating nonsubstance addictions linked to digital environments. The Irish Medical Organisation has called on the government to treat smartphone and social media use as a public health emergency due to their overwhelmingly destructive nature (110) . The current landscape is evolving to include the complex interplay between technology use and young people's mental, emotional and physical well-being.
+
+#### Types of content harms and risks addressed
+
+Risks to minors are often categorized by their potential impacts on their physical, mental and moral development. Several risks are identified across different countries and levels, differing in the perception of harmfulness. Policies categorize harmful content into several key areas including pornography , violence , discrimination or hatred against a specific group of people , child sexual abuse and hate messages . While several other content themes are also identified as harmful, these categories are consistently highlighted across policies as posing significant risk to minors. All countries included in this review and the EU include these digital risks. Gender-based risks and influencing contextual factors are frequently emphasized. Some policies highlight the heightened risks to vulnerable and marginalized groups such as women and children from lower socioeconomic backgrounds. A broad range of contextual and socioeconomic factors are identified as influencing digital risks -including, but not limited to, developmental characteristics; age; gender; socioeconomic status; parental education, occupation and family income; experiences of violence and abuse; and academic pressure. Albania and Czechia address contextual risks, while policies from countries including Belgium, Croatia, France and Italy and the EU mention the harmful impact of sexism or stereotypical content on marginalized groups. Data protection risks and concerns over privacy are frequently highlighted. Countries including Belgium, Croatia, Hungary, Italy, Poland and Spain address the unlawful processing of data and
+
+the growing phenomenon of sharenting. In the lack of regulation, some countries are looking at mitigating the risks arising from oversharing by empowering parents with tools and digital literacy. Alongside concerns about explicit or harmful content, policies in countries including Croatia, France, Germany and Spain, and at the EU level, flag promotion of certain products and services as hazardous to minors. These include products promoting plastic surgery; financial services such as cryptocurrency; products containing nicotine; alcohol; and unhealthy foods such as foods with high fat, trans fatty acids or salt. Excessive screen time and social media use are increasingly recognized as emerging risks to children's well -being in Armenia, Czechia, France, Germany and Italy. Although the focus centres on how long minors spend online, the EU emphasizes that how children use digital platforms may be more critical than duration. There is also growing focus on the design of platforms and the behaviours they encourage. Beyond established concerns, countries are grappling with emerging risks and a range of newer, often technology-driven threats. Hungary reports issues such as flaming (the act of posting insults, often including offensive language, on the internet) and cyberstalking, while epilepsy trolling (the deliberate use of flashing images to trigger seizures) has been identified as a major threat by the United Kingdom. In France, the United Kingdom and the EU, discussion is growing on technology-facilitated gender-based violence, deep fakes and potential harms from generative artificial intelligence. Digital risks are evolving rapidly, and few countries are addressing emerging risks and mitigating new harms.
+
+#### Types of design harms and risks addressed
+
+While many countries are focusing on platform accountability, some are also addressing a number of design risks. These range from specific addictive features such as infinite scrolling and loot boxes to algorithmic risk and harmful interaction mechanisms. While the digital landscape is evolving, various features are being identified as potentially harmful. A number of policies and reports highlight addictive features : how certain platform functionalities encourage prolonged and potentially harmful engagement.
+
+- The design choice enabling infinite scrolling loads new content continuously, prompting users to consume one post after another. In Spain and Ireland, infinite scrolling is cited as a risk for creating prolonged screen time and reinforcing compulsive behaviours.
+- Random reward mechanisms (loot boxes) are particularly common in gaming environments. These offer unpredictable rewards that can foster addictive tendencies. Spain and Hungary note that this element of randomness may exacerbate withdrawal from daily activities, particularly among young users.
+- Push notifications and constant alerts encouraging users to return to an app can amplify screen dependency. Spain and Ireland have flagged push notifications as a driver of excessive device use.
+- The EU and Czechia (through the BIK+ strategy) highlight the rabbit-hole effect : the role of algorithms in leading users down harmful rabbit holes. There is recognition that
+
+recommendation systems, targeted advertising and gamification of marketing are significant design risks. The European Commission has started formal investigations against TikTok, related to the protection of minors online -including the risks of algorithms and the behavioural addiction they may stimulate in children. The Commission is concerned about rabbit-hole effects, which may have an impact on the mental well-being of children (111) . Beyond individual design features, some countries have emphasized the broader risks posed by algorithms that aggressively promote harmful or extreme content . France, Ireland and the United Kingdom in particular caution against aggressive algorithms that are capable of amplifying harmful content. In response, the United Kingdom has banned targeted advertising to minors, and recommends that platforms undertake algorithmic oversight. Some countries have drawn attention to harmful interaction mechanisms . Certain interactive features -such as direct messaging and live streaming -can create heightened vulnerabilities for children, including grooming and exploitation. While Spain and the United Kingdom recognize these risks, current regulatory efforts to mitigate them remain limited. Policies also draw attention to a lack of protective defaults : ineffective or absent mechanisms for age-verification tools. France, Germany, Ireland, Italy, Poland and the United Kingdom note the need for effective age-verification systems to minimize harmful exposure. In the current regulatory context, younger users can bypass age-verification systems due to a lack of strict regulation. Visual elements and content presentation can also shape user behaviour and health outcomes. Albania, Germany, Italy, Spain and the United Kingdom have identified a range of risky content -including but not limited to glorification of alcohol and drugs, violence, war, consumption of substances that can cause addiction, promotion of unhealthy behaviours, and manipulated images leading to pressure to adapt and psychological hazards. Recognizing the dangers of addictive features and harmful algorithms, the EU advocates a safety-by-design approach in the development of digital products and services targeting minors, to fight addictive algorithms. The DSA compels very large platforms to consider how design features could cause addiction, placing obligations on platforms to mitigate these risks. Similarly, the United Kingdom 's OSA prioritizes a safety-by-design approach, and recognizes it as one of its key strategic priorities in implementation. It aims to deliver safe online experiences to all users, but especially children.
+
+### Gaps and limitations of existing approaches
+
+A range of different kinds of policies and strategies are in place across the WHO European Region, and these differ in their scope and implementation. The findings reveal that there is a limited level of involvement of health ministries. While policies aim to protect children in the digital field, they often fall under the purview of departments such as communication, technology, education or culture departments, with limited involvement of the health sector. This may both stem from or contribute to insufficient evidence on the health impacts of digital technologies and their transformations. The lack of involvement of the health sector can lead to actions that are limited in scope. For instance, while some policies place strong obligations on service providers, they often lack a focus on empowering users to navigate the digital space.
+
+Evidence is also lacking on inclusion of young people in policy development. Despite the significant impact of digital policies on young people, there is little evidence of their active involvement in policy development across the reviewed countries. While some policies emphasize youth empowerment or digital literacy, participation in decision-making processes remains limited. Exceptions exist, such as Austria's 'reality checks', which incorporates young people's views and needs into youth goals by involvin g young people themselves and following the principle of ' not just a policy for, but a policy with young people ' (112) . However, these practices are not widespread. While policies mention the importance of including beneficiaries -in this case, children -there is limited evidence of their involvement. Along with a lack of involvement of relevant stakeholders, the issue of digital inclusion is often overlooked. Belgium remains an exception in recognizing digital inclusion as a key priority, but it has not been a primary focus in the countries reviewed. While most policies fail to address the digital divide, countries who do address it are low- and middle-income countries where internet access is limited and unequal. Marginalized groups are also often excluded from the policy development process. Specialists in the United Kingdom argue that statutory guidance often excludes considerations for children with special educational needs and disabilities. Policies, while aiming to be inclusive, have little to no mention of the steps needed to include marginalized groups. Further, standardized definitions are currently lacking. Definitions of screen/digital addiction are inconsistent and often narrowly focused on time spent online. While a range of harmful content is identified across countries, what makes certain content harmful and how it is correlated to the health of young people is unclear. While health is conceptualized broadly, the mental health impacts of digital use are not addressed by several countries, including Albania, Austria and Azerbaijan. Lastly, while policies are evolving to address emerging risks, several countries focus exclusively on content moderation. Albania, Azerbaijan, Hungary, Ireland and Poland prioritize content moderation without addressing platform-driven risks. Even in some countries where platform design risks are being addressed, there is a lack of concrete actions on redesigns. Unlike France, which takes a stricter stance on platform accountability, Spain -while acknowledging the addictive nature of aggressive algorithms -has not mandated changes to addictive design features. Regulation, in this content, is both extremely important and tricky. Countries like the United Kingdom are facing resistance from platforms on transparency, encryption and algorithmic accountability. There are tensions over the balance between privacy and child protection, with policy-makers often taking the precautionary principle and the industry running to protect privacy. While there are ethical issues in regulation, the cost remains another challenge. Hungary, for instance, faces issues with filtering software: schools are struggling to keep up with costs and maintenance. The EU encourages a healthy online/offline balance, but recognizes that digital abstinence is not an option for today's children, as elements of formal education and social contact are increasingly online. Children are not passive consumers of technology anymore; they are using technology to express themselves and influence the world. While country policies have
+
+
+overlooked digital inclusion, the EU recognizes in its BIK+ strategy that digital deprivation in childhood can result in a lack of digital skills and digital confidence in adult life, and may reinforce the digital divide. The EU strongly advocates including children's voices in the development of digital environments, and monitoring the impact of digital transformations on children's well -being for ensuring a healthy and resilient generation. One such example of involvement of minors' perspectives is the Voice project, which aims to include children's voices in the online safety debate. The project conducted focus group discussions engaging children across the EU (in Austria, Bulgaria, Croatia, Estonia, Italy, Malta, the Kingdom of the Netherlands, Portugal, Romania and Spain) and other countries in Asia and Latin America. The researchers found a pressing need for digital literacy programmes, as children may underestimate risks and overestimate their ability to deal with them. The balance between privacy and protection also seemed to be a point of contention in their consultations, with caregivers prioritizing safety and children preferring to safeguard privacy. Their findings suggest that children seemed to be in favour of online safety measures that prioritize their protection without compromising their privacy, leaning towards safety-by-design approaches. This project showed a clear preference by children for active involvement in the design of platform features and policies (113) . There is a very distinct lack of children 's and young people's perspectives in the documents reviewed. These barriers are delaying effective and inclusive policies in the context of a rapidly evolving digital landscape.
+
+
+References 1
+
+1. Addressing child and adolescent mental health. In: WHO/Europe [website]. WHO Regional Office for Europe; 2025 (https://www.who.int/europe/activities/addressing-child-andadolescent-mental-health).
+2. WHO European framework for action on mental health 2021 -2025. Copenhagen: WHO Regional Office for Europe; 2022 (https://iris.who.int/handle/10665/352549). Licence: CC BY-NC-SA 3.0 IGO.
+3. BonielNissim M, Marino C, Galeotti T, Blinka L, Ozoliņa K, Craig W et al. A focus on adolescent social media use and gaming in Europe, central Asia and Canada: Health Behaviour in School-aged Children international report from the 2021/2022 survey. Copenhagen: WHO Regional Office for Europe; 2024 (https://iris.who.int/handle/10665/378982).
+4. Banerjee P. Digital interventions for youth health: insights from a comprehensive scoping review. Geneva: Digital Transformations for Health Lab; 2025 (https://dthlab.org/ourresearch-fellows-publish/#pb).
+5. Castro Lopez S, Holly L, Kickbusch I. Mapping policies and regulations for safe and healthy digital environments for children and adolescents. Glob Policy. 2025;Early View:1 -5 (https://doi.org/10.1111/1758-5899.13492).
+6. Digital transformations for health -achieving the future we want [website]. Digital Transformations for Health Lab; 2025 (www.dthlab.org).
+7. Course-Choi J, Hammond L. Social media use and adolescent well-being: a narrative review of longitudinal studies. Cyberpsychology Behav Soc Netw. 2021;24(4):223 -36 (https://doi.org/10.1089/cyber.2020.0020).
+8. Dienlin T, Johannes N. The impact of digital technology use on adolescent well-being. Dialogues Clin Neurosci. 2020;22(2):135 -42 (https://doi.org/10.31887/DCNS.2020.22.2/tdienlin).
+9. Piteo EM, Ward K. Review: social networking sites and associations with depressive and anxiety symptoms in children and adolescents -a systematic review. Child Adolesc Ment Health. 2020;25(4):201 -16 (https://doi.org/10.1111/camh.12373).
+10. Vidal C, Lhaksampa T, Miller L, Platt R. Social media use and depression in adolescents: a scoping review. 2020;32(3):235 -53 (https://doi.org/10.1080/09540261.2020.1720623).
+11. Choukas-Bradley S, Kilic Z, Stout CD, Roberts SR. Perfect storms and double-edged swords: recent advances in research on adolescent social media use and mental health. Adv Psychiatry Behav Health. 2023;3(1):149 -57 (https://doi.org/10.1016/j.ypsc.2023.03.007).
+
+1  All references accessed on 29 April to 2 May 2025.
+
+12. Panayiotou M, Black L, Carmichael-Murphy P, Qualter P, Humphrey N. Time spent on social media among the least influential factors in adolescent mental health: preliminary results from a panel network analysis. Nat Ment Health. 2023;1(5):316 -26 (https://doi.org/10.1038/s44220-023-00063-7).
+13. Atwal S, Browne D. Screen time and mental health in Canadian youth: an examination of nationally representative data. Psychol Rep. 2024;127(4):1678 -704 (https://doi.org/10.1177/0033294122113999).
+14. Kajastus K, Kiviruusu O, Marttunen M, Ranta K. Associations of generalized anxiety and social anxiety symptoms with sleep duration, amount of intense exercise, and excessive internet use among adolescents. BMC Psychiatry. 2024;24(1):791 (https://doi.org/10.1186/s12888-024-06231-y).
+15. Lopez-Fernandez O, Kuss DJ. Preventing harmful internet use-related addiction problems in Europe: a literature review and policy options. Int J Environ Res Public Health. 2020;17(11):3797 (https://doi.org/10.3390/ijerph17113797).
+16. Paulus MP, Zhao Y, Potenza MN, Aupperle RL, Bagot K, Tapert SF. Screen media activity in youth: A critical review of mental health and neuroscience findings. J Mood Anxiety Disord. 2023;3:100018 (https://doi.org/10.1016/j.xjmad.2023.100018).
+17. Basu N, Blanton MA, Gonzales J, Hendricks KE, Mehari K, Smith PN. Upward social comparisons and suicidal ideation on Facebook: moderating role of thwarted belongingness. Psychol Pop Media. 2024;13(3):513 -7 (https://doi.org/10.1037/ppm0000505).
+18. Noel JK, Sammartino CJ, Johnson M, Swanberg J, Rosenthal SR. Smartphone addiction and mental illness In Rhode Island young adults. R I Med J. 2023;106(3):35 -41 (https://pubmed.ncbi.nlm.nih.gov/36989096/).
+19. Stoilova M, Livingstone S, Khazbak R. Investigating risks and opportunities for children in a digital world: a rapid review of the evidence on children's internet use and outcomes . Florence: UNICEF Office of Research -Innocenti; 2021 (https://doi.org/10.18356/25211110-2020-03).
+20. Giancola N, Bentley KH, Torous J. Social media and suicidal behavior in youth: slippery slope or simply overstressed? Curr Treat Options Psychiatry. 2024;11:141 -4 (https://doi.org/10.1007/s40501-024-00323-y).
+21. Khalaf AM, Alubied AA, Khalaf AM, Rifaey AA, Khalaf AM, Alubied A et al. The impact of social media on the mental health of adolescents and young adults: a systematic review. Cureus. 2023;15(8):e42990 (https://doi.org/10.7759/cureus.42990).
+22. Moss C, Wibberley C, Witham G. Assessing the impact of Instagram use and deliberate self-harm in adolescents: a scoping review. Int J Ment Health Nurs. 2023;32(1):14 -29 (https://doi.org/10.1111/inm.13055).
+23. Susi K, Glover-Ford F, Stewart A, Knowles Bevis R, Hawton K. Research review: viewing self-harm images on the internet and social media platforms: systematic review of the
+
+- impact and associated psychological mechanisms. J Child Psychol Psychiatry. 2023;64(8):1115 -39 (https://doi.org/10.1111/jcpp.13754).
+24. Odgers CL, Jensen MR. Adolescent development and growing divides in the digital age. Dialogues Clin Neurosci. 2020;22(2):143 -9 (https://doi.org/10.31887/DCNS.2020.22.2/codgers).
+25. Khan A, Moni MA, Khan SR, Burton NW. Different types of screen time are associated with low life satisfaction in adolescents across 37 European and North American countries. Scand J Public Health. 2023;51(6):918 -25 (https://doi.org/10.1177/14034948221082459).
+26. McCrory A, Best P, Maddock A. The relationship between highly visual social media and young people's mental health: a scoping review. Child Youth Serv Rev. 2020;115:105053 (https://doi.org/10.1016/j.childyouth.2020.105053).
+27. O'Reilly M, Levine D, Donoso V, Voice L, Hughes J, Dogra N. Exploring the potentially positive interaction between social media and mental health; the perspectives of adolescents. Clin Child Psychol Psychiatry. 2023;28(2):668 -82 (https://doi.org/10.1177/13591045221106573).
+28. Van De Casteele M, Flamant N, Ponnet K, Soenens B, Van Hees V, Vansteenkiste M. Adolescents' mental health in the social-media era: t he role of offline and online needbased experiences. J Adolesc. 2024;96(3):612 -31 (https://doi.org/10.1002/jad.12286).
+29. Rounsefell K, Gibson S, McLean S, Blair M, Molenaar A, Brennan L et al. Social media, body image and food choices in healthy young adults: a mixed methods systematic review. Nutr Diet J Dietit Assoc Aust. 2020;77(1):19 -40 (https://doi.org/10.1111/1747-0080.12581).
+30. Charmaraman L, Richer AM, Liu C, Lynch AD, Moreno MA. Early adolescent social media -related body dissatisfaction: associations with depressive symptoms, social anxiety, peers, and celebrities. J Dev Behav Pediatr. 2021;42(5):401 -7 (https://doi.org/10.1097/DBP.0000000000000911).
+31. Papapanou TK, Darviri C, Kanaka-Gantenbein C, Tigani X, Michou M, Vlachakis D et al. Strong correlations between social appearance anxiety, use of social media, and feelings of loneliness in adolescents and young adults. Int J Environ Res Public Health. 2023;20(5):4296 (https://doi.org/10.3390/ijerph20054296).
+32. Klinger D, Plener PL, Marboe G, Karwautz A, Kothgassner OD, Dienlin T. Exploring the relationship between media use and depressive symptoms among gender diverse youth: findings of the Mental Health Days Study. Child Adolesc Psychiatry Ment Health. 2024;18(1):104 (https://doi.org/10.1186/s13034-024-00797-x).
+33. Popat A, Tarrant C. Exploring adolescents' perspectives on social media and mental health and well-being -A qualitative literature review. Clin Child Psychol Psychiatry. 2023;28(1):323 -37 (https://doi.org/10.1177/13591045221092884).
+34. Kosola S, Mörö S, Holopainen E. Smartphone use and well-being of adolescent girls: a population-based study. Arch Dis Child. 2024;109(7):576 -81
+
+- (https://doi.org/10.1136/archdischild-2023-326521).
+35. Lowthian E, Fee G, Wakeham C, Clegg Z, Crick T, Anthony R. Identifying protective and risk behavior patterns of online communication in young people. J Adolesc. 2024;96(2):235 -50 (https://doi.org/10.1002/jad.12270).
+36. Walsh LC, Regan A, Okabe-Miyamoto K, Lyubomirsky S. Does putting down your smartphone make you happier? The effects of restricting digital media on well-being. PLoS One. 2024;19(10):e0306910 (https://doi.org/10.1371/journal.pone.0306910).
+37. Zhang Y, Li J, Zhang M, Ai B, Jia F. Bidirectional associations between loneliness and problematic internet use: a meta-analytic review of longitudinal studies. Addict Behav. 2024;150:107916 (https://doi.org/10.1016/j.addbeh.2023.107916).
+38. Charmaraman L, Zhang A, Wang K, Chen B. Sexual minorities and loneliness: exploring sexuality through social media and gender -sexuality alliance (GSA) supports. Int J Environ Res Public Health. 2024;21(3):300 (https://doi.org/10.3390/ijerph21030300).
+39. Chochol MD, Gandhi K, Croarkin PE. Social media and anxiety in youth. Child Adolesc Psychiatr Clin N Am. 2023;32(3):613 -30 (https://doi.org/10.1016/j.chc.2023.02.004).
+40. Coyne SM, Weinstein E, Sheppard JA, James S, Gale M, Van Alfen M et al. Analysis of social media use, mental health, and gender identity among US youths. JAMA Netw Open. 2023;6(7):e2324389 (https://doi.org/10.1001/jamanetworkopen.2023.24389).
+41. Marciano L, Viswanath K. Social media use and adolescents' well -being: a note on flourishing. Front Psychol. 2023;14 (https://doi.org/10.3389/fpsyg.2023.1092109).
+42. Anthony R, Young H, Hewitt G, Sloan L, Moore G, Murphy S et al. Young people's online communication and its association with mental well-being: results from the 2019 student health and well-being survey. Child Adolesc Ment Health. 2023;28(1):411 (https://doi.org/10.1111/camh.12610).
+43. Pottie K, Ratnayake A, Ahmed R, Veronis L, Alghazali I. How refugee youth use social media: what does this mean for improving their health and welfare? J Public Health Policy. 2020;41(3):268 -78 (https://doi.org/10.1057/s41271-020-00231-4).
+44. Livet A, Boers E, Laroque F, Afzali MH, McVey G, Conrod PJ. Pathways from adolescent screen time to eating related symptoms: a multilevel longitudinal mediation analysis through self-esteem. Psychol Health. 2024;39(9):1167 -82 (https://doi.org/10.1080/08870446.2022.2141239).
+45. Seekis V, Lawrence RK. How exposure to body neutrality content on TikTok affects young women's body image and mood. Body Image. 2023;47:101629 (https://doi.org/10.1016/j.bodyim.2023.101629).
+46. Carter B, Payne M, Rees P, Sohn SY, Brown J, Kalk NJ. A multi-school study in England, to assess problematic smartphone usage and anxiety and depression. Acta Paediatr. 2024;113(10):2240 -8 (https://doi.org/10.1111/apa.17317).
+
+47. Dun-Campbell K, Hartwell G, Maani N, Tompson A, van Schalkwyk MC, Petticrew M. Commercial determinants of mental ill health: An umbrella review. PLoS Glob Public Health. 2024;4(8):e0003605 (https://doi.org/10.1371/journal.pgph.0003605).
+48. Haddock A, Ward N, Yu R, O'Dea N. Positive effects of digital technology use by adolescents: a scoping review of the literature. Int J Environ Res Public Health. 2022;19(21):14009 (https://doi.org/10.3390/ijerph192114009).
+49. Ricci RC, Paulo ASCD, Freitas AKPBD, Ribeiro IC, Pires LSA, Facina MEL et al. Impacts of technology on children's health: a systematic review. Rev Paul Pediatr. 2023;41:e2020504 (https://doi.org/10.1590/1984-0462/2023/41/2020504).
+50. Benedetto L, Rollo S, Cafeo A, Di Rosa G, Pino R, Gagliano A et al. Emotional and behavioural factors predisposing to internet addiction: the smartphone distraction among Italian high school students. Int J Environ Res Public Health. 2024;21(4):386 (https://doi.org/10.3390/ijerph21040386).
+51. Girela-Serrano BM, Spiers ADV, Ruotong L, Gangadia S, Toledano MB, Di Simplicio M. Impact of mobile phones and wireless devices use on children and adolescents' mental health: a systematic review. Eur Child Adolesc Psychiatry. 2024;33(6):1621 -51 (https://doi.org/10.1007/s00787-022-02012-8).
+52. Bozzola E, Spina G, Agostiniani R, Barni S, Russo R, Scarpato E et al. The use of social media in children and adolescents: scoping review on the potential risks. Int J Environ Res Public Health. 2022;19(16):9960 (https://doi.org/10.3390/ijerph19169960).
+53. Priftis N, Panagiotakos D. Screen time and its health consequences in children and adolescents. Children (Basel). 2023;10(10):1665 (https://doi.org/10.3390/children10101665).
+54. Wingralek ZJ, Banaszek A, Giermasiński A, Czarnecki A, Goliszek K, Kajka N et al. Turn on the screen, turn off the loneliness -analysis of risk factors for binge-watching among Polish medical and non-medical students. A web-based cross-sectional study. Ann Agric Environ Med. 2024;31(2):264 -71 (https://doi.org/10.26444/aaem/183779).
+55. Garcia MA, Cooper TV. Social media use, emotional investment, self-control failure, and addiction in relation to mental and sleep health in Hispanic university emerging adults. Psychiatr Q. 2024;95(4):497 -515 (https://doi.org/10.1007/s11126-024-10085-8).
+56. Idrees B, Sampasa-Kanyinga H, Hamilton HA, Chaput JP. Associations between problem technology use, life stress, and self-esteem among high school students. BMC Public Health. 2024;24(1):492 (https://doi.org/10.1186/s12889-024-17963-7).
+57. Vissenberg J, d'Haenens L, Livingstone S. Digital literacy and online resilience as facilitators of young people's well -being? A systematic review. Eur Psychol. 2022;27(2):76 -85 (https://doi.org/10.1027/1016-9040/a000478).
+58. Loleska S, Pop-Jordanova N. Is Smartphone addiction in the younger population a public health problem? Pril (Makedon Akad Nauk Umet Odd Med Nauki). 2021;42(3):29 -36 (https://doi.org/10.2478/prilozi-2021-0032).
+
+59. Dane A, Bhatia K. The social media diet: a scoping review to investigate the association between social media, body image and eating disorders amongst young people. PLoS Glob Public Health. 2023;3(3):e0001091 (https://doi.org/10.1371/journal.pgph.0001091).
+60. Mougharbel F, Chaput JP, Sampasa-Kanyinga H, Colman I, Leatherdale ST, Patte KA et al. Longitudinal associations between different types of screen use and depression and anxiety symptoms in adolescents. Front Public Health. 2023;11:1101594 (https://doi.org/10.3389/fpubh.2023.1101594).
+61. Schønning V, Hjetland GJ, Aarø LE, Skogen JC. Social media use and mental health and well-being among adolescents -a scoping review. Front Psychol. 2020;11:1949 (https://doi.org/10.3389/fpsyg.2020.01949).
+62. Armstrong-Carter E, Garrett SL, Nick EA, Prinstein MJ, Telzer EH. Momentary links between adolescents' social media use and social experiences and motivations: Individual differences by peer susceptibility. Dev Psychol. 2023;59(4):707 -19 (https://doi.org/10.1037/dev0001503).
+63. Milson R, Madigan DJ. Picture perfect: perfectionistic self-presentation, Instagram intrusion, and body satisfaction in young women. J Media Psychol Theor Methods Appl. 2024; advance article (https://doi.org/10.1027/1864-1105/a000434).
+64. Burnell K, Andrade FC, Hoyle RH. Longitudinal and daily associations between adolescent self-control and digital technology use. Dev Psychol. 2023;59(4):720 -32 (https://doi.org/10.1037/dev0001444).
+65. Ganson KT, Pang N, Nagata JM, Pedder Jones C, Mishna F, Testa A et al. Screen time, social media use, and weight-related bullying victimization: findings from an international sample of adolescents. PLoS One. 2024;19(4):e0299830 (https://doi.org/10.1371/journal.pone.0299830).
+66. Visier-Alfonso ME, López-Gil JF, Mesas AE, Jiménez-López E, Cekrezi S, Martínez-Vizcaíno V. Does socioeconomic status moderate the association between screen time, mobile phone use, social networks, messaging applications, and mental health among adolescents? Cyberpsychology Behav Soc Netw. 2024;27(11):824 -34 (https://doi.org/10.1089/cyber.2024.0064).
+67. Sewall CJR, Parry DA. Social media and youth mental health: simple narratives produce biased interpretations. J Psychopathol Clin Sci. 2024;133(7):507 -14 (https://doi.org/10.1037/abn0000950).
+68. Brimmel N, Bijttebier P, Eggermont S. Associations between intentions for affective social media content choices and depressive symptoms in adolescence: a cross-sectional investigation of media response styles as moderators. Psychol Pop Media. 2024;13(4):550 -9 (https://doi.org/10.1037/ppm0000510).
+69. Ivie EJ, Pettitt A, Moses LJ, Allen NB. A meta-analysis of the association between adolescent social media use and depressive symptoms. J Affect Disord. 2020;275:165 -74 (https://doi.org/10.1016/j.jad.2020.06.014).
+
+70. Jo S, Jang MY. Concept analysis of adolescent use of social media for emotional well-being. Int J Nurs Pract. 2023;29(1):e13116 (https://doi.org/10.1111/ijn.13116).
+71. Weigle PE, Shafi RMA. Social media and youth mental health. Curr Psychiatry Rep. 2024;26(1):1 -8 (https://doi.org/10.1007/s11920-023-01478-w).
+72. Carter B, Ahmed N, Cassidy O, Pearson O, Calcia M, Mackie C et al. 'There's more to life than staring at a small screen ' : a mixed methods cohort study of problematic smartphone use and the relationship to anxiety, depression and sleep in students aged 13-16 years old in the UK. BMJ Ment Health. 2024;27(1) (https://doi.org/10.1136/bmjment-2024301115).
+73. Barry CT, Moran-Miller K, Levy HF, Gray T. Social media engagement, perceptions of social media costs and benefits, and well-being in college student-athletes. J Am Coll Health. 2024;72(8):2938 -47 (https://doi.org/10.1080/07448481.2022.2142797).
+74. Kostyrka-Allchorne K, Stoilova M, Bourgaize J, Rahali M, Livingstone S, Sonuga-Barke E. Review: digital experiences and their impact on the lives of adolescents with pre-existing anxiety, depression, eating and nonsuicidal self-injury conditions -a systematic review. Child Adolesc Ment Health. 2023;28(1):22 -32 (https://doi.org/10.1111/camh.12619).
+75. Hilty DM, Stubbe D, McKean AJ, Hoffman PE, Zalpuri I, Myint MT et al. A scoping review of social media in child, adolescents and young adults: research findings in depression, anxiety and other clinical challenges. BJPsych Open. 2023;9(5):e152 (https://doi.org/10.1192/bjo.2023.523).
+76. Liu X, Liu J, Flores DD, McDonald CC. Family factors related to adolescent screen media use and mental health outcomes: a systematic review and recommendation for practices. J Adolesc. 2024;96(7):1401 -27 (https://doi.org/10.1002/jad.12367).
+77. Orsolini L, Longo G, Volpe U. The mediatory role of the boredom and loneliness dimensions in the development of problematic internet use. Int J Environ Res Public Health. 2023;20(5):4446 (https://doi.org/10.3390/ijerph20054446).
+78. Martín-Cárdaba MÁ, Martínez Díaz MV, Lafuente Pérez P, García Castro J. Smartphone ownership, minors' well -being, and parental mediation strategies: an analysis in the context of social media influencers. J Youth Adolesc. 2024;53(10):2202 -18 (https://doi.org/10.1007/s10964-024-02013-7).
+79. Pazarcikci F. Risk factors for technology addiction in young children ages 2 -5 years. J Pediatr Nurs. 2024;78:e141 -7 (https://doi.org/10.1016/j.pedn.2024.06.029).
+80. Ehrenreich SE, George MJ, Burnell K, Underwood MK. Importance of digital communication in adolescents' development: theoretical and empirical advancements in the last decade. J Res Adolesc. 2021;31(4):928 -43 (https://doi.org/10.1111/jora.12643).
+81. Liu M, Kamper-DeMarco KE, Zhang J, Xiao J, Dong D, Xue P. Time spent on social media and risk of depression in adolescents: a dose -response meta-analysis. Int J Environ Res Public Health. 2022;19(9):5164 (https://doi.org/10.3390/ijerph19095164).
+
+82. Bitto Urbanova L, Holubcikova J, Madarasova Geckova A, Van Dijk JP, Reijneveld SA. Adolescents with emotional and behavioural problems are at higher risk to become excessive or addicted Internet users: is this association moderated by gender? Eur J Public Health. 2024;34(2):283 -8 (https://doi.org/10.1093/eurpub/ckae009).
+83. Karabel M, Onur H, ÓimÓek Ó. Adicción a internet y depresión: un estudio en adolescentes. [Internet addiction and depression: a study among adolescents]. Cir Cir. 2024;92(4):13448 (https://doi.org/10.24875/CIRU.24000002) [in Turkish].
+84. Çimke S, Yıldırım Gürkan D. Factors affecting body image perception, social media addiction, and social media consciousness regarding physical appearance in adolescents. J Pediatr Nurs. 2023;73:e197 -203 (https://doi.org/10.1016/j.pedn.2023.09.010).
+85. Choukas-Bradley S, Roberts SR, Maheux AJ, Nesi J. The perfect storm: a developmental -sociocultural framework for the role of social media in adolescent girls' body image concerns and mental health. Clin Child Fam Psychol Rev. 2022;25(4):681 -701 (https://doi.org/10.1016/j.ypsc.2023.03.007).
+86. Harness J, Domoff SE, Rollings H. Social media use and youth mental health: interventionfocused future directions. Curr Psychiatry Rep. 2023;25(12):865 -71 (https://doi.org/10.1007/s11920-023-01476-y).
+87. Shannon H, Bush K, Villeneuve PJ, Hellemans KG, Guimond S. Problematic social media use in adolescents and young adults: systematic review and meta-analysis. JMIR Ment Health. 2022;9(4):e33450 (https://doi.org/10.2196/33450).
+88. Ghaemi SN. Digital depression: a new disease of the millennium? Acta Psychiatr Scand. 2020;141(4):356 -61 (https://doi.org/10.1111/acps.13151).
+89. Valkenburg PM. Social media use and well-being: what we know and what we need to know. Curr Opin Psychol. 2022;45:101294 (https://doi.org/10.1016/j.copsyc.2021.12.006).
+90. Galea S, Buckley GJ, Wojtowicz A, editors. Social media and adolescent health. Washington DC: National Academies of Sciences, Engineering, and Medicine; 2024 (https://nap.nationalacademies.org/catalog/27396/social-media-and-adolescent-health).
+91. Dyer WJ, Coyne SM, Gale M, Sheppard JA. Who's most at risk? A person-centered approach to understanding the long-term relationship between early social media use and later depression across adolescence. J Adolesc. 2024;96(7):1555 -68 (https://doi.org/10.1002/jad.12362).
+92. Hall JA. Ten myths about the effect of social media use on well-being. J Med Internet Res. 2024;26:e59585 (https://doi.org/10.2196/59585).
+93. Hamilton JL, Dalack M, Boyd SI, Jorgensen S, Dreier MJ, Sarna J et al. Positive and negative social media experiences and proximal risk for suicidal ideation in adolescents. J Child Psychol Psychiatry. 2024;65(12):1580 -9 (https://doi.org/10.1111/jcpp.13996).
+94. Ferguson CJ, Kaye LK, Branley-Bell D, Markey P, Ivory JD, Klisanin D et al. Like this meta-
+
+- analysis: screen media and mental health. Prof Psychol Res Pract. 2022;53(2):205 -14 (https://doi.org/10.1037/pro0000426).
+95. Engel E, Gell S, Heiss R, Karsay K. Social media influencers and adolescents' health: a scoping review of the research field. Soc Sci Med. 2024;340:116387 (https://doi.org/10.1016/j.socscimed.2023.116387).
+96. Khetawat D, Steele RG. Examining the association between digital stress components and psychological wellbeing: a meta-analysis. Clin Child Fam Psychol Rev. 2023;26(4):957 -74 (https://doi.org/10.1057/s41271-020-00231-4).
+97. Angelini F, Gini G. Differences in perceived online communication and disclosing e-motions among adolescents and young adults: the role of specific social media features and social anxiety. J Adolesc. 2024;96(3):512 -25 (https://doi.org/10.1002/jad.12256).
+98. Yu DJ, Wing YK, Li TMH, Chan NY. The impact of social media use on sleep and mental health in youth: a scoping review. Curr Psychiatry Rep. 2024;26(3):104 -19 (https://doi.org/10.1007/s11920-024-01481-9).
+99. Markey CH, August KJ, Gillen MM, Rosenbaum DL. An examination of youths' social media use and body image: considering TikTok, Snapchat, and Instagram. J Media Psychol Theor Methods Appl. 2024;37(1):52 -9 (https://doi.org/10.1027/1864-1105/a000420).
+100. Ferguson CJ, Kaye LK, Branley-Bell D, Markey P. There is no evidence that time spent on social media is correlated with adolescent mental health problems: findings from a metaanalysis. Prof Psychol Res Pract. 2024;56(1):73 -83 (https://doi.org/10.1037/pro0000589).
+101. Blanchard L, Conway-Moore K, Aguiar A, Önal F, Rutter H, Helleve A et al. Associations between social media, adolescent mental health, and diet: a systematic review. Obes Rev. 2023;24(Suppl 2):e13631 (https://doi.org/10.1111/obr.13631).
+102. Sanders T, Noetel M, Parker P, Del Pozo Cruz B, Biddle S, Ronto R et al. An umbrella review of the benefits and risks associated with youths' interactions with electronic screens. Nat Hum Behav. 2024;8(1):82 -99 (https://doi.org/10.1038/s41562-023-017128).
+103. Ahmed O, Walsh EI, Dawel A, Alateeq K, Espinoza Oyarce DA, Cherbuin N. Social media use, mental health and sleep: A systematic review with meta-analyses. J Affect Disord. 2024;367:701 -12 (https://doi.org/10.1016/j.jad.2024.08.193).
+104. Guidelines on physical activity, sedentary behaviour and sleep for children under 5 years of age. Geneva: World Health Organization;2019 (https://iris.who.int/handle/10665/311664). Licence: CC BY-NC-SA 3.0 IGO.
+105. Dhombres B, Kovacic M, Schnepf SV, Blaskó Z. Loneliness and social media use in the European Union. Brussels: European Commission; 2024 (https://publications.jrc.ec.europa.eu/repository/handle/JRC135806).
+106. Better Internet for Kids: Czech Safer Internet Centre (Safer Internet Centrum Česká
+
+- republika). In: European Union [website]. European Union; 2024 (https://better-internetfor-kids.europa.eu/en/sic/czech-republic).
+107. Bousquet-Bérard C, Pascal A. Enfants et écrans: à la recherche du temps perdu [Children and screens: in search of lost time]. Paris: Présidence de la République; 2024 (https://www.elysee.fr/emmanuel-macron/2024/04/30/remise-du-rapport-de-lacommission-dexperts-sur-limpact-de-lexposition-des-jeunes-aux-ecrans) [in French].
+108. A Digital Decade for children and youth: the European strategy for a better internet for kids (BIK+). In: European Commission [website]. European Commission; 2022 (https://digital-strategy.ec.europa.eu/en/library/digital-decade-children-and-youth-neweuropean-strategy-better-internet-kids-bik).
+109. Communication from the Commission to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions on a comprehensive approach to mental health. Brussels: European Commission; 2023 (COM(2023) 298; https://eur-lex.europa.eu/legalcontent/EN/TXT/?uri=celex:52023DC0298).
+110. IMO welcomes proposed ban on 'destructive' smartphones among young people [press release]. Irish Medical Organisation; 27 August 2024 (https://www.imo.ie/newsmedia/news-press-releases/2024/imo-welcomes-proposed-ban/index.xml).
+111. Commission opens formal proceedings against TikTok [press release]. European Commission; 19 February 2024 (https://ec.europa.eu/commission/presscorner/detail/en/ip_24_926).
+112. Reality Check [website]. Bundeskanzleramt Österreich; 2021 (https://www.bundeskanzleramt.gv.at/agenda/jugend/oesterreichischejugendstrategie/reality-check.html) [in German].
+113. ECPAT International, Eurochild, Terre des Hommes Netherlands. Speaking up for change: c hildren's and caregivers' voices for safer online experiences. Bangkok: ECPAT International; 2024 (https://ecpat.org/resource/voice-report-speaking-up-for-changechildrens-and-caregivers-voices-for-safer-online-experiences/).
+
+## Annex 1. Research questions
+
+Evidence review
+
+- What types of social media and digital technology use are studied?
+- What are the characteristics (age, gender, location and so on) of the subjects of the research?
+- What types of (positive and negative) mental health and well-being impacts are reported in the literature?
+- How do these impacts differ by age group, gender and so on?
+- How is young people's use of social media and digital technologies reported to affect their mental health and well-being?
+- What are the potential impact pathways proposed in the literature?
+- What factors (individual and environmental) make young people more vulnerable or resilient to negative mental health and well-being impacts?
+- What factors (individual and environmental) help young people to use social media and digital technology in ways that enhance their mental health and well-being?
+- What factors (individual and environmental) make young people use social media and digital technology in ways that are harmful to their mental health and well-being?
+- What features of social media and other digital technologies are contributing to positive or negative mental health or well-being outcomes?
+- What recommendations have researchers made for action or further research?
+- What interventions are referenced in the literature to maximize the positive mental health outcomes of social media and digital technology use while minimizing the risks?
+
+Policy mapping
+
+- What types of policies are being proposed/implemented to:
+- prevent harms to young people through social media and digital technology use?
+- support young people using social media and digital technology in ways that enhance their mental health and well-being?
+- Who are the intended beneficiaries of the policies (age groups)?
+- What practices or behaviours are different actors being asked to change (technology companies, parents, young people and so on)?
+- Which aspects of young people's mental health and well -being are policy-makers aiming to protect or promote through these policies?
+- What kinds of content harms and risks are being addressed in the policies?
+- What kinds of design harms and risks are being addressed in the policies?
+- What are other non-regulatory measures being adopted to protect children in the digital environment?
+- Which department/agency is responsible for this policy?
+- What is the health sector's role in developing and implementing the policy?
+
+- What is the role of young people in developing and implementing the policy?
+
+## Annex 2. Evidence review methodology
+
+Search strategy
+
+The research team searched the PubMed, PsychNET and Google Scholar databases.
+
+Searches of titles and abstracts combined the following groups of keywords:
+
+- group 1 -population terms: child OR children OR teen OR adolescent OR girl OR boy OR youth OR young people;
+- group 2 -technology terms: digital OR technology OR social media OR social network OR game OR gaming OR smartphone OR online OR media OR virtual OR screen OR mobile OR internet OR TikTok OR Instagram OR Snapchat OR Facebook OR YouTube; and
+- group 3 -outcome terms: mental OR health OR well-being OR wellbeing OR anxiety OR depression OR addiction OR bullying OR suicide OR loneliness OR social isolation OR eating disorder OR mood OR cognitive development OR emotion OR harm OR risk OR stress OR resilience OR self-esteem OR social connection OR motivation OR life satisfaction.
+
+Table A2.1 lists the inclusion and exclusion criteria used in the search strategy. Fig. A2.1 shows a flow diagram of the search process.
+
+Table A2.1 Inclusion and exclusion criteria
+
+| Characteristics                                    | Inclusion criteria                                                                                                                                                                                                                                | Exclusion criteria                                                                                    |
+|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Population/participants                            | Children, adolescents and young people                                                                                                                                                                                                            | Adults; studies that do not explicitly mention children, adolescents or young people                  |
+| Age limits of participants                         | 0 - 24 years                                                                                                                                                                                                                                      | 25 years and over                                                                                     |
+| Conceptkey issues and topics to be explored     | Social media use; use of digital devices for personal and entertainment purposes such as streaming, connecting with family and friends                                                                                                            | Use of digital technologies in schools or for education purposes; digital mental health interventions |
+| Contextfactors to be considered in the analysis | Age; gender; geography; socioeconomic background; family education; confounding factors (such as sleep, pre-existing conditions, parental engagement and features of technology)                                                                  | Studies focused exclusively on the impact of the coronavirus disease (COVID-19) pandemic              |
+| Outcomes                                           | Mental health and well-being outcomes (clinical and non-clinical) such as psychological disorders, mood disorders, anxiety disorders, eating disorders, cognitive and emotional development, social connection, support networks and self- esteem | Studies focused exclusively on physical health or other outcomes                                      |
+
+Fig. A2.1. Search flow diagram
+
+| Characteristics   | Inclusion criteria                                                                                                                                                                           | Exclusion criteria                                            |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| Publication type  | Peer-reviewed literature: studies and reviews                                                                                                                                                | Commentaries and editorials; grey literature; study protocols |
+| Country coverage  | Reviews: all countries; individual studies: countries within the WHOEuropean Region plus North America and Oceania (due to similarities in social media practices and governance structures) | Other regions                                                 |
+| Date range        | 2020 - 2024                                                                                                                                                                                  | 2019 or earlier                                               |
+| Language          | English                                                                                                                                                                                      | Other languages                                               |
+
+Annex 3. Documents reviewed for the policy mapping exercise 1
+
+This annex provides a comprehensive list of national and European Union (EU) policies reviewed for this report. The policies are categorized by country and include relevant legislation, regulations, strategic frameworks and programmatic documents related to protecting minors in digital environments. While reviewing national policies, the research team could not find strategies exclusively focused on digital literacy or regulatory frameworks for certain countries. Instead, these elements were embedded within broader national strategies on media literacy, young people, policy, education and online safety. Those policies and relevant news articles were included.
+
+EU policies
+
+- Revision of the Audiovisual Media Services Directive (AVMSD). In: European Commission
+- [website]. European Commission; 2024 (https://digitalstrategy.ec.europa.eu/en/policies/revision-avmsd).
+- A Digital Decade for children and youth: the European strategy for a better internet for kids (BIK+). In: European Commission [website]. European Commission; 2022 (https://digitalstrategy.ec.europa.eu/en/library/digital-decade-children-and-youth-new-european-strategybetter-internet-kids-bik).
+- Communication from the Commission to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions on a comprehensive approach to mental health, 2023. Brussels: European Commission; 2023 (COM(2023) 298; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex:52023DC0298).
+- DSA: Making the online world safer. In: European Commission [website]. European Commission; 2025 (https://digital-strategy.ec.europa.eu/en/policies/safer-online).
+- Mental health. In: European Union [website]. European Union; 2023 (Eurobarometer Survey 3032; https://europa.eu/eurobarometer/surveys/detail/3032).
+- Healthier Together: EU non-communicable diseases initiative. Brussels: European Commission; 2022 (https://health.ec.europa.eu/publications/eu-non-communicablediseases-ncds-initiative-guidance-document_en).
+- Dhombres B, Kovacic M, Schnepf SV, Blaskó Z. Loneliness and social media in the European Union. Brussels: European Commission; 2024
+
+(https://publications.jrc.ec.europa.eu/repository/handle/JRC135806).
+
+- State of Health in the EU: synthesis report 2023. Luxembourg: Publications Office of the European Union, 2023 (https://health.ec.europa.eu/state-health-eu/synthesis-report_en).
+- Tracking framework for the implementation of the Commission Communication on a comprehensive approach to mental health. Brussels: European Commission; 2024 (https://health.ec.europa.eu/publications/tracking-framework-implementation-commission-
+
+1  All references accessed on 1 -2 May 2025.
+
+communication-comprehensive-approach-mental-health_en).
+
+National policies by country
+
+### Albania
+
+- Mental Health Action Plan Albania 2023 -2026. Tirana: Ministry of Health; 2023 (https://shendetesia.gov.al/wp-content/uploads/2023/11/Albanian-Mental-Health-ActionPlan-2023-2026.pdf).
+- Albanian National Authority on Electronic Certification and Cyber Security, International Telecommunication Union. Global child online protection in Albania. Tirana: National Cyber Security Authority; 2023 (https://aksk.gov.al/wp-content/uploads/2024/01/NAECCS-ITUproject-results-1.pdf).
+- General Comment No. 25 (2021) on children ' s rights in relation to the digital environment. Tirana: UNICEF Albania; 2021 (https://www.unicef.org/albania/stories/childrens-rights-anddigital-environment).
+- National Youth Strategy and Action Plan 2022 -2029. Tirana: Ministry of State for Youth and Children; 2022 (https://riniafemijet.gov.al/rinia/strategjia-kombetare-e-rinise-2022-2029/).
+- Decision of the Council of Ministers on Adopting the National Cybersecurity Strategy and its Action Plan, 2020 -2025. Tirana: Council of Ministers; 2020 (https://aksk.gov.al/en/cmd/).
+- In Albania, children will not be allowed in internet centres without their parents [news release]. Telegrafi; 2019 (https://telegrafi.com/en/ne-shqiperi-femijet-nuk-te-lejohen-neqendra-interneti-pa-prinderit/).
+
+### Armenia
+
+- Experts of the Committee on the Rights of the Child commend Armenia on its digital literacy education for children, raise questions on corporal punishment and children's participation in climate change policies [news release]. Office of the High Commissioner for Human Rights; 5 September 2024 (https://www.ohchr.org/en/meeting-summaries/2024/09/expertscommittee-rights-child-commend-armenia-its-digital-literacy).
+- UNICEF and partners to develop legal and policy framework to strengthen resilience and protection of children from cyber-enabled crime and online harm [press release]. UNICEF Armenia; 9 February 2024 (https://www.unicef.org/armenia/en/press-releases/unicef-andpartners-develop-legal-and-policy-framework-strengthen-resilience-and).
+- Galystan M. Contribution of partner countries to EU Youth WIKI: Chapter VII. Health and well-being: Albania. Strasbourg: Council of Europe; 2022 (https://pjpeu.coe.int/en/web/youth-partnership/albania).
+
+### Austria
+
+- Safer Internet [website]. Safer Internet; 2025 (https://www.saferinternet.at/) [in German].
+- Filmdatenbank Suche [Film database]. In: Jugend Medien Kommission [Youth Media Commission] [website]. Jugend Medien Kommission; 2025 (https://jmkextern.bmb.gv.at/) [in German].
+- Youth Strategy overview [website]. Federal Chancellery; 2020
+
+(https://www.bundeskanzleramt.gv.at/en/agenda/youth/austrian-youth-strategy/youthstrategy-overview.html).
+
+### Azerbaijan
+
+- The State Committee continues its work on ensuring the safe use of the internet by children [news release]. State Committee for Family, Women and Children Affairs; 12 July 2021 (https://family.gov.az/en/post/2526/dovlet-komitesi-usaqlarin-internetden-tehlukesizistifadesinin-temin-edilmesi-istiqametinde-fealiyy).
+- Law of the Azerbaijan Republic of October 30, 2018 No. 1310-VQ About protection of children from harmful information. In: CIS Legislation [website]. SoyuzPravoInform LLC; 2025 (https://cis-legislation.com/document.fwx?rgn=145456) [unofficial translation into English].
+
+### Belgium
+
+- Belgium -2023 Country Profile. Brussels: Eurochild; 2023 (https://eurochild.org/resource/belgium-2023-country-profile/).
+- Key data in healthcare: mental healthcare, first edition. Brussels: Directorate-General Healthcare; 2021 (https://www.healthybelgium.be/en/key-data-in-healthcare/mentalhealthcare/download).
+- Youth policy in the three communities of Belgium. Brussels: Flemish Government; 2024 (https://publicaties.vlaanderen.be/view-file/63541).
+- Belgium sets minimum age for joining social media at 13 years. Brussels Times; 16 March 2018 (https://www.brusselstimes.com/47125/belgium-sets-minimum-age-forjoining-social-media-at-13-years).
+
+### Croatia
+
+- Protecting children online. In: e-Citizens information and services [website]. Government of the Republic of Croatia; 2025 (https://gov.hr/en/protecting-children-online/1236).
+- Preporuke za zaštitu djece i sigurno korištenje elektroničkih medija [Recommendations for child protection and safe use of electronic media] [website]. Agency for Electronic Media; 2025 (http://www.medijskapismenost.hr/preporuke-za-zastitu-djece-i-sigurno-koristenjeelektronickih-medija/) [in Croatian].
+
+### Czechia
+
+- Better Internet for Kids: Czech Safer Internet Centre (Safer Internet Centrum Česká republika). In: European Union [website]. European Union; 2024 (https://better-internet-forkids.europa.eu/en/sic/czech-republic).
+- Národní strategie prevence a snižování škod spojených se závislostním chováním 20192027 [National strategy for the prevention and reduction of harm associated with addictive behaviour 2019 -2027]. Prague: Government of Czechia; 2024 (https://vlada.gov.cz/cz/ppov/protidrogova-politika/strategie-a-plany/narodni-strategieprevence-a-snizovani-skod-spojenych-se-zavislostnim-chovanim-2019_2027-173695/) [in Czech].
+
+#### News articles
+
+- Eisenchteter J. Czechia slowly recognises need to tackle digital addictions [news release]. Balkan Insights; 26 September 2023 (https://balkaninsight.com/2023/09/26/czechia-slowlyrecognises-need-to-tackle-digital-addictions/).
+
+### France
+
+- Bousquet-Bérard C, Pascal A. Enfants et écrans: à la recherche du temps perdu [Children and screens: in search of lost time]. Paris: Présidence de la République; 2024 (https://www.elysee.fr/emmanuel-macron/2024/04/30/remise-du-rapport-de-lacommission-dexperts-sur-limpact-de-lexposition-des-jeunes-aux-ecrans) [in French].
+- Influencers: obligations and responsibilities in Europe [news release]. European Consumer Centre France; 8 May 2024 (https://www.europe-consommateurs.eu/en/shoppinginternet/influencers.html).
+- Les dispositifs de contrôle parental: état des lieux au regard des dispositions r é glementaires applicables en juillet 2024 [Parental control devices: status report with regard to the regulatory provisions applicable in July 2024]. Paris: National Frequency Agency; 2024 (https://www.anfr.fr/liste-actualites/actualite/publication-de-letat-des-lieux-des-dispositifsde-controle-parental-au-regard-des-dispositions-reglementaires-applicables-en-juillet-2024) [in French].
+- Loi no 2023-566 du 7 juillet 2023 visant à instaurer une majorit é num é rique et à lutter contre la haine en ligne (1) [Law no. 2023-566 of July 7, 2023 aimed at establishing a digital majority and combating online hatred (1)]. Journal Officiel de la République Française; 8 July 2023
+
+(https://www.legifrance.gouv.fr/download/file/uixn4vDFFJU_veW4xSVamq3PzXyh2U2x_n aRfEud_Wg=/JOE_TEXTE) [in French].
+
+- Parental control: new obligations for connected hardware manufacturers [news release]. République Française; 13 July 2024 (https://www.servicepublic.fr/particuliers/actualites/A17487?lang=en) [unofficial translation into English].
+- National health strategy 2018 -2022: summary. Paris: République Française; 2017 (https://sante.gouv.fr/IMG/pdf/dossier_sns_2017_synthesev6-10p_anglaisv2.pdf).
+- Safer Internet France [website]. Safer Internet France; 2025 (https://www.saferinternet.fr/) [in French].
+- France passes new law to protect child influencers [news release]. BBC News; 7 October 2020 (https://www.bbc.co.uk/news/world-europe-54447491).
+
+### Germany
+
+- National recommendations for physical activity and physical activity promotion. Bonn: Federal Ministry of Health; 2016 (https://www.sport.fau.de/files/2015/05/NationalRecommendations-for-Physical-Activity-and-Physical-Activity-Promotion.pdf).
+- Staatsvertrag über den Schutz der Menschenwürde und den Jugendschutz in Rundfunk und Telemedien [State treaty on the protection of human dignity and the protection of youth in broadcasting and telemedia]. Munich: Bavarian State Government; 2024
+
+- (https://www.gesetze-bayern.de/Content/Document/JMStV) [in German].
+- Jugendschutzgesetz [Youth Protection Act]. Berlin: Federal Ministry of Justice; 2021 (https://www.gesetze-im-internet.de/juschg/index.html) [in German].
+- Raise ages for drinking, TikTok, German drug official says [news release]. DW; 28 August 2024 (https://www.dw.com/en/raise-ages-for-drinking-tiktok-german-drugofficial-says/a-70068422).
+
+### Hungary
+
+- Hungary expands scope of child protection measures [news release]. CMS Law-Now; 2 May 2024 (https://cms-lawnow.com/en/ealerts/2024/05/hungary-expands-scope-ofchild-protection-measures).
+- Kovács Z. Hungary strengthens child protection laws with stricter measures and enhanced online security [blog post]. AboutHungary; 24 April 2024 (https://abouthungary.hu/blog/hungary-strengthens-child-protection-laws-with-strictermeasures-and-enhanced-online-security).
+- The Digital Child Protection Strategy of Hungary. Budapest: Government of Hungary; 2016 (https://2015-2019.kormany.hu/en/cabinet-office-of-the-prime-minister/hu/digital-successprogramme/strategies).
+
+### Ireland
+
+- Minister for Health establishes Online Health Taskforce to develop response to harms caused by certain types of online activity [press release]. Department of Health; 5 September 2024 (https://www.gov.ie/en/department-of-health/press-releases/ministerfor-health-establishes-online-health-taskforce-to-develop-response-to-harms-caused-bycertain-types-of-online-activity/).
+- Online Safety Code. Dublin: Coimisiún na Meán [Media Commission]; 2024. (https://www.citizensinformation.ie/en/consumer/buying-digital-content-andservices/online-safety/).
+- Boechat I. Draft plans: major boost for thousands of Irish parents over new streaming services change. Irish Sun; 5 July 2024 (https://www.thesun.ie/tech/13345088/majorboost-irish-parents-new-streaming-services-change/).
+- Pattison B. Tech harm: social media ban plan for under-16s as Govt demands platforms make ' product safe ' as risk is ' public health emergency ' . Irish Sun; 25 August 2024 (https://www.thesun.ie/tech/13686928/social-media-ban-government-platforms-productsafe-health-emergency/).
+- Moran B. Unsocial media: urgent ' time to get serious ' alert over ' overwhelmingly destructive ' smartphone and social media use amid ban plans. Irish Sun; 27 August 2024 (https://www.thesun.ie/tech/13698334/smartphone-social-media-ban-plan-healthireland/).
+
+### Italy
+
+- Decreto-legge del 15/09/2023 n. 123. Misure urgenti di contrasto al disagio giovanile, alla
+
+- povertà educativa e alla criminalità minorile, nonché per la sicurezza dei minori in ambito digitale [Decree Law. no 123 Chapter IV Provisions for the safety of minors in the digital field]. Rome: Department of Finance; 2023
+
+(https://def.finanze.it/DocTribFrontend/getAttoNormativoDetail.do?ACTION=getSommario &id=%7B9BE4F335-24B2-4C1A-8376-5439BCB7AC30%7D).
+
+- Legge Regionale 1 febbraio 2016, n. 1. Norme in materia di politiche giovanili -Ulteriori integrazioni della. (Disciplina degli istituti di partecipazione alle funzioni delle istituzioni regionali (Iniziativa legislativa e referendaria, diritto di petizione e consultazione)) [Regional Law 1/2016: Youth policy rules -Further additions to the a.r. 16/02/2010, n. 14 (Discipline of the institutions of participation in the functions of the regional institutions (Legislative initiative and referendum, right of petition and consultation))]. Perugia: Regional Council of Umbria; 2018 (https://atti.alumbria.it/mostra_atto.php?id=83932).
+- Castro C. Italy considers law against sharenting to protect children ' s privacy [news release]. Techradar; 5 April 2024 (https://www.techradar.com/computing/cyber-security/italyconsiders-law-against-sharenting-to-protect-childrens-privacy).
+- Italy's new rules for video-sharing platforms to protect teens [news release]. NDTV World; 7 December 2023 (https://www.ndtv.com/world-news/italys-new-rules-for-video-sharingplatforms-to-protect-teens-4644101).
+- Trabucchi M. Parental Control: cos'è, come funziona e le app da scaricare [Parental control: what it is, how it works, and which apps to download] [news release]. Vanity Fair; 1 December 2023 (https://www.vanityfair.it/article/parental-control-come-fare) [in Italian].
+- Social media prohibited to 13 year olds and data consent: what is in the bill presented to the Chamber [news release]. Nova.news; 8 June 2023 (https://www.agenzianova.com/en/news/social-vietati-ai-13enni-e-consenso-dei-dati-cosace-nella-proposta-di-legge-presentata-alla-camera/).
+
+### Poland
+
+- General comment on children's rights in relation to digital environment drafted by the Committee on the Rights of the Child. Comments by the Republic of Poland. Warsaw: Ministry of Foreign Affairs; 2019 (https://www.ohchr.org/en/documents/generalcomments-and-recommendations/general-comment-no-25-2021-childrens-rights-relation).
+- Polish Safer Internet Centre. In: European Union [website]. European Union; 2024 (https://better-internet-for-kids.europa.eu/en/sic/poland).
+- The image of the child on the internet: To publish or not to publish? Warsaw: Personal Data Protection Office; 2024 (https://uodo.gov.pl/en/553/1720).
+- Poland: New regulations on video-sharing platforms and other media service providers [news release]. Hogan Lovells; 19 August 2021 (https://www.hoganlovells.com/en/publications/poland-new-regulations-on-video-sharingplatforms-and-other-media-service-providers).
+
+### Spain
+
+- Draft bill of the protection of children in digital environments. Madrid: Ministry of the
+
+- Presidency, Justice and Relations with the Courts; 2024
+
+(https://www.osborneclarke.com/insights/spanish-government-proposes-new-digitalsafeguard-measures-minors).
+
+- Informe del comité de personas expertas para el desarrollo de un entorno digital seguro para la juventud y la infancia [Report of the committee of experts for development of a safe digital environment for youth and children]. Madrid: Ministry of Youth and Children; 2024 (https://www.juventudeinfancia.gob.es/es/infancia/comit%C3%A9-expertoscreaci%C3%B3n-entornos-digitales-seguros) [in Spanish].
+- Ley 13/2022, de 7 de julio, General de Comunicación Audiovisual [Law 13/2022, of July 7, General Audiovisual Communication]. Official State Gazette; 2022:163
+
+(https://www.boe.es/buscar/act.php?id=BOE-A-2022-11311) [in Spanish].
+
+- Kassam A. Smartphones should carry health warning, Spanish government told [news release]. Guardian; 3 December 2024
+
+(https://www.theguardian.com/technology/2024/dec/03/smartphones-should-carry-healthwarning-spanish-government-told).
+
+- Reynolds E. Spain will ban children under 16 from social media. The I paper; 6 June 2024 (https://www.msn.com/en-gb/news/world/spain-will-ban-children-under-16-from-socialmedia/ar-BB1nIEXc).
+
+### United Kingdom
+
+- Loneliness England policy briefing. London: Mental Health Foundation; 2022 (https://www.mentalhealth.org.uk/our-work/policy-and-advocacy/loneliness-policy-briefingengland).
+
+- Mobile phones in schools: guidance for schools on prohibiting the use of mobile phones throughout the school day. London: Department for Education; 2024
+
+(https://www.gov.uk/government/publications/mobile-phones-in-schools).
+
+- New online safety priorities for Ofcom and launch of study into effects of social media on children [Press release]. Department of Science, Innovation and Technology; 20 November 2024 (https://www.gov.uk/government/news/new-online-safety-prioritiesfor-ofcom-and-launch-of-study-into-effects-of-social-media-on-children).
+- Online Nation 2023 report. London: Ofcom; 2023 (https://www.ofcom.org.uk/media-useand-attitudes/online-habits/online-nation).
+- Online Safety Act: explainer [website]. Department for Science, Innovation and Technology; 2024 (https://www.gov.uk/government/publications/online-safety-act-explainer/onlinesafety-act-explainer).
+- Screen time: impacts on education and well-being. London: House of Commons Education Committee; 2024
+
+(https://publications.parliament.uk/pa/cm5804/cmselect/cmeduc/118/report.html).
+
+- Vallance C, Pilbeam L. Braverman and Facebook clash over private message plans [news release]. BBC News; 20 September 2023 (https://www.bbc.co.uk/news/technology66854622).
+- Standley N. Children ' s commissioner backs ' under-16s ' phone ' [news release]. BBC News;
+
+- 8 February 2024 (https://www.bbc.co.uk/news/articles/cjmdz4plpxwo).
+- Clark L. Parliamentarians urge next UK govt to consider ban on smartphones for under-16s
+- [news release]. The Register; 28 May 2024
+
+(https://www.theregister.com/2024/05/28/smartphone_youth_ban_uk/).
+
+- Felton I, Petersen L, Shaheen-Zaffar Y. Screen time: how it impacts the wellbeing and learning of children with SEND [news release]. SEND Network; 4 July 2024 (https://sendnetwork.co.uk/posts/screen-time).
+- Hern A. TechScape: the new law that could protect UK children online -as long as it works [news release]. Guardian; 14 May 2024
+
+(https://www.theguardian.com/global/article/2024/may/14/techscape-online-safety-actchildren-internet).
+
+
+The WHO Regional Office for Europe
+
+The World Health Organization (WHO) is a specialized agency of the United Nations created in 1948 with the primary responsibility for international health matters and public health. The WHO Regional Office for Europe is one of six regional offices throughout the world, each with its own programme geared to the particular health conditions of the countries it serves.
+
+Member States
+
+Albania Andorra Armenia Austria Azerbaijan Belarus Belgium Bosnia and Herzegovina Bulgaria Croatia Cyprus Czechia Denmark Estonia Finland France Georgia Germany
+
+Greece Hungary Iceland Ireland Israel Italy Kazakhstan Kyrgyzstan Latvia Lithuania Luxembourg Malta Monaco Montenegro Netherlands (Kingdom of the) North Macedonia Norway Poland
+
+World Health Organization Regional Office for Europe
+
+UN City, Marmorvej 51, DK-2100 Copenhagen Ø, Denmark Tel.: +45 45 33 70 00 Fax: +45 45 33 70 01 Email: eurocontact@who.int Website: www.who.int/europe
+
+Addressing the digital determinants of youth mental health
+
+Portugal Republic of Moldova Romania Russian Federation San Marino Serbia Slovakia Slovenia Spain Sweden Switzerland Tajikistan Türkiye Turkmenistan Ukraine United Kingdom Uzbekistan

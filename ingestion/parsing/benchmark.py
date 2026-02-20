@@ -10,6 +10,8 @@ load_dotenv()
 
 from llama_index.core import SimpleDirectoryReader
 from llama_index.readers.llama_parse import LlamaParse
+from docling.document_converter import DocumentConverter
+from hierarchical.postprocessor import ResultPostprocessor
 import fitz  # PyMuPDF
 from text_cleaning import postprocess_text
 
@@ -36,6 +38,10 @@ CONFIGS = {
     "llamaparse_text": {"type": "llamaparse", "result_type": "text"},
     "llamaparse_markdown": {"type": "llamaparse", "result_type": "markdown"},
     "pymupdf": {"type": "pymupdf"},
+    "docling_text": {"type": "docling", "result_type": "text", "postprocess": False},
+    "docling_markdown": {"type": "docling", "result_type": "markdown", "postprocess": False},
+    "docling_postprocess_text": {"type": "docling", "result_type": "text", "postprocess": True},
+    "docling_postprocess_markdown": {"type": "docling", "result_type": "markdown", "postprocess": True},
 }
 
 # =========================
@@ -121,6 +127,24 @@ def parse_pymupdf(file_path: Path):
     first_chunk = page_texts[0] if page_texts else ""
     return full_text, first_chunk, pages, pages  # one "document" per page
 
+
+def parse_docling(file_path: Path, result_type: str, postprocess: bool):
+    """Parse a PDF with Docling and return (full_text, first_page text, pages, num_docs)."""
+    parser = DocumentConverter()
+    result = parser.convert(file_path)
+    if postprocess is True:
+        ResultPostprocessor(result).process()
+
+    if result_type == 'text':
+        full_text = result.document.export_to_text()
+    elif result_type == 'markdown':
+        full_text = result.document.export_to_markdown()
+    else:
+        raise NotImplementedError(f"Unknown result_type: {result_type}")
+    
+    first_page_text = "\n".join([x['text'] for x in result.document.export_to_dict()['texts'] if x['prov'][0]['page_no'] == 1])
+
+    return full_text, first_page_text, len(result.pages), 1 # One PDF document per call
 
 # =========================
 # BENCHMARK FUNCTION
@@ -229,6 +253,10 @@ def run_benchmark(
                     full_text, first_chunk, pages, num_docs = parse_llamaparse(
                         file_path, config["result_type"]
                     )
+                elif config["type"] == "docling":
+                    full_text, first_chunk, pages, num_docs = parse_docling(
+                        file_path, config["result_type"], config["postprocess"]
+                    )
                 else:  # pymupdf
                     full_text, first_chunk, pages, num_docs = parse_pymupdf(file_path)
 
@@ -299,16 +327,16 @@ FIELDNAMES = [
 
 if __name__ == "__main__":
     # Determine which folders to benchmark
-    # Usage: python benchmark.py [original|clean|both] [--no-cache]
-    mode = sys.argv[1] if len(sys.argv) > 1 else "both"
+    # Usage: python benchmark.py [original|clean|column|all] [--no-cache]
+    mode = sys.argv[1] if len(sys.argv) > 1 else "all"
     skip_existing = "--no-cache" not in sys.argv
 
     all_results = []
 
-    if mode in ("original", "both"):
+    if mode in ("original", "all"):
         all_results.extend(run_benchmark(INPUT_FOLDER, skip_existing=skip_existing))
 
-    if mode in ("clean", "both", "all"):
+    if mode in ("clean", "all"):
         all_results.extend(
             run_benchmark(INPUT_FOLDER_CLEAN, config_suffix="_clean", skip_existing=skip_existing)
         )
