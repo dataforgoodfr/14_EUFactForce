@@ -9,6 +9,7 @@ Usage:
     python pdf_cleaner.py
 """
 
+import argparse
 import re
 from collections import defaultdict
 from pathlib import Path
@@ -33,6 +34,40 @@ MIN_REPEAT_FRACTION = 0.5
 # Extra margin (in points) added above/below the detected noise zone
 # to make sure we fully exclude the header/footer area
 MARGIN_BUFFER_PT = 4
+
+PREPROCESS_PROFILES = {
+    # Balanced default used by current benchmark runs.
+    "default": {
+        "sample_pages": 8,
+        "min_repeat_fraction": 0.50,
+        "margin_buffer_pt": 4,
+    },
+    # Favor recall (less aggressive crop): fewer false trims.
+    "conservative": {
+        "sample_pages": 10,
+        "min_repeat_fraction": 0.60,
+        "margin_buffer_pt": 2,
+    },
+    # Favor denoising (more aggressive crop): higher risk of over-trim.
+    "aggressive": {
+        "sample_pages": 8,
+        "min_repeat_fraction": 0.40,
+        "margin_buffer_pt": 6,
+    },
+}
+
+
+def apply_preprocess_profile(profile: str) -> None:
+    """Apply a named preprocessing profile to detection/crop globals."""
+    global SAMPLE_PAGES, MIN_REPEAT_FRACTION, MARGIN_BUFFER_PT
+    if profile not in PREPROCESS_PROFILES:
+        raise ValueError(
+            f"Unknown profile '{profile}'. Expected one of: {sorted(PREPROCESS_PROFILES)}"
+        )
+    cfg = PREPROCESS_PROFILES[profile]
+    SAMPLE_PAGES = cfg["sample_pages"]
+    MIN_REPEAT_FRACTION = cfg["min_repeat_fraction"]
+    MARGIN_BUFFER_PT = cfg["margin_buffer_pt"]
 
 
 # =========================
@@ -493,8 +528,9 @@ def crop_pdf(
 OUTPUT_DIR_COLUMN = Path("data/document_diversity_column")
 
 
-def main():
+def main(profile: str = "default"):
     """Run the full cleaning pipeline: clean + column-linearized variants."""
+    apply_preprocess_profile(profile)
     OUTPUT_DIR.mkdir(exist_ok=True)
     OUTPUT_DIR_COLUMN.mkdir(exist_ok=True)
 
@@ -504,7 +540,10 @@ def main():
         return
 
     # ---- Pass 1: clean PDFs (header/footer crop + figure redaction) ----
-    print(f"PDF Cleaner: processing {len(pdf_files)} files from {INPUT_DIR}/\n")
+    print(
+        f"PDF Cleaner [{profile}]: processing {len(pdf_files)} files from {INPUT_DIR}/\n"
+        f"  sample_pages={SAMPLE_PAGES}, min_repeat_fraction={MIN_REPEAT_FRACTION}, margin_buffer_pt={MARGIN_BUFFER_PT}"
+    )
     print(f"--- Pass 1: Clean (crop + figure redaction) → {OUTPUT_DIR}/ ---")
 
     summaries_clean = []
@@ -533,4 +572,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="PDF preprocessing for parsing benchmark")
+    parser.add_argument(
+        "--profile",
+        choices=sorted(PREPROCESS_PROFILES.keys()),
+        default="default",
+        help="Preprocessing profile controlling crop sensitivity.",
+    )
+    args = parser.parse_args()
+    main(profile=args.profile)

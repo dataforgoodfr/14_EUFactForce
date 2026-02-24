@@ -25,6 +25,12 @@ SENTENCE_MATCH_THRESHOLD = 0.80
 # Minimum matched sentences required for order scoring to be meaningful
 MIN_MATCHED_SENTENCES = 3
 
+# Composite fidelity weights (sum = 1.0)
+FIDELITY_WEIGHT_SIMILARITY = 0.35
+FIDELITY_WEIGHT_RECALL = 0.25
+FIDELITY_WEIGHT_PRECISION = 0.25
+FIDELITY_WEIGHT_ORDER = 0.15
+
 
 def _prepare_body(text: str) -> str:
     """Strip references and normalize for similarity comparison."""
@@ -179,9 +185,42 @@ def score_reference_text(extracted_text: str, reference_path: Path) -> dict:
     """
     reference_text = reference_path.read_text(encoding="utf-8")
 
+    text_similarity = compute_text_similarity(extracted_text, reference_text)
+    content_recall = compute_content_recall(extracted_text, reference_text)
+    content_precision = compute_content_precision(extracted_text, reference_text)
+    order_score = compute_order_score(extracted_text, reference_text)
+    fidelity_composite = compute_fidelity_composite(
+        text_similarity=text_similarity,
+        content_recall=content_recall,
+        content_precision=content_precision,
+        order_score=order_score,
+    )
+
     return {
-        "text_similarity": compute_text_similarity(extracted_text, reference_text),
-        "content_recall": compute_content_recall(extracted_text, reference_text),
-        "content_precision": compute_content_precision(extracted_text, reference_text),
-        "order_score": compute_order_score(extracted_text, reference_text),
+        "fidelity_composite": fidelity_composite,
+        "text_similarity": text_similarity,
+        "content_recall": content_recall,
+        "content_precision": content_precision,
+        "order_score": order_score,
     }
+
+
+def compute_fidelity_composite(
+    text_similarity: float,
+    content_recall: float,
+    content_precision: float,
+    order_score: float | None,
+) -> float:
+    """
+    Weighted composite fidelity score in [0, 1].
+
+    When order_score is None, use 0.0 for the weighted order term.
+    """
+    order = order_score if order_score is not None else 0.0
+    score = (
+        FIDELITY_WEIGHT_SIMILARITY * text_similarity
+        + FIDELITY_WEIGHT_RECALL * content_recall
+        + FIDELITY_WEIGHT_PRECISION * content_precision
+        + FIDELITY_WEIGHT_ORDER * order
+    )
+    return round(score, 4)

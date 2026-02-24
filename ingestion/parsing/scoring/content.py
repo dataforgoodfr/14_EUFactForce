@@ -79,13 +79,18 @@ def score_abstract(full_text: str, expected_first_sentence: str | None) -> tuple
     return (FOUND if found else NOT_FOUND), ratio
 
 
-def score_references(full_text: str) -> str:
-    """Check if a references section is detectable."""
-    if re.search(r"\breferences\b", full_text, re.IGNORECASE):
-        return FOUND
-    if re.search(r"\bbibliography\b", full_text, re.IGNORECASE):
-        return FOUND
-    return NOT_FOUND
+def score_references(full_text: str, expected_has_references: bool | None) -> str:
+    """Check whether references are present when expected."""
+    if expected_has_references is None:
+        return NOT_APPLICABLE
+
+    has_references_heading = bool(
+        re.search(r"\breferences\b", full_text, re.IGNORECASE)
+        or re.search(r"\bbibliography\b", full_text, re.IGNORECASE)
+    )
+    if not expected_has_references:
+        return NOT_APPLICABLE
+    return FOUND if has_references_heading else NOT_FOUND
 
 
 def score_key_passage(full_text: str, expected_passage: str) -> tuple[str, float]:

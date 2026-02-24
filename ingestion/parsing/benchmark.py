@@ -33,9 +33,22 @@ ERROR_MSG_MAX_CHARS = 200
 
 # Parser configurations to benchmark
 CONFIGS = {
-    "llamaparse_text": {"type": "llamaparse", "result_type": "text"},
-    "llamaparse_markdown": {"type": "llamaparse", "result_type": "markdown"},
-    "pymupdf": {"type": "pymupdf"},
+    "llamaparse_text": {
+        "type": "llamaparse",
+        "result_type": "text",
+        "postprocess_profile": "default",
+    },
+    "llamaparse_markdown": {
+        "type": "llamaparse",
+        "result_type": "markdown",
+        "postprocess_profile": "default",
+    },
+    "pymupdf": {
+        "type": "pymupdf",
+        "extraction_mode": "text",
+        "sort": False,
+        "postprocess_profile": "default",
+    },
 }
 
 # =========================
@@ -90,9 +103,14 @@ def compute_metadata_score(record: dict) -> int:
 # PARSING HELPERS
 # =========================
 
-def parse_llamaparse(file_path: Path, result_type: str):
+def parse_llamaparse(file_path: Path, config: dict):
     """Parse a PDF with LlamaParse and return (full_text, first_chunk, pages, num_docs)."""
-    parser = LlamaParse(api_key=LLAMAPARSE_API_KEY, result_type=result_type)
+    parser_kwargs = config.get("parser_kwargs", {})
+    parser = LlamaParse(
+        api_key=LLAMAPARSE_API_KEY,
+        result_type=config["result_type"],
+        **parser_kwargs,
+    )
     reader = SimpleDirectoryReader(
         input_files=[str(file_path)],
         file_extractor={".pdf": parser},
@@ -110,10 +128,12 @@ def parse_llamaparse(file_path: Path, result_type: str):
     return full_text, first_chunk, pages, len(documents)
 
 
-def parse_pymupdf(file_path: Path):
+def parse_pymupdf(file_path: Path, config: dict):
     """Parse a PDF with PyMuPDF and return (full_text, first_chunk, pages, num_docs)."""
     doc = fitz.open(str(file_path))
-    page_texts = [doc[i].get_text() for i in range(len(doc))]
+    extraction_mode = config.get("extraction_mode", "text")
+    sort = bool(config.get("sort", False))
+    page_texts = [doc[i].get_text(extraction_mode, sort=sort) for i in range(len(doc))]
     pages = len(doc)
     doc.close()
 
@@ -160,6 +180,12 @@ def run_benchmark(
     print(f"Benchmarking {len(files)} PDFs from {input_folder}/{label}")
     print(f"{'='*60}\n")
 
+    preprocess_profile = "default"
+    if config_suffix == "_clean":
+        preprocess_profile = "clean"
+    elif config_suffix == "_column":
+        preprocess_profile = "column"
+
     for file_path in files:
         for config_name, config in CONFIGS.items():
             output_config_name = f"{config_name}{config_suffix}"
@@ -183,6 +209,8 @@ def run_benchmark(
                 record = {
                     "filename": file_path.name,
                     "parser_config": output_config_name,
+                    "preprocess_profile": preprocess_profile,
+                    "postprocess_profile": config.get("postprocess_profile", "default"),
                     "pages": pages,
                     "parse_time_s": None,
                     "time_per_page": None,
@@ -207,6 +235,8 @@ def run_benchmark(
             record = {
                 "filename": file_path.name,
                 "parser_config": output_config_name,
+                "preprocess_profile": preprocess_profile,
+                "postprocess_profile": config.get("postprocess_profile", "default"),
                 "pages": None,
                 "parse_time_s": None,
                 "time_per_page": None,
@@ -226,11 +256,9 @@ def run_benchmark(
                 start = time.perf_counter()
 
                 if config["type"] == "llamaparse":
-                    full_text, first_chunk, pages, num_docs = parse_llamaparse(
-                        file_path, config["result_type"]
-                    )
+                    full_text, first_chunk, pages, num_docs = parse_llamaparse(file_path, config)
                 else:  # pymupdf
-                    full_text, first_chunk, pages, num_docs = parse_pymupdf(file_path)
+                    full_text, first_chunk, pages, num_docs = parse_pymupdf(file_path, config)
 
                 parse_time = time.perf_counter() - start
 
@@ -248,7 +276,10 @@ def run_benchmark(
                 record["metadata_score"] = compute_metadata_score(record)
 
                 # ---- Post-process: fix encoding artifacts, rejoin hyphens ----
-                full_text = postprocess_text(full_text)
+                full_text = postprocess_text(
+                    full_text,
+                    profile=config.get("postprocess_profile", "default"),
+                )
                 first_chunk = full_text[:FIRST_CHUNK_CHARS]
 
                 # ---- Save extracted text for later quality review ----
@@ -282,6 +313,8 @@ def run_benchmark(
 FIELDNAMES = [
     "filename",
     "parser_config",
+    "preprocess_profile",
+    "postprocess_profile",
     "pages",
     "parse_time_s",
     "time_per_page",
