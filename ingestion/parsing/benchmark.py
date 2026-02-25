@@ -16,8 +16,8 @@ from text_cleaning import postprocess_text
 # =========================
 # CONFIGURATION
 # =========================
-INPUT_FOLDER = "data/document_diversity"
-INPUT_FOLDER_CLEAN = "data/document_diversity_clean"
+INPUT_FOLDER_RAW = "data/document_diversity"
+INPUT_FOLDER_PREPROCESSED = "data/document_diversity_clean"
 INPUT_FOLDER_COLUMN = "data/document_diversity_column"
 OUTPUT_CSV = "output/benchmark_results_extended.csv"
 EXTRACTED_TEXT_DIR = "output/extracted_texts"
@@ -134,7 +134,7 @@ def run_benchmark(
     """
     Run all parser configurations on PDFs in *input_folder*.
 
-    If *config_suffix* is provided (e.g. '_clean'), it is appended to each
+    If *config_suffix* is provided (e.g. '_preprocessed'), it is appended to each
     parser_config name in the output records and extracted text filenames.
 
     If *skip_existing* is True, skip any (file, config) combination whose
@@ -299,21 +299,33 @@ FIELDNAMES = [
 
 if __name__ == "__main__":
     # Determine which folders to benchmark
-    # Usage: python benchmark.py [original|clean|both] [--no-cache]
-    mode = sys.argv[1] if len(sys.argv) > 1 else "both"
-    skip_existing = "--no-cache" not in sys.argv
+    # Usage:
+    #   python benchmark.py [raw|preprocessed|column|all] [--preprocessed] [--column] [--no-cache]
+    # Default run is raw; --preprocessed/--column can be used as additive flags.
+    args = sys.argv[1:]
+    positional_args = [arg for arg in args if not arg.startswith("--")]
+    mode = positional_args[0] if positional_args else "raw"
+    skip_existing = "--no-cache" not in args
+
+    run_raw = mode in ("raw", "all")
+    run_preprocessed = mode in ("preprocessed", "all") or "--preprocessed" in args
+    run_column = mode in ("column", "all") or "--column" in args
 
     all_results = []
 
-    if mode in ("original", "both"):
-        all_results.extend(run_benchmark(INPUT_FOLDER, skip_existing=skip_existing))
+    if run_raw:
+        all_results.extend(run_benchmark(INPUT_FOLDER_RAW, skip_existing=skip_existing))
 
-    if mode in ("clean", "both", "all"):
+    if run_preprocessed:
         all_results.extend(
-            run_benchmark(INPUT_FOLDER_CLEAN, config_suffix="_clean", skip_existing=skip_existing)
+            run_benchmark(
+                INPUT_FOLDER_PREPROCESSED,
+                config_suffix="_preprocessed",
+                skip_existing=skip_existing,
+            )
         )
 
-    if mode in ("column", "all"):
+    if run_column:
         all_results.extend(
             run_benchmark(INPUT_FOLDER_COLUMN, config_suffix="_column", skip_existing=skip_existing)
         )
