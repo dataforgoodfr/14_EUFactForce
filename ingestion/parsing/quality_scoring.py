@@ -43,7 +43,7 @@ MISSING_FILE = "missing_file"
 
 PARSER_CONFIGS = [
     "llamaparse_text", "llamaparse_markdown", "pymupdf",
-    "llamaparse_text_clean", "llamaparse_markdown_clean", "pymupdf_clean",
+    "llamaparse_text_preprocessed", "llamaparse_markdown_preprocessed", "pymupdf_preprocessed",
     "llamaparse_text_column", "llamaparse_markdown_column", "pymupdf_column",
 ]
 
