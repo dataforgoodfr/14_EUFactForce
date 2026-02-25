@@ -11,12 +11,13 @@ All files under `ground_truth/texts/` should follow these conventions.
 
 ## Canonical Rules
 
-- **Footnotes placement:** keep footnote content, but place footnotes at the end of the document body when source layout is mixed.
-- **Footnote markers (superscripts/exponents):** use one convention consistently across a file (either keep markers or remove them), and prefer removing isolated markers when they add no semantic content.
-- **Order policy:** preserve logical reading order of the article/report text.
-- **No content deletion:** do not drop meaningful sentences/claims while normalizing.
-- **Heading consistency:** keep heading hierarchy readable and stable (avoid arbitrary re-labeling).
-- **Whitespace/line breaks:** normalize obvious OCR/parser artifacts, but do not rewrite meaning.
+- **Footnotes placement:** footnote content is kept, and in mixed layouts it is placed at the end of the main document body.
+- **Footnote markers (superscripts/exponents):** each file uses one consistent marker convention; isolated markers that do not add semantic value are typically removed.
+- **Order policy:** text is organized to reflect logical reading order of the article/report content.
+- **Content preservation:** meaningful sentences and claims are preserved during normalization.
+- **Heading consistency:** heading hierarchy is kept readable and stable, without arbitrary relabeling.
+- **Whitespace/line breaks:** obvious OCR/parser spacing artifacts are normalized while preserving meaning.
+- **Figure handling:** when figures are encountered, they are represented as bracketed legend placeholders (for example, `[Figure 1: ...]`) rather than attempting to reconstruct image text content.
 
 ## Scoring Assumption
 
