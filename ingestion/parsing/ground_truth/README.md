@@ -15,9 +15,10 @@ All files under `ground_truth/texts/` should follow these conventions.
 - **Footnote markers (superscripts/exponents):** each file uses one consistent marker convention; isolated markers that do not add semantic value are typically removed.
 - **Order policy:** text is organized to reflect logical reading order of the article/report content.
 - **Content preservation:** meaningful sentences and claims are preserved during normalization.
-- **Heading consistency:** heading hierarchy is kept readable and stable, without arbitrary relabeling.
+- **Heading consistency:** headings are kept readable and stable, without arbitrary relabeling. Heading hierarchy is not conserved at this moment.
 - **Whitespace/line breaks:** obvious OCR/parser spacing artifacts are normalized while preserving meaning.
 - **Figure handling:** when figures are encountered, they are represented as bracketed legend placeholders (for example, `[Figure 1: ...]`) rather than attempting to reconstruct image text content.
+- **Table handling:** When possible, tables are kept, they are easier to handle and reproduce as Markdown.
 
 ## Scoring Assumption
 
