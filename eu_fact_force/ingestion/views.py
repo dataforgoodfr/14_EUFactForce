@@ -5,18 +5,18 @@ from .services import run_pipeline
 
 
 def ingest(request):
-    """Accept a file_id via form, run the pipeline, display success and count."""
+    """Accept a DOI via form, run the pipeline, display success and count."""
     context = {"form": IngestForm()}
     if request.method == "POST":
         form = IngestForm(request.POST)
         if form.is_valid():
-            file_id = form.cleaned_data["file_id"]
+            doi = form.cleaned_data["doi"]
             try:
-                source_file, elements = run_pipeline(file_id)
+                source_file, elements = run_pipeline(doi)
                 context.update(
                     {
                         "success": True,
-                        "file_id": file_id,
+                        "doi": doi,
                         "source_file": source_file,
                         "elements_count": len(elements),
                     }

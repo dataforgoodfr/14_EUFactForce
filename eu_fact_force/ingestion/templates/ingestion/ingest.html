@@ -15,7 +15,7 @@
     </form>
 
     {% if success %}
-        <p><strong>Success.</strong> File ID: {{ file_id }}. Stored as {{ source_file.s3_key }}. {{ elements_count }} parsed element(s) saved.</p>
+        <p><strong>Success.</strong> DOI: {{ doi }}. Stored as {{ source_file.s3_key }}. {{ elements_count }} document chunk(s) saved.</p>
     {% endif %}
     {% if error %}
         <p><strong>Error:</strong> {{ error }}</p>
