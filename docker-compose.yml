@@ -22,15 +22,15 @@ services:
       - "127.0.0.1:4566:4566"
     environment:
       SERVICES: s3
+      PERSISTENCE: 1
       AWS_DEFAULT_REGION: ${AWS_S3_REGION_NAME:-eu-west-1}
       AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-eu-fact-force-files}
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-test}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-test}
       DEBUG: ${DEBUG:-0}
     volumes:
-      - localstack_data:/var/lib/localstack
+      - ./s3:/var/lib/localstack
       - ./docker/localstack/init-ready.d:/etc/localstack/init/ready.d:ro
 
 volumes:
   postgres_data:
-  localstack_data:
