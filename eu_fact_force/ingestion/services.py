@@ -4,12 +4,7 @@ This file is mostly a placeholder for future implementation.
 Create a dedicated file for real pipeline steps.
 """
 
-import csv
-import io
 from pathlib import Path
-
-from django.core.files.base import ContentFile
-from django.core.files.storage import default_storage
 
 from .models import DocumentChunk, FileMetadata, SourceFile
 
@@ -35,21 +30,7 @@ def save_to_s3_and_postgres(
     Read the local file at local_file_path (e.g. PDF, CSV, JPEG), upload it to S3
     (or default storage), and create SourceFile + FileMetadata in Postgres.
     """
-    path = Path(local_file_path)
-    if not path.exists():
-        raise FileNotFoundError(f"Local file not found: {path}")
-    if not path.is_file():
-        raise ValueError(f"Not a file: {path}")
-
-    file_content = path.read_bytes()
-    s3_key = f"ingestion/sources/{path.name}"
-    default_storage.save(s3_key, ContentFile(file_content))
-
-    source_file = SourceFile.objects.create(
-        doi=doi,
-        s3_key=s3_key,
-        status=SourceFile.Status.STORED,
-    )
+    source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
     FileMetadata.objects.create(source_file=source_file, tags_pubmed=tags_pubmed)
     return source_file
 

@@ -1,7 +1,25 @@
+import logging
+from pathlib import Path
+
+from django.core.files.storage import default_storage
 from django.db import models
 
+from eu_fact_force.ingestion.s3 import save_file_to_s3
 
-class SourceFile(models.Model):
+logger = logging.getLogger(__name__)
+
+
+class TimeStampedModel(models.Model):
+    """Abstract base model that adds created_at and updated_at to all derived models."""
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class SourceFile(TimeStampedModel):
     """A file fetched and stored (e.g. on S3), identified by doi."""
 
     class Status(models.TextChoices):
@@ -17,8 +35,6 @@ class SourceFile(models.Model):
         choices=Status.choices,
         default=Status.PENDING,
     )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         app_label = "ingestion"
@@ -29,8 +45,36 @@ class SourceFile(models.Model):
     def __str__(self):
         return f"{self.doi or self.s3_key or self.id} ({self.status})"
 
+    @classmethod
+    def create_from_file(
+        cls,
+        file_path: Path,
+        doi: str | None = None,
+    ) -> "SourceFile":
+        """Create a SourceFile from a local file path."""
+        s3_key = save_file_to_s3(file_path)
+        return cls.objects.create(doi=doi, s3_key=s3_key, status=cls.Status.STORED)
 
-class FileMetadata(models.Model):
+    def delete_source_document_from_s3(self):
+        """
+        Remove this source file's object from S3 (or default storage).
+        No-op if no s3_key; does not raise if the file is already missing.
+        """
+        if not self.s3_key:
+            return
+        try:
+            if default_storage.exists(self.s3_key):
+                default_storage.delete(self.s3_key)
+        except Exception as e:
+            logger.warning(
+                "Could not delete storage file for SourceFile %s (key=%s): %s",
+                self.pk,
+                self.s3_key,
+                e,
+            )
+
+
+class FileMetadata(TimeStampedModel):
     """Metadata associated with an ingested file."""
 
     source_file = models.OneToOneField(
@@ -43,8 +87,6 @@ class FileMetadata(models.Model):
         blank=True,
         help_text="List of PubMed-style tags (list of strings)",
     )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         app_label = "ingestion"
@@ -55,7 +97,7 @@ class FileMetadata(models.Model):
         return f"Metadata for {self.source_file_id}"
 
 
-class DocumentChunk(models.Model):
+class DocumentChunk(TimeStampedModel):
     """One chunk of a document (e.g. one line from CSV) linked to the source file."""
 
     source_file = models.ForeignKey(
@@ -63,13 +105,10 @@ class DocumentChunk(models.Model):
         on_delete=models.CASCADE,
         related_name="document_chunks",
     )
-    content = models.TextField(
-        help_text="Content of the chunk (e.g. one line)"
-    )
+    content = models.TextField(help_text="Content of the chunk (e.g. one line)")
     order = models.PositiveIntegerField(
         default=0, help_text="Order in the original file"
     )
-    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         app_label = "ingestion"

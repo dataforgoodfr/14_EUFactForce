@@ -7,18 +7,14 @@ import pytest
 from eu_fact_force.ingestion.models import DocumentChunk, SourceFile
 from eu_fact_force.ingestion.services import run_pipeline
 
-# Central README.md path (project root)
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-README_PATH = PROJECT_ROOT / "README.md"
-
-# V0: chunks come from tags_pubmed = ["simulated", doi]
-EXPECTED_CHUNK_CONTENTS = ["simulated", "README.md"]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 @pytest.mark.django_db
 def test_run_pipeline_uses_readme_md(tmp_storage):
     """Run the full pipeline with the project README.md as the test file."""
-    assert README_PATH.exists(), f"Test file must exist: {README_PATH}"
+    readme_fn = PROJECT_ROOT / "README.md"
+    assert readme_fn.exists(), f"Test file must exist: {readme_fn}"
 
     source_file, _ = run_pipeline("README.md")
 
