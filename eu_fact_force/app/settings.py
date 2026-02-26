@@ -14,10 +14,16 @@ import os
 from pathlib import Path
 from urllib.parse import urlparse
 
+from dotenv import load_dotenv
 from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load .env from project root (where manage.py lives) so DATABASE_URL, etc. are set
+_load_env = BASE_DIR.parent / ".env"
+if _load_env.exists():
+    load_dotenv(_load_env)
 
 
 # Quick-start development settings - unsuitable for production
