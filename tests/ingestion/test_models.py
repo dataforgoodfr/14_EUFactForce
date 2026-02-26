@@ -5,7 +5,6 @@ from pathlib import Path
 import pytest
 
 from eu_fact_force.ingestion.models import SourceFile
-from eu_fact_force.ingestion.services import run_pipeline
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 README_PATH = PROJECT_ROOT / "README.md"
