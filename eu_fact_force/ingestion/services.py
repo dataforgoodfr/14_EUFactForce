@@ -21,7 +21,7 @@ def fetch_file_and_metadata(doi: str) -> tuple[str, list[str]]:
     The returned path must point to an existing local file (e.g. PDF, CSV, JPEG).
     """
     # V0: fixed path; replace with a real local path or path from API response
-    filename = f"fichier_v0_{doi}.csv"
+    filename = Path(__file__).parents[2] / doi
     tags_pubmed = ["simulated", doi]
     return filename, tags_pubmed
 
