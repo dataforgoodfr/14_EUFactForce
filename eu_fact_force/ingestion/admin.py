@@ -5,14 +5,14 @@ See the pages on <url>/admin
 
 from django.contrib import admin
 
-from .models import FileMetadata, ParsedElement, SourceFile
+from .models import DocumentChunk, FileMetadata, SourceFile
 
 
 @admin.register(SourceFile)
 class SourceFileAdmin(admin.ModelAdmin):
-    list_display = ("id", "file_id", "doi", "filename", "status", "created_at")
+    list_display = ("id", "doi", "s3_key", "status", "created_at")
     list_filter = ("status",)
-    search_fields = ("file_id", "filename")
+    search_fields = ("doi",)
 
 
 @admin.register(FileMetadata)
@@ -21,8 +21,8 @@ class FileMetadataAdmin(admin.ModelAdmin):
     raw_id_fields = ("source_file",)
 
 
-@admin.register(ParsedElement)
-class ParsedElementAdmin(admin.ModelAdmin):
+@admin.register(DocumentChunk)
+class DocumentChunkAdmin(admin.ModelAdmin):
     list_display = ("id", "source_file", "order", "content_preview", "created_at")
     list_filter = ("source_file",)
     raw_id_fields = ("source_file",)
@@ -30,5 +30,4 @@ class ParsedElementAdmin(admin.ModelAdmin):
 
     @admin.display(description="Content")
     def content_preview(self, obj):
-        return obj.content[:80] + ("..." if len(obj.content) > 80 else "")
         return obj.content[:80] + ("..." if len(obj.content) > 80 else "")
