@@ -25,7 +25,7 @@ def run_mini_benchmark_docling():
     converter = DocumentConverter()
 
     # Run experiment
-    print(f"### Starting - docling benchmark ###")
+    print("### Starting - docling benchmark ###")
     experiment_results = {}
     for filename in tqdm(list_files):
         # Select file
@@ -70,7 +70,7 @@ def run_mini_benchmark_pypdf2():
     print(f"> number of files: {len(list_files)}")
 
     # Run experiment
-    print(f"### Starting - pypdf2 benchmark ###")
+    print("### Starting - pypdf2 benchmark ###")
     experiment_results = {}
     for filename in tqdm(list_files):
         # Select file
