@@ -161,3 +161,10 @@ cython_debug/
 
 # Precommit hooks: ruff cache
 .ruff_cache
+
+# Parsing benchmark generated fidelity artifacts
+ingestion/parsing/output/fidelity_*.csv
+ingestion/parsing/output/fidelity_*.md
+ingestion/parsing/output/fidelity_*.json
+ingestion/parsing/output/parser_routing_by_doc_type.json
+ingestion/parsing/output/fidelity_scores_4docs*.csv
