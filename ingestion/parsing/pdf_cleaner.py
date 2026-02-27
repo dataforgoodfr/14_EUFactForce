@@ -9,7 +9,6 @@ Usage:
     python pdf_cleaner.py
 """
 
-import re
 from collections import defaultdict
 from pathlib import Path
 

@@ -4,14 +4,14 @@ import sys
 import time
 import csv
 from pathlib import Path
+
+import fitz  # PyMuPDF
 from dotenv import load_dotenv
-
-load_dotenv()
-
 from llama_index.core import SimpleDirectoryReader
 from llama_index.readers.llama_parse import LlamaParse
-import fitz  # PyMuPDF
 from text_cleaning import postprocess_text
+
+load_dotenv()
 
 # =========================
 # CONFIGURATION
