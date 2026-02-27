@@ -17,9 +17,9 @@ parsing/
 │   ├── similarity.py     # Reference-text similarity scoring
 │   └── utils.py          # Shared utilities (fuzzy matching, normalization)
 │
-├── data/                 # PDF documents (original + processed variants)
-│   ├── document_diversity/       # Original PDFs
-│   ├── document_diversity_clean/ # Cleaned (cropped + figures redacted)
+├── data/                 # PDF documents (raw + processed variants)
+│   ├── document_diversity/       # Raw PDFs
+│   ├── document_diversity_clean/ # Preprocessed (cropped + figures redacted)
 │   └── document_diversity_column/# Column-linearized variants
 │
 ├── ground_truth/         # Reference data for scoring
@@ -41,7 +41,9 @@ All scripts are run from the `ingestion/parsing/` directory.
 python pdf_cleaner.py
 
 # 2. Run parsing benchmark (requires LLAMA_CLOUD_API_KEY in .env)
-python benchmark.py [original|clean|column|both|all] [--no-cache]
+python benchmark.py [raw|preprocessed|column|all] [--preprocessed] [--column] [--no-cache]
+# Default: raw only
+# Additive options: --preprocessed and/or --column
 
 # 3. Evaluate extraction quality
 python quality_scoring.py
