@@ -1,0 +1,193 @@
+<!-- image -->
+
+## Effective correction of misinformation
+
+## Toby Prike and Ullrich K. H. Ecker
+
+## Abstract
+
+This paper reviews correction effectiveness, highlighting which factors matter, which do not, and where further research is needed. To boost effectiveness, we recommend using detailed corrections and providing an alternative explanation wherever possible. We also recommend providing a reminder of the initial misinformation and repeating the correction. Presenting corrections pre-emptively (i.e., prebunking) or after misinformation exposure is unlikely to greatly impact correction effectiveness. There is also limited risk of repeating misinformation within a correction or that a correction will inadvertently spread misinformation to new audiences. Further research is needed into which correction formats are most effective, whether boosting correction memorability can enhance effectiveness, the effectiveness of discrediting a misinformation source, and whether distrusted correction sources can contribute to corrections backfiring.
+
+## Addresses
+
+School of Psychological Science, University of Western Australia, Perth, Australia
+
+Corresponding author: Prike, Toby (toby.prike@uwa.edu.au)
+
+Current Opinion in Psychology 2023, 54: 101712
+
+This review comes from a themed issue on The Psychology of Misinformation (2024)
+
+Edited by Gordon Pennycook and Lisa K. Fazio
+
+For complete overview about the section, refer The Psychology of Misinformation (2024)
+
+Available online 19 October 2023
+
+https://doi.org/10.1016/j.copsyc.2023.101712
+
+2352-250X/© 2023 The Author(s). Published by Elsevier Ltd. This is an open access article under the CC BY license (http://creativecommons. org/licenses/by/4.0/).
+
+## Keywords
+
+Misinformation, Correction, Fake news, Debunking.
+
+Misinformation can have negative impacts for both individuals and societies [1,2]. For example, misinformation has contributed to vaccine hesitancy, resistance to public-health measures, and negative political outcomes such as reduced satisfaction with democracy [3 e 7]. Therefore, it is important to identify and implement effective interventions. Several such interventions, which rely on a variety of underlying strategies, have been identified. For example, interventions such as accuracy prompts and social norms use a nudging approach, interventions involving media-literacy training aim to boost misinformation detection, and warning labels or corrections debunk misinformation (see Ref. [8]). This brief review focuses on this last approach, the effective correction of misinformation.
+
+## Effective correction of misinformation
+
+Providing a correction is a natural response to encountering a piece of information one finds to be false. Corrections are broadly applicable as they can vary in specificity and detail depending on how much is known about the misinformation being corrected and its falsity. However, compared to other interventions, corrections have the disadvantage that they are generally designed to be (1) employed retroactively and (2) specific to the particular misinformation they target. The retroactive nature of corrections presents a challenge because if a recipient has already formed a false belief based on the misinformation, undoing this belief requires cognitively challenging processes of memory updating or knowledge revision [1]. T ogether with the need for specificity, this means that in environments awash with misinformation, a corrective approach will face challenges of scale. Thus, if corrections were the only tool available, countering misinformation would truly be a Sisyphean task. However, the specificity of corrections also enhances intervention salience; that is, correction recipients will typically know exactly which claim is being challenged. Thus, corrections have generally been found to be at least somewhat effective at reducing false beliefs and reliance on misinformation [9,10]. Therefore, corrections are a crucial tool for countering misinformation, particularly misinformation with the potential for harm.
+
+## What makes a correction effective
+
+Fortunately, the correction of misinformation has been widely studied, allowing for the identification of several key considerations for designing effective corrections (see Table 1). Firstly, providing an alternative, factual explanation wherever possible increases the effectiveness of corrections (e.g., Ref. [1]). This is a wellestablished finding, and including an alternative explanation is likely to be particularly important when correcting causal misinformation (e.g., the cause of an accident or health problem). Several recent papers provide insight into why providing alternative explanations enhances correction effectiveness. Susmann and Wegener [11] found that retracting misinformation induces psychological discomfort, and this discomfort is
+
+Table 1
+
+## Overview of factors that do, do not, and might impact correction effectiveness.
+
+| Factor                                      | Impact on Effectiveness   | Relevant Evidence             |
+|---------------------------------------------|---------------------------|-------------------------------|
+| Provide an alternative explanation          | Yes                       | [11,12]                       |
+| Provide details                             | Yes                       | [9,13 - 16]                   |
+| Repeat the correction                       | Yes                       | [17,18]                       |
+| Misinformation reminder                     | Yes                       | [19 - 24]                     |
+| Trustworthy correction source               | Yes                       | [25 - 29]                     |
+| Discredit misinformation source             | Likely                    | [30 - 33]                     |
+| Correction format                           | Possible                  | [19,28,34 - 40]               |
+| Worldview congruence                        | Possible                  | [41 - 53]                     |
+| Correction retrieval practice               | Unlikely                  | [35,54]                       |
+| Misinformation repetition within correction | Unlikely                  | [16,20,21,24,46, 50,52,55,56] |
+| Presentation order                          | Unlikely                  | [22,57 - 61]                  |
+
+associated with continued reliance on misinformation post-correction. This is consistent with the idea that one benefit of providing an alternative explanation is that it allows people to maintain a complete mental model of an event, situation, or causal relation, thereby reducing discomfort associated with an incomplete mental model [1]. Kendeou et al. [12] used a thinking aloud paradigm and found that while reading a correction with an alternative explanation, participants reported increased cognitive conflict and monitoring. However, when subsequently reading the corrected outcome, participants had faster reading times, lower cognitive conflict and monitoring, and made more accurate elaborations, suggesting a correction containing an explanation leads to greater integration of the correction and reduced misinformation reactivation, thereby enhancing knowledge revision.
+
+Although providing an alternative explanation is beneficial, it is not always possible or applicable (e.g., when no factual alternative information is currently available, or in cases of non-causal misinformation). However, providing additional details within a correction is nearly always possible (e.g., details about why the misinformation is false, or why it may be believed or spread), and this is also a well-established strategy for enhancing the effectiveness of misinformation corrections, as confirmed by a recent meta-analysis [9]. Benefits of providing additional details have also been found in the context of corrections related to public health [15] and even when using corrections during crisis communication [14]. Recent research from our own lab has found that providing additional details increases the longevity of correction effects, even when using short-format corrections (i.e., less than 140 characters; [13]).
+
+Another recommendation is to repeat misinformation corrections. Repetition can enhance memory for the correction and thereby alleviate belief regression d the tendency for misinformation belief to creep back up over time as the correction fades in memory [18]. Repetition of corrections may be particularly useful if recipients are distracted when they encounter the correction, with recent research finding that when participants are under cognitive load, multiple retractions are needed for corrections to be effective [17]. There is also a growing body of evidence that placing a reminder of the specific piece of misinformation being corrected within or alongside a correction can help to enhance correction effectiveness [20,21,23]. This beneficial effect of reminders may stem from enhanced clarity and salience, allowing recipients to more easily co-activate the correction and the targeted misinformation in memory [1,12].
+
+The previously listed recommendations all relate to features of corrections, but source factors d and particularly the trustworthiness of the correction source d are also important for ensuring correction effectiveness. Several papers have shown that the credibility of correction sources matters, with official organizations and socially connected sources leading to increased correction efficacy [25,28,29]. Recent work has further investigated correction source credibility by disentangling the impacts of expertise and trustworthiness, showing that source trustworthiness is more impactful than expertise, and that corrections from untrusted sources may even be entirely ineffective [26,27].
+
+## What not to worry about
+
+Just as important as identifying factors that do impact correction effectiveness is identifying factors that have limited impact so that researchers and practitioners can focus their efforts elsewhere. The timing of corrections and the ordering of correction elements is one such factor. With news headlines, there is some evidence that it is beneficial to present corrective fact-checks (i.e., 'false' tags) after headline exposure rather than before [57]. On social media, fact-focused corrections (but not corrections that expose misleading logic) may also be more effective when presented after misinformation exposure [61]. However, several other recent studies found similar levels of correction effectiveness regardless of whether the correction occurred before (i.e., prebunking) or after misinformation exposure [22,59,60].
+
+Moreover, the specific ordering of correction elements d whether a correction is presented in a 'mythfact', a 'fact-myth', or a 'truth sandwich' ('fact-mythfact') format d does not seem to affect efficacy much, with various formats appearing to be equally effective at correcting misinformation [22,58]. Likewise, many more-peripheral presentation features seem to have no or negligible impact on correction effectiveness. For example, Fazio et al. [35] found that providing visual information indicating the type of misinformation being corrected (e.g., manufactured vs. manipulated) and the number of news organizations endorsing the correction were poorly remembered by participants and provided no benefit.
+
+Thus, cumulatively the evidence suggests that corrections are likely to be similarly effective regardless of presentation order or secondary presentation features, and that pre-emptively presenting corrections (i.e., prebunking) can be an effective alternative to traditional retroactive corrections in situations where future misinformation exposure can be foreseen.
+
+A longstanding concern has been that repeating misinformation within a correction may be counterproductive and lead to a familiarity backfire effect, whereby misinformation repetition ironically increases false beliefs post-correction due to a boost to misinformation familiarity (see Ref. [50], for discussion). However, evidence continues to accumulate against familiarity backfire effects. As aforementioned, reminders of misinformation within a correction help rather than hinder. Multiple studies have also found that corrections that contain both 'myth' and 'fact' are superior to 'factonly' interventions that aim to correct a misconception by focusing only on the facts [19,22,24]. Even with explicit misinformation repetition under conditions conducive to familiarity effects, recent studies have failed to find evidence for familiarity backfire [13,16]. Some have argued that familiarity backfire may be a particular risk when a correction of novel misinformation is presented without prior misinformation exposure [55]. However, recent studies from our lab have found that even without initial misinformation exposure, corrections are unlikely to backfire [46,56]. Cumulatively, we believe that the evidence shows there is limited risk of familiarity backfire effects and that even the correction of novel misinformation is unlikely to backfire.
+
+## What might matter
+
+In addition to the factors mentioned above, there are several factors that may impact correction effectiveness for which there is not yet enough evidence to draw firm conclusions. One emerging research question is whether including a discreditation of a misinformation source within a correction can enhance effectiveness. There is some evidence that reducing trust in a misinformation source can lead to reduced misinformation reliance [33] and recent work conducted within our lab found that discrediting a misinformation source (e.g., highlighting a conflict of interest) can enhance a correction and also reduce misinformation reliance on its own [31]. However, in other studies, telling participants that misinformation originated from an intentional lie or a website that creates false stories provided no additional benefit over a standard correction [30,32]. These results may suggest that a strong and explicit source discreditation is needed for it to provide additional benefit over and above a standard correction.
+
+Another area that has received considerable attention is correction format and medium. Pasquetto et al. [28] reported that audio corrections were more effective than image or text-based corrections on WhatsApp (possibly because they created more interest), but the observed difference was small. Ecker, Sharkey et al. [16] found that only a format juxtaposing 'myths' and 'facts' was effective at reducing vaccine-related misconceptions, whereas other formats, including a simple 'false tag', a fear appeal, and even a detailed visual correction format (comprehension of which may have required more attention than participants gave it), were ineffective. Challenger et al. [19] found that when correcting COVID-19 misinformation, a 'question-answer' format was more effective than a 'fact-myth' format, but only after a delay, and only marginally so. Several studies have also suggested there are benefits to using a narrative format or adding narrative elements to a correction [52,54,55]. However, when narrative corrections are contrasted with similarly detailed non-narrative corrections, there does not appear to be any benefit of narrative [51,53,56]. Overall, there is mixed evidence regarding which correction formats are most effective, and many studies confound correction format and provision of details. Further research is needed to examine whether some formats and/or elements consistently lead to improved correction efficacy when other factors are controlled for.
+
+A somewhat surprising recent finding is that conducting memory tests after a correction led to enhanced memory of correction details after a 1-week delay but did not impact correction effectiveness [35,54]. This is particularly noteworthy given that correction memory has been found to negatively correlate with post-correction misinformation reliance, and memory failure is a proposed mechanism by which correction efficacy fades over time [18,35]. Future research should further explore the relationship between memory and correction efficacy and examine whether there are methods for boosting correction memory that transfer to reduced misinformation reliance.
+
+Another area of ongoing research relates to the impact of worldview on misinformation corrections. Many recent studies have shown that corrections of political misinformation are effective even if the misinformation is consistent with a participant's worldview and/or comes from a politically aligned source [42 e 44,47,51]. However, some studies have found that corrections are less effective if they challenge a strongly held belief or require attitudinal change [45,49,53]. Additionally, a recent paper found that even though corrections were effective overall, some individuals were more prone to increasing misinformation belief in response to a correction, particularly when the correction source was a political outgroup [48]. Work in our own lab has also recently shown that corrections can be ineffective and may even backfire if people are skeptical of the correction source [46]. However, it is important to note that the risk of both familiarity and worldview-driven backfire effects is likely much lower than once thought, and backfire effects are less likely to occur when reliable (multi-item) measures of misinformation belief are used [52]. Therefore, future research should further examine if backfire effects reliably occur when people are sufficiently distrustful or skeptical of a correction source [41,52].
+
+## Conclusion
+
+There is considerable evidence about how to enhance correction effectiveness and which factors have little impact. Providing an alternative explanation and/or more details will boost correction efficacy, as will providing a reminder of the initial misinformation and repeating the correction. Whether the correction is presented before (i.e., as a prebunking) or after misinformation exposure is unlikely to greatly impact correction effectiveness. There is also limited risk of repeating misinformation within a correction or that a correction will inadvertently spread misinformation to new audiences. Further research is needed into which correction formats are most effective, and whether the benefits seen for some formats are simply due to providing additional details. The research into boosting memory for corrections has hitherto found relatively little benefit, but given the link between correction memory and effectiveness over time, further research in this area is warranted. Source trust is also a promising area for future research, including further examination of the effectiveness of source discreditation, as well as whether distrust and/or skepticism of a correction source can contribute to corrections backfiring.
+
+## Declaration of competing interest
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+## Data availability
+
+No data was used for the research described in the article.
+
+## Acknowledgement
+
+UKHE is supported by the Australian Research Council (grant FT190100708).
+
+## References
+
+Papers of particular interest, published within the period of review, have been highlighted as:
+
+* of special interest
+* * of outstanding interest
+- 1 * * . Ecker UKH, Lewandowsky S, Cook J, Schmid P, Fazio LK, Brashier N, Kendeou P, Vraga EK, Amazeen MA: The psychological drivers of misinformation belief and its resistance to correction . Nat Rev Psychol 2022, 1 :13 -29, https://doi.org/ 10.1038/s44159-021-00006-y.
+
+This review paper outlines the factors that contribute to the formation of false beliefs along with why people continue to believe and/or rely on misinformation even after it has been corrected. Also reviews the efficacy of a broad range of strategies for countering misinformation and discusses implications for information consumers, practitioners trying to counter misinformation, and policymakers.
+
+2. Swire-Thompson B, Lazer D: Reducing health misinformation in science: a call to arms . Ann Am Acad Polit Soc Sci 2022, 700 : 124 -135, https://doi.org/10.1177/00027162221087686.
+3. Lee CS, Merizalde J, Colautti JD, An J, Kwak H: Storm the capitol: linking offline political speech and online twitter extra-representational participation on QAnon and the january 6 insurrection . Front Sociol 2022, 7 :876070, https:// doi.org/10.3389/fsoc.2022.876070.
+4. Loomba S, de Figueiredo A, Piatek SJ, de Graaf K, Larson HJ: Measuring the impact of COVID-19 vaccine misinformation on vaccination intent in the UK and USA . Nat Human Behav 2021, 5 :337 -348, https://doi.org/10.1038/s41562-021-01056-1.
+5. Nisbet EC, Mortenson C, Li Q: The presumed influence of election misinformation on others reduces our own satisfaction with democracy . Harv Kennedy Sch Misinformation Rev. 2021, https://doi.org/10.37016/mr-2020-59.
+6. Ross ARN, Vaccari C, Chadwick A: Russian meddling in U.S. elections: how news of disinformation ' s impact can affect trust in electoral outcomes and satisfaction with democracy . Mass Commun Soc 2022, 25 :786 -811, https://doi.org/10.1080/ 15205436.2022.2119871.
+7. Simonov A, Sacher S, Dubé J-P, Biswas S: Frontiers: the persuasive effect of Fox News: noncompliance with social distancing during the COVID-19 pandemic . Market Sci 2022, 41 :230 -242, https://doi.org/10.1287/mksc.2021.1328.
+8. Kozyreva A, Lorenz-Spreen P, Herzog S, Ecker U, Lewandowsky S, Hertwig R: Toolbox of interventions against online misinformation and manipulation . https://doi.org/10. 31234/osf.io/x8ejt.
+9. Chan MS, Albarracín D: A meta-analysis of correction effects in science-relevant misinformation . Nat Human Behav 2023: 1 -12, https://doi.org/10.1038/s41562-023-01623-8.
+10. Walter N, Cohen J, Holbert RL, Morag Y: Fact-checking: a metaanalysis of what works and for whom . Polit Commun 2020, 37 : 350 -375, https://doi.org/10.1080/10584609.2019.1668894.
+11. Susmann MW, Wegener DT: The role of discomfort in the continued influence effect of misinformation . Mem Cognit 2022, 50 :435 -448, https://doi.org/10.3758/s13421-021-01232-8.
+12. Kendeou P, Butterfuss R, Kim J, Van Boekel M: Knowledge revision through the lenses of the three-pronged approach . Mem Cognit 2019, 47 :33 -46, https://doi.org/10.3758/s13421018-0848-y.
+13. Ecker UKH, O ' Reilly Z, Reid JS, Chang EP: The effectiveness of short-format refutational fact-checks . Br J Psychol 2020, 111 : 36 -54, https://doi.org/10.1111/bjop.12383.
+14. Kim Y, Dana H, Lim: Debunking misinformation in times of crisis: exploring misinformation correction strategies for effective internal crisis communication . J Contingencies Crisis Manag 2022:1 -15, https://doi.org/10.1111/1468-5973.12447.
+15. van der Meer TGLA, Jin Y: Seeking formula for misinformation treatment in public health crises: the effects of corrective information type and source . Health Commun 2020, 35 : 560 -575, https://doi.org/10.1080/10410236.2019.1573295.
+16. Ecker UKH, Sharkey CXM, Swire-Thompson B: Correcting vaccine misinformation: a failure to replicate familiarity or fear-driven backfire effects . PLoS One 2023, 18 , e0281140, https://doi.org/10.1371/journal.pone.0281140.
+17. Sanderson JA, Bowden V, Swire-Thompson B, Lewandowsky S, Ecker UKH: Listening to misinformation while driving: cognitive load and the effectiveness of (repeated) corrections . J Appl Res Mem Cogn 2022, https://doi.org/10.1037/ mac0000057.
+17. 18 * . Swire-Thompson B, Dobbs M, Thomas A, DeGutis J: Memory failure predicts belief regression after the correction of misinformation . Cognition 2023, 230 :105276, https://doi.org/ 10.1016/j.cognition.2022.105276.
+
+This paper found that one of the primary reasons that the effectiveness of corrections reduces over time is because of reduced memory for the correction. Although memory failure is often a presumed explanation of why correction effectiveness wanes over time, this paper quantified the extent to which memory failure accounts for belief regression and recommended that future research examine strategies for making corrections more memorable.
+
+19. Challenger A, Sumner P, Bott L: COVID-19 myth-busting: an experimental study . BMC Publ Health 2022, 22 :131, https:// doi.org/10.1186/s12889-021-12464-3.
+20. Kemp PL, Alexander TR, Wahlheim CN: Recalling fake news during real news corrections can impair or enhance memory updating: the role of recollection-based retrieval . Cogn Res Princ Implic 2022, 7 :85, https://doi.org/10.1186/s41235-02200434-1.
+21. Kemp PL, Loaiza VM, Wahlheim CN: Fake news reminders and veracity labels differentially benefit memory and belief accuracy for news headlines . Sci Rep 2022, 12 :21829, https:// doi.org/10.1038/s41598-022-25649-6.
+22. Swire-Thompson B, Cook J, Butler LH, Sanderson JA, Lewandowsky S, Ecker UKH: Correction format has a limited role when debunking misinformation . Cogn Res Princ Implic 2021, 6 :83, https://doi.org/10.1186/s41235-021-00346-6.
+23. Wahlheim C, Alexander T, Peske C: Reminders of everyday misinformation statements can enhance memory for and beliefs in corrections of those statements in the short term . Psychol Sci 2020, 31 , https://doi.org/10.1177/ 0956797620952797. 956797620952797.
+24. Winters M, Oppenheim B, Sengeh P, Jalloh MB, Webber N, Pratt SA, Leigh B, Molsted-Alvesson H, Zeebari Z, Sundberg CJ, Jalloh MF, Nordenstedt H: Debunking highly prevalent health misinformation using audio dramas delivered by WhatsApp: evidence from a randomised controlled trial in Sierra Leone . BMJ Glob Health 2021, 6 , e006954, https://doi.org/10.1136/ bmjgh-2021-006954.
+25. Badrinathan S, Chauchard S: ' I Don ' t Think That ' s True, Bro! ' Social corrections of misinformation in India . Int. J. Press; 2023, https://doi.org/10.1177/19401612231158770. 19401612231158770.
+26. Bruns H, Dessart FJ, Krawczyk MW, Lewandowsky S, Pantazi M, Pennycook G, Schmid P, Smillie L: The role of (trust in) the source of prebunks and debunks of misinformation. Evidence from online experiments in four EU countries . https:// doi.org/10.31219/osf.io/vd5qt.
+27. Ecker UKH, Antonio LM: Can you believe it? An investigation into the impact of retraction source credibility on the continued influence effect . Mem Cognit 2021, 49 :631 -644, https://doi.org/10.3758/s13421-020-01129-y.
+10. 28 * . Pasquetto IV, Jahani E, Atreja S, Baum M: Social debunking of misinformation on WhatsApp: the case for strong and ingroup ties . Proc ACM Hum-Comput Interact 2022, 6 , https:// doi.org/10.1145/3512964. 117:1-117:35.
+
+This paper found that corrections in an audio format generated greater interest and were more effective than text or image-based corrections on a closed social-media platform. Additionally, the results showed that participants were more likely to reshare corrections that came from sources with strong social ties and shared political beliefs, highlighting the importance of social connection for enhancing correction efficacy.
+
+29. Zhang J, Featherstone JD, Calabrese C, Wojcieszak M: Effects of fact-checking social media vaccine misinformation on
+2. attitudes toward vaccines . Prev Med 2021, 145 :106408, https:// doi.org/10.1016/j.ypmed.2020.106408.
+30. Connor Desai S, Reimers S: Does explaining the origins of misinformation improve the effectiveness of a given correction? Mem Cognit 2023, 51 :422 -436, https://doi.org/10.3758/ s13421-022-01354-7.
+31. Ecker UKH, Scott R, Paver A, Swire-Thompson B, Prike T: The impact of source discreditation on misinformation reliance . 2023.
+32. Martel C, Mosleh M, Rand DG: You ' re definitely wrong, maybe: correction style has minimal effect on corrections of misinformation online . Media Commun 2021, 9 :120 -133, https:// doi.org/10.17645/mac.v9i1.3519.
+33. Watts J, Moyer-Gusé E: Countering narrative misinformation: investigating the effects of narrative corrections and character trust on story-related knowledge of HPV . J Health Commun 2022, 27 :593 -602, https://doi.org/10.1080/ 10810730.2022.2140365.
+34. Ecker UKH, Butler LH, Hamby A: You don ' t have to tell a story! A registered report testing the effectiveness of narrative versus non-narrative misinformation corrections . Cogn Res Princ Implic 2020, 5 :64, https://doi.org/10.1186/s41235-02000266-x.
+8. 35 * . Fazio LK, Hong MK, Pillai RM: Combatting rumors around the French election: the memorability and effectiveness of factchecking articles . Cogn Res Princ Implic 2023, 8 :44, https:// doi.org/10.1186/s41235-023-00500-2.
+
+This paper examined correction formats and whether retrieval practice can help to maintain correction effectiveness after a delay. The results showed that phrasing corrections as a question vs. a negation and including images indicating the extent to which a piece of misinformation is false did not boost correction efficacy. Additionally, retrieval practice led to greater memory for article details but did not lead to increased correction effectiveness.
+
+36. Greer J, Fitzgerald K, Vijaykumar S: Narrative elaboration makes misinformation and corrective information regarding COVID-19 more believable . BMC Res Notes 2022, 15 :235, https://doi.org/10.1186/s13104-022-06134-9.
+37. Huang Y, Wang W: When a story contradicts: correcting health misinformation on social media through different message formats and mechanisms . Inf Commun Soc 2022, 25 : 1192 -1209, https://doi.org/10.1080/1369118X.2020.1851390.
+38. Lee J: The effect of web add-on correction and narrative correction on belief in misinformation depending on motivations for using social media . Behav Inf Technol 2022, 41 : 629 -643, https://doi.org/10.1080/0144929X.2020.1829708.
+39. Sangalang A, Ophir Y, Cappella JN: The potential for narrative correctives to combat misinformation . J Commun 2019, 69 : 298 -319, https://doi.org/10.1093/joc/jqz014.
+40. Wang W, Huang Y: Countering the ' harmless e-cigarette ' myth: the interplay of message format, message sidedness, and prior experience with e-cigarette use in misinformation correction . Sci Commun 2021, 43 :170 -198, https://doi.org/ 10.1177/1075547020974384.
+41. DeVerna MR, Guess AM, Berinsky AJ, Tucker JA, Jost JT: Rumors in retweet: ideological asymmetry in the failure to correct misinformation . Pers Soc Psychol Bull 2022, https:// doi.org/10.1177/01461672221114222. 01461672221114222.
+42. Ecker UKH, Sze BKN, Andreotta M: Corrections of political misinformation: no evidence for an effect of partisan worldview in a US convenience sample . Philos Trans R Soc B Biol Sci 2021, 376 , 20200145, https://doi.org/10.1098/rstb.2020.0145.
+43. Nyhan B: Why the backfire effect does not explain the durability of political misperceptions . Proc Natl Acad Sci USA 2021, 118 , e1912440117, https://doi.org/10.1073/pnas.1912440117.
+44. Nyhan B, Porter E, Reifler J, Wood TJ: Taking fact-checks literally but not seriously? The effects of journalistic factchecking on factual beliefs and candidate favorability . Polit Behav 2020, 42 :939 -960, https://doi.org/10.1007/s11109-01909528-x.
+45. Pretus C, Servin-Barthet C, Harris EA, Brady WJ, Vilarroya O, Van Bavel JJ: The role of political devotion in sharing partisan
+11. misinformation and resistance to fact-checking . J Exp Psychol Gen 2023, https://doi.org/10.1037/xge0001436.
+12. 46 * . Prike T, Blackley P, Swire-Thompson B, Ecker UKH: Examining the replicability of backfire effects after standalone corrections . Cogn Res Princ Implic 2023, 8 :39, https://doi.org/10.1186/ s41235-023-00492-z.
+
+This paper found that corrections generally do not backfire, even when they are presented without initial misinformation exposure. Also found that standalone corrections may backfire if participants are sufficiently skeptical of the correction source.
+
+47. Prike T, Reason R, Ecker UKH, Swire-Thompson B, Lewandowsky S: Would I lie to you? Party affiliation is more important than Brexit in processing political misinformation . R Soc Open Sci 2023, 10 :220508, https://doi.org/10.1098/ rsos.220508.
+48. Reinero DA, Harris EA, Rathje S, Duke A, Bavel JJV: Partisans are more likely to entrench their beliefs in misinformation when political outgroup members fact-check claims . https:// doi.org/10.31234/osf.io/z4df3.
+49. Susmann MW, Wegener DT: How attitudes impact the continued influence effect of misinformation: the mediating role of discomfort . Pers Soc Psychol Bull 2023, 49 :744 -757, https://doi.org/10.1177/01461672221077519.
+50. Swire-Thompson B, DeGutis J, Lazer D: Searching for the backfire effect: measurement and design considerations . J Appl Res Mem Cogn 2020, 9 :286 -299, https://doi.org/10.1016/ j.jarmac.2020.06.006.
+51. Swire-Thompson B, Ecker UKH, Lewandowsky S, Berinsky AJ: They might be a liar but they ' re my liar: source evaluation and the prevalence of misinformation . Polit Psychol 2020, 41 : 21 -34, https://doi.org/10.1111/pops.12586.
+6. 52 * * . Swire-Thompson B, Miklaucic N, Wihbey JP, Lazer D, DeGutis J: The backfire effect after correcting misinformation is strongly associated with reliability . J Exp Psychol Gen 2022, 151 : 1655 -1665, https://doi.org/10.1037/xge0001131.
+
+This paper found that both familiarity and worldview backfire effects are more likely to occur when items have low reliability. This finding helps to explain the low replicability of backfire effects, and recommends that future research uses more reliable measures.
+
+53. Vidigal R, Jerit J: Issue importance and the correction of misinformation . Polit Commun 2022, 39 :715 -736, https:// doi.org/10.1080/10584609.2022.2123580.
+54. Collier JR, Pillai RM, Fazio LK: Multiple-choice quizzes improve memory for misinformation debunks, but do not reduce belief in misinformation . Cogn Res Princ Implic 2023, 8 , https:// doi.org/10.1186/s41235-023-00488-9.
+55. Autry KS, Duarte SE: Correcting the unknown: negated corrections may increase belief in misinformation . Appl Cognit Psychol 2021, 35 :960 -975, https://doi.org/10.1002/acp.3823.
+56. Ecker UKH, Lewandowsky S, Chadwick M: Can corrections spread misinformation to new audiences? Testing for the elusive familiarity backfire effect . Cogn Res Princ Implic 2020, 5 :41, https://doi.org/10.1186/s41235-020-00241-6.
+57. Brashier NM, Pennycook G, Berinsky AJ, Rand DG: Timing matters when correcting fake news . Proc Natl Acad Sci USA 2021, 118 , e2020043118, https://doi.org/10.1073/ pnas.2020043118.
+58. Kotz J, Giese H, König LM: How to debunk misinformation? An experimental online study investigating text structures and headline formats . Br J Health Psychol 2023, https://doi.org/ 10.1111/bjhp.12670.
+59. Pillai RM, Brown-Schmidt S, Fazio LK: Does wording matter? Examining the effect of phrasing on memory for negated political fact checks . J Appl Res Mem Cogn 2023, 12 :48 -58, https://doi.org/10.1037/mac0000022.
+60. Tay LQ, Hurlstone MJ, Kurz T, Ecker UKH: A comparison of prebunking and debunking interventions for implied versus explicit misinformation . Br J Psychol 2022, 113 :591 -607, https://doi.org/10.1111/bjop.12551.
+61. Vraga EK, Kim SC, Cook J, Bode L: Testing the effectiveness of correction placement and type on instagram . Int J Press 2020, 25 :632 -652, https://doi.org/10.1177/1940161220919082.

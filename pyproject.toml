@@ -13,8 +13,11 @@ dev = [
     "ruff>=0.15.0",
 ]
 parsing = [
+    "docling>=2.73.1",
+    "docling-hierarchical-pdf>=0.1.3",
+    "pypdf2>=3.0.1",
     "llama-index-core>=0.12.0",
     "llama-index-readers-llama-parse>=0.4.0",
     "pymupdf>=1.25.0",
-    "python-dotenv>=1.0.0",
+    "python-dotenv>=1.0.0"
 ]
