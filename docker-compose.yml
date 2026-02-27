@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg18-trixie
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-eu_fact_force}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-eu_fact_force}
+      POSTGRES_DB: ${POSTGRES_DB:-eu_fact_force}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-eu_fact_force} -d ${POSTGRES_DB:-eu_fact_force}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  localstack:
+    image: localstack/localstack:latest
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      SERVICES: s3
+      PERSISTENCE: 1
+      AWS_DEFAULT_REGION: ${AWS_S3_REGION_NAME:-eu-west-1}
+      AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-eu-fact-force-files}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-test}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-test}
+      DEBUG: ${DEBUG:-0}
+    volumes:
+      - ./s3:/var/lib/localstack
+      - ./docker/localstack/init-ready.d:/etc/localstack/init/ready.d:ro
+
+volumes:
+  postgres_data:

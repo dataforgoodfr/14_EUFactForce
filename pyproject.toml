@@ -4,11 +4,23 @@ version = "0.1.0"
 description = "A narrative-centric platform to counter health misinformation by connecting evidence-based responses with public health actors and community leaders across Europe"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "django>=6.0.2",
+    "python-dotenv>=1.0",
+    "psycopg[binary]>=3.2",
+    "pgvector>=0.2.4",
+    "django-storages[s3]>=1.14",
+    "boto3>=1.34",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "eu_fact_force.app.settings"
+pythonpath = ["."]
 
 [dependency-groups]
 dev = [
     "pre-commit>=4.5.1",
     "pytest>=9.0.2",
+    "pytest-django>=4.8",
     "ruff>=0.15.0",
 ]
