@@ -14,6 +14,10 @@ from pathlib import Path
 from .utils import (
     normalize_for_similarity,
     strip_references_section,
+    strip_footnotes_section,
+    strip_legal_boilerplate,
+    strip_trailing_citation_noise,
+    strip_table_of_contents_section,
     split_sentences,
     best_match_ratio,
     LENGTH_MISMATCH_RATIO,
@@ -27,8 +31,13 @@ MIN_MATCHED_SENTENCES = 3
 
 
 def _prepare_body(text: str) -> str:
-    """Strip references and normalize for similarity comparison."""
-    return normalize_for_similarity(strip_references_section(text))
+    """Strip TOC/references/footnotes and normalize for similarity comparison."""
+    body = strip_table_of_contents_section(text)
+    body = strip_references_section(body)
+    body = strip_footnotes_section(body)
+    body = strip_legal_boilerplate(body)
+    body = strip_trailing_citation_noise(body)
+    return normalize_for_similarity(body)
 
 
 def compute_text_similarity(extracted: str, reference: str) -> float:

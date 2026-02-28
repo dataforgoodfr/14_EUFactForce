@@ -44,10 +44,52 @@ python pdf_cleaner.py
 python benchmark.py [raw|preprocessed|column|all] [--preprocessed] [--column] [--no-cache]
 # Default: raw only
 # Additive options: --preprocessed and/or --column
+# Parser profile default is now `fast` (pruned set for speed).
+# Optional doc-type filter from ground truth:
+#   --doc-type scientific_paper
+# Profiles available:
+#   --profile full|fast|docling_only
+# Or provide explicit config list:
+#   --configs "pymupdf,docling_markdown,llamaparse_markdown"
 
 # 3. Evaluate extraction quality
 python quality_scoring.py
+# Quality scoring profile default is now `fast`.
+# Same pruning controls are available:
+#   python quality_scoring.py --profile fast
+#   python quality_scoring.py --filename BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report.pdf --profile docling_only
+# Optional doc-type filtering + per-row timing CSV:
+#   python quality_scoring.py --doc-type scientific_paper --configs docling_markdown,docling_postprocess_markdown --timing-output-csv output/analysis/scientific_timing.csv
+# Timing diagnostics:
+#   python quality_scoring.py --profile fast --log-timing --timing-threshold-ms 500
+# Optional speed mode (skip expensive similarity metrics):
+#   python quality_scoring.py --profile fast --skip-similarity
+
+# 4. Quickly rank variants for one document (fast mode by default)
+python score_single_file.py BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report.pdf --parser-prefix docling
+# Optional slower full fidelity metrics:
+# python score_single_file.py BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report.pdf --parser-prefix docling --mode full
 ```
+
+## Scientific-Paper Optimization Loop
+
+Use this loop when tuning Docling quality specifically for `scientific_paper` documents:
+
+```bash
+# 1) Refresh scientific-paper Docling extractions with runtime metrics
+python benchmark.py raw --doc-type scientific_paper --configs docling_markdown,docling_postprocess_markdown --no-cache
+
+# 2) Score only scientific papers and export per-row timing
+python quality_scoring.py --doc-type scientific_paper --configs docling_markdown,docling_postprocess_markdown --timing-output-csv output/analysis/scientific_paper_docling_timing.csv
+
+# 3) Optional quick smoke validation across fast profile (without heavy similarity)
+python quality_scoring.py --profile fast --skip-similarity
+```
+
+Recommended outputs to keep for iteration tracking:
+- `output/analysis/scientific_paper_docling_baseline.csv`
+- `output/analysis/scientific_paper_docling_after.csv`
+- `output/analysis/scientific_paper_docling_changelog.csv`
 
 ## Environment
 

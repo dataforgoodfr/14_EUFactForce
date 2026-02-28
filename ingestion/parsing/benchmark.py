@@ -3,6 +3,8 @@ import re
 import sys
 import time
 import csv
+import argparse
+import json
 from pathlib import Path
 
 import fitz  # PyMuPDF
@@ -24,6 +26,7 @@ INPUT_FOLDER_COLUMN = "data/document_diversity_column"
 OUTPUT_CSV = "output/benchmark_results_extended.csv"
 EXTRACTED_TEXT_DIR = "output/extracted_texts"
 LLAMAPARSE_API_KEY = os.getenv("LLAMA_CLOUD_API_KEY")
+GROUND_TRUTH_FILE = Path("ground_truth/ground_truth.json")
 
 # Heuristic thresholds for metadata detection
 MIN_TITLE_LENGTH = 10
@@ -38,10 +41,35 @@ CONFIGS = {
     "llamaparse_text": {"type": "llamaparse", "result_type": "text"},
     "llamaparse_markdown": {"type": "llamaparse", "result_type": "markdown"},
     "pymupdf": {"type": "pymupdf"},
-    "docling_text": {"type": "docling", "result_type": "text", "postprocess": False},
-    "docling_markdown": {"type": "docling", "result_type": "markdown", "postprocess": False},
+    "docling_text": {"type": "docling", "result_type": "text", "postprocess": True},
+    "docling_markdown": {"type": "docling", "result_type": "markdown", "postprocess": True},
     "docling_postprocess_text": {"type": "docling", "result_type": "text", "postprocess": True},
     "docling_postprocess_markdown": {"type": "docling", "result_type": "markdown", "postprocess": True},
+}
+
+# Benchmark config profiles (used via --profile).
+CONFIG_PROFILES: dict[str, list[str]] = {
+    "full": list(CONFIGS.keys()),
+    # Faster profile keeping one markdown-first representative per parser family.
+    "fast": [
+        "pymupdf",
+        "docling_markdown",
+        "docling_postprocess_markdown",
+        "llamaparse_markdown",
+    ],
+    # Useful for Docling-only tuning loops.
+    "docling_only": [
+        "docling_markdown",
+        "docling_postprocess_markdown",
+    ],
+}
+
+# Front-matter labels that hierarchical postprocessing can demote to plain text.
+_DEMOTED_HEADER_LABELS = {
+    "review",
+    "abstract",
+    "addresses",
+    "keywords",
 }
 
 # =========================
@@ -139,12 +167,45 @@ def parse_docling(file_path: Path, result_type: str, postprocess: bool):
         full_text = result.document.export_to_text()
     elif result_type == 'markdown':
         full_text = result.document.export_to_markdown()
+        full_text = _normalize_markdown_headers_for_gt(full_text)
     else:
         raise NotImplementedError(f"Unknown result_type: {result_type}")
     
     first_page_text = "\n".join([x['text'] for x in result.document.export_to_dict()['texts'] if x['prov'][0]['page_no'] == 1])
 
     return full_text, first_page_text, len(result.pages), 1 # One PDF document per call
+
+
+def _normalize_markdown_headers_for_gt(markdown_text: str) -> str:
+    """
+    Normalize headings to level-1 to match GT editorial convention.
+
+    For Docling hierarchical-postprocessed markdown, we also promote
+    demoted front-matter labels (e.g., "Abstract") back to headings.
+    """
+    lines = markdown_text.splitlines()
+    normalized: list[str] = []
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            normalized.append(line)
+            continue
+
+        # Downgrade any markdown heading depth to level-1.
+        m = re.match(r"^#{1,6}\s+(.+)$", stripped)
+        if m:
+            normalized.append(f"# {m.group(1).strip()}")
+            continue
+
+        # Promote known demoted header labels to level-1 headings.
+        if stripped.lower() in _DEMOTED_HEADER_LABELS:
+            normalized.append(f"# {stripped}")
+            continue
+
+        normalized.append(line)
+
+    return "\n".join(normalized)
 
 # =========================
 # BENCHMARK FUNCTION
@@ -154,6 +215,8 @@ def run_benchmark(
     input_folder: str,
     config_suffix: str = "",
     skip_existing: bool = False,
+    selected_configs: list[str] | None = None,
+    allowed_filenames: set[str] | None = None,
 ) -> list[dict]:
     """
     Run all parser configurations on PDFs in *input_folder*.
@@ -172,6 +235,8 @@ def run_benchmark(
         return []
 
     files = sorted(f for f in input_path.iterdir() if f.suffix.lower() == ".pdf")
+    if allowed_filenames is not None:
+        files = [f for f in files if f.name in allowed_filenames]
     if not files:
         print(f"[WARN] No PDF files in {input_folder} — skipping.")
         return []
@@ -184,8 +249,12 @@ def run_benchmark(
     print(f"Benchmarking {len(files)} PDFs from {input_folder}/{label}")
     print(f"{'='*60}\n")
 
+    active_config_names = selected_configs if selected_configs is not None else list(CONFIGS.keys())
+    doc_type_map = _load_doc_type_map()
     for file_path in files:
-        for config_name, config in CONFIGS.items():
+        file_doc_type = doc_type_map.get(file_path.name)
+        for config_name in active_config_names:
+            config = CONFIGS[config_name]
             output_config_name = f"{config_name}{config_suffix}"
             out_file = Path(EXTRACTED_TEXT_DIR) / f"{file_path.stem}__{output_config_name}.txt"
 
@@ -276,7 +345,7 @@ def run_benchmark(
                 record["metadata_score"] = compute_metadata_score(record)
 
                 # ---- Post-process: fix encoding artifacts, rejoin hyphens ----
-                full_text = postprocess_text(full_text)
+                full_text = postprocess_text(full_text, doc_type=file_doc_type)
                 first_chunk = full_text[:FIRST_CHUNK_CHARS]
 
                 # ---- Save extracted text for later quality review ----
@@ -325,24 +394,112 @@ FIELDNAMES = [
     "status",
 ]
 
-if __name__ == "__main__":
-    # Determine which folders to benchmark
-    # Usage:
-    #   python benchmark.py [raw|preprocessed|column|all] [--preprocessed] [--column] [--no-cache]
-    # Default run is raw; --preprocessed/--column can be used as additive flags.
-    args = sys.argv[1:]
-    positional_args = [arg for arg in args if not arg.startswith("--")]
-    mode = positional_args[0] if positional_args else "raw"
-    skip_existing = "--no-cache" not in args
 
-    run_raw = mode in ("raw", "all")
-    run_preprocessed = mode in ("preprocessed", "all") or "--preprocessed" in args
-    run_column = mode in ("column", "all") or "--column" in args
+def _load_allowed_filenames_for_doc_type(doc_type: str) -> set[str]:
+    if not GROUND_TRUTH_FILE.exists():
+        raise FileNotFoundError(f"Ground truth file not found: {GROUND_TRUTH_FILE}")
+
+    with open(GROUND_TRUTH_FILE, encoding="utf-8") as f:
+        gt = json.load(f).get("documents", {})
+
+    allowed = {
+        filename
+        for filename, record in gt.items()
+        if record.get("doc_type") == doc_type
+    }
+    if not allowed:
+        raise ValueError(f"No filenames found for doc_type='{doc_type}' in {GROUND_TRUTH_FILE}")
+    return allowed
+
+
+def _load_doc_type_map() -> dict[str, str]:
+    if not GROUND_TRUTH_FILE.exists():
+        return {}
+
+    with open(GROUND_TRUTH_FILE, encoding="utf-8") as f:
+        gt = json.load(f).get("documents", {})
+
+    return {
+        filename: record.get("doc_type", "")
+        for filename, record in gt.items()
+    }
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Run parsing benchmarks across parser configs and input variants."
+    )
+    parser.add_argument(
+        "mode",
+        nargs="?",
+        default="raw",
+        choices=["raw", "preprocessed", "column", "all"],
+        help="Primary dataset mode (default: raw).",
+    )
+    parser.add_argument(
+        "--preprocessed",
+        action="store_true",
+        help="Also run preprocessed dataset benchmark.",
+    )
+    parser.add_argument(
+        "--column",
+        action="store_true",
+        help="Also run column-linearized dataset benchmark.",
+    )
+    parser.add_argument(
+        "--no-cache",
+        action="store_true",
+        help="Disable cache and force re-extraction.",
+    )
+    parser.add_argument(
+        "--profile",
+        choices=sorted(CONFIG_PROFILES.keys()),
+        default="fast",
+        help="Parser-config profile to run (default: fast).",
+    )
+    parser.add_argument(
+        "--configs",
+        default=None,
+        help="Comma-separated config names to run (overrides --profile).",
+    )
+    parser.add_argument(
+        "--doc-type",
+        default=None,
+        help="Optional doc_type filter from ground_truth.json (e.g. scientific_paper).",
+    )
+    parsed = parser.parse_args()
+
+    skip_existing = not parsed.no_cache
+    run_raw = parsed.mode in ("raw", "all")
+    run_preprocessed = parsed.mode in ("preprocessed", "all") or parsed.preprocessed
+    run_column = parsed.mode in ("column", "all") or parsed.column
+
+    if parsed.configs:
+        selected_configs = [c.strip() for c in parsed.configs.split(",") if c.strip()]
+    else:
+        selected_configs = CONFIG_PROFILES[parsed.profile]
+    allowed_filenames: set[str] | None = None
+    if parsed.doc_type:
+        allowed_filenames = _load_allowed_filenames_for_doc_type(parsed.doc_type)
+
+    unknown_configs = [c for c in selected_configs if c not in CONFIGS]
+    if unknown_configs:
+        raise ValueError(f"Unknown config(s): {unknown_configs}")
+
+    print(f"[INFO] Running parser configs ({len(selected_configs)}): {', '.join(selected_configs)}")
+    if allowed_filenames is not None:
+        print(f"[INFO] Filtering to doc_type='{parsed.doc_type}' ({len(allowed_filenames)} files)")
 
     all_results = []
 
     if run_raw:
-        all_results.extend(run_benchmark(INPUT_FOLDER_RAW, skip_existing=skip_existing))
+        all_results.extend(
+            run_benchmark(
+                INPUT_FOLDER_RAW,
+                skip_existing=skip_existing,
+                selected_configs=selected_configs,
+                allowed_filenames=allowed_filenames,
+            )
+        )
 
     if run_preprocessed:
         all_results.extend(
@@ -350,12 +507,20 @@ if __name__ == "__main__":
                 INPUT_FOLDER_PREPROCESSED,
                 config_suffix="_preprocessed",
                 skip_existing=skip_existing,
+                selected_configs=selected_configs,
+                allowed_filenames=allowed_filenames,
             )
         )
 
     if run_column:
         all_results.extend(
-            run_benchmark(INPUT_FOLDER_COLUMN, config_suffix="_column", skip_existing=skip_existing)
+            run_benchmark(
+                INPUT_FOLDER_COLUMN,
+                config_suffix="_column",
+                skip_existing=skip_existing,
+                selected_configs=selected_configs,
+                allowed_filenames=allowed_filenames,
+            )
         )
 
     # Write combined CSV

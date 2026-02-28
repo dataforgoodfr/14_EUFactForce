@@ -15,6 +15,8 @@ Output: output/quality_scores.csv
 
 import json
 import csv
+import argparse
+import time
 from pathlib import Path
 
 from scoring.content import (
@@ -52,6 +54,30 @@ PARSER_CONFIGS = [
     "docling_postprocess_text_preprocessed", "docling_postprocess_markdown_preprocessed",
     "docling_postprocess_text_column", "docling_postprocess_markdown_column",
 ]
+
+PARSER_CONFIG_PROFILES: dict[str, list[str]] = {
+    "full": PARSER_CONFIGS,
+    "fast": [
+        "pymupdf",
+        "pymupdf_preprocessed",
+        "docling_markdown",
+        "docling_postprocess_markdown",
+    ],
+    "docling_only": [
+        "docling_text",
+        "docling_markdown",
+        "docling_postprocess_text",
+        "docling_postprocess_markdown",
+        "docling_text_preprocessed",
+        "docling_markdown_preprocessed",
+        "docling_postprocess_text_preprocessed",
+        "docling_postprocess_markdown_preprocessed",
+        "docling_text_column",
+        "docling_markdown_column",
+        "docling_postprocess_text_column",
+        "docling_postprocess_markdown_column",
+    ],
+}
 
 # Reference text file extensions, checked in priority order
 REFERENCE_TEXT_EXTENSIONS = (".md", ".txt")
@@ -206,16 +232,93 @@ def _find_reference_text(filename: str) -> Path | None:
 # MAIN
 # =========================
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Compute extraction quality scores against ground truth."
+    )
+    parser.add_argument(
+        "--profile",
+        choices=sorted(PARSER_CONFIG_PROFILES.keys()),
+        default="fast",
+        help="Parser-config profile to score (default: fast).",
+    )
+    parser.add_argument(
+        "--configs",
+        default=None,
+        help="Comma-separated parser_config names to score (overrides --profile).",
+    )
+    parser.add_argument(
+        "--filename",
+        default=None,
+        help="Optional single filename to score (e.g. mydoc.pdf).",
+    )
+    parser.add_argument(
+        "--doc-type",
+        default=None,
+        help="Optional doc_type filter from ground_truth.json (e.g. scientific_paper).",
+    )
+    parser.add_argument(
+        "--log-timing",
+        action="store_true",
+        help="Print per-row timing breakdown and a slowest-rows summary.",
+    )
+    parser.add_argument(
+        "--timing-threshold-ms",
+        type=float,
+        default=250.0,
+        help="Only print per-row timing when total row time exceeds this threshold (default: 250ms).",
+    )
+    parser.add_argument(
+        "--skip-similarity",
+        action="store_true",
+        help="Skip heavy reference-text similarity metrics for faster runs.",
+    )
+    parser.add_argument(
+        "--timing-output-csv",
+        default=None,
+        help="Optional path to write per-row timing diagnostics as CSV.",
+    )
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+
+    if args.configs:
+        parser_configs = [c.strip() for c in args.configs.split(",") if c.strip()]
+    else:
+        parser_configs = PARSER_CONFIG_PROFILES[args.profile]
+
+    unknown = [c for c in parser_configs if c not in PARSER_CONFIGS]
+    if unknown:
+        raise ValueError(f"Unknown parser_config(s): {unknown}")
+
     with open(GROUND_TRUTH_FILE, encoding="utf-8") as f:
         ground_truth = json.load(f)
 
     gt_docs = ground_truth["documents"]
+    if args.filename:
+        if args.filename not in gt_docs:
+            raise FileNotFoundError(f"Filename '{args.filename}' not found in ground_truth.json")
+        gt_docs = {args.filename: gt_docs[args.filename]}
+    if args.doc_type:
+        gt_docs = {
+            filename: record
+            for filename, record in gt_docs.items()
+            if record.get("doc_type") == args.doc_type
+        }
+        if not gt_docs:
+            raise ValueError(f"No documents found for doc_type='{args.doc_type}'")
+
     print(f"[INFO] Loaded ground truth for {len(gt_docs)} documents.")
+    print(f"[INFO] Scoring parser configs ({len(parser_configs)}): {', '.join(parser_configs)}")
+    if args.skip_similarity:
+        print("[INFO] Similarity scoring disabled (--skip-similarity).")
     results = []
+    timing_rows: list[dict[str, float | str]] = []
 
     for filename, gt in gt_docs.items():
-        for config in PARSER_CONFIGS:
+        for config in parser_configs:
             text_file = EXTRACTED_TEXT_DIR / f"{Path(filename).stem}__{config}.txt"
             record = _empty_record(filename, config, gt["doc_type"])
 
@@ -227,15 +330,49 @@ def main():
             full_text = text_file.read_text(encoding="utf-8")
             print(f"[{config}] Scoring {filename} ({len(full_text)} chars) ...")
 
-            record.update(_score_content_presence(full_text, gt))
-            record.update(_score_structural(full_text, gt))
+            row_start = time.perf_counter()
 
+            t0 = time.perf_counter()
+            record.update(_score_content_presence(full_text, gt))
+            content_ms = (time.perf_counter() - t0) * 1000.0
+
+            t0 = time.perf_counter()
+            record.update(_score_structural(full_text, gt))
+            structural_ms = (time.perf_counter() - t0) * 1000.0
+
+            metadata_ms = 0.0
             if _has_metadata_annotations(gt):
+                t0 = time.perf_counter()
                 record.update(_score_metadata(full_text, gt))
+                metadata_ms = (time.perf_counter() - t0) * 1000.0
 
             ref_path = _find_reference_text(filename)
-            if ref_path is not None:
+            similarity_ms = 0.0
+            if ref_path is not None and not args.skip_similarity:
+                t0 = time.perf_counter()
                 record.update(score_reference_text(full_text, ref_path))
+                similarity_ms = (time.perf_counter() - t0) * 1000.0
+
+            total_ms = (time.perf_counter() - row_start) * 1000.0
+            timing_row = {
+                "filename": filename,
+                "parser_config": config,
+                "chars": float(len(full_text)),
+                "content_ms": content_ms,
+                "structural_ms": structural_ms,
+                "metadata_ms": metadata_ms,
+                "similarity_ms": similarity_ms,
+                "total_ms": total_ms,
+            }
+            timing_rows.append(timing_row)
+
+            if args.log_timing and total_ms >= args.timing_threshold_ms:
+                print(
+                    "[TIMING] "
+                    f"{filename} | {config} | total={total_ms:.1f}ms "
+                    f"(content={content_ms:.1f}, structural={structural_ms:.1f}, "
+                    f"metadata={metadata_ms:.1f}, similarity={similarity_ms:.1f})"
+                )
 
             results.append(record)
 
@@ -243,9 +380,30 @@ def main():
         writer = csv.DictWriter(f, fieldnames=CSV_FIELDNAMES)
         writer.writeheader()
         writer.writerows(results)
+    if args.timing_output_csv:
+        timing_path = Path(args.timing_output_csv)
+        timing_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(timing_path, mode="w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(
+                f,
+                fieldnames=[
+                    "filename",
+                    "parser_config",
+                    "chars",
+                    "content_ms",
+                    "structural_ms",
+                    "metadata_ms",
+                    "similarity_ms",
+                    "total_ms",
+                ],
+            )
+            writer.writeheader()
+            writer.writerows(timing_rows)
 
     print(f"\nQuality scoring complete → {len(results)} rows written to {OUTPUT_CSV}")
-    _print_summaries(results)
+    if args.log_timing:
+        _print_timing_summary(timing_rows)
+    _print_summaries(results, parser_configs)
 
 
 # =========================
@@ -266,27 +424,27 @@ def _rows_for(results: list[dict], config: str, require: str) -> list[dict]:
     ]
 
 
-def _print_summaries(results: list[dict]):
+def _print_summaries(results: list[dict], parser_configs: list[str]):
     """Print per-config summary tables to stdout."""
-    _print_structural_summary(results)
-    _print_similarity_summary(results)
-    _print_metadata_summary(results)
+    _print_structural_summary(results, parser_configs)
+    _print_similarity_summary(results, parser_configs)
+    _print_metadata_summary(results, parser_configs)
 
 
-def _print_structural_summary(results: list[dict]):
+def _print_structural_summary(results: list[dict], parser_configs: list[str]):
     print("\n=== Structural Quality Summary ===")
-    for config in PARSER_CONFIGS:
+    for config in parser_configs:
         rows = _rows_for(results, config, "structural_quality")
         if rows:
             print(f"  {config}: structural_quality={_avg(rows, 'structural_quality'):.1f}/100"
                   f"  frag={_avg(rows, 'fragmentation_ratio'):.3f}")
 
 
-def _print_similarity_summary(results: list[dict]):
+def _print_similarity_summary(results: list[dict], parser_configs: list[str]):
     if not any(r.get("text_similarity") is not None for r in results):
         return
     print("\n=== Reference-Text Similarity (documents with ground truth text) ===")
-    for config in PARSER_CONFIGS:
+    for config in parser_configs:
         rows = _rows_for(results, config, "text_similarity")
         if rows:
             order = _avg(rows, "order_score")
@@ -296,11 +454,11 @@ def _print_similarity_summary(results: list[dict]):
                   f"  precision={_avg(rows, 'content_precision'):.3f}{order_str}")
 
 
-def _print_metadata_summary(results: list[dict]):
+def _print_metadata_summary(results: list[dict], parser_configs: list[str]):
     if not any(r.get("meta_accuracy_score") is not None for r in results):
         return
     print("\n=== Metadata Accuracy Summary ===")
-    for config in PARSER_CONFIGS:
+    for config in parser_configs:
         rows = _rows_for(results, config, "meta_accuracy_score")
         if rows:
             doi = _avg(rows, "meta_doi_accuracy")
@@ -310,6 +468,35 @@ def _print_metadata_summary(results: list[dict]):
             print(f"  {config}: score={_avg(rows, 'meta_accuracy_score'):.1f}/100"
                   f"  title={_avg(rows, 'meta_title_accuracy'):.3f}"
                   f"  authors={_avg(rows, 'meta_authors_recall'):.3f}{doi_str}{abs_str}")
+
+
+def _print_timing_summary(timing_rows: list[dict[str, float | str]], top_n: int = 10):
+    """Print a compact summary of where scoring time is spent."""
+    if not timing_rows:
+        return
+
+    print("\n=== Timing Summary ===")
+
+    def _avg(field: str) -> float:
+        return sum(float(r[field]) for r in timing_rows) / len(timing_rows)
+
+    print(
+        "  avg(ms): "
+        f"total={_avg('total_ms'):.1f} "
+        f"content={_avg('content_ms'):.1f} "
+        f"structural={_avg('structural_ms'):.1f} "
+        f"metadata={_avg('metadata_ms'):.1f} "
+        f"similarity={_avg('similarity_ms'):.1f}"
+    )
+
+    slowest = sorted(timing_rows, key=lambda r: float(r["total_ms"]), reverse=True)[:top_n]
+    print(f"  slowest {len(slowest)} rows:")
+    for row in slowest:
+        print(
+            f"    - {row['filename']} | {row['parser_config']} | "
+            f"total={float(row['total_ms']):.1f}ms "
+            f"(sim={float(row['similarity_ms']):.1f}ms, chars={int(float(row['chars']))})"
+        )
 
 
 if __name__ == "__main__":
