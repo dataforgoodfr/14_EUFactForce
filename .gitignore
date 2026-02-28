@@ -161,3 +161,8 @@ cython_debug/
 
 # Precommit hooks: ruff cache
 .ruff_cache
+
+# Parsing generated artifacts
+ingestion/parsing/output/extracted_texts/
+ingestion/parsing/output/benchmark_results_extended.csv
+ingestion/parsing/output/quality_scores.csv
