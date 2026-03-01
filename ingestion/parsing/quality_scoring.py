@@ -48,11 +48,11 @@ PARSER_CONFIGS = [
     "llamaparse_text_preprocessed", "llamaparse_markdown_preprocessed", "pymupdf_preprocessed",
     "llamaparse_text_column", "llamaparse_markdown_column", "pymupdf_column",
     "docling_text", "docling_markdown",
+    "docling_markdown_indexing",
     "docling_text_preprocessed", "docling_markdown_preprocessed",
+    "docling_markdown_indexing_preprocessed",
     "docling_text_column", "docling_markdown_column",
-    "docling_postprocess_text", "docling_postprocess_markdown",
-    "docling_postprocess_text_preprocessed", "docling_postprocess_markdown_preprocessed",
-    "docling_postprocess_text_column", "docling_postprocess_markdown_column",
+    "docling_markdown_indexing_column",
 ]
 
 PARSER_CONFIG_PROFILES: dict[str, list[str]] = {
@@ -61,21 +61,18 @@ PARSER_CONFIG_PROFILES: dict[str, list[str]] = {
         "pymupdf",
         "pymupdf_preprocessed",
         "docling_markdown",
-        "docling_postprocess_markdown",
+        "docling_markdown_indexing",
     ],
     "docling_only": [
         "docling_text",
         "docling_markdown",
-        "docling_postprocess_text",
-        "docling_postprocess_markdown",
+        "docling_markdown_indexing",
         "docling_text_preprocessed",
         "docling_markdown_preprocessed",
-        "docling_postprocess_text_preprocessed",
-        "docling_postprocess_markdown_preprocessed",
+        "docling_markdown_indexing_preprocessed",
         "docling_text_column",
         "docling_markdown_column",
-        "docling_postprocess_text_column",
-        "docling_postprocess_markdown_column",
+        "docling_markdown_indexing_column",
     ],
 }
 

@@ -53,7 +53,11 @@ def remove_repeated_lines(text: str, min_occurrences: int = 3) -> str:
     return "\n".join(kept)
 
 
-def postprocess_text(text: str, doc_type: str | None = None) -> str:
+def postprocess_text(
+    text: str,
+    doc_type: str | None = None,
+    indexing_cleanup: bool = False,
+) -> str:
     """
     Clean up common extraction artifacts in parser output.
 
@@ -64,8 +68,9 @@ def postprocess_text(text: str, doc_type: str | None = None) -> str:
       4. Rejoin hyphenated line breaks (misinforma-\\ntion → misinformation)
       5. Remove markdown/html layout placeholders
       6. Rejoin paragraphs interrupted by figure/table blocks
-      7. Scientific-paper specific cleanup (optional)
+      7. Doc-type specific cleanup (optional)
       8. Remove residual repeated lines
+      9. Optional indexing-focused cleanup profile
 
     Returns the cleaned text.
     """
@@ -107,14 +112,74 @@ def postprocess_text(text: str, doc_type: str | None = None) -> str:
     # --- 6. Rejoin paragraphs split by inline layout artifacts ---
     t = _rejoin_interrupted_paragraphs(t)
 
-    # --- 7. Scientific-paper specific cleanup ---
+    # --- 7. Doc-type specific cleanup ---
     if doc_type == "scientific_paper":
         t = _clean_scientific_paper_noise(t)
+    elif doc_type == "policy_advocacy":
+        t = _clean_policy_advocacy_noise(t)
 
     # --- 8. Remove repeated lines (residual noise) ---
     t = remove_repeated_lines(t)
 
+    if indexing_cleanup:
+        t = _apply_indexing_cleanup(t)
+
     return t
+
+
+def _apply_indexing_cleanup(text: str) -> str:
+    """
+    Apply conservative cleanup for retrieval-focused indexing output.
+    """
+    t = text
+    lines = t.splitlines()
+    cleaned: list[str] = []
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            cleaned.append(line)
+            continue
+
+        if _is_low_signal_indexing_line(stripped):
+            continue
+
+        cleaned.append(line)
+
+    out = "\n".join(cleaned)
+    out = re.sub(r"\n{3,}", "\n\n", out)
+    return out.strip()
+
+
+def _is_low_signal_indexing_line(line: str) -> bool:
+    """Heuristics for short noisy lines that hurt retrieval quality."""
+    s = line.strip()
+
+    if s in {"•", "Q"}:
+        return True
+
+    # Very short orphan tokens are usually OCR leftovers.
+    if len(s) <= 3 and re.fullmatch(r"[A-Za-z0-9]+", s) and not s.isdigit():
+        return True
+
+    if s.startswith("#") or s.startswith("-"):
+        return False
+
+    # Mixed-script short lines are commonly OCR artifacts from image overlays.
+    has_latin = bool(re.search(r"[A-Za-z]", s))
+    has_cyrillic = bool(re.search(r"[\u0400-\u04FF]", s))
+    if len(s) <= 48 and has_latin and has_cyrillic:
+        return True
+
+    # Handle-like snippets (social tags/usernames) are low-signal for indexing.
+    has_handle_like = bool(re.search(r"(^|[\s>])@\w+", s)) or "_" in s or "•" in s or ">" in s
+    has_email = bool(re.search(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b", s))
+    has_sentence_punct = bool(re.search(r"[.!?;:]", s))
+    word_count = len(s.split())
+    if has_handle_like and not has_email and not has_sentence_punct and len(s) <= 120 and word_count <= 20:
+        return True
+
+    return False
 
 
 # =========================
@@ -254,3 +319,192 @@ def _clean_scientific_paper_noise(text: str) -> str:
     # Normalize whitespace after removals.
     t = re.sub(r"\n{3,}", "\n\n", t)
     return t.strip()
+
+
+def _clean_policy_advocacy_noise(text: str) -> str:
+    """
+    Remove common policy-advocacy extraction artifacts (logo-like OCR lines).
+    """
+    lines = text.splitlines()
+    cleaned: list[str] = []
+
+    for idx, line in enumerate(lines):
+        stripped = line.strip()
+        if not stripped:
+            cleaned.append(line)
+            continue
+
+        # Keep explicit markdown structure/listing lines untouched.
+        if stripped.startswith("#") or stripped.startswith("-"):
+            cleaned.append(line)
+            continue
+
+        words = stripped.split()
+        is_shortish = len(words) <= 3 and len(stripped) <= 28
+        looks_upper_logo = bool(re.match(r"^[A-Z][A-Z0-9\-\s]{7,27}$", stripped))
+        looks_garbled_code = bool(re.match(r"^[A-Z0-9\-]{3,}\s+[A-Z0-9\-]{2,}$", stripped))
+        sentence_like = any(ch in stripped for ch in ".,;:!?")
+
+        # Drop isolated short uppercase/code-like fragments (e.g., OCR logo residues).
+        if is_shortish and not sentence_like and (looks_upper_logo or looks_garbled_code):
+            continue
+
+        # Drop isolated, short OCR-fragment lines that are unlikely to be semantic text.
+        prev_blank = idx == 0 or not lines[idx - 1].strip()
+        next_blank = idx == len(lines) - 1 or not lines[idx + 1].strip()
+        isolated = prev_blank and next_blank
+
+        words_clean = re.findall(r"[A-Za-z]{2,}", stripped)
+        short_word_ratio = 0.0
+        if words_clean:
+            short_word_ratio = sum(1 for w in words_clean if len(w) <= 3) / len(words_clean)
+
+        fragment_like = (
+            isolated
+            and len(stripped) <= 32
+            and len(words_clean) <= 6
+            and short_word_ratio >= 0.5
+            and not any(ch.isdigit() for ch in stripped)
+            and not stripped.startswith("(")
+        )
+        if fragment_like:
+            continue
+
+        cleaned.append(line)
+
+    out = "\n".join(cleaned)
+    out = re.sub(r"\n{3,}", "\n\n", out)
+    out = _move_policy_inline_footnotes_to_end(out)
+    return out.strip()
+
+
+def _move_policy_inline_footnotes_to_end(text: str) -> str:
+    """
+    Move inline numbered citation/footnote paragraphs into a trailing section.
+
+    This helps keep body flow cleaner and allows scoring to ignore the section
+    via existing footnotes stripping.
+    """
+    working = text
+    footnotes: list[str] = []
+
+    # Merge any pre-existing footnotes section into our collector first.
+    existing_heading = re.search(r"(?im)^\s*#\s*footnotes\s*$", working)
+    if existing_heading:
+        body_part = working[: existing_heading.start()].strip()
+        foot_part = working[existing_heading.end() :].strip()
+        if foot_part:
+            footnotes.extend([b.strip() for b in re.split(r"\n\s*\n", foot_part) if b.strip()])
+        working = body_part
+
+    # Pass 1: line-level extraction for standalone citation lines.
+    lines = working.splitlines()
+    kept_lines: list[str] = []
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            kept_lines.append(line)
+            continue
+
+        if _looks_like_policy_footnote_line(stripped):
+            # Handle mixed lines where citation tail is followed by new numbered body/ref text.
+            split_match = re.search(r"\)\.\s+(\d{1,3}\s+[A-Z])", stripped)
+            if split_match:
+                foot = stripped[: split_match.start() + 2].strip()
+                rest = stripped[split_match.start() + 3 :].strip()
+                if foot:
+                    footnotes.append(foot)
+                if rest:
+                    kept_lines.append(rest)
+                continue
+
+            footnotes.append(stripped)
+            continue
+
+        kept_lines.append(line)
+
+    working = "\n".join(kept_lines).strip()
+
+    # Pass 2: block-level extraction for longer reference-like paragraphs.
+    blocks = [b.strip() for b in re.split(r"\n\s*\n", working) if b.strip()]
+    kept_blocks: list[str] = []
+    if blocks:
+        start_scan = int(len(blocks) * 0.20)
+        for idx, block in enumerate(blocks):
+            if idx < start_scan:
+                kept_blocks.append(block)
+                continue
+            if _looks_like_policy_footnote_block(block):
+                footnotes.append(block)
+            else:
+                kept_blocks.append(block)
+
+    if not footnotes:
+        return "\n\n".join(kept_blocks).strip()
+
+    # Deduplicate while preserving order.
+    seen: set[str] = set()
+    uniq_footnotes: list[str] = []
+    for f in footnotes:
+        if f in seen:
+            continue
+        seen.add(f)
+        uniq_footnotes.append(f)
+
+    return "\n\n".join(kept_blocks + ["# Footnotes"] + uniq_footnotes).strip()
+
+
+def _looks_like_policy_footnote_block(block: str) -> bool:
+    """
+    Heuristic for policy-doc numbered citation/reference paragraphs.
+    """
+    first = block.splitlines()[0].strip()
+    if not re.match(r"^\d{1,3}\s+", first):
+        return False
+
+    lower = block.lower()
+    cues = (
+        "available at:",
+        "http://",
+        "https://",
+        "doi.org",
+        "see:",
+        "publication",
+        "law",
+        "regulation",
+        "article ",
+        "directive",
+    )
+    has_cue = any(c in lower for c in cues)
+    has_year = bool(re.search(r"\b(19|20)\d{2}\b", block))
+
+    # Require at least one citation cue plus year/date-like token.
+    return has_cue and has_year
+
+
+def _looks_like_policy_footnote_line(line: str) -> bool:
+    """
+    Heuristic for standalone citation lines in policy docs.
+    """
+    stripped = line.strip()
+    if not re.match(r"^\d{1,3}\s+", stripped):
+        return False
+
+    lower = stripped.lower()
+    has_url = bool(re.search(r"https?://|doi\.org", lower))
+    has_available_at = "available at:" in lower
+    has_cite_source = any(
+        cue in lower
+        for cue in (
+            "regulation",
+            "directive",
+            "law ",
+            "commission",
+            "beuc",
+            "ministry",
+            "proposal",
+        )
+    )
+    has_year = bool(re.search(r"\b(19|20)\d{2}\b", stripped))
+
+    return (has_url or has_available_at or has_cite_source) and has_year

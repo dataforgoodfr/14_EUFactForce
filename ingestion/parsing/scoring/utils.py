@@ -238,6 +238,12 @@ def _looks_like_toc_entry(line: str) -> bool:
     if re.search(r"\.{2,}", stripped):
         return True
 
+    # Pipe-heavy rows are common in extracted TOC/table artifacts.
+    if stripped.startswith("|") and stripped.count("|") >= 2:
+        return True
+    if re.match(r"^\|?\s*\d{1,3}\s*\|", stripped):
+        return True
+
     # TOC entries often end with page numbers.
     if re.match(
         r"(?i)^\s*(?:[-*]\s*)?(?:\d+(?:\.\d+)*\s+)?[^\n]{2,140}?\s+\d{1,4}\s*$",
@@ -299,12 +305,30 @@ def strip_table_of_contents_section(text: str) -> str:
             toc_start = idx
             break
 
+    used_implicit_toc_fallback = False
+
+    # Fallback for documents where TOC heading is missing but TOC rows are obvious.
     if toc_start is None:
-        return text
+        window = 10
+        min_hits = 6
+        best_start: int | None = None
+        best_hits = 0
+        for i in range(0, max(0, search_end - window)):
+            chunk = lines[i : i + window]
+            hits = sum(1 for ln in chunk if _looks_like_toc_entry(ln))
+            if hits > best_hits:
+                best_hits = hits
+                best_start = i
+        if best_start is not None and best_hits >= min_hits:
+            toc_start = best_start
+            used_implicit_toc_fallback = True
+        else:
+            return text
 
     toc_end = toc_start + 1
     consecutive_non_toc = 0
     max_scan = min(len(lines), toc_start + 250)
+    non_toc_break_limit = 5 if used_implicit_toc_fallback else 2
 
     for idx in range(toc_start + 1, max_scan):
         line = lines[idx]
@@ -327,7 +351,7 @@ def strip_table_of_contents_section(text: str) -> str:
             break
 
         consecutive_non_toc += 1
-        if consecutive_non_toc >= 2:
+        if consecutive_non_toc >= non_toc_break_limit:
             break
 
         toc_end = idx + 1
