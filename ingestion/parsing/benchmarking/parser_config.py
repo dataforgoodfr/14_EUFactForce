@@ -102,3 +102,4 @@ def canonicalize_parser_config_names(names: Iterable[str]) -> list[str]:
         seen.add(canonical)
         canonicalized.append(canonical)
     return canonicalized
+
