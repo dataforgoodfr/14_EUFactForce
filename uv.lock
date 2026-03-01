@@ -33,6 +33,12 @@ parsing = [
     { name = "pymupdf", marker = "platform_machine == 'arm64' and sys_platform == 'darwin'" },
     { name = "python-dotenv", marker = "platform_machine == 'arm64' and sys_platform == 'darwin'" },
 ]
+parsing = [
+    { name = "llama-index-core" },
+    { name = "llama-index-readers-llama-parse" },
+    { name = "pymupdf" },
+    { name = "python-dotenv" },
+]
 
 [package.metadata]
 
