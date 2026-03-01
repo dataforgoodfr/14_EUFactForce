@@ -12,7 +12,7 @@ import re
 from collections import Counter
 
 
-def _normalize(text: str) -> str:
+def normalize(text: str) -> str:
     """Collapse whitespace, lowercase, and replace digit sequences with #
     so that 'Page 685' and 'Page 686' are treated as the same block."""
     t = re.sub(r"\s+", " ", text).strip().lower()
@@ -26,6 +26,25 @@ _KEEP_HYPHEN_PREFIXES = frozenset({
     "over", "under", "inter", "intra", "multi", "post", "meta",
     "socio", "well", "long", "short", "high", "low",
 })
+
+LEGAL_BOILERPLATE_PATTERNS: tuple[str, ...] = (
+    r"(?im)^\s*open access this article is licensed under a creative commons.*$",
+    r"(?im)^\s*to view a copy of this licence visit .*creativecommons\.org.*$",
+    r"(?im)^\s*if material is not included in the article.?s creative commons licence.*$",
+    r"(?im)^\s*the creative commons public domain dedication waiver.*$",
+    r"(?im)^\s*received:\s*.+?/+\s*accepted:\s*.+$",
+    r"(?im)^\s*\*?\s*correspondence:\s*.*$",
+    r"(?im)^\s*©\s*the author\(s\)\s*\d{4}.*$",
+)
+
+
+def strip_legal_boilerplate_lines(text: str) -> str:
+    """Remove recurring legal/open-access boilerplate lines."""
+    cleaned = text
+    for pattern in LEGAL_BOILERPLATE_PATTERNS:
+        cleaned = re.sub(pattern, "", cleaned)
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+    return cleaned.strip()
 
 
 # =========================
@@ -42,7 +61,7 @@ def remove_repeated_lines(text: str, min_occurrences: int = 3) -> str:
     Returns the cleaned text.
     """
     lines = text.splitlines()
-    normed = [_normalize(line) for line in lines]
+    normed = [normalize(line) for line in lines]
     counts: Counter = Counter(normed)
 
     kept: list[str] = []
@@ -51,6 +70,20 @@ def remove_repeated_lines(text: str, min_occurrences: int = 3) -> str:
             kept.append(original)
 
     return "\n".join(kept)
+
+
+def _fix_letter_artifacts(text: str) -> str:
+    """Fix known character-substitution artifacts from some parser outputs."""
+    fixed = re.sub(r"(?<=[a-zA-Z])∞", "a", text)
+    fixed = re.sub(r"∞(?=[a-zA-Z])", "a", fixed)
+    return fixed
+
+
+def _decode_html_entities(text: str) -> str:
+    """Decode HTML hex and common named entities in extracted text."""
+    decoded = re.sub(r"&#x[0-9a-fA-F]+;", lambda m: _html_module.unescape(m.group()), text)
+    decoded = re.sub(r"&(?:amp|lt|gt|quot|apos);", lambda m: _html_module.unescape(m.group()), decoded)
+    return decoded
 
 
 def postprocess_text(
@@ -62,7 +95,7 @@ def postprocess_text(
     Clean up common extraction artifacts in parser output.
 
     Applies the following fixes (in order):
-      1. Fix ∞ used as letter 'a' (LlamaParse-specific artifact)
+      1. Fix ∞ used as letter 'a' (parser artifact)
       2. Decode HTML hex entities (&#x26; → &)
       3. Decode HTML named entities (&amp; → &)
       4. Rejoin hyphenated line breaks (misinforma-\\ntion → misinformation)
@@ -76,15 +109,9 @@ def postprocess_text(
     """
     t = text
 
-    # --- 1. Fix ∞ replacing 'a' ---
-    t = re.sub(r"(?<=[a-zA-Z])∞", "a", t)
-    t = re.sub(r"∞(?=[a-zA-Z])", "a", t)
+    t = _fix_letter_artifacts(t)
+    t = _decode_html_entities(t)
 
-    # --- 2 & 3. Decode HTML entities ---
-    t = re.sub(r"&#x[0-9a-fA-F]+;", lambda m: _html_module.unescape(m.group()), t)
-    t = re.sub(r"&(?:amp|lt|gt|quot|apos);", lambda m: _html_module.unescape(m.group()), t)
-
-    # --- 4. Rejoin hyphenated line breaks ---
     def _rejoin_hyphen(match: re.Match) -> str:
         before = match.group(1)
         after = match.group(2)
@@ -94,7 +121,6 @@ def postprocess_text(
 
     t = re.sub(r"(\w+)-\s*\n\s*([a-z]\w*)", _rejoin_hyphen, t)
 
-    # --- 4b. Rejoin spaced-hyphen line breaks (LlamaParse Markdown artifact) ---
     def _rejoin_spaced_hyphen(match: re.Match) -> str:
         before = match.group(1)
         after = match.group(2)
@@ -109,7 +135,6 @@ def postprocess_text(
     t = re.sub(r"(?im)^\s*<!--\s*image\s*-->\s*$", "", t)
     t = re.sub(r"(?im)^\s*<!--.*?-->\s*$", "", t)
 
-    # --- 6. Rejoin paragraphs split by inline layout artifacts ---
     t = _rejoin_interrupted_paragraphs(t)
 
     # --- 7. Doc-type specific cleanup ---
@@ -118,7 +143,6 @@ def postprocess_text(
     elif doc_type == "policy_advocacy":
         t = _clean_policy_advocacy_noise(t)
 
-    # --- 8. Remove repeated lines (residual noise) ---
     t = remove_repeated_lines(t)
 
     if indexing_cleanup:
@@ -299,22 +323,7 @@ def _clean_scientific_paper_noise(text: str) -> str:
     # Common OCR/control-word artifacts seen in article headers.
     t = re.sub(r"(?i)\bhairspace\b", " ", t)
 
-    # Remove common legal/open-access boilerplate blocks.
-    legal_patterns = [
-        r"(?im)^\s*open access this article is licensed under a creative commons.*$",
-        r"(?im)^\s*to view a copy of this licence visit .*creativecommons\.org.*$",
-        r"(?im)^\s*if material is not included in the article.?s creative commons licence.*$",
-        r"(?im)^\s*the creative commons public domain dedication waiver.*$",
-        r"(?im)^\s*©\s*the author\(s\)\s*\d{4}.*$",
-    ]
-    for pattern in legal_patterns:
-        t = re.sub(pattern, "", t)
-
-    # Remove submission metadata lines that are rarely part of body GT.
-    t = re.sub(r"(?im)^\s*received:\s*.+?/+\s*accepted:\s*.+$", "", t)
-
-    # Remove correspondence footers often injected in publisher templates.
-    t = re.sub(r"(?im)^\s*\*?\s*correspondence:\s*.*$", "", t)
+    t = strip_legal_boilerplate_lines(t)
 
     # Normalize whitespace after removals.
     t = re.sub(r"\n{3,}", "\n\n", t)

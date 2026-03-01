@@ -7,6 +7,9 @@ used across all scoring modules.
 
 import re
 from difflib import SequenceMatcher
+from pathlib import Path
+
+from text_cleaning import strip_legal_boilerplate_lines
 
 # =========================
 # SHARED CONSTANTS
@@ -36,6 +39,7 @@ REFERENCES_SEARCH_START_FRACTION = 0.40
 FOOTNOTES_SEARCH_START_FRACTION = 0.50
 TOC_SEARCH_END_FRACTION = 0.40
 CITATION_NOISE_SEARCH_START_FRACTION = 0.60
+REFERENCE_TEXT_EXTENSIONS = (".md", ".txt")
 
 
 # =========================
@@ -143,8 +147,6 @@ def strip_references_section(text: str) -> str:
     cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
     return cleaned.strip()
 
-    return text
-
 
 def strip_footnotes_section(text: str) -> str:
     """
@@ -170,20 +172,16 @@ def strip_legal_boilerplate(text: str) -> str:
     """
     Remove recurring legal/open-access boilerplate lines that are not body content.
     """
-    patterns = [
-        r"(?im)^\s*open access this article is licensed under a creative commons.*$",
-        r"(?im)^\s*to view a copy of this licence visit .*creativecommons\.org.*$",
-        r"(?im)^\s*if material is not included in the article.?s creative commons licence.*$",
-        r"(?im)^\s*the creative commons public domain dedication waiver.*$",
-        r"(?im)^\s*received:\s*.+?/+\s*accepted:\s*.+$",
-        r"(?im)^\s*\*?\s*correspondence:\s*.*$",
-        r"(?im)^\s*©\s*the author\(s\)\s*\d{4}.*$",
-    ]
-    cleaned = text
-    for pattern in patterns:
-        cleaned = re.sub(pattern, "", cleaned)
-    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
-    return cleaned.strip()
+    return strip_legal_boilerplate_lines(text)
+
+
+def find_reference_text_path(stem: str, gt_text_dir: Path) -> Path | None:
+    """Find a ground-truth reference text file for the given document stem."""
+    for ext in REFERENCE_TEXT_EXTENSIONS:
+        candidate = gt_text_dir / f"{stem}{ext}"
+        if candidate.exists():
+            return candidate
+    return None
 
 
 def strip_trailing_citation_noise(text: str) -> str:

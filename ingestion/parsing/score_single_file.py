@@ -11,8 +11,10 @@ import argparse
 from difflib import SequenceMatcher
 from pathlib import Path
 
+from benchmarking.extracted_text_store import DATASET_VARIANTS
 from scoring.similarity import score_reference_text
 from scoring.utils import (
+    find_reference_text_path,
     normalize_for_similarity,
     strip_footnotes_section,
     strip_references_section,
@@ -34,11 +36,41 @@ def _fast_similarity(extracted: str, reference: str) -> float:
 
 
 def _find_reference_file(gt_dir: Path, stem: str) -> Path:
-    for ext in (".md", ".txt"):
-        candidate = gt_dir / f"{stem}{ext}"
-        if candidate.exists():
-            return candidate
+    candidate = find_reference_text_path(stem=stem, gt_text_dir=gt_dir)
+    if candidate is not None:
+        return candidate
     raise FileNotFoundError(f"No ground-truth text found for '{stem}' in {gt_dir}")
+
+
+def _collect_extracted_candidates(
+    extracted_dir: Path,
+    stem: str,
+    parser_prefix: str,
+) -> list[tuple[str, Path]]:
+    """
+    Collect candidates from structured layout.
+
+    Returns tuples of (parser_config, file_path).
+    """
+    candidates: list[tuple[str, Path]] = []
+
+    # Structured layout: <variant>/<config>/<stem>.txt
+    for variant in DATASET_VARIANTS:
+        variant_dir = extracted_dir / variant
+        if not variant_dir.exists():
+            continue
+        for config_dir in sorted(p for p in variant_dir.iterdir() if p.is_dir()):
+            config = config_dir.name
+            if not config.startswith(parser_prefix):
+                continue
+            path = config_dir / f"{stem}.txt"
+            if path.exists():
+                candidates.append((config, path))
+
+    dedup: dict[str, Path] = {}
+    for config, path in candidates:
+        dedup[config] = path
+    return sorted(dedup.items(), key=lambda item: item[0])
 
 
 def parse_args() -> argparse.Namespace:
@@ -84,14 +116,18 @@ def main() -> None:
     reference_file = _find_reference_file(gt_text_dir, stem)
     reference_text = reference_file.read_text(encoding="utf-8")
 
-    pattern = f"{stem}__{args.parser_prefix}*.txt"
-    candidates = sorted(extracted_dir.glob(pattern))
+    candidates = _collect_extracted_candidates(
+        extracted_dir=extracted_dir,
+        stem=stem,
+        parser_prefix=args.parser_prefix,
+    )
     if not candidates:
-        raise FileNotFoundError(f"No extracted files found for pattern: {pattern} in {extracted_dir}")
+        raise FileNotFoundError(
+            f"No extracted files found for stem='{stem}' and prefix='{args.parser_prefix}' in {extracted_dir}"
+        )
 
     rows: list[dict] = []
-    for path in candidates:
-        config = path.stem.split("__", 1)[1]
+    for config, path in candidates:
         extracted_text = path.read_text(encoding="utf-8")
 
         if args.mode == "fast":

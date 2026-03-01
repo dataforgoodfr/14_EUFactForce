@@ -23,6 +23,6 @@ All files under `ground_truth/texts/` should follow these conventions.
 
 ## Scoring Assumption
 
-`quality_scoring.py` and `fidelity_optimization.py` evaluate extracted text against this normalized editorial style, not strict PDF-layout reproduction.
+`quality_scoring.py` evaluates extracted text against this normalized editorial style, not strict PDF-layout reproduction.
 
 If conventions change, update this file and regenerate benchmark artifacts.

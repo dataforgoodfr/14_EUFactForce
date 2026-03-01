@@ -13,12 +13,16 @@ Scores four complementary dimensions:
 Output: output/quality_scores.csv
 """
 
-import json
 import csv
 import argparse
 import time
 from pathlib import Path
 
+from benchmarking.extracted_text_store import (
+    infer_variant_from_config,
+    resolve_existing_path,
+    structured_path,
+)
 from scoring.content import (
     score_title, score_authors, score_doi, score_abstract,
     score_references, score_key_passage,
@@ -31,53 +35,24 @@ from scoring.metadata import (
     score_keywords_accuracy, compute_metadata_accuracy_score,
 )
 from scoring.similarity import score_reference_text
-from scoring.utils import FOUND
+from scoring.utils import FOUND, find_reference_text_path
+from benchmarking.ground_truth_loader import get_ground_truth_documents, filter_documents
+from benchmarking.parser_config import (
+    canonicalize_parser_config_names,
+    get_scoring_configs,
+    get_scoring_profiles,
+)
 
 # =========================
 # CONFIGURATION
 # =========================
-EXTRACTED_TEXT_DIR = Path("output/extracted_texts")
-GROUND_TRUTH_FILE = Path("ground_truth/ground_truth.json")
 GROUND_TRUTH_TEXT_DIR = Path("ground_truth/texts")
 OUTPUT_CSV = "output/quality_scores.csv"
 
 MISSING_FILE = "missing_file"
 
-PARSER_CONFIGS = [
-    "llamaparse_text", "llamaparse_markdown", "pymupdf",
-    "llamaparse_text_preprocessed", "llamaparse_markdown_preprocessed", "pymupdf_preprocessed",
-    "llamaparse_text_column", "llamaparse_markdown_column", "pymupdf_column",
-    "docling_text", "docling_markdown",
-    "docling_markdown_indexing",
-    "docling_text_preprocessed", "docling_markdown_preprocessed",
-    "docling_markdown_indexing_preprocessed",
-    "docling_text_column", "docling_markdown_column",
-    "docling_markdown_indexing_column",
-]
-
-PARSER_CONFIG_PROFILES: dict[str, list[str]] = {
-    "full": PARSER_CONFIGS,
-    "fast": [
-        "pymupdf",
-        "pymupdf_preprocessed",
-        "docling_markdown",
-        "docling_markdown_indexing",
-    ],
-    "docling_only": [
-        "docling_text",
-        "docling_markdown",
-        "docling_markdown_indexing",
-        "docling_text_preprocessed",
-        "docling_markdown_preprocessed",
-        "docling_markdown_indexing_preprocessed",
-        "docling_text_column",
-        "docling_markdown_column",
-        "docling_markdown_indexing_column",
-    ],
-}
-
-# Reference text file extensions, checked in priority order
-REFERENCE_TEXT_EXTENSIONS = (".md", ".txt")
+PARSER_CONFIGS = get_scoring_configs()
+PARSER_CONFIG_PROFILES: dict[str, list[str]] = get_scoring_profiles()
 
 # Single source of truth for CSV columns and their missing-file defaults.
 # _empty_record() and CSV_FIELDNAMES are both derived from this.
@@ -110,6 +85,16 @@ _FIELD_DEFAULTS: dict[str, str | float | int | None] = {
 }
 
 CSV_FIELDNAMES = list(_FIELD_DEFAULTS.keys())
+TIMING_FIELDNAMES = [
+    "filename",
+    "parser_config",
+    "chars",
+    "content_ms",
+    "structural_ms",
+    "metadata_ms",
+    "similarity_ms",
+    "total_ms",
+]
 
 
 # =========================
@@ -215,14 +200,20 @@ def _has_metadata_annotations(gt: dict) -> bool:
     return gt.get("publication_date") is not None or gt.get("source") is not None
 
 
-def _find_reference_text(filename: str) -> Path | None:
-    """Find a ground truth reference text file for the given document."""
+def _resolve_extracted_text_path(filename: str, config: str) -> Path:
+    """Resolve extracted text path from structured layout."""
     stem = Path(filename).stem
-    for ext in REFERENCE_TEXT_EXTENSIONS:
-        candidate = GROUND_TRUTH_TEXT_DIR / f"{stem}{ext}"
-        if candidate.exists():
-            return candidate
-    return None
+    preferred_variant = infer_variant_from_config(config_name=config)
+    resolved = resolve_existing_path(
+        stem=stem,
+        config_name=config,
+        preferred_variant=preferred_variant,
+    )
+    if resolved is not None:
+        return resolved
+
+    # Fallback canonical location to keep skip message deterministic.
+    return structured_path(stem=stem, config_name=config, dataset_variant=preferred_variant)
 
 
 # =========================
@@ -278,124 +269,187 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def main():
-    args = parse_args()
-
+def _resolve_parser_configs(args: argparse.Namespace) -> list[str]:
+    """Resolve parser config list from explicit args or profile."""
     if args.configs:
-        parser_configs = [c.strip() for c in args.configs.split(",") if c.strip()]
-    else:
-        parser_configs = PARSER_CONFIG_PROFILES[args.profile]
+        return canonicalize_parser_config_names(
+            [c.strip() for c in args.configs.split(",") if c.strip()]
+        )
+    return PARSER_CONFIG_PROFILES[args.profile]
 
+
+def _validate_parser_configs(parser_configs: list[str]) -> None:
+    """Validate parser configs requested by the user."""
     unknown = [c for c in parser_configs if c not in PARSER_CONFIGS]
     if unknown:
         raise ValueError(f"Unknown parser_config(s): {unknown}")
 
-    with open(GROUND_TRUTH_FILE, encoding="utf-8") as f:
-        ground_truth = json.load(f)
 
-    gt_docs = ground_truth["documents"]
-    if args.filename:
-        if args.filename not in gt_docs:
-            raise FileNotFoundError(f"Filename '{args.filename}' not found in ground_truth.json")
-        gt_docs = {args.filename: gt_docs[args.filename]}
-    if args.doc_type:
-        gt_docs = {
-            filename: record
-            for filename, record in gt_docs.items()
-            if record.get("doc_type") == args.doc_type
-        }
-        if not gt_docs:
-            raise ValueError(f"No documents found for doc_type='{args.doc_type}'")
+def _load_filtered_ground_truth(args: argparse.Namespace) -> dict[str, dict]:
+    """Load and filter ground-truth documents according to CLI options."""
+    gt_docs = get_ground_truth_documents()
+    return filter_documents(
+        gt_docs,
+        filename=args.filename,
+        doc_type=args.doc_type,
+    )
+
+def _score_one_document_config(
+    *,
+    filename: str,
+    gt: dict,
+    config: str,
+    args: argparse.Namespace,
+) -> tuple[dict, dict[str, float | str] | None]:
+    """Score one (document, parser_config) pair and return record + timing row."""
+    text_file = _resolve_extracted_text_path(filename=filename, config=config)
+    record = _empty_record(filename, config, gt["doc_type"])
+    if not text_file.exists():
+        print(f"  [SKIP] {text_file} not found")
+        return record, None
+
+    full_text = text_file.read_text(encoding="utf-8")
+    print(f"[{config}] Scoring {filename} ({len(full_text)} chars) ...")
+    row_start = time.perf_counter()
+
+    content_time_ms = _run_scoring_step_and_time_ms(
+        record=record,
+        scoring_fn=_score_content_presence,
+        full_text=full_text,
+        gt=gt,
+    )
+    structural_time_ms = _run_scoring_step_and_time_ms(
+        record=record,
+        scoring_fn=_score_structural,
+        full_text=full_text,
+        gt=gt,
+    )
+
+    metadata_time_ms = 0.0
+    if _has_metadata_annotations(gt):
+        metadata_time_ms = _run_scoring_step_and_time_ms(
+            record=record,
+            scoring_fn=_score_metadata,
+            full_text=full_text,
+            gt=gt,
+        )
+
+    ref_path = find_reference_text_path(Path(filename).stem, GROUND_TRUTH_TEXT_DIR)
+    similarity_time_ms = 0.0
+    if ref_path is not None and not args.skip_similarity:
+        similarity_time_ms = _run_scoring_step_and_time_ms(
+            record=record,
+            scoring_fn=score_reference_text,
+            full_text=full_text,
+            gt=ref_path,
+        )
+
+    total_time_ms = (time.perf_counter() - row_start) * 1000.0
+    timing_row = {
+        "filename": filename,
+        "parser_config": config,
+        "chars": float(len(full_text)),
+        "content_time_ms": content_time_ms,
+        "structural_time_ms": structural_time_ms,
+        "metadata_time_ms": metadata_time_ms,
+        "similarity_time_ms": similarity_time_ms,
+        "total_time_ms": total_time_ms,
+    }
+    _log_row_timing(
+        args=args,
+        filename=filename,
+        config=config,
+        content_ms=content_time_ms,
+        structural_ms=structural_time_ms,
+        metadata_ms=metadata_time_ms,
+        similarity_ms=similarity_time_ms,
+        total_ms=total_time_ms,
+    )
+    return record, timing_row
+
+
+def _run_scoring_step_and_time_ms(
+    *,
+    record: dict,
+    scoring_fn,
+    full_text: str,
+    gt,
+) -> float:
+    """Run a scoring function, update the record, and return elapsed ms."""
+    t0 = time.perf_counter()
+    record.update(scoring_fn(full_text, gt))
+    return (time.perf_counter() - t0) * 1000.0
+
+
+def _log_row_timing(
+    *,
+    args: argparse.Namespace,
+    filename: str,
+    config: str,
+    content_ms: float,
+    structural_ms: float,
+    metadata_ms: float,
+    similarity_ms: float,
+    total_ms: float,
+) -> None:
+    """Print per-row timing when logging is enabled and threshold is met."""
+    if not args.log_timing or total_ms < args.timing_threshold_ms:
+        return
+    print(
+        "[TIMING] "
+        f"{filename} | {config} | total={total_ms:.1f}ms "
+        f"(content={content_ms:.1f}, structural={structural_ms:.1f}, "
+        f"metadata={metadata_ms:.1f}, similarity={similarity_ms:.1f})"
+    )
+
+
+def _write_results_csv(results: list[dict]) -> None:
+    """Write scored rows to the default output CSV."""
+    with open(OUTPUT_CSV, mode="w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=CSV_FIELDNAMES)
+        writer.writeheader()
+        writer.writerows(results)
+
+
+def _write_timing_csv(timing_output_csv: str | None, timing_rows: list[dict[str, float | str]]) -> None:
+    """Optionally write per-row timing diagnostics CSV."""
+    if not timing_output_csv:
+        return
+    timing_path = Path(timing_output_csv)
+    timing_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(timing_path, mode="w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=TIMING_FIELDNAMES)
+        writer.writeheader()
+        writer.writerows(timing_rows)
+
+
+def main():
+    args = parse_args()
+    parser_configs = _resolve_parser_configs(args)
+    _validate_parser_configs(parser_configs)
+    gt_docs = _load_filtered_ground_truth(args)
 
     print(f"[INFO] Loaded ground truth for {len(gt_docs)} documents.")
     print(f"[INFO] Scoring parser configs ({len(parser_configs)}): {', '.join(parser_configs)}")
     if args.skip_similarity:
         print("[INFO] Similarity scoring disabled (--skip-similarity).")
-    results = []
+    results: list[dict] = []
     timing_rows: list[dict[str, float | str]] = []
 
     for filename, gt in gt_docs.items():
         for config in parser_configs:
-            text_file = EXTRACTED_TEXT_DIR / f"{Path(filename).stem}__{config}.txt"
-            record = _empty_record(filename, config, gt["doc_type"])
-
-            if not text_file.exists():
-                print(f"  [SKIP] {text_file} not found")
-                results.append(record)
-                continue
-
-            full_text = text_file.read_text(encoding="utf-8")
-            print(f"[{config}] Scoring {filename} ({len(full_text)} chars) ...")
-
-            row_start = time.perf_counter()
-
-            t0 = time.perf_counter()
-            record.update(_score_content_presence(full_text, gt))
-            content_ms = (time.perf_counter() - t0) * 1000.0
-
-            t0 = time.perf_counter()
-            record.update(_score_structural(full_text, gt))
-            structural_ms = (time.perf_counter() - t0) * 1000.0
-
-            metadata_ms = 0.0
-            if _has_metadata_annotations(gt):
-                t0 = time.perf_counter()
-                record.update(_score_metadata(full_text, gt))
-                metadata_ms = (time.perf_counter() - t0) * 1000.0
-
-            ref_path = _find_reference_text(filename)
-            similarity_ms = 0.0
-            if ref_path is not None and not args.skip_similarity:
-                t0 = time.perf_counter()
-                record.update(score_reference_text(full_text, ref_path))
-                similarity_ms = (time.perf_counter() - t0) * 1000.0
-
-            total_ms = (time.perf_counter() - row_start) * 1000.0
-            timing_row = {
-                "filename": filename,
-                "parser_config": config,
-                "chars": float(len(full_text)),
-                "content_ms": content_ms,
-                "structural_ms": structural_ms,
-                "metadata_ms": metadata_ms,
-                "similarity_ms": similarity_ms,
-                "total_ms": total_ms,
-            }
-            timing_rows.append(timing_row)
-
-            if args.log_timing and total_ms >= args.timing_threshold_ms:
-                print(
-                    "[TIMING] "
-                    f"{filename} | {config} | total={total_ms:.1f}ms "
-                    f"(content={content_ms:.1f}, structural={structural_ms:.1f}, "
-                    f"metadata={metadata_ms:.1f}, similarity={similarity_ms:.1f})"
-                )
-
-            results.append(record)
-
-    with open(OUTPUT_CSV, mode="w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=CSV_FIELDNAMES)
-        writer.writeheader()
-        writer.writerows(results)
-    if args.timing_output_csv:
-        timing_path = Path(args.timing_output_csv)
-        timing_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(timing_path, mode="w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(
-                f,
-                fieldnames=[
-                    "filename",
-                    "parser_config",
-                    "chars",
-                    "content_ms",
-                    "structural_ms",
-                    "metadata_ms",
-                    "similarity_ms",
-                    "total_ms",
-                ],
+            record, timing_row = _score_one_document_config(
+                filename=filename,
+                gt=gt,
+                config=config,
+                args=args,
             )
-            writer.writeheader()
-            writer.writerows(timing_rows)
+            results.append(record)
+            if timing_row is not None:
+                timing_rows.append(timing_row)
+
+    _write_results_csv(results)
+    _write_timing_csv(args.timing_output_csv, timing_rows)
 
     print(f"\nQuality scoring complete → {len(results)} rows written to {OUTPUT_CSV}")
     if args.log_timing:

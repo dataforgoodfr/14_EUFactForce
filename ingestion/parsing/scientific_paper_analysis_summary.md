@@ -6,18 +6,19 @@ Generated artifacts live under `output/analysis/` and are intentionally gitignor
 ## Scope
 
 - Dataset slice: `doc_type = scientific_paper` (6 files)
-- Parser configs: `docling_markdown`, `docling_postprocess_markdown`
+- Parser config: `docling_markdown`
+- Note: `docling_markdown` includes indexing-focused cleanup by default.
 - Comparison basis: `after - baseline`
 
 ## Run Settings (Baseline vs Current)
 
 Baseline run:
-- Command: `python quality_scoring.py --doc-type scientific_paper --configs docling_markdown,docling_postprocess_markdown --timing-output-csv output/analysis/scientific_paper_docling_timing_baseline.csv`
+- Command: `python quality_scoring.py --doc-type scientific_paper --configs docling_markdown --timing-output-csv output/analysis/scientific_paper_docling_timing_baseline.csv`
 - Body cleanup used for similarity: TOC strip + explicit references heading strip + footnotes strip + legal boilerplate strip + trailing citation-noise trim.
 - Limitation: when extraction had no explicit `References` heading, many reference-like lines could remain in extracted body.
 
 Current run:
-- Command: `python quality_scoring.py --doc-type scientific_paper --configs docling_markdown,docling_postprocess_markdown --timing-output-csv output/analysis/scientific_paper_docling_timing_after.csv`
+- Command: `python quality_scoring.py --doc-type scientific_paper --configs docling_markdown --timing-output-csv output/analysis/scientific_paper_docling_timing_after.csv`
 - Added logic: **implicit references catch** in `scoring/utils.py::strip_references_section()`.
 - New behavior: if the latter part of text is reference-dense (DOI/URL/arXiv/numbered citation patterns), those lines are removed even without an explicit `References` header.
 
@@ -28,7 +29,6 @@ Average delta across scientific-paper files (`current - baseline`):
 | parser_config | similarity | precision | order | structural_quality | metadata_score | row_runtime_ms |
 |---|---:|---:|---:|---:|---:|---:|
 | `docling_markdown` | +0.0582 | +0.0738 | +0.0017 | +1.1333 | -1.6167 | -867.45 |
-| `docling_postprocess_markdown` | +0.0582 | +0.0738 | +0.0017 | +1.1333 | -1.6167 | -880.16 |
 
 Scientific-paper aggregate metrics after implicit reference cleanup:
 

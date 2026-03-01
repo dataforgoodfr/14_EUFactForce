@@ -10,6 +10,7 @@ parsing/
 ├── pdf_cleaner.py        # PDF pre-processing (crop headers/footers, redact figures, linearize columns)
 ├── text_cleaning.py      # Text post-processing (fix encoding, rejoin hyphens, remove noise)
 ├── quality_scoring.py    # Orchestrate quality evaluation across all scoring dimensions
+├── benchmarking/         # Benchmarking domain modules (parsers, configs, storage, GT)
 │
 ├── scoring/              # Scoring sub-modules
 │   ├── content.py        # Content presence scoring (title, authors, DOI, abstract, ...)
@@ -27,7 +28,10 @@ parsing/
 │   └── texts/            # Human-written reference texts for similarity scoring
 │
 └── output/               # Generated outputs (CSV results + extracted texts)
-    ├── extracted_texts/   # Cached text extractions per (document, parser_config)
+    ├── extracted_texts/   # Cached text extractions (structured by dataset variant)
+    │   ├── raw/<parser_config>/<document_stem>.txt
+    │   ├── preprocessed/<parser_config>/<document_stem>.txt
+    │   └── column/<parser_config>/<document_stem>.txt
     ├── benchmark_results_extended.csv
     └── quality_scores.csv
 ```
@@ -53,6 +57,9 @@ python benchmark.py [raw|preprocessed|column|all] [--preprocessed] [--column] [-
 #   --configs "pymupdf,docling_markdown,llamaparse_markdown"
 # Retrieval-focused Docling export (cleaner indexing text):
 #   --configs "docling_markdown_indexing"
+# Legacy aliases are still accepted (e.g. docling_postprocess_markdown, *_clean),
+# but canonical names are docling_markdown_indexing and *_preprocessed.
+# New extraction outputs are written under output/extracted_texts/{raw|preprocessed|column}/...
 
 # 3. Evaluate extraction quality
 python quality_scoring.py
