@@ -5,40 +5,26 @@ from __future__ import annotations
 from pathlib import Path
 
 EXTRACTED_TEXT_DIR = Path("output/extracted_texts")
-DATASET_VARIANTS = ("raw", "preprocessed", "column")
+DATASET_VARIANTS = ("raw",)
 
 
 def dataset_variant_from_suffix(config_suffix: str) -> str:
     """Map benchmark config suffix to dataset variant."""
-    if config_suffix == "_preprocessed":
-        return "preprocessed"
-    if config_suffix == "_column":
-        return "column"
+    _ = config_suffix
     return "raw"
 
 
 def infer_variant_from_config(config_name: str) -> str:
-    """Infer dataset variant from parser config name suffix."""
-    if config_name.endswith("_preprocessed") or config_name.endswith("_clean"):
-        return "preprocessed"
-    if config_name.endswith("_column"):
-        return "column"
+    """Infer dataset variant from parser config name."""
+    _ = config_name
     return "raw"
 
 
 def _candidate_config_aliases(config_name: str) -> list[str]:
     candidates = [config_name]
-    if config_name.endswith("_preprocessed"):
-        candidates.append(config_name.removesuffix("_preprocessed") + "_clean")
     if "docling_markdown_indexing" in config_name:
         legacy = config_name.replace("docling_markdown_indexing", "docling_postprocess_markdown")
         candidates.append(legacy)
-        if config_name.endswith("_preprocessed"):
-            candidates.append(
-                config_name.removesuffix("_preprocessed")
-                .replace("docling_markdown_indexing", "docling_postprocess_markdown")
-                + "_clean"
-            )
     return list(dict.fromkeys(candidates))
 
 
@@ -56,13 +42,10 @@ def resolve_existing_path(
     Resolve extracted text path from structured layout.
 
     Search order:
-      1) preferred variant in structured layout
-      2) any structured variant
+      1) raw variant in structured layout
     """
-    variants: list[str] = []
-    if preferred_variant:
-        variants.append(preferred_variant)
-    variants.extend(v for v in DATASET_VARIANTS if v not in variants)
+    _ = preferred_variant
+    variants = ["raw"]
 
     for alias in _candidate_config_aliases(config_name):
         for variant in variants:

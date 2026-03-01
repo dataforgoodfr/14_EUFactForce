@@ -201,7 +201,7 @@ def _has_metadata_annotations(gt: dict) -> bool:
 
 
 def _resolve_extracted_text_path(filename: str, config: str) -> Path:
-    """Resolve extracted text path from structured layout."""
+    """Resolve extracted text path from the raw structured layout."""
     stem = Path(filename).stem
     preferred_variant = infer_variant_from_config(config_name=config)
     resolved = resolve_existing_path(

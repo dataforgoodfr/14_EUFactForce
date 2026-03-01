@@ -32,39 +32,17 @@ CONFIG_PROFILES: dict[str, list[str]] = {
     ],
 }
 
-# Dataset suffixes that quality scoring expects.
-SCORING_SUFFIXES: tuple[str, ...] = ("", "_preprocessed", "_column")
-
-
-def _expand_with_suffixes(
-    base_names: Iterable[str],
-    suffixes: Iterable[str],
-) -> list[str]:
-    expanded: list[str] = []
-    for name in base_names:
-        for suffix in suffixes:
-            expanded.append(f"{name}{suffix}")
-    return expanded
-
-
 def get_scoring_configs() -> list[str]:
-    """Return all scoring config names (base + dataset suffix variants)."""
-    return _expand_with_suffixes(CONFIGS.keys(), SCORING_SUFFIXES)
+    """Return all scoring config names."""
+    return list(CONFIGS.keys())
 
 
 def get_scoring_profiles() -> dict[str, list[str]]:
-    """Return scoring profiles including suffix variants where appropriate."""
+    """Return scoring profiles."""
     return {
         "full": get_scoring_configs(),
-        "fast": [
-            "pymupdf",
-            "pymupdf_preprocessed",
-            "docling_markdown",
-        ],
-        "docling_only": _expand_with_suffixes(
-            CONFIG_PROFILES["docling_only"],
-            SCORING_SUFFIXES,
-        ),
+        "fast": list(CONFIG_PROFILES["fast"]),
+        "docling_only": list(CONFIG_PROFILES["docling_only"]),
     }
 
 
@@ -72,22 +50,8 @@ _ALIAS_PREFIX_MAP: dict[str, str] = {
     "docling_postprocess_markdown": "docling_markdown",
 }
 
-_SUFFIX_ALIAS_MAP: dict[str, str] = {
-    "": "",
-    "_preprocessed": "_preprocessed",
-    "_clean": "_preprocessed",
-    "_column": "_column",
-}
-
-
 def canonicalize_parser_config_name(name: str) -> str:
-    """Map legacy aliases to canonical config names while preserving suffixes."""
-    for suffix_alias, canonical_suffix in _SUFFIX_ALIAS_MAP.items():
-        if suffix_alias and name.endswith(suffix_alias):
-            base_name = name[: -len(suffix_alias)]
-            canonical_base = _ALIAS_PREFIX_MAP.get(base_name, base_name)
-            return f"{canonical_base}{canonical_suffix}"
-
+    """Map legacy aliases to canonical config names."""
     return _ALIAS_PREFIX_MAP.get(name, name)
 
 

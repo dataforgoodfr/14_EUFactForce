@@ -34,8 +34,6 @@ load_dotenv()
 # CONFIGURATION
 # =========================
 INPUT_FOLDER_RAW = "data/document_diversity"
-INPUT_FOLDER_PREPROCESSED = "data/document_diversity_clean"
-INPUT_FOLDER_COLUMN = "data/document_diversity_column"
 OUTPUT_CSV = "output/benchmark_results_extended.csv"
 LLAMAPARSE_API_KEY = os.getenv("LLAMA_CLOUD_API_KEY")
 FIRST_CHUNK_CHARS = 5000
@@ -57,7 +55,7 @@ def run_benchmark(
     """
     Run all parser configurations on PDFs in *input_folder*.
 
-    If *config_suffix* is provided (e.g. '_preprocessed'), it is appended to each
+    If *config_suffix* is provided, it is appended to each
     parser_config name in the output records and extracted text filenames.
 
     If *skip_existing* is True, skip any (file, config) combination whose
@@ -343,24 +341,7 @@ FIELDNAMES = [
 def _parse_args() -> argparse.Namespace:
     """Parse benchmark CLI arguments."""
     parser = argparse.ArgumentParser(
-        description="Run parsing benchmarks across parser configs and input variants."
-    )
-    parser.add_argument(
-        "mode",
-        nargs="?",
-        default="raw",
-        choices=["raw", "preprocessed", "column", "all"],
-        help="Primary dataset mode (default: raw).",
-    )
-    parser.add_argument(
-        "--preprocessed",
-        action="store_true",
-        help="Also run preprocessed dataset benchmark.",
-    )
-    parser.add_argument(
-        "--column",
-        action="store_true",
-        help="Also run column-linearized dataset benchmark.",
+        description="Run parsing benchmarks across parser configs on raw PDFs."
     )
     parser.add_argument(
         "--no-cache",
@@ -402,14 +383,8 @@ def _resolve_selected_configs(parsed: argparse.Namespace) -> list[str]:
 
 def _resolve_dataset_runs(parsed: argparse.Namespace) -> list[tuple[str, str]]:
     """Return enabled dataset runs as (input_folder, config_suffix)."""
-    runs: list[tuple[str, str]] = []
-    if parsed.mode in ("raw", "all"):
-        runs.append((INPUT_FOLDER_RAW, ""))
-    if parsed.mode in ("preprocessed", "all") or parsed.preprocessed:
-        runs.append((INPUT_FOLDER_PREPROCESSED, "_preprocessed"))
-    if parsed.mode in ("column", "all") or parsed.column:
-        runs.append((INPUT_FOLDER_COLUMN, "_column"))
-    return runs
+    _ = parsed
+    return [(INPUT_FOLDER_RAW, "")]
 
 
 def _validate_selected_configs(selected_configs: list[str]) -> None:
