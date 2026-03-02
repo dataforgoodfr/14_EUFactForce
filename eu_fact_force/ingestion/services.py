@@ -6,6 +6,9 @@ Create a dedicated file for real pipeline steps.
 
 from pathlib import Path
 
+from eu_fact_force.ingestion.embedding import add_embeddings
+from eu_fact_force.ingestion.parsing import parse_file
+
 from .models import DocumentChunk, FileMetadata, SourceFile
 
 
@@ -35,14 +38,6 @@ def save_to_s3_and_postgres(
     return source_file
 
 
-def parse_file(source_file: SourceFile) -> list[str]:
-    """
-    Parse the file and return a list of chunks.
-    As a v0 we assume the chunks are the tags.
-    """
-    return source_file.metadata.tags_pubmed
-
-
 def save_chunks(source_file: SourceFile, chunks: list[str]) -> list[DocumentChunk]:
     """
     Save the file chunks as DocumentChunks with a link to the source file.
@@ -66,6 +61,7 @@ def run_pipeline(doi: str) -> tuple[SourceFile, list[DocumentChunk]]:
     """
     local_file_path, tags_pubmed = fetch_file_and_metadata(doi)
     source_file = save_to_s3_and_postgres(local_file_path, tags_pubmed, doi=doi)
-    chunks = parse_file(source_file)
-    save_chunks(source_file, chunks)
+    document_parts = parse_file(source_file)
+    chunks = save_chunks(source_file, document_parts)
+    add_embeddings(chunks)
     return source_file, chunks
