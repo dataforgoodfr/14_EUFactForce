@@ -6,6 +6,8 @@ Create a dedicated file for real pipeline steps.
 
 from pathlib import Path
 
+from eu_fact_force.ingestion.parsing import parse_file
+
 from .models import DocumentChunk, FileMetadata, SourceFile
 
 
@@ -33,14 +35,6 @@ def save_to_s3_and_postgres(
     source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
     FileMetadata.objects.create(source_file=source_file, tags_pubmed=tags_pubmed)
     return source_file
-
-
-def parse_file(source_file: SourceFile) -> list[str]:
-    """
-    Parse the file and return a list of chunks.
-    As a v0 we assume the chunks are the tags.
-    """
-    return source_file.metadata.tags_pubmed
 
 
 def save_chunks(source_file: SourceFile, chunks: list[str]) -> list[DocumentChunk]:
