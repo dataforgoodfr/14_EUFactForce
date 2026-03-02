@@ -164,5 +164,3 @@ cython_debug/
 
 # Parsing generated artifacts
 ingestion/parsing/output/extracted_texts/
-ingestion/parsing/output/benchmark_results_extended.csv
-ingestion/parsing/output/quality_scores.csv
