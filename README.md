@@ -91,7 +91,7 @@ source .venv/bin/activate
 uv run pre-commit run --all-files
 ```
 
-### Utiliser Tox pour tester votre code
+### Utiliser pytest pour tester votre code
 
 ```bash
 uv run pytest
