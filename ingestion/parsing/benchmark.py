@@ -24,7 +24,7 @@ from benchmarking.ground_truth_loader import get_doc_type_map, get_filenames_for
 from benchmarking.parser_config import (
     CONFIGS,
     CONFIG_PROFILES,
-    canonicalize_parser_config_names,
+    deduplicate_parser_config_names,
 )
 from text_cleaning import postprocess_text
 
@@ -366,7 +366,7 @@ def _resolve_selected_configs(parsed: argparse.Namespace) -> list[str]:
     """Resolve selected parser configs from explicit list or profile."""
     if not parsed.configs:
         return CONFIG_PROFILES[parsed.profile]
-    return canonicalize_parser_config_names(
+    return deduplicate_parser_config_names(
         [c.strip() for c in parsed.configs.split(",") if c.strip()]
     )
 

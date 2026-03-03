@@ -38,7 +38,7 @@ from scoring.similarity import score_reference_text
 from scoring.utils import FOUND, find_reference_text_path
 from benchmarking.ground_truth_loader import get_ground_truth_documents, filter_documents
 from benchmarking.parser_config import (
-    canonicalize_parser_config_names,
+    deduplicate_parser_config_names,
     get_scoring_configs,
     get_scoring_profiles,
 )
@@ -274,7 +274,7 @@ def parse_args() -> argparse.Namespace:
 def _resolve_parser_configs(args: argparse.Namespace) -> list[str]:
     """Resolve parser config list from explicit args or profile."""
     if args.configs:
-        return canonicalize_parser_config_names(
+        return deduplicate_parser_config_names(
             [c.strip() for c in args.configs.split(",") if c.strip()]
         )
     return PARSER_CONFIG_PROFILES[args.profile]

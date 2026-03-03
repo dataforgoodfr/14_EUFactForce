@@ -46,20 +46,13 @@ def get_scoring_profiles() -> dict[str, list[str]]:
     }
 
 
-def canonicalize_parser_config_name(name: str) -> str:
-    """Return canonical config name."""
-    return name
-
-
-def canonicalize_parser_config_names(names: Iterable[str]) -> list[str]:
-    """Canonicalize and de-duplicate while preserving order."""
-    canonicalized: list[str] = []
+def deduplicate_parser_config_names(names: Iterable[str]) -> list[str]:
+    """De-duplicate parser config names while preserving order."""
+    deduplicated: list[str] = []
     seen: set[str] = set()
     for name in names:
-        canonical = canonicalize_parser_config_name(name)
-        if canonical in seen:
+        if name in seen:
             continue
-        seen.add(canonical)
-        canonicalized.append(canonical)
-    return canonicalized
-
+        seen.add(name)
+        deduplicated.append(name)
+    return deduplicated
