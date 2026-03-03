@@ -2,12 +2,1095 @@
   {
     "query": "vaccines cause autism",
     "lang": "en",
-    "relevant_docs": ["s41591-022-01713-6", "1-s2.0-S2352250X23001574-main"]
+    "relevant_docs": [
+      "s41591-022-01713-6",
+      "1-s2.0-S2352250X23001574-main"
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "s41591-022-01713-6::chunk_21",
+        "s41591-022-01713-6::chunk_34",
+        "s41591-022-01713-6::chunk_2",
+        "1-s2.0-S2352250X23001574-main::chunk_2",
+        "s41591-022-01713-6::chunk_51"
+      ],
+      "paragraph": [
+        "s41591-022-01713-6::chunk_2",
+        "s41591-022-01713-6::chunk_28",
+        "s41591-022-01713-6::chunk_65"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_21",
+          "label": "partial",
+          "confidence": 0.6154,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_34",
+          "label": "partial",
+          "confidence": 0.5692,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_2",
+          "label": "partial",
+          "confidence": 0.5492,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_2",
+          "label": "partial",
+          "confidence": 0.4169,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_51",
+          "label": "partial",
+          "confidence": 0.4062,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_50",
+          "label": "irrelevant",
+          "confidence": 0.3723,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_40",
+          "label": "irrelevant",
+          "confidence": 0.3538,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_29",
+          "label": "irrelevant",
+          "confidence": 0.3385,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.3138,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_25",
+          "label": "irrelevant",
+          "confidence": 0.2908,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2677,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_48",
+          "label": "irrelevant",
+          "confidence": 0.2369,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_13",
+          "label": "irrelevant",
+          "confidence": 0.2215,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_28",
+          "label": "irrelevant",
+          "confidence": 0.2031,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_22",
+          "label": "irrelevant",
+          "confidence": 0.1985,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.1754,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_20",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_30",
+          "label": "irrelevant",
+          "confidence": 0.1523,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_35",
+          "label": "irrelevant",
+          "confidence": 0.1062,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.1015,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.0677,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.06,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_46",
+          "label": "irrelevant",
+          "confidence": 0.06,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_32",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_68",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_55",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_39",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "dense"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_2",
+          "label": "high",
+          "confidence": 0.6508,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_28",
+          "label": "partial",
+          "confidence": 0.48,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_65",
+          "label": "partial",
+          "confidence": 0.44,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_41",
+          "label": "irrelevant",
+          "confidence": 0.3723,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_54",
+          "label": "irrelevant",
+          "confidence": 0.3646,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.3385,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.3369,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_44",
+          "label": "irrelevant",
+          "confidence": 0.3323,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_34",
+          "label": "irrelevant",
+          "confidence": 0.3138,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_35",
+          "label": "irrelevant",
+          "confidence": 0.2908,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.2708,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2677,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_37",
+          "label": "irrelevant",
+          "confidence": 0.2369,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_18",
+          "label": "irrelevant",
+          "confidence": 0.2215,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_29",
+          "label": "irrelevant",
+          "confidence": 0.1985,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_34",
+          "label": "irrelevant",
+          "confidence": 0.1754,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_38",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_39",
+          "label": "irrelevant",
+          "confidence": 0.1523,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.1354,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_45",
+          "label": "irrelevant",
+          "confidence": 0.1062,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_53",
+          "label": "irrelevant",
+          "confidence": 0.1015,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_46",
+          "label": "irrelevant",
+          "confidence": 0.0831,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_16",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_62",
+          "label": "irrelevant",
+          "confidence": 0.0677,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_55",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_169",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_53",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "les vaccins causent l'autisme",
     "lang": "fr",
-    "relevant_docs": ["s41591-022-01713-6", "1-s2.0-S2352250X23001574-main"]
+    "relevant_docs": [
+      "s41591-022-01713-6",
+      "1-s2.0-S2352250X23001574-main"
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "s41591-022-01713-6::chunk_40",
+        "s41591-022-01713-6::chunk_51"
+      ],
+      "paragraph": [
+        "s41591-022-01713-6::chunk_65",
+        "s41591-022-01713-6::chunk_54"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_40",
+          "label": "partial",
+          "confidence": 0.44,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_51",
+          "label": "partial",
+          "confidence": 0.4062,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_50",
+          "label": "irrelevant",
+          "confidence": 0.3723,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.3569,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_48",
+          "label": "irrelevant",
+          "confidence": 0.3385,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.3338,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_34",
+          "label": "irrelevant",
+          "confidence": 0.3046,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.3,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.2754,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_46",
+          "label": "irrelevant",
+          "confidence": 0.2708,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_29",
+          "label": "irrelevant",
+          "confidence": 0.2369,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.2308,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_28",
+          "label": "irrelevant",
+          "confidence": 0.2031,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_5",
+          "label": "irrelevant",
+          "confidence": 0.1846,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_6",
+          "label": "irrelevant",
+          "confidence": 0.1615,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.1385,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_19",
+          "label": "irrelevant",
+          "confidence": 0.1354,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.1154,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_41",
+          "label": "irrelevant",
+          "confidence": 0.1015,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_9",
+          "label": "irrelevant",
+          "confidence": 0.0923,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.0692,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_11",
+          "label": "irrelevant",
+          "confidence": 0.0462,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_18",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.0231,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_13",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_30",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_19",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_53",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_47",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "dense"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_65",
+          "label": "partial",
+          "confidence": 0.44,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_54",
+          "label": "partial",
+          "confidence": 0.4062,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.3754,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.3723,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.3385,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.3338,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.3108,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_14",
+          "label": "irrelevant",
+          "confidence": 0.3046,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.3,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2769,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_55",
+          "label": "irrelevant",
+          "confidence": 0.2708,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.2077,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_62",
+          "label": "irrelevant",
+          "confidence": 0.2031,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_5",
+          "label": "irrelevant",
+          "confidence": 0.1846,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_37",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_6",
+          "label": "irrelevant",
+          "confidence": 0.1615,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_64",
+          "label": "irrelevant",
+          "confidence": 0.1354,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.1154,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.1015,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_9",
+          "label": "irrelevant",
+          "confidence": 0.0923,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_16",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.0692,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_35",
+          "label": "irrelevant",
+          "confidence": 0.0677,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_11",
+          "label": "irrelevant",
+          "confidence": 0.0462,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_53",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.0231,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_13",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_169",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_178",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_85",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_44",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "dense"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "misinformation spread social media",
@@ -17,7 +1100,561 @@
       "SIMODS-Report-1",
       "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
       "pnas.201912444"
-    ]
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "s41591-022-01713-6::chunk_37",
+        "SIMODS-Report-1::chunk_2",
+        "pnas.201912444::chunk_40",
+        "pnas.201912444::chunk_1",
+        "s41591-022-01713-6::chunk_19",
+        "SIMODS-Report-1::chunk_136",
+        "s41591-022-01713-6::chunk_0",
+        "pnas.201912444::chunk_57",
+        "s41591-022-01713-6::chunk_6",
+        "s41591-022-01713-6::chunk_20",
+        "SIMODS-Report-1::chunk_102"
+      ],
+      "paragraph": [
+        "pnas.201912444::chunk_49",
+        "pnas.201912444::chunk_1",
+        "SIMODS-Report-1::chunk_149",
+        "s41591-022-01713-6::chunk_30",
+        "SIMODS-Report-1::chunk_2",
+        "s41591-022-01713-6::chunk_31",
+        "pnas.201912444::chunk_66",
+        "SIMODS-Report-1::chunk_28",
+        "s41591-022-01713-6::chunk_7",
+        "SIMODS-Report-1::chunk_27",
+        "pnas.201912444::chunk_0",
+        "s41591-022-01713-6::chunk_26"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_37",
+          "label": "high",
+          "confidence": 0.6677,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_2",
+          "label": "partial",
+          "confidence": 0.565,
+          "sources": [
+            "dense",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_40",
+          "label": "partial",
+          "confidence": 0.5585,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_1",
+          "label": "partial",
+          "confidence": 0.5412,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_19",
+          "label": "partial",
+          "confidence": 0.5231,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_136",
+          "label": "partial",
+          "confidence": 0.48,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_0",
+          "label": "partial",
+          "confidence": 0.4396,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_57",
+          "label": "partial",
+          "confidence": 0.4338,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_6",
+          "label": "partial",
+          "confidence": 0.4108,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_20",
+          "label": "partial",
+          "confidence": 0.3985,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_102",
+          "label": "partial",
+          "confidence": 0.3835,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.3719,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_22",
+          "label": "irrelevant",
+          "confidence": 0.3415,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_33",
+          "label": "irrelevant",
+          "confidence": 0.3185,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_41",
+          "label": "irrelevant",
+          "confidence": 0.3042,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_38",
+          "label": "irrelevant",
+          "confidence": 0.2723,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_25",
+          "label": "irrelevant",
+          "confidence": 0.2708,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_39",
+          "label": "irrelevant",
+          "confidence": 0.2492,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.2481,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.2027,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_40",
+          "label": "irrelevant",
+          "confidence": 0.1812,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.17,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_80",
+          "label": "irrelevant",
+          "confidence": 0.1581,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_83",
+          "label": "irrelevant",
+          "confidence": 0.135,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.125,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_123",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_125",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_73",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "pnas.201912444::chunk_49",
+          "label": "high",
+          "confidence": 0.66,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_1",
+          "label": "partial",
+          "confidence": 0.575,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_149",
+          "label": "partial",
+          "confidence": 0.5138,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_30",
+          "label": "partial",
+          "confidence": 0.4662,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_2",
+          "label": "partial",
+          "confidence": 0.4635,
+          "sources": [
+            "dense",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_31",
+          "label": "partial",
+          "confidence": 0.4396,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_66",
+          "label": "partial",
+          "confidence": 0.4338,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_28",
+          "label": "partial",
+          "confidence": 0.4173,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_7",
+          "label": "partial",
+          "confidence": 0.4108,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_27",
+          "label": "partial",
+          "confidence": 0.4062,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_0",
+          "label": "partial",
+          "confidence": 0.4058,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_26",
+          "label": "partial",
+          "confidence": 0.3877,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_43",
+          "label": "irrelevant",
+          "confidence": 0.3415,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_49",
+          "label": "irrelevant",
+          "confidence": 0.3185,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.3042,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_50",
+          "label": "irrelevant",
+          "confidence": 0.2954,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_108",
+          "label": "irrelevant",
+          "confidence": 0.2819,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_53",
+          "label": "irrelevant",
+          "confidence": 0.2723,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_95",
+          "label": "irrelevant",
+          "confidence": 0.2042,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_38",
+          "label": "irrelevant",
+          "confidence": 0.1812,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.17,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_94",
+          "label": "irrelevant",
+          "confidence": 0.1581,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.1577,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_29",
+          "label": "irrelevant",
+          "confidence": 0.1354,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_110",
+          "label": "irrelevant",
+          "confidence": 0.135,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_165",
+          "label": "irrelevant",
+          "confidence": 0.125,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_16",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_74",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_123",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "désinformation et réseaux sociaux",
@@ -27,22 +1664,2078 @@
       "SIMODS-Report-1",
       "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
       "pnas.201912444"
-    ]
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "SIMODS-Report-1::chunk_135",
+        "SIMODS-Report-1::chunk_25",
+        "s41591-022-01713-6::chunk_41",
+        "SIMODS-Report-1::chunk_2",
+        "SIMODS-Report-1::chunk_19"
+      ],
+      "paragraph": [
+        "pnas.201912444::chunk_49",
+        "SIMODS-Report-1::chunk_149",
+        "s41591-022-01713-6::chunk_53",
+        "SIMODS-Report-1::chunk_27",
+        "SIMODS-Report-1::chunk_20"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_135",
+          "label": "partial",
+          "confidence": 0.4662,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_25",
+          "label": "partial",
+          "confidence": 0.44,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_41",
+          "label": "partial",
+          "confidence": 0.4323,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_2",
+          "label": "partial",
+          "confidence": 0.4185,
+          "sources": [
+            "dense",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_19",
+          "label": "partial",
+          "confidence": 0.39,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_43",
+          "label": "irrelevant",
+          "confidence": 0.3669,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_44",
+          "label": "irrelevant",
+          "confidence": 0.3438,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_72",
+          "label": "irrelevant",
+          "confidence": 0.3346,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_45",
+          "label": "irrelevant",
+          "confidence": 0.3208,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_48",
+          "label": "irrelevant",
+          "confidence": 0.2977,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_40",
+          "label": "irrelevant",
+          "confidence": 0.2969,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_54",
+          "label": "irrelevant",
+          "confidence": 0.2746,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_29",
+          "label": "irrelevant",
+          "confidence": 0.2708,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_39",
+          "label": "irrelevant",
+          "confidence": 0.2515,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_44",
+          "label": "irrelevant",
+          "confidence": 0.2285,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_48",
+          "label": "irrelevant",
+          "confidence": 0.2054,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2031,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_50",
+          "label": "irrelevant",
+          "confidence": 0.1823,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_47",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_102",
+          "label": "irrelevant",
+          "confidence": 0.1354,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_145",
+          "label": "irrelevant",
+          "confidence": 0.1292,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_70",
+          "label": "irrelevant",
+          "confidence": 0.1062,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_28",
+          "label": "irrelevant",
+          "confidence": 0.1015,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_71",
+          "label": "irrelevant",
+          "confidence": 0.0831,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.0677,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_27",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_133",
+          "label": "irrelevant",
+          "confidence": 0.03,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_47",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_76",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "pnas.201912444::chunk_49",
+          "label": "high",
+          "confidence": 0.6823,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_149",
+          "label": "partial",
+          "confidence": 0.5,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_53",
+          "label": "partial",
+          "confidence": 0.4638,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_27",
+          "label": "partial",
+          "confidence": 0.4062,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_20",
+          "label": "partial",
+          "confidence": 0.39,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_29",
+          "label": "irrelevant",
+          "confidence": 0.3723,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_48",
+          "label": "irrelevant",
+          "confidence": 0.3669,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_51",
+          "label": "irrelevant",
+          "confidence": 0.3208,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_52",
+          "label": "irrelevant",
+          "confidence": 0.2977,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_53",
+          "label": "irrelevant",
+          "confidence": 0.2746,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_28",
+          "label": "irrelevant",
+          "confidence": 0.2708,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_66",
+          "label": "irrelevant",
+          "confidence": 0.2669,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_54",
+          "label": "irrelevant",
+          "confidence": 0.2515,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_148",
+          "label": "irrelevant",
+          "confidence": 0.2331,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_57",
+          "label": "irrelevant",
+          "confidence": 0.2285,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_63",
+          "label": "irrelevant",
+          "confidence": 0.2054,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_56",
+          "label": "irrelevant",
+          "confidence": 0.1954,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_64",
+          "label": "irrelevant",
+          "confidence": 0.1823,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_65",
+          "label": "irrelevant",
+          "confidence": 0.1615,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_58",
+          "label": "irrelevant",
+          "confidence": 0.1362,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_61",
+          "label": "irrelevant",
+          "confidence": 0.1277,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_63",
+          "label": "irrelevant",
+          "confidence": 0.1131,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_165",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_16",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_169",
+          "label": "irrelevant",
+          "confidence": 0.06,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_21",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_9",
+          "label": "irrelevant",
+          "confidence": 0.03,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_130",
+          "label": "irrelevant",
+          "confidence": 0.03,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_38",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "foreign information manipulation interference",
     "lang": "en",
-    "relevant_docs": ["EEAS-3nd-ThreatReport-March-2025-05-Digital-HD"]
+    "relevant_docs": [
+      "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD"
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_6",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_18",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_13",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_17",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_10",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_133",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_9"
+      ],
+      "paragraph": [
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_9",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_20",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_16",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_21",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_154",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_12",
+        "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_163"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+          "label": "high",
+          "confidence": 0.9662,
+          "sources": [
+            "dense",
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_6",
+          "label": "high",
+          "confidence": 0.8969,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_18",
+          "label": "high",
+          "confidence": 0.7138,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_13",
+          "label": "high",
+          "confidence": 0.6923,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_17",
+          "label": "high",
+          "confidence": 0.6354,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_10",
+          "label": "partial",
+          "confidence": 0.6138,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_133",
+          "label": "partial",
+          "confidence": 0.6108,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_9",
+          "label": "partial",
+          "confidence": 0.4338,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_131",
+          "label": "irrelevant",
+          "confidence": 0.3185,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_132",
+          "label": "irrelevant",
+          "confidence": 0.2954,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_85",
+          "label": "irrelevant",
+          "confidence": 0.2819,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_138",
+          "label": "irrelevant",
+          "confidence": 0.2492,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_139",
+          "label": "irrelevant",
+          "confidence": 0.2262,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_100",
+          "label": "irrelevant",
+          "confidence": 0.1804,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_57",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_38",
+          "label": "irrelevant",
+          "confidence": 0.1581,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_143",
+          "label": "irrelevant",
+          "confidence": 0.1577,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_84",
+          "label": "irrelevant",
+          "confidence": 0.1465,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_140",
+          "label": "irrelevant",
+          "confidence": 0.135,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_41",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_120",
+          "label": "irrelevant",
+          "confidence": 0.0788,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_16",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_73",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+          "label": "high",
+          "confidence": 0.8985,
+          "sources": [
+            "dense",
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_9",
+          "label": "high",
+          "confidence": 0.8969,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_20",
+          "label": "high",
+          "confidence": 0.7938,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_16",
+          "label": "high",
+          "confidence": 0.7831,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_21",
+          "label": "high",
+          "confidence": 0.6692,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_154",
+          "label": "partial",
+          "confidence": 0.4538,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_12",
+          "label": "partial",
+          "confidence": 0.4338,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_163",
+          "label": "partial",
+          "confidence": 0.3969,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_127",
+          "label": "irrelevant",
+          "confidence": 0.3608,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_165",
+          "label": "irrelevant",
+          "confidence": 0.3523,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_153",
+          "label": "irrelevant",
+          "confidence": 0.3415,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2819,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_155",
+          "label": "irrelevant",
+          "confidence": 0.2592,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_117",
+          "label": "irrelevant",
+          "confidence": 0.2481,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_157",
+          "label": "irrelevant",
+          "confidence": 0.2042,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_164",
+          "label": "irrelevant",
+          "confidence": 0.1812,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_22",
+          "label": "irrelevant",
+          "confidence": 0.1131,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_28",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_168",
+          "label": "irrelevant",
+          "confidence": 0.0788,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_139",
+          "label": "irrelevant",
+          "confidence": 0.0677,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_88",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_14",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_33",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_70",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "youth mental health digital technology",
     "lang": "en",
-    "relevant_docs": ["WHO-EURO-2025-12187-51959-79851-eng"]
+    "relevant_docs": [
+      "WHO-EURO-2025-12187-51959-79851-eng"
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_9",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_58",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_109",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_70",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_110",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_4",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_124",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_127",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_137"
+      ],
+      "paragraph": [
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_13",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_12",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_124",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_56",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_125",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_81",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_140"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+          "label": "high",
+          "confidence": 0.92,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_9",
+          "label": "high",
+          "confidence": 0.8631,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_58",
+          "label": "partial",
+          "confidence": 0.5163,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_109",
+          "label": "partial",
+          "confidence": 0.4825,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_70",
+          "label": "partial",
+          "confidence": 0.4338,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_110",
+          "label": "partial",
+          "confidence": 0.4148,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_4",
+          "label": "partial",
+          "confidence": 0.4126,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_124",
+          "label": "partial",
+          "confidence": 0.4108,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_127",
+          "label": "partial",
+          "confidence": 0.3877,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_137",
+          "label": "partial",
+          "confidence": 0.3809,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_138",
+          "label": "irrelevant",
+          "confidence": 0.3646,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_139",
+          "label": "irrelevant",
+          "confidence": 0.3415,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.3111,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_5",
+          "label": "irrelevant",
+          "confidence": 0.2825,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2772,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.2594,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.2434,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_36",
+          "label": "irrelevant",
+          "confidence": 0.2363,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_44",
+          "label": "irrelevant",
+          "confidence": 0.2348,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_52",
+          "label": "irrelevant",
+          "confidence": 0.224,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_37",
+          "label": "irrelevant",
+          "confidence": 0.2132,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_23",
+          "label": "irrelevant",
+          "confidence": 0.2095,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_39",
+          "label": "irrelevant",
+          "confidence": 0.1902,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_51",
+          "label": "irrelevant",
+          "confidence": 0.188,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_49",
+          "label": "irrelevant",
+          "confidence": 0.144,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_6",
+          "label": "irrelevant",
+          "confidence": 0.1418,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_9",
+          "label": "irrelevant",
+          "confidence": 0.036,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_30",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_88",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+          "label": "high",
+          "confidence": 0.92,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_13",
+          "label": "high",
+          "confidence": 0.84,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_12",
+          "label": "high",
+          "confidence": 0.8292,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_124",
+          "label": "partial",
+          "confidence": 0.5286,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_56",
+          "label": "partial",
+          "confidence": 0.5194,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_125",
+          "label": "partial",
+          "confidence": 0.4126,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_81",
+          "label": "partial",
+          "confidence": 0.4108,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_140",
+          "label": "partial",
+          "confidence": 0.3877,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.3788,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_158",
+          "label": "irrelevant",
+          "confidence": 0.3646,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_59",
+          "label": "irrelevant",
+          "confidence": 0.3394,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_27",
+          "label": "irrelevant",
+          "confidence": 0.3111,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_44",
+          "label": "irrelevant",
+          "confidence": 0.3055,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_157",
+          "label": "irrelevant",
+          "confidence": 0.2794,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_70",
+          "label": "irrelevant",
+          "confidence": 0.2772,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_130",
+          "label": "irrelevant",
+          "confidence": 0.2455,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_103",
+          "label": "irrelevant",
+          "confidence": 0.2363,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_107",
+          "label": "irrelevant",
+          "confidence": 0.2132,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_155",
+          "label": "irrelevant",
+          "confidence": 0.2117,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_58",
+          "label": "irrelevant",
+          "confidence": 0.188,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_128",
+          "label": "irrelevant",
+          "confidence": 0.1671,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_138",
+          "label": "irrelevant",
+          "confidence": 0.144,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.1418,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_48",
+          "label": "irrelevant",
+          "confidence": 0.072,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_70",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "santé mentale des jeunes et technologies numériques",
     "lang": "fr",
-    "relevant_docs": ["WHO-EURO-2025-12187-51959-79851-eng"]
+    "relevant_docs": [
+      "WHO-EURO-2025-12187-51959-79851-eng"
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_9",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_0"
+      ],
+      "paragraph": [
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_13",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+        "WHO-EURO-2025-12187-51959-79851-eng::chunk_176"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_9",
+          "label": "high",
+          "confidence": 0.6933,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+          "label": "partial",
+          "confidence": 0.4062,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_58",
+          "label": "irrelevant",
+          "confidence": 0.3723,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_134",
+          "label": "irrelevant",
+          "confidence": 0.3675,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_153",
+          "label": "irrelevant",
+          "confidence": 0.3444,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_110",
+          "label": "irrelevant",
+          "confidence": 0.3385,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_109",
+          "label": "irrelevant",
+          "confidence": 0.3271,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_154",
+          "label": "irrelevant",
+          "confidence": 0.3213,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.2708,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_114",
+          "label": "irrelevant",
+          "confidence": 0.2369,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.2302,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_16",
+          "label": "irrelevant",
+          "confidence": 0.2071,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2031,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_52",
+          "label": "irrelevant",
+          "confidence": 0.1948,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_118",
+          "label": "irrelevant",
+          "confidence": 0.1917,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_44",
+          "label": "irrelevant",
+          "confidence": 0.184,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_45",
+          "label": "irrelevant",
+          "confidence": 0.161,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_48",
+          "label": "irrelevant",
+          "confidence": 0.1379,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_112",
+          "label": "irrelevant",
+          "confidence": 0.1354,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_23",
+          "label": "irrelevant",
+          "confidence": 0.1015,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_65",
+          "label": "irrelevant",
+          "confidence": 0.0917,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_51",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_83",
+          "label": "irrelevant",
+          "confidence": 0.0687,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_111",
+          "label": "irrelevant",
+          "confidence": 0.0677,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_84",
+          "label": "irrelevant",
+          "confidence": 0.0456,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_128",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_132",
+          "label": "irrelevant",
+          "confidence": 0.0225,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_89",
+          "label": "irrelevant",
+          "confidence": 0.0225,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_40",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_117",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_146",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_13",
+          "label": "high",
+          "confidence": 0.6594,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+          "label": "partial",
+          "confidence": 0.44,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_176",
+          "label": "partial",
+          "confidence": 0.39,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_125",
+          "label": "irrelevant",
+          "confidence": 0.3723,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_134",
+          "label": "irrelevant",
+          "confidence": 0.361,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_151",
+          "label": "irrelevant",
+          "confidence": 0.3444,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_124",
+          "label": "irrelevant",
+          "confidence": 0.3271,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_177",
+          "label": "irrelevant",
+          "confidence": 0.2988,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_127",
+          "label": "irrelevant",
+          "confidence": 0.2708,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_59",
+          "label": "irrelevant",
+          "confidence": 0.241,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_130",
+          "label": "irrelevant",
+          "confidence": 0.2369,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_20",
+          "label": "irrelevant",
+          "confidence": 0.2302,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_52",
+          "label": "irrelevant",
+          "confidence": 0.2071,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_141",
+          "label": "irrelevant",
+          "confidence": 0.2031,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_55",
+          "label": "irrelevant",
+          "confidence": 0.184,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_138",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_76",
+          "label": "irrelevant",
+          "confidence": 0.1379,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.1354,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_95",
+          "label": "irrelevant",
+          "confidence": 0.1148,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_146",
+          "label": "irrelevant",
+          "confidence": 0.1015,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_96",
+          "label": "irrelevant",
+          "confidence": 0.0917,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_58",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_102",
+          "label": "irrelevant",
+          "confidence": 0.0687,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_126",
+          "label": "irrelevant",
+          "confidence": 0.0677,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_116",
+          "label": "irrelevant",
+          "confidence": 0.0456,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_78",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_47",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_148",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "dense"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "public health disinformation interventions inoculation",
@@ -51,12 +3744,1102 @@
       "s41591-022-01713-6",
       "annurev-publhealth-040119-094127",
       "1-s2.0-S2352250X23001574-main"
-    ]
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "s41591-022-01713-6::chunk_50",
+        "s41591-022-01713-6::chunk_37",
+        "s41591-022-01713-6::chunk_0",
+        "annurev-publhealth-040119-094127::chunk_4",
+        "s41591-022-01713-6::chunk_34",
+        "s41591-022-01713-6::chunk_49",
+        "annurev-publhealth-040119-094127::chunk_6"
+      ],
+      "paragraph": [
+        "s41591-022-01713-6::chunk_0",
+        "annurev-publhealth-040119-094127::chunk_4",
+        "s41591-022-01713-6::chunk_64",
+        "s41591-022-01713-6::chunk_38",
+        "s41591-022-01713-6::chunk_37",
+        "annurev-publhealth-040119-094127::chunk_6"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_50",
+          "label": "high",
+          "confidence": 0.7095,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_37",
+          "label": "high",
+          "confidence": 0.6649,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_0",
+          "label": "partial",
+          "confidence": 0.5526,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_4",
+          "label": "partial",
+          "confidence": 0.5218,
+          "sources": [
+            "dense",
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_34",
+          "label": "partial",
+          "confidence": 0.4782,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_49",
+          "label": "partial",
+          "confidence": 0.4105,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_6",
+          "label": "partial",
+          "confidence": 0.3849,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_29",
+          "label": "irrelevant",
+          "confidence": 0.3766,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_36",
+          "label": "irrelevant",
+          "confidence": 0.3618,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_33",
+          "label": "irrelevant",
+          "confidence": 0.3428,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_45",
+          "label": "irrelevant",
+          "confidence": 0.3388,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_30",
+          "label": "irrelevant",
+          "confidence": 0.2751,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.2535,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.2105,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_36",
+          "label": "irrelevant",
+          "confidence": 0.2052,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.1874,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_21",
+          "label": "irrelevant",
+          "confidence": 0.1643,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_33",
+          "label": "irrelevant",
+          "confidence": 0.1412,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_28",
+          "label": "irrelevant",
+          "confidence": 0.1375,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.116,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.116,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.116,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_35",
+          "label": "irrelevant",
+          "confidence": 0.1037,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.0951,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_119",
+          "label": "irrelevant",
+          "confidence": 0.072,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.072,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_145",
+          "label": "irrelevant",
+          "confidence": 0.036,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.036,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_51",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "dense"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_0",
+          "label": "high",
+          "confidence": 0.6542,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_4",
+          "label": "partial",
+          "confidence": 0.488,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_64",
+          "label": "partial",
+          "confidence": 0.4782,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_38",
+          "label": "partial",
+          "confidence": 0.476,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_37",
+          "label": "partial",
+          "confidence": 0.4083,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_6",
+          "label": "partial",
+          "confidence": 0.3849,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.3674,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_45",
+          "label": "irrelevant",
+          "confidence": 0.3618,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_39",
+          "label": "irrelevant",
+          "confidence": 0.3428,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_65",
+          "label": "irrelevant",
+          "confidence": 0.3406,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_55",
+          "label": "irrelevant",
+          "confidence": 0.3388,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_5",
+          "label": "irrelevant",
+          "confidence": 0.2926,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_45",
+          "label": "irrelevant",
+          "confidence": 0.2729,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_44",
+          "label": "irrelevant",
+          "confidence": 0.2412,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_11",
+          "label": "irrelevant",
+          "confidence": 0.2335,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_29",
+          "label": "irrelevant",
+          "confidence": 0.2105,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_43",
+          "label": "irrelevant",
+          "confidence": 0.1874,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_56",
+          "label": "irrelevant",
+          "confidence": 0.1714,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.1412,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_43",
+          "label": "irrelevant",
+          "confidence": 0.1397,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_47",
+          "label": "irrelevant",
+          "confidence": 0.1375,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.1182,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.116,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_16",
+          "label": "irrelevant",
+          "confidence": 0.116,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_5",
+          "label": "irrelevant",
+          "confidence": 0.0951,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.072,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_78",
+          "label": "irrelevant",
+          "confidence": 0.072,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.0698,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.036,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_150",
+          "label": "irrelevant",
+          "confidence": 0.036,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_118",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "influencer marketing health claims",
     "lang": "en",
-    "relevant_docs": ["BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report"]
+    "relevant_docs": [
+      "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report"
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_83",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_35",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_82",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_36",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_73",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_2",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_70",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_1",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_15",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_74"
+      ],
+      "paragraph": [
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_1",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_81",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_94",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_95",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_87",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_41",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_46",
+        "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_19"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_83",
+          "label": "high",
+          "confidence": 0.7042,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_35",
+          "label": "high",
+          "confidence": 0.6381,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_82",
+          "label": "partial",
+          "confidence": 0.53,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_36",
+          "label": "partial",
+          "confidence": 0.4962,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_73",
+          "label": "partial",
+          "confidence": 0.4623,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_2",
+          "label": "partial",
+          "confidence": 0.4208,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_70",
+          "label": "partial",
+          "confidence": 0.4119,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_1",
+          "label": "partial",
+          "confidence": 0.41,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_15",
+          "label": "partial",
+          "confidence": 0.3946,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_74",
+          "label": "partial",
+          "confidence": 0.3888,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_88",
+          "label": "irrelevant",
+          "confidence": 0.3608,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_64",
+          "label": "irrelevant",
+          "confidence": 0.3269,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.2977,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.2285,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.2054,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_5",
+          "label": "irrelevant",
+          "confidence": 0.1823,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_25",
+          "label": "irrelevant",
+          "confidence": 0.17,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.17,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_27",
+          "label": "irrelevant",
+          "confidence": 0.17,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_6",
+          "label": "irrelevant",
+          "confidence": 0.1592,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_77",
+          "label": "irrelevant",
+          "confidence": 0.1577,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_60",
+          "label": "irrelevant",
+          "confidence": 0.1465,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.1362,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_89",
+          "label": "irrelevant",
+          "confidence": 0.1238,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.1131,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_76",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_45",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_60",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_44",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_1",
+          "label": "high",
+          "confidence": 0.6362,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_81",
+          "label": "high",
+          "confidence": 0.6258,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_94",
+          "label": "partial",
+          "confidence": 0.53,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_95",
+          "label": "partial",
+          "confidence": 0.4962,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_87",
+          "label": "partial",
+          "confidence": 0.4623,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_41",
+          "label": "partial",
+          "confidence": 0.435,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_46",
+          "label": "partial",
+          "confidence": 0.4119,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_19",
+          "label": "partial",
+          "confidence": 0.3946,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_101",
+          "label": "irrelevant",
+          "confidence": 0.3608,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.3208,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_14",
+          "label": "irrelevant",
+          "confidence": 0.2931,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.2746,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.2515,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.2285,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_102",
+          "label": "irrelevant",
+          "confidence": 0.2254,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_70",
+          "label": "irrelevant",
+          "confidence": 0.2142,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_5",
+          "label": "irrelevant",
+          "confidence": 0.2054,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_83",
+          "label": "irrelevant",
+          "confidence": 0.1915,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_6",
+          "label": "irrelevant",
+          "confidence": 0.1823,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_31",
+          "label": "irrelevant",
+          "confidence": 0.17,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_32",
+          "label": "irrelevant",
+          "confidence": 0.17,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.1592,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_9",
+          "label": "irrelevant",
+          "confidence": 0.1362,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.1131,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_96",
+          "label": "irrelevant",
+          "confidence": 0.1127,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_11",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_39",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_32",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_11",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_57",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_43",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "conspiracy theories belief psychology",
@@ -65,7 +4848,525 @@
       "pnas.201912444",
       "40359_2023_Article_1210",
       "1-s2.0-S2352250X23001574-main"
-    ]
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "1-s2.0-S2352250X23001574-main::chunk_3",
+        "1-s2.0-S2352250X23001574-main::chunk_17",
+        "1-s2.0-S2352250X23001574-main::chunk_5",
+        "pnas.201912444::chunk_39",
+        "1-s2.0-S2352250X23001574-main::chunk_1"
+      ],
+      "paragraph": [
+        "1-s2.0-S2352250X23001574-main::chunk_5",
+        "1-s2.0-S2352250X23001574-main::chunk_25",
+        "1-s2.0-S2352250X23001574-main::chunk_4",
+        "1-s2.0-S2352250X23001574-main::chunk_7",
+        "1-s2.0-S2352250X23001574-main::chunk_2"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_3",
+          "label": "high",
+          "confidence": 0.6373,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_17",
+          "label": "high",
+          "confidence": 0.6235,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_5",
+          "label": "partial",
+          "confidence": 0.5804,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_39",
+          "label": "partial",
+          "confidence": 0.4062,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_1",
+          "label": "partial",
+          "confidence": 0.4019,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_55",
+          "label": "irrelevant",
+          "confidence": 0.3723,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.345,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.2708,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_9",
+          "label": "irrelevant",
+          "confidence": 0.2527,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_22",
+          "label": "irrelevant",
+          "confidence": 0.2369,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_14",
+          "label": "irrelevant",
+          "confidence": 0.2296,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.2065,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_54",
+          "label": "irrelevant",
+          "confidence": 0.2031,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_22",
+          "label": "irrelevant",
+          "confidence": 0.1604,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_23",
+          "label": "irrelevant",
+          "confidence": 0.1373,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_30",
+          "label": "irrelevant",
+          "confidence": 0.1354,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "40359_2023_Article_1210::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.125,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_27",
+          "label": "irrelevant",
+          "confidence": 0.1142,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_29",
+          "label": "irrelevant",
+          "confidence": 0.1015,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_28",
+          "label": "irrelevant",
+          "confidence": 0.0912,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "40359_2023_Article_1210::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_32",
+          "label": "irrelevant",
+          "confidence": 0.0788,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_31",
+          "label": "irrelevant",
+          "confidence": 0.0681,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_42",
+          "label": "irrelevant",
+          "confidence": 0.0677,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_110",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_5",
+          "label": "high",
+          "confidence": 0.7158,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_25",
+          "label": "partial",
+          "confidence": 0.545,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_4",
+          "label": "partial",
+          "confidence": 0.5019,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_7",
+          "label": "partial",
+          "confidence": 0.4062,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_2",
+          "label": "partial",
+          "confidence": 0.4019,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_43",
+          "label": "irrelevant",
+          "confidence": 0.3723,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "40359_2023_Article_1210::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.3619,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.345,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_47",
+          "label": "irrelevant",
+          "confidence": 0.3046,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_9",
+          "label": "irrelevant",
+          "confidence": 0.2527,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_33",
+          "label": "irrelevant",
+          "confidence": 0.2369,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_20",
+          "label": "irrelevant",
+          "confidence": 0.2296,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_31",
+          "label": "irrelevant",
+          "confidence": 0.1835,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.1692,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_32",
+          "label": "irrelevant",
+          "confidence": 0.1604,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_37",
+          "label": "irrelevant",
+          "confidence": 0.1373,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_38",
+          "label": "irrelevant",
+          "confidence": 0.1354,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "40359_2023_Article_1210::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.125,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_42",
+          "label": "irrelevant",
+          "confidence": 0.1142,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_64",
+          "label": "irrelevant",
+          "confidence": 0.1015,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "40359_2023_Article_1210::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "40359_2023_Article_1210::chunk_6",
+          "label": "irrelevant",
+          "confidence": 0.0681,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_63",
+          "label": "irrelevant",
+          "confidence": 0.0677,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "40359_2023_Article_1210::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_26",
+          "label": "irrelevant",
+          "confidence": 0.0338,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_6",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_57",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_14",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_35",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "alcohol tobacco industry misinformation",
@@ -73,7 +5374,497 @@
     "relevant_docs": [
       "jhab032",
       "annurev-publhealth-040119-094127"
-    ]
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "annurev-publhealth-040119-094127::chunk_0",
+        "annurev-publhealth-040119-094127::chunk_56",
+        "annurev-publhealth-040119-094127::chunk_2",
+        "annurev-publhealth-040119-094127::chunk_46",
+        "annurev-publhealth-040119-094127::chunk_5",
+        "annurev-publhealth-040119-094127::chunk_47",
+        "annurev-publhealth-040119-094127::chunk_6"
+      ],
+      "paragraph": [
+        "annurev-publhealth-040119-094127::chunk_70",
+        "annurev-publhealth-040119-094127::chunk_0",
+        "annurev-publhealth-040119-094127::chunk_2",
+        "annurev-publhealth-040119-094127::chunk_56",
+        "annurev-publhealth-040119-094127::chunk_6"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_0",
+          "label": "high",
+          "confidence": 0.6712,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_56",
+          "label": "partial",
+          "confidence": 0.6038,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_2",
+          "label": "partial",
+          "confidence": 0.5912,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_46",
+          "label": "partial",
+          "confidence": 0.485,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_5",
+          "label": "partial",
+          "confidence": 0.4542,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_47",
+          "label": "partial",
+          "confidence": 0.4512,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_6",
+          "label": "partial",
+          "confidence": 0.39,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.3635,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_16",
+          "label": "irrelevant",
+          "confidence": 0.3496,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.2865,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2758,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.2296,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_49",
+          "label": "irrelevant",
+          "confidence": 0.2142,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_51",
+          "label": "irrelevant",
+          "confidence": 0.1804,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_69",
+          "label": "irrelevant",
+          "confidence": 0.1465,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.1373,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_11",
+          "label": "irrelevant",
+          "confidence": 0.1142,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_58",
+          "label": "irrelevant",
+          "confidence": 0.1127,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.0912,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_17",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_66",
+          "label": "irrelevant",
+          "confidence": 0.0788,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_13",
+          "label": "irrelevant",
+          "confidence": 0.0681,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_43",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_45",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_67",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_16",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_70",
+          "label": "high",
+          "confidence": 0.7054,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_0",
+          "label": "high",
+          "confidence": 0.6712,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_2",
+          "label": "high",
+          "confidence": 0.6588,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_56",
+          "label": "partial",
+          "confidence": 0.485,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_6",
+          "label": "partial",
+          "confidence": 0.39,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_5",
+          "label": "irrelevant",
+          "confidence": 0.3527,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_60",
+          "label": "irrelevant",
+          "confidence": 0.3496,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_36",
+          "label": "irrelevant",
+          "confidence": 0.3158,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.2865,
+          "sources": [
+            "lexical",
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_71",
+          "label": "irrelevant",
+          "confidence": 0.2819,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2758,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_85",
+          "label": "irrelevant",
+          "confidence": 0.2481,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_3",
+          "label": "irrelevant",
+          "confidence": 0.2296,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_78",
+          "label": "irrelevant",
+          "confidence": 0.1804,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.1604,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_64",
+          "label": "irrelevant",
+          "confidence": 0.1465,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.1373,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.1142,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_79",
+          "label": "irrelevant",
+          "confidence": 0.1127,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_13",
+          "label": "irrelevant",
+          "confidence": 0.0912,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_23",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_4",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_81",
+          "label": "irrelevant",
+          "confidence": 0.0788,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_14",
+          "label": "irrelevant",
+          "confidence": 0.0681,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_164",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_12",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   },
   {
     "query": "measuring online disinformation Europe",
@@ -81,6 +5872,490 @@
     "relevant_docs": [
       "SIMODS-Report-1",
       "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD"
-    ]
+    ],
+    "relevant_chunk_ids_by_strategy": {
+      "char": [
+        "SIMODS-Report-1::chunk_0",
+        "SIMODS-Report-1::chunk_72",
+        "SIMODS-Report-1::chunk_73",
+        "SIMODS-Report-1::chunk_5",
+        "SIMODS-Report-1::chunk_11",
+        "SIMODS-Report-1::chunk_12",
+        "SIMODS-Report-1::chunk_8",
+        "SIMODS-Report-1::chunk_7"
+      ],
+      "paragraph": [
+        "SIMODS-Report-1::chunk_0",
+        "SIMODS-Report-1::chunk_75",
+        "SIMODS-Report-1::chunk_12",
+        "SIMODS-Report-1::chunk_9",
+        "SIMODS-Report-1::chunk_108"
+      ]
+    },
+    "weak_chunk_labels_by_strategy": {
+      "char": [
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_0",
+          "label": "high",
+          "confidence": 0.92,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_72",
+          "label": "high",
+          "confidence": 0.8631,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_73",
+          "label": "high",
+          "confidence": 0.7723,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_5",
+          "label": "partial",
+          "confidence": 0.6135,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_11",
+          "label": "partial",
+          "confidence": 0.5565,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_12",
+          "label": "partial",
+          "confidence": 0.4658,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_8",
+          "label": "partial",
+          "confidence": 0.4623,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_7",
+          "label": "partial",
+          "confidence": 0.3946,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_146",
+          "label": "irrelevant",
+          "confidence": 0.3658,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_56",
+          "label": "irrelevant",
+          "confidence": 0.2735,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_101",
+          "label": "irrelevant",
+          "confidence": 0.2504,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2481,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_72",
+          "label": "irrelevant",
+          "confidence": 0.1823,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_135",
+          "label": "irrelevant",
+          "confidence": 0.1804,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_122",
+          "label": "irrelevant",
+          "confidence": 0.1592,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_102",
+          "label": "irrelevant",
+          "confidence": 0.1577,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_134",
+          "label": "irrelevant",
+          "confidence": 0.1465,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_139",
+          "label": "irrelevant",
+          "confidence": 0.1362,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.125,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_103",
+          "label": "irrelevant",
+          "confidence": 0.1238,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_140",
+          "label": "irrelevant",
+          "confidence": 0.1131,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_145",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "annurev-publhealth-040119-094127::chunk_68",
+          "label": "irrelevant",
+          "confidence": 0.09,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_15",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_91",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_138",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "pnas.201912444::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ],
+      "paragraph": [
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_0",
+          "label": "high",
+          "confidence": 0.8862,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_75",
+          "label": "high",
+          "confidence": 0.8292,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_12",
+          "label": "high",
+          "confidence": 0.7273,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_9",
+          "label": "partial",
+          "confidence": 0.53,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_108",
+          "label": "partial",
+          "confidence": 0.4781,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_59",
+          "label": "irrelevant",
+          "confidence": 0.3658,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_109",
+          "label": "irrelevant",
+          "confidence": 0.3608,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_148",
+          "label": "irrelevant",
+          "confidence": 0.3496,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_8",
+          "label": "irrelevant",
+          "confidence": 0.3162,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_1",
+          "label": "irrelevant",
+          "confidence": 0.2819,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_141",
+          "label": "irrelevant",
+          "confidence": 0.2746,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_13",
+          "label": "irrelevant",
+          "confidence": 0.2592,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_164",
+          "label": "irrelevant",
+          "confidence": 0.2515,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_170",
+          "label": "irrelevant",
+          "confidence": 0.2285,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_171",
+          "label": "irrelevant",
+          "confidence": 0.2054,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_7",
+          "label": "irrelevant",
+          "confidence": 0.2038,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_147",
+          "label": "irrelevant",
+          "confidence": 0.1915,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_5",
+          "label": "irrelevant",
+          "confidence": 0.1823,
+          "sources": [
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_6",
+          "label": "irrelevant",
+          "confidence": 0.1592,
+          "sources": [
+            "dense",
+            "lexical"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_2",
+          "label": "irrelevant",
+          "confidence": 0.125,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_165",
+          "label": "irrelevant",
+          "confidence": 0.08,
+          "sources": [
+            "anchor_hit"
+          ]
+        },
+        {
+          "chunk_id": "SIMODS-Report-1::chunk_11",
+          "label": "irrelevant",
+          "confidence": 0.0788,
+          "sources": [
+            "dense"
+          ]
+        },
+        {
+          "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_185",
+          "label": "irrelevant",
+          "confidence": 0.045,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "jhab032::chunk_10",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        },
+        {
+          "chunk_id": "s41591-022-01713-6::chunk_19",
+          "label": "irrelevant",
+          "confidence": 0.0,
+          "sources": [
+            "negative_sample"
+          ]
+        }
+      ]
+    },
+    "weak_label_metadata": {
+      "generator_version": "weak-labeling-v1",
+      "generated_at_utc": "2026-03-02T07:00:47.557977+00:00",
+      "model_name": "multilingual-e5-base",
+      "thresholds": {
+        "high": 0.62,
+        "partial": 0.38
+      },
+      "top_k_dense": 14,
+      "top_k_lexical": 14,
+      "negatives_per_query": 3,
+      "random_seed": 42
+    }
   }
 ]
