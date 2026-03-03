@@ -1,10 +1,10 @@
 import os
 import re
 import sys
-import time
 import csv
 from pathlib import Path
 from dotenv import load_dotenv
+from ingestion.timing import timed_call
 
 load_dotenv()
 
@@ -223,16 +223,14 @@ def run_benchmark(
             }
 
             try:
-                start = time.perf_counter()
-
                 if config["type"] == "llamaparse":
-                    full_text, first_chunk, pages, num_docs = parse_llamaparse(
+                    parse_output, parse_time = timed_call(
+                        parse_llamaparse,
                         file_path, config["result_type"]
                     )
                 else:  # pymupdf
-                    full_text, first_chunk, pages, num_docs = parse_pymupdf(file_path)
-
-                parse_time = time.perf_counter() - start
+                    parse_output, parse_time = timed_call(parse_pymupdf, file_path)
+                full_text, first_chunk, pages, num_docs = parse_output
 
                 # ---- Volume metrics ----
                 word_count = len(full_text.split())
