@@ -1,6 +1,5 @@
 import pandas as pd
 import psycopg2
-from sentence_transformers import SentenceTransformer
 
 # Postgres connection and utils
 local_db_credentials = {
