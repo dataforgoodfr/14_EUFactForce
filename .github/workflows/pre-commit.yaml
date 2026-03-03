@@ -1,4 +1,4 @@
-name: pre-commit
+name: pre-commit-tests
 
 on:
   pull_request:
@@ -8,9 +8,27 @@ on:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg18-trixie
+        env:
+          POSTGRES_USER: eu_fact_force
+          POSTGRES_PASSWORD: eu_fact_force
+          POSTGRES_DB: eu_fact_force
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U eu_fact_force -d eu_fact_force"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+    env:
+      DATABASE_URL: postgresql://eu_fact_force:eu_fact_force@localhost:5432/eu_fact_force
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
+      with:
+        python-version: "3.12"
     - name: set PY
       run: echo "PY=$(python -c 'import hashlib, sys;print(hashlib.sha256(sys.version.encode()+sys.executable.encode()).hexdigest())')" >> $GITHUB_ENV
     - uses: actions/cache@v4
@@ -18,3 +36,9 @@ jobs:
         path: ~/.cache/pre-commit
         key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
     - uses: pre-commit/action@v3.0.0
+    - name: Install uv
+      run: pip install uv
+    - name: Install project dependencies
+      run: uv sync --frozen
+    - name: Run tests
+      run: uv run pytest

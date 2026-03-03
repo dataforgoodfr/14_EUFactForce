@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pipeline – Ingest</title>
+</head>
+<body>
+    <h1>Pipeline ingestion</h1>
+    <p>Enter a file ID to run the pipeline (fetch → S3 + Postgres → parse CSV).</p>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Run pipeline</button>
+    </form>
+
+    {% if success %}
+        <p><strong>Success.</strong> DOI: {{ doi }}. Stored as {{ source_file.s3_key }}. {{ elements_count }} document chunk(s) saved.</p>
+    {% endif %}
+    {% if error %}
+        <p><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+</body>
+</html>
