@@ -3,21 +3,23 @@ import re
 import sys
 import csv
 from pathlib import Path
+
+import fitz  # PyMuPDF
 from dotenv import load_dotenv
-from ingestion.timing import timed_call
-
-load_dotenv()
-
 from llama_index.core import SimpleDirectoryReader
 from llama_index.readers.llama_parse import LlamaParse
-import fitz  # PyMuPDF
+from docling.document_converter import DocumentConverter
+from ingestion.timing import timed_call
+from hierarchical.postprocessor import ResultPostprocessor
 from text_cleaning import postprocess_text
+
+load_dotenv()
 
 # =========================
 # CONFIGURATION
 # =========================
-INPUT_FOLDER = "data/document_diversity"
-INPUT_FOLDER_CLEAN = "data/document_diversity_clean"
+INPUT_FOLDER_RAW = "data/document_diversity"
+INPUT_FOLDER_PREPROCESSED = "data/document_diversity_clean"
 INPUT_FOLDER_COLUMN = "data/document_diversity_column"
 OUTPUT_CSV = "output/benchmark_results_extended.csv"
 EXTRACTED_TEXT_DIR = "output/extracted_texts"
@@ -36,6 +38,10 @@ CONFIGS = {
     "llamaparse_text": {"type": "llamaparse", "result_type": "text"},
     "llamaparse_markdown": {"type": "llamaparse", "result_type": "markdown"},
     "pymupdf": {"type": "pymupdf"},
+    "docling_text": {"type": "docling", "result_type": "text", "postprocess": False},
+    "docling_markdown": {"type": "docling", "result_type": "markdown", "postprocess": False},
+    "docling_postprocess_text": {"type": "docling", "result_type": "text", "postprocess": True},
+    "docling_postprocess_markdown": {"type": "docling", "result_type": "markdown", "postprocess": True},
 }
 
 # =========================
@@ -122,6 +128,24 @@ def parse_pymupdf(file_path: Path):
     return full_text, first_chunk, pages, pages  # one "document" per page
 
 
+def parse_docling(file_path: Path, result_type: str, postprocess: bool):
+    """Parse a PDF with Docling and return (full_text, first_page text, pages, num_docs)."""
+    parser = DocumentConverter()
+    result = parser.convert(file_path)
+    if postprocess is True:
+        ResultPostprocessor(result).process()
+
+    if result_type == 'text':
+        full_text = result.document.export_to_text()
+    elif result_type == 'markdown':
+        full_text = result.document.export_to_markdown()
+    else:
+        raise NotImplementedError(f"Unknown result_type: {result_type}")
+    
+    first_page_text = "\n".join([x['text'] for x in result.document.export_to_dict()['texts'] if x['prov'][0]['page_no'] == 1])
+
+    return full_text, first_page_text, len(result.pages), 1 # One PDF document per call
+
 # =========================
 # BENCHMARK FUNCTION
 # =========================
@@ -134,7 +158,7 @@ def run_benchmark(
     """
     Run all parser configurations on PDFs in *input_folder*.
 
-    If *config_suffix* is provided (e.g. '_clean'), it is appended to each
+    If *config_suffix* is provided (e.g. '_preprocessed'), it is appended to each
     parser_config name in the output records and extracted text filenames.
 
     If *skip_existing* is True, skip any (file, config) combination whose
@@ -226,7 +250,15 @@ def run_benchmark(
                 if config["type"] == "llamaparse":
                     parse_output, parse_time = timed_call(
                         parse_llamaparse,
-                        file_path, config["result_type"]
+                        file_path,
+                        config["result_type"],
+                    )
+                elif config["type"] == "docling":
+                    parse_output, parse_time = timed_call(
+                        parse_docling,
+                        file_path,
+                        config["result_type"],
+                        config["postprocess"],
                     )
                 else:  # pymupdf
                     parse_output, parse_time = timed_call(parse_pymupdf, file_path)
@@ -297,21 +329,33 @@ FIELDNAMES = [
 
 if __name__ == "__main__":
     # Determine which folders to benchmark
-    # Usage: python benchmark.py [original|clean|both] [--no-cache]
-    mode = sys.argv[1] if len(sys.argv) > 1 else "both"
-    skip_existing = "--no-cache" not in sys.argv
+    # Usage:
+    #   python benchmark.py [raw|preprocessed|column|all] [--preprocessed] [--column] [--no-cache]
+    # Default run is raw; --preprocessed/--column can be used as additive flags.
+    args = sys.argv[1:]
+    positional_args = [arg for arg in args if not arg.startswith("--")]
+    mode = positional_args[0] if positional_args else "raw"
+    skip_existing = "--no-cache" not in args
+
+    run_raw = mode in ("raw", "all")
+    run_preprocessed = mode in ("preprocessed", "all") or "--preprocessed" in args
+    run_column = mode in ("column", "all") or "--column" in args
 
     all_results = []
 
-    if mode in ("original", "both"):
-        all_results.extend(run_benchmark(INPUT_FOLDER, skip_existing=skip_existing))
+    if run_raw:
+        all_results.extend(run_benchmark(INPUT_FOLDER_RAW, skip_existing=skip_existing))
 
-    if mode in ("clean", "both", "all"):
+    if run_preprocessed:
         all_results.extend(
-            run_benchmark(INPUT_FOLDER_CLEAN, config_suffix="_clean", skip_existing=skip_existing)
+            run_benchmark(
+                INPUT_FOLDER_PREPROCESSED,
+                config_suffix="_preprocessed",
+                skip_existing=skip_existing,
+            )
         )
 
-    if mode in ("column", "all"):
+    if run_column:
         all_results.extend(
             run_benchmark(INPUT_FOLDER_COLUMN, config_suffix="_column", skip_existing=skip_existing)
         )

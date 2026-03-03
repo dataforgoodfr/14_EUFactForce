@@ -60,7 +60,7 @@ EU Fact Force is a collaborative platform developed by [EUPHA](https://www.eupha
 ├── eu_fact_force/
 │   ├── exploration/ # code to keep track of benchmarks
 │   ├── ingestion/ # ingestion and indexing of documents
-│   └── web/ # web app
+│   └── app/ # web app
 ├── tests/
 ```
 
@@ -74,6 +74,7 @@ Une fois installé, il suffit de lancer la commande suivante pour installer la v
 
 ```bash
 uv sync
+uv run pre-commit install
 ```
 
 A l'usage, si vous utilisez VSCode, l'environnement virtuel sera automatiquement activé lorsque vous ouvrirez le projet. Sinon, il suffit de l'activer manuellement avec la commande suivante :
@@ -83,7 +84,7 @@ source .venv/bin/activate
 ```
 
 
-### Lancer les precommit-hook localement
+### Tests et formattage
 
 [Installer les precommit](https://pre-commit.com/)
 
@@ -91,8 +92,75 @@ source .venv/bin/activate
 uv run pre-commit run --all-files
 ```
 
-### Utiliser Tox pour tester votre code
+**Utiliser pytest pour tester votre code**
 
 ```bash
 uv run pytest
 ```
+
+### Déploiement de l'application
+
+L'application se compose d'un serveur Django, d'une base PostgreSQL (avec pgvector) et de LocalStack pour le stockage S3. 
+Pour déployer et utiliser l'application en local :
+
+**1. Prérequis**
+
+- [Python 3.12+](https://www.python.org/) et [uv](https://docs.astral.sh/uv/)
+- [Docker](https://www.docker.com/) et Docker Compose (pour Postgres et LocalStack)
+
+**2. Variables d'environnement**
+
+Copiez le fichier d'exemple et adaptez les valeurs si besoin :
+
+```bash
+cp .env.template .env
+```
+
+Pour un usage local avec les services Docker, les valeurs par défaut de `.env.template` (notamment `DATABASE_URL=postgresql://eu_fact_force:eu_fact_force@localhost:5432/eu_fact_force`) conviennent.
+
+**3. Lancer les services (Postgres et LocalStack)**
+
+À la racine du projet :
+
+```bash
+docker compose up -d
+```
+
+Cela démarre PostgreSQL (port 5432) et LocalStack S3 (port 4566). Le bucket configuré est créé automatiquement au démarrage de LocalStack.
+
+**4. Installer les dépendances et appliquer les migrations**
+
+```bash
+uv sync
+uv run python manage.py migrate
+```
+
+**5. (Optionnel) Créer un superutilisateur**
+
+Pour accéder à l'interface d'administration Django :
+
+```bash
+uv run python manage.py createsuperuser
+```
+
+**6. Démarrer le serveur Django**
+
+```bash
+uv run python manage.py runserver
+```
+
+L'application est alors disponible sur [http://127.0.0.1:8000/](http://127.0.0.1:8000/). L'admin Django est accessible à [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) si un superutilisateur a été créé.
+
+**Utilisation du stockage S3 en local**
+
+Pour que Django utilise LocalStack pour le stockage des fichiers, décommentez et renseignez dans `.env` les variables S3 (voir `.env.template`), par exemple :
+
+```bash
+USE_LOCAL_STACK=1
+AWS_ACCESS_KEY_ID=test
+AWS_SECRET_ACCESS_KEY=test
+AWS_STORAGE_BUCKET_NAME=eu-fact-force-files
+AWS_S3_REGION_NAME=eu-west-1
+```
+
+Sans ces variables, l'application utilise le stockage fichier local par défaut.

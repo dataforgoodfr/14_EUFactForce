@@ -169,3 +169,10 @@ ingestion/embedding/output/embedding_benchmark_results*.json
 ingestion/embedding/output/embedding_benchmark_summary*.csv
 ingestion/embedding/output/chunk_judging_pool*.json
 ingestion/embedding/output/weak_label_calibration_report*.json
+s3/
+
+# Parsing generated artifacts
+ingestion/parsing/output/extracted_texts/
+eu_fact_force/exploration/docling/results/html/
+eu_fact_force/exploration/docling/results/json/
+eu_fact_force/exploration/docling/results/md/
