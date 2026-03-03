@@ -16,7 +16,7 @@ from benchmarking.benchmark_metadata import (
 )
 from benchmarking.parsers import parse_with_config
 from benchmarking.extracted_text_store import (
-    dataset_variant_from_suffix,
+    RAW_DATASET_VARIANT,
     resolve_existing_path,
     structured_path,
 )
@@ -46,7 +46,6 @@ ERROR_MSG_MAX_CHARS = 200
 
 def run_benchmark(
     input_folder: str,
-    config_suffix: str = "",
     skip_existing: bool = False,
     selected_configs: list[str] | None = None,
     allowed_filenames: set[str] | None = None,
@@ -54,9 +53,6 @@ def run_benchmark(
 ) -> list[dict]:
     """
     Run all parser configurations on PDFs in *input_folder*.
-
-    If *config_suffix* is provided, it is appended to each
-    parser_config name in the output records and extracted text filenames.
 
     If *skip_existing* is True, skip any (file, config) combination whose
     extracted-text file already exists, and reconstruct the record from it.
@@ -68,8 +64,8 @@ def run_benchmark(
     if not files:
         return []
 
-    dataset_variant = dataset_variant_from_suffix(config_suffix=config_suffix)
-    _print_benchmark_header(input_folder=input_folder, file_count=len(files), config_suffix=config_suffix)
+    dataset_variant = RAW_DATASET_VARIANT
+    _print_benchmark_header(input_folder=input_folder, file_count=len(files))
 
     results: list[dict] = []
     active_config_names = selected_configs if selected_configs is not None else list(CONFIGS.keys())
@@ -82,7 +78,6 @@ def run_benchmark(
                 _run_file_config_benchmark(
                     file_path=file_path,
                     config_name=config_name,
-                    config_suffix=config_suffix,
                     dataset_variant=dataset_variant,
                     skip_existing=skip_existing,
                     file_doc_type=file_doc_type,
@@ -106,10 +101,9 @@ def _collect_input_files(input_path: Path, allowed_filenames: set[str] | None) -
     return files
 
 
-def _print_benchmark_header(input_folder: str, file_count: int, config_suffix: str) -> None:
-    label = f" ({config_suffix.strip('_')})" if config_suffix else ""
+def _print_benchmark_header(input_folder: str, file_count: int) -> None:
     print(f"\n{'='*60}")
-    print(f"Benchmarking {file_count} PDFs from {input_folder}/{label}")
+    print(f"Benchmarking {file_count} PDFs from {input_folder}")
     print(f"{'='*60}\n")
 
 
@@ -191,11 +185,10 @@ def _resolve_output_paths(
     *,
     file_path: Path,
     config_name: str,
-    config_suffix: str,
     dataset_variant: str,
 ) -> tuple[str, Path]:
     """Build output config label and canonical output path."""
-    output_config_name = f"{config_name}{config_suffix}"
+    output_config_name = config_name
     out_file = structured_path(
         stem=file_path.stem,
         config_name=output_config_name,
@@ -217,7 +210,6 @@ def _resolve_cache_file(
     return resolve_existing_path(
         stem=file_path.stem,
         config_name=output_config_name,
-        preferred_variant=dataset_variant,
     )
 
 
@@ -233,7 +225,6 @@ def _run_file_config_benchmark(
     *,
     file_path: Path,
     config_name: str,
-    config_suffix: str,
     dataset_variant: str,
     skip_existing: bool,
     file_doc_type: str | None,
@@ -243,7 +234,6 @@ def _run_file_config_benchmark(
     output_config_name, out_file = _resolve_output_paths(
         file_path=file_path,
         config_name=config_name,
-        config_suffix=config_suffix,
         dataset_variant=dataset_variant,
     )
     cache_file = _resolve_cache_file(
@@ -381,12 +371,6 @@ def _resolve_selected_configs(parsed: argparse.Namespace) -> list[str]:
     )
 
 
-def _resolve_dataset_runs(parsed: argparse.Namespace) -> list[tuple[str, str]]:
-    """Return enabled dataset runs as (input_folder, config_suffix)."""
-    _ = parsed
-    return [(INPUT_FOLDER_RAW, "")]
-
-
 def _validate_selected_configs(selected_configs: list[str]) -> None:
     """Validate requested config names against registry."""
     unknown_configs = [c for c in selected_configs if c not in CONFIGS]
@@ -411,26 +395,20 @@ def _print_run_context(
 
 def _run_enabled_benchmarks(
     *,
-    dataset_runs: list[tuple[str, str]],
+    input_folder: str,
     skip_existing: bool,
     selected_configs: list[str],
     allowed_filenames: set[str] | None,
     docling_validate_bboxes: bool,
 ) -> list[dict]:
-    """Execute all enabled dataset runs and return combined benchmark rows."""
-    all_results: list[dict] = []
-    for input_folder, config_suffix in dataset_runs:
-        all_results.extend(
-            run_benchmark(
-                input_folder,
-                config_suffix=config_suffix,
-                skip_existing=skip_existing,
-                selected_configs=selected_configs,
-                allowed_filenames=allowed_filenames,
-                docling_validate_bboxes=docling_validate_bboxes,
-            )
-        )
-    return all_results
+    """Execute benchmark on the configured raw dataset."""
+    return run_benchmark(
+        input_folder=input_folder,
+        skip_existing=skip_existing,
+        selected_configs=selected_configs,
+        allowed_filenames=allowed_filenames,
+        docling_validate_bboxes=docling_validate_bboxes,
+    )
 
 
 def _write_results_csv(results: list[dict]) -> None:
@@ -447,7 +425,6 @@ def main() -> None:
     skip_existing = not parsed.no_cache
     selected_configs = _resolve_selected_configs(parsed)
     _validate_selected_configs(selected_configs)
-    dataset_runs = _resolve_dataset_runs(parsed)
 
     allowed_filenames: set[str] | None = None
     if parsed.doc_type:
@@ -459,7 +436,7 @@ def main() -> None:
         docling_validate_bboxes=parsed.docling_validate_bboxes,
     )
     all_results = _run_enabled_benchmarks(
-        dataset_runs=dataset_runs,
+        input_folder=INPUT_FOLDER_RAW,
         skip_existing=skip_existing,
         selected_configs=selected_configs,
         allowed_filenames=allowed_filenames,

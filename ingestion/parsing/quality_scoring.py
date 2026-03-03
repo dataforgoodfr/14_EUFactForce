@@ -19,7 +19,7 @@ import time
 from pathlib import Path
 
 from benchmarking.extracted_text_store import (
-    infer_variant_from_config,
+    RAW_DATASET_VARIANT,
     resolve_existing_path,
     structured_path,
 )
@@ -203,17 +203,19 @@ def _has_metadata_annotations(gt: dict) -> bool:
 def _resolve_extracted_text_path(filename: str, config: str) -> Path:
     """Resolve extracted text path from the raw structured layout."""
     stem = Path(filename).stem
-    preferred_variant = infer_variant_from_config(config_name=config)
     resolved = resolve_existing_path(
         stem=stem,
         config_name=config,
-        preferred_variant=preferred_variant,
     )
     if resolved is not None:
         return resolved
 
     # Fallback canonical location to keep skip message deterministic.
-    return structured_path(stem=stem, config_name=config, dataset_variant=preferred_variant)
+    return structured_path(
+        stem=stem,
+        config_name=config,
+        dataset_variant=RAW_DATASET_VARIANT,
+    )
 
 
 # =========================

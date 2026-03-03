@@ -46,8 +46,7 @@ python benchmark.py [--no-cache]
 # Or provide explicit config list:
 #   --configs "pymupdf,docling_markdown,llamaparse_markdown"
 # Retrieval-focused Docling export (cleaner indexing text):
-#   --configs "docling_markdown_indexing"
-# Legacy alias `docling_postprocess_markdown` is still accepted.
+#   --configs "docling_markdown"
 # New extraction outputs are written under output/extracted_texts/raw/...
 
 # 2. Evaluate extraction quality
@@ -57,7 +56,7 @@ python quality_scoring.py
 #   python quality_scoring.py --profile fast
 #   python quality_scoring.py --filename BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report.pdf --profile docling_only
 # Optional doc-type filtering + per-row timing CSV:
-#   python quality_scoring.py --doc-type scientific_paper --configs docling_markdown,docling_markdown_indexing --timing-output-csv output/analysis/scientific_timing.csv
+#   python quality_scoring.py --doc-type scientific_paper --configs docling_markdown --timing-output-csv output/analysis/scientific_timing.csv
 # Timing diagnostics:
 #   python quality_scoring.py --profile fast --log-timing --timing-threshold-ms 500
 # Optional speed mode (skip expensive similarity metrics):
@@ -75,10 +74,10 @@ Use this loop when tuning Docling quality specifically for `scientific_paper` do
 
 ```bash
 # 1) Refresh scientific-paper Docling extractions with runtime metrics
-python benchmark.py --doc-type scientific_paper --configs docling_markdown,docling_markdown_indexing --no-cache
+python benchmark.py --doc-type scientific_paper --configs docling_markdown --no-cache
 
 # 2) Score only scientific papers and export per-row timing
-python quality_scoring.py --doc-type scientific_paper --configs docling_markdown,docling_markdown_indexing --timing-output-csv output/analysis/scientific_paper_docling_timing.csv
+python quality_scoring.py --doc-type scientific_paper --configs docling_markdown --timing-output-csv output/analysis/scientific_paper_docling_timing.csv
 
 # 3) Optional quick smoke validation across fast profile (without heavy similarity)
 python quality_scoring.py --profile fast --skip-similarity

@@ -46,13 +46,9 @@ def get_scoring_profiles() -> dict[str, list[str]]:
     }
 
 
-_ALIAS_PREFIX_MAP: dict[str, str] = {
-    "docling_postprocess_markdown": "docling_markdown",
-}
-
 def canonicalize_parser_config_name(name: str) -> str:
-    """Map legacy aliases to canonical config names."""
-    return _ALIAS_PREFIX_MAP.get(name, name)
+    """Return canonical config name."""
+    return name
 
 
 def canonicalize_parser_config_names(names: Iterable[str]) -> list[str]:

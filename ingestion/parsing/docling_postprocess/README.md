@@ -69,7 +69,6 @@ python quality_scoring.py --configs docling_markdown --timing-output-csv output/
 ```
 
 `docling_markdown` includes indexing-focused cleanup by default.
-Legacy alias `docling_postprocess_markdown` is still accepted.
 
 Compare before/after at least:
 
