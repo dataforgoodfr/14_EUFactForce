@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import fitz  # PyMuPDF
+import fitz as PyMuPDF
 from docling.document_converter import DocumentConverter
 from hierarchical.postprocessor import ResultPostprocessor
 
@@ -36,7 +36,7 @@ def parse_llamaparse(file_path: Path, result_type: str, api_key: str | None):
 
 def parse_pymupdf(file_path: Path):
     """Parse a PDF with PyMuPDF and return (full_text, first_chunk, pages, num_docs)."""
-    doc = fitz.open(str(file_path))
+    doc = PyMuPDF.open(str(file_path))
     page_texts = [doc[i].get_text() for i in range(len(doc))]
     pages = len(doc)
     doc.close()
@@ -50,7 +50,7 @@ def parse_docling(
     file_path: Path,
     result_type: str,
     postprocess: bool,
-    validate_text_bboxes: bool = False,
+    validate_text_bboxes: bool = True,
 ):
     """Parse a PDF with Docling and return (full_text, pages, num_docs)."""
     parser = DocumentConverter()

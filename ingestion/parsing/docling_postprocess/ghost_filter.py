@@ -138,6 +138,58 @@ def is_picture_dominated_block(
     return picture_ratio >= DOCLING_PICTURE_OVERLAP_BLOCK_RATIO
 
 
+def _parse_prov_page_index(prov: dict, page_count: int) -> tuple[int, int] | None:
+    """Return (page_no, page_idx) when provenance points to a valid PDF page."""
+    bbox = prov.get("bbox")
+    if not bbox:
+        return None
+    page_no = int(prov.get("page_no", 1))
+    page_idx = page_no - 1
+    if page_idx < 0 or page_idx >= page_count:
+        return None
+    return page_no, page_idx
+
+
+def _rect_and_area_ratio_from_prov(
+    prov: dict, page: PyMuPDF.Page
+) -> tuple[PyMuPDF.Rect, float]:
+    """Build bbox rect and compute its area ratio against the page."""
+    rect = docling_bbox_to_rect(prov["bbox"], page.rect.height)
+    area_ratio = rect_area_ratio(rect, page.rect)
+    return rect, area_ratio
+
+
+def _prov_supports_keep(
+    *,
+    text: str,
+    label: str,
+    page_no: int,
+    page: PyMuPDF.Page,
+    rect: PyMuPDF.Rect,
+    picture_regions: dict[int, list[PyMuPDF.Rect]],
+) -> tuple[bool, bool]:
+    """
+    Evaluate one provenance box contribution.
+
+    Returns:
+    - is_inside_picture: whether this provenance is picture-overlapped
+    - supports_keep: whether this provenance confirms the text block should be kept
+    """
+    if is_inside_picture_region(
+        label=label,
+        page_no=page_no,
+        rect=rect,
+        picture_regions=picture_regions,
+    ):
+        return True, False
+
+    if not rect_has_pdf_words(page, rect):
+        return False, False
+
+    pdf_tokens = bbox_word_tokens(page, rect)
+    return False, docling_text_agrees_with_pdf_words(text, pdf_tokens)
+
+
 def evaluate_text_block_keep(
     *,
     text: str,
@@ -157,35 +209,28 @@ def evaluate_text_block_keep(
     max_bbox_area_ratio = 0.0
 
     for prov in provs:
-        bbox = prov.get("bbox")
-        page_no = int(prov.get("page_no", 1))
-        if not bbox:
+        parsed_page = _parse_prov_page_index(prov=prov, page_count=len(pdf))
+        if parsed_page is None:
             continue
+        page_no, page_idx = parsed_page
         prov_count += 1
-        page_idx = page_no - 1
-        if page_idx < 0 or page_idx >= len(pdf):
-            continue
 
-        rect = docling_bbox_to_rect(bbox, pdf[page_idx].rect.height)
-        max_bbox_area_ratio = max(
-            max_bbox_area_ratio,
-            rect_area_ratio(rect, pdf[page_idx].rect),
-        )
+        page = pdf[page_idx]
+        rect, area_ratio = _rect_and_area_ratio_from_prov(prov=prov, page=page)
+        max_bbox_area_ratio = max(max_bbox_area_ratio, area_ratio)
 
-        if is_inside_picture_region(
+        is_inside_picture, supports_keep = _prov_supports_keep(
+            text=text,
             label=label,
             page_no=page_no,
+            page=page,
             rect=rect,
             picture_regions=picture_regions,
-        ):
+        )
+        if is_inside_picture:
             prov_inside_picture_count += 1
             continue
-
-        if not rect_has_pdf_words(pdf[page_idx], rect):
-            continue
-
-        pdf_tokens = bbox_word_tokens(pdf[page_idx], rect)
-        if docling_text_agrees_with_pdf_words(text, pdf_tokens):
+        if supports_keep:
             keep = True
             break
 
