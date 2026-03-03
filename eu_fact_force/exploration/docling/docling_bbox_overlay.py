@@ -1,10 +1,12 @@
+"""Overlay Docling element bounding boxes on a PDF and save an annotated copy."""
+
 from __future__ import annotations
 
 import argparse
 import json
 from pathlib import Path
 
-import fitz  # PyMuPDF
+import fitz as PyMuPDF
 
 
 DEFAULT_OUTPUT_DIR = Path("results/annotated_pdf")
@@ -40,7 +42,7 @@ def _extract_elements(doc_dict: dict) -> list[dict]:
     return elements
 
 
-def _to_rect(bbox: dict, page_height: float) -> fitz.Rect:
+def _to_rect(bbox: dict, page_height: float) -> PyMuPDF.Rect:
     """Convert Docling bbox to a PyMuPDF Rect in top-left origin space."""
     left = float(bbox["l"])
     right = float(bbox["r"])
@@ -57,7 +59,7 @@ def _to_rect(bbox: dict, page_height: float) -> fitz.Rect:
 
     x0 = min(left, right)
     x1 = max(left, right)
-    return fitz.Rect(x0, y_top, x1, y_bottom)
+    return PyMuPDF.Rect(x0, y_top, x1, y_bottom)
 
 
 def annotate_pdf(
@@ -76,7 +78,7 @@ def annotate_pdf(
         doc_dict = result.document.export_to_dict()
     elements = _extract_elements(doc_dict)
 
-    pdf = fitz.open(str(input_pdf))
+    pdf = PyMuPDF.open(str(input_pdf))
     drawn = 0
 
     for element in elements:
@@ -89,7 +91,7 @@ def annotate_pdf(
 
         page.draw_rect(rect, color=color, width=stroke_width, overlay=True)
         page.insert_text(
-            fitz.Point(rect.x0, max(8, rect.y0 - 2)),
+            PyMuPDF.Point(rect.x0, max(8, rect.y0 - 2)),
             str(element["label"]),
             fontsize=6,
             color=color,
