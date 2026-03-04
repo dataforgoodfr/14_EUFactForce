@@ -10,6 +10,7 @@ dependencies = [
     { name = "boto3" },
     { name = "django" },
     { name = "django-storages", extra = ["s3"] },
+    { name = "gunicorn" },
     { name = "pgvector" },
     { name = "psycopg", extra = ["binary"] },
     { name = "python-dotenv" },
@@ -39,6 +40,7 @@ requires-dist = [
     { name = "boto3", specifier = ">=1.34" },
     { name = "django", specifier = ">=6.0.2" },
     { name = "django-storages", extras = ["s3"], specifier = ">=1.14" },
+    { name = "gunicorn", specifier = ">=25.1.0" },
     { name = "pgvector", specifier = ">=0.2.4" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
     { name = "python-dotenv", specifier = ">=1.0" },
@@ -882,6 +884,18 @@ version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/4d/51/c936033e16d12b627ea334aaaaf42229c37620d0f15593456ab69ab48161/griffelib-2.0.0-py3-none-any.whl", hash = "sha256:01284878c966508b6d6f1dbff9b6fa607bc062d8261c5c7253cb285b06422a7f", size = 142004, upload-time = "2026-02-09T19:09:40.561Z" },
+]
+
+[[package]]
+name = "gunicorn"
+version = "25.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "packaging" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/66/13/ef67f59f6a7896fdc2c1d62b5665c5219d6b0a9a1784938eb9a28e55e128/gunicorn-25.1.0.tar.gz", hash = "sha256:1426611d959fa77e7de89f8c0f32eed6aa03ee735f98c01efba3e281b1c47616", size = 594377, upload-time = "2026-02-13T11:09:58.989Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/da/73/4ad5b1f6a2e21cf1e85afdaad2b7b1a933985e2f5d679147a1953aaa192c/gunicorn-25.1.0-py3-none-any.whl", hash = "sha256:d0b1236ccf27f72cfe14bce7caadf467186f19e865094ca84221424e839b8b8b", size = 197067, upload-time = "2026-02-13T11:09:57.146Z" },
 ]
 
 [[package]]
