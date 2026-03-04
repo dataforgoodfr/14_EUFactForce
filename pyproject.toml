@@ -20,9 +20,11 @@ pythonpath = ["."]
 [dependency-groups]
 dev = [
     "pre-commit>=4.5.1",
+    "psycopg2>=2.9.11",
     "pytest>=9.0.2",
     "pytest-django>=4.8",
     "ruff>=0.15.0",
+    "sentence-transformers>=5.2.3",
 ]
 parsing = [
     "docling>=2.73.1",
