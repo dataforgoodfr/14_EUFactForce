@@ -1,0 +1,30 @@
+# Virtual env from host must not overwrite the one created in the image
+.venv
+venv
+env
+
+# Git and IDE
+.git
+.gitignore
+.cursor
+.idea
+*.swp
+*.swo
+
+# Python
+__pycache__
+*.py[cod]
+*.egg-info
+.pytest_cache
+.coverage
+htmlcov
+
+# Local / env
+.env
+.env.*
+!.env.example
+
+# Docker (avoid copying build context into itself)
+Dockerfile
+docker-compose*.yml
+.dockerignore
