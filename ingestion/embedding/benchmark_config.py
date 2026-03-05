@@ -27,14 +27,4 @@ CANDIDATE_MODELS = {
         "query_prefix": "query: ",
         "passage_prefix": "passage: ",
     },
-    "bge-m3": {
-        "model_id": "BAAI/bge-m3",
-        "query_prefix": "",
-        "passage_prefix": "",
-    },
-    "labse": {
-        "model_id": "sentence-transformers/LaBSE",
-        "query_prefix": "",
-        "passage_prefix": "",
-    },
 }

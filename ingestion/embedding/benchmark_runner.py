@@ -3,12 +3,11 @@
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
 
 from ingestion.timing import timed_call
 
 from .benchmark_chunking import build_chunk_lookup, build_chunks
-from .benchmark_config import CANDIDATE_MODELS, CHUNKING_STRATEGY, GROUND_TRUTH_PATH, OUTPUT_DIR
+from .benchmark_config import CANDIDATE_MODELS, CHUNKING_STRATEGY, OUTPUT_DIR
 from .benchmark_data import load_documents, load_ground_truth
 from .benchmark_embedding import embed_queries, embed_texts, load_model
 from .benchmark_metrics import compute_retrieval_metrics
@@ -143,22 +142,6 @@ def parse_args() -> argparse.Namespace:
         help="Chunking strategy to use.",
     )
     parser.add_argument(
-        "--generate-weak-labels",
-        action="store_true",
-        help="Generate weak chunk labels and write an updated ground-truth JSON.",
-    )
-    parser.add_argument(
-        "--weak-label-strategy",
-        choices=["char", "paragraph"],
-        default="char",
-        help="Chunking strategy used by weak-label generation.",
-    )
-    parser.add_argument(
-        "--write-output",
-        default=str(GROUND_TRUTH_PATH),
-        help="Output path for generated weak-label ground truth JSON.",
-    )
-    parser.add_argument(
         "--suffix-by-strategy",
         action="store_true",
         help="Write benchmark outputs with a strategy suffix (e.g. _char, _paragraph).",
@@ -167,17 +150,8 @@ def parse_args() -> argparse.Namespace:
 
 
 def run_cli(args: argparse.Namespace | None = None) -> None:
-    """CLI entry point for benchmark + weak-label generation."""
+    """CLI entry point for embedding benchmark."""
     args = args or parse_args()
-    if args.generate_weak_labels:
-        from ingestion.embedding import weak_labeling
-        weak_labeling.run_weak_label_generation(
-            input_path=GROUND_TRUTH_PATH,
-            output_path=Path(args.write_output),
-            strategy_mode=args.weak_label_strategy,
-        )
-        return
-
     run_benchmark(
         strategy=args.chunking_strategy,
         multi_run=args.suffix_by_strategy,

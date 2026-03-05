@@ -40,7 +40,6 @@ parsing = [
 ]
 embedding = [
     "sentence-transformers",
-    "FlagEmbedding",
     "numpy",
     "pandas",
     "scikit-learn",
