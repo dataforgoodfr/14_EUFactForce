@@ -38,3 +38,9 @@ parsing = [
     "pymupdf>=1.25.0",
     "python-dotenv>=1.0.0"
 ]
+embedding = [
+    "sentence-transformers",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+]

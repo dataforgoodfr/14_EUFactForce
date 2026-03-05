@@ -1,0 +1,86 @@
+[
+  {
+    "query": "vaccines cause autism",
+    "lang": "en",
+    "relevant_docs": ["s41591-022-01713-6", "1-s2.0-S2352250X23001574-main"]
+  },
+  {
+    "query": "les vaccins causent l'autisme",
+    "lang": "fr",
+    "relevant_docs": ["s41591-022-01713-6", "1-s2.0-S2352250X23001574-main"]
+  },
+  {
+    "query": "misinformation spread social media",
+    "lang": "en",
+    "relevant_docs": [
+      "s41591-022-01713-6",
+      "SIMODS-Report-1",
+      "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+      "pnas.201912444"
+    ]
+  },
+  {
+    "query": "désinformation et réseaux sociaux",
+    "lang": "fr",
+    "relevant_docs": [
+      "s41591-022-01713-6",
+      "SIMODS-Report-1",
+      "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+      "pnas.201912444"
+    ]
+  },
+  {
+    "query": "foreign information manipulation interference",
+    "lang": "en",
+    "relevant_docs": ["EEAS-3nd-ThreatReport-March-2025-05-Digital-HD"]
+  },
+  {
+    "query": "youth mental health digital technology",
+    "lang": "en",
+    "relevant_docs": ["WHO-EURO-2025-12187-51959-79851-eng"]
+  },
+  {
+    "query": "santé mentale des jeunes et technologies numériques",
+    "lang": "fr",
+    "relevant_docs": ["WHO-EURO-2025-12187-51959-79851-eng"]
+  },
+  {
+    "query": "public health disinformation interventions inoculation",
+    "lang": "en",
+    "relevant_docs": [
+      "s41591-022-01713-6",
+      "annurev-publhealth-040119-094127",
+      "1-s2.0-S2352250X23001574-main"
+    ]
+  },
+  {
+    "query": "influencer marketing health claims",
+    "lang": "en",
+    "relevant_docs": ["BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report"]
+  },
+  {
+    "query": "conspiracy theories belief psychology",
+    "lang": "en",
+    "relevant_docs": [
+      "pnas.201912444",
+      "40359_2023_Article_1210",
+      "1-s2.0-S2352250X23001574-main"
+    ]
+  },
+  {
+    "query": "alcohol tobacco industry misinformation",
+    "lang": "en",
+    "relevant_docs": [
+      "jhab032",
+      "annurev-publhealth-040119-094127"
+    ]
+  },
+  {
+    "query": "measuring online disinformation Europe",
+    "lang": "en",
+    "relevant_docs": [
+      "SIMODS-Report-1",
+      "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD"
+    ]
+  }
+]
