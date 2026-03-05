@@ -77,6 +77,12 @@ uv sync
 uv run pre-commit install
 ```
 
+Pour exécuter le pipeline d'ingestion avec parsing Docling, installez aussi les dépendances de parsing :
+
+```bash
+uv sync --group parsing
+```
+
 A l'usage, si vous utilisez VSCode, l'environnement virtuel sera automatiquement activé lorsque vous ouvrirez le projet. Sinon, il suffit de l'activer manuellement avec la commande suivante :
 
 ```bash
