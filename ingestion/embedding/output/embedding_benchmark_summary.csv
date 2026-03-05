@@ -1,0 +1,4 @@
+model_name,model_id,embedding_dim,load_time_s,embed_time_s,chunks_per_second,query_time_s,precision@3,precision@5,precision@10,mrr
+multilingual-e5-base,intfloat/multilingual-e5-base,768,87.6,33.03,25.8,0.05,0.736111111111111,0.8055555555555555,1.0,0.7916666666666666
+bge-m3,BAAI/bge-m3,1024,167.5,105.98,8.0,0.11,0.736111111111111,0.8472222222222222,1.0,0.7777777777777777
+labse,sentence-transformers/LaBSE,768,97.2,24.21,35.1,0.07,0.5972222222222222,0.8263888888888888,1.0,0.7777777777777777

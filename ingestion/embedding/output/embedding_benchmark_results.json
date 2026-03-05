@@ -1,0 +1,1601 @@
+[
+  {
+    "model_name": "multilingual-e5-base",
+    "model_id": "intfloat/multilingual-e5-base",
+    "embedding_dim": 768,
+    "load_time_s": 87.6,
+    "embed_time_s": 33.03,
+    "chunks_per_second": 25.8,
+    "query_time_s": 0.05,
+    "precision@3": 0.736111111111111,
+    "precision@5": 0.8055555555555555,
+    "precision@10": 1.0,
+    "mrr": 0.7916666666666666,
+    "per_query_results": [
+      {
+        "query": "vaccines cause autism",
+        "lang": "en",
+        "top_5_docs": [
+          "annurev-publhealth-040119-094127",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "s41591-022-01713-6",
+          "SIMODS-Report-1",
+          "pnas.201912444"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_3",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 3
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_1",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 1
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_34",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 34
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_67",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 67
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_51",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 51
+          }
+        ],
+        "relevant": [
+          "1-s2.0-S2352250X23001574-main",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 3
+      },
+      {
+        "query": "les vaccins causent l'autisme",
+        "lang": "fr",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "pnas.201912444",
+          "SIMODS-Report-1"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_1",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 1
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_67",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 67
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_40",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 40
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_51",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 51
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_53",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 53
+          }
+        ],
+        "relevant": [
+          "1-s2.0-S2352250X23001574-main",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 3
+      },
+      {
+        "query": "misinformation spread social media",
+        "lang": "en",
+        "top_5_docs": [
+          "annurev-publhealth-040119-094127",
+          "SIMODS-Report-1",
+          "pnas.201912444",
+          "s41591-022-01713-6",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_16",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 16
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_19",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 19
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_2",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 2
+          },
+          {
+            "chunk_id": "pnas.201912444::chunk_1",
+            "doc_id": "pnas.201912444",
+            "chunk_index": 1
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_37",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 37
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "SIMODS-Report-1",
+          "pnas.201912444",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 2
+      },
+      {
+        "query": "d\u00e9sinformation et r\u00e9seaux sociaux",
+        "lang": "fr",
+        "top_5_docs": [
+          "SIMODS-Report-1",
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "pnas.201912444",
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_25",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 25
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_63",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 63
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_67",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 67
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_135",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 135
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_41",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 41
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "SIMODS-Report-1",
+          "pnas.201912444",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "foreign information manipulation interference",
+        "lang": "en",
+        "top_5_docs": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "annurev-publhealth-040119-094127",
+          "pnas.201912444",
+          "1-s2.0-S2352250X23001574-main",
+          "SIMODS-Report-1"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_6",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 6
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_18",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 18
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_133",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 133
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_13",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 13
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "youth mental health digital technology",
+        "lang": "en",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "40359_2023_Article_1210",
+          "annurev-publhealth-040119-094127",
+          "jhab032",
+          "s41591-022-01713-6"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_9",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 9
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_58",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 58
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_109",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 109
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_4",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 4
+          }
+        ],
+        "relevant": [
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "sant\u00e9 mentale des jeunes et technologies num\u00e9riques",
+        "lang": "fr",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "annurev-publhealth-040119-094127",
+          "40359_2023_Article_1210",
+          "SIMODS-Report-1",
+          "jhab032"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_9",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 9
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_58",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 58
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_110",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 110
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_109",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 109
+          }
+        ],
+        "relevant": [
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "public health disinformation interventions inoculation",
+        "lang": "en",
+        "top_5_docs": [
+          "s41591-022-01713-6",
+          "annurev-publhealth-040119-094127",
+          "pnas.201912444",
+          "1-s2.0-S2352250X23001574-main",
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_50",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 50
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_34",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 34
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_37",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 37
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_49",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 49
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_29",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 29
+          }
+        ],
+        "relevant": [
+          "1-s2.0-S2352250X23001574-main",
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "influencer marketing health claims",
+        "lang": "en",
+        "top_5_docs": [
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+          "annurev-publhealth-040119-094127",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "s41591-022-01713-6",
+          "SIMODS-Report-1"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_82",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 82
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_36",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 36
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_73",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 73
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_83",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 83
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_15",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 15
+          }
+        ],
+        "relevant": [
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "conspiracy theories belief psychology",
+        "lang": "en",
+        "top_5_docs": [
+          "s41591-022-01713-6",
+          "annurev-publhealth-040119-094127",
+          "1-s2.0-S2352250X23001574-main",
+          "pnas.201912444",
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_45",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 45
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_39",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 39
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_66",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 66
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_13",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 13
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_11",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 11
+          }
+        ],
+        "relevant": [
+          "40359_2023_Article_1210",
+          "pnas.201912444",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "first_relevant_rank": 3
+      },
+      {
+        "query": "alcohol tobacco industry misinformation",
+        "lang": "en",
+        "top_5_docs": [
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "pnas.201912444",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "SIMODS-Report-1"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_46",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 46
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_28",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 28
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_40",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 40
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_47",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 47
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_0",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 0
+          }
+        ],
+        "relevant": [
+          "annurev-publhealth-040119-094127",
+          "jhab032"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "measuring online disinformation Europe",
+        "lang": "en",
+        "top_5_docs": [
+          "SIMODS-Report-1",
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "annurev-publhealth-040119-094127",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "s41591-022-01713-6"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_0",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_72",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 72
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_8",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 8
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_73",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 73
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_7",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 7
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "SIMODS-Report-1"
+        ],
+        "first_relevant_rank": 1
+      }
+    ]
+  },
+  {
+    "model_name": "bge-m3",
+    "model_id": "BAAI/bge-m3",
+    "embedding_dim": 1024,
+    "load_time_s": 167.5,
+    "embed_time_s": 105.98,
+    "chunks_per_second": 8.0,
+    "query_time_s": 0.11,
+    "precision@3": 0.736111111111111,
+    "precision@5": 0.8472222222222222,
+    "precision@10": 1.0,
+    "mrr": 0.7777777777777777,
+    "per_query_results": [
+      {
+        "query": "vaccines cause autism",
+        "lang": "en",
+        "top_5_docs": [
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "pnas.201912444",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_3",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 3
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_21",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 21
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_2",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 2
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_34",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 34
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_67",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 67
+          }
+        ],
+        "relevant": [
+          "1-s2.0-S2352250X23001574-main",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 2
+      },
+      {
+        "query": "les vaccins causent l'autisme",
+        "lang": "fr",
+        "top_5_docs": [
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "SIMODS-Report-1",
+          "pnas.201912444",
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_3",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 3
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_21",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 21
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_2",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 2
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_67",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 67
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_34",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 34
+          }
+        ],
+        "relevant": [
+          "1-s2.0-S2352250X23001574-main",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 2
+      },
+      {
+        "query": "misinformation spread social media",
+        "lang": "en",
+        "top_5_docs": [
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "pnas.201912444",
+          "SIMODS-Report-1",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_19",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 19
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_37",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 37
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_18",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 18
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_16",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 16
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_17",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 17
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "SIMODS-Report-1",
+          "pnas.201912444",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 2
+      },
+      {
+        "query": "d\u00e9sinformation et r\u00e9seaux sociaux",
+        "lang": "fr",
+        "top_5_docs": [
+          "pnas.201912444",
+          "annurev-publhealth-040119-094127",
+          "SIMODS-Report-1",
+          "1-s2.0-S2352250X23001574-main",
+          "s41591-022-01713-6"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "pnas.201912444::chunk_41",
+            "doc_id": "pnas.201912444",
+            "chunk_index": 41
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_19",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 19
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_26",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 26
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_2",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 2
+          },
+          {
+            "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_28",
+            "doc_id": "1-s2.0-S2352250X23001574-main",
+            "chunk_index": 28
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "SIMODS-Report-1",
+          "pnas.201912444",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "foreign information manipulation interference",
+        "lang": "en",
+        "top_5_docs": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "pnas.201912444",
+          "s41591-022-01713-6",
+          "annurev-publhealth-040119-094127",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_6",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 6
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_133",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 133
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_13",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 13
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_18",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 18
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "youth mental health digital technology",
+        "lang": "en",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "40359_2023_Article_1210",
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+          "annurev-publhealth-040119-094127",
+          "jhab032"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_9",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 9
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_58",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 58
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_137",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 137
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_109",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 109
+          }
+        ],
+        "relevant": [
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "sant\u00e9 mentale des jeunes et technologies num\u00e9riques",
+        "lang": "fr",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "40359_2023_Article_1210",
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+          "annurev-publhealth-040119-094127",
+          "jhab032"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_58",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 58
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_137",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 137
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_9",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 9
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_0",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_122",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 122
+          }
+        ],
+        "relevant": [
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "public health disinformation interventions inoculation",
+        "lang": "en",
+        "top_5_docs": [
+          "s41591-022-01713-6",
+          "annurev-publhealth-040119-094127",
+          "pnas.201912444",
+          "1-s2.0-S2352250X23001574-main",
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_50",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 50
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_34",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 34
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_35",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 35
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_37",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 37
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_49",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 49
+          }
+        ],
+        "relevant": [
+          "1-s2.0-S2352250X23001574-main",
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "influencer marketing health claims",
+        "lang": "en",
+        "top_5_docs": [
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "SIMODS-Report-1"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_73",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 73
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_82",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 82
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_83",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 83
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_1",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 1
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_77",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 77
+          }
+        ],
+        "relevant": [
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "conspiracy theories belief psychology",
+        "lang": "en",
+        "top_5_docs": [
+          "s41591-022-01713-6",
+          "annurev-publhealth-040119-094127",
+          "1-s2.0-S2352250X23001574-main",
+          "pnas.201912444",
+          "jhab032"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_45",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 45
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_43",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 43
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_13",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 13
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_44",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 44
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_30",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 30
+          }
+        ],
+        "relevant": [
+          "40359_2023_Article_1210",
+          "pnas.201912444",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "first_relevant_rank": 3
+      },
+      {
+        "query": "alcohol tobacco industry misinformation",
+        "lang": "en",
+        "top_5_docs": [
+          "s41591-022-01713-6",
+          "annurev-publhealth-040119-094127",
+          "pnas.201912444",
+          "1-s2.0-S2352250X23001574-main",
+          "SIMODS-Report-1"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_41",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 41
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_40",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 40
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_21",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 21
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_59",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 59
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_28",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 28
+          }
+        ],
+        "relevant": [
+          "annurev-publhealth-040119-094127",
+          "jhab032"
+        ],
+        "first_relevant_rank": 2
+      },
+      {
+        "query": "measuring online disinformation Europe",
+        "lang": "en",
+        "top_5_docs": [
+          "SIMODS-Report-1",
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_0",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_135",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 135
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_8",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 8
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_11",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 11
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_12",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 12
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "SIMODS-Report-1"
+        ],
+        "first_relevant_rank": 1
+      }
+    ]
+  },
+  {
+    "model_name": "labse",
+    "model_id": "sentence-transformers/LaBSE",
+    "embedding_dim": 768,
+    "load_time_s": 97.2,
+    "embed_time_s": 24.21,
+    "chunks_per_second": 35.1,
+    "query_time_s": 0.07,
+    "precision@3": 0.5972222222222222,
+    "precision@5": 0.8263888888888888,
+    "precision@10": 1.0,
+    "mrr": 0.7777777777777777,
+    "per_query_results": [
+      {
+        "query": "vaccines cause autism",
+        "lang": "en",
+        "top_5_docs": [
+          "s41591-022-01713-6",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+          "annurev-publhealth-040119-094127",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_21",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 21
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_156",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 156
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_32",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 32
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_30",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 30
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_82",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 82
+          }
+        ],
+        "relevant": [
+          "1-s2.0-S2352250X23001574-main",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "les vaccins causent l'autisme",
+        "lang": "fr",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "pnas.201912444",
+          "jhab032"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_156",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 156
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_53",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 53
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_152",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 152
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_21",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 21
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_149",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 149
+          }
+        ],
+        "relevant": [
+          "1-s2.0-S2352250X23001574-main",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 3
+      },
+      {
+        "query": "misinformation spread social media",
+        "lang": "en",
+        "top_5_docs": [
+          "s41591-022-01713-6",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "pnas.201912444",
+          "annurev-publhealth-040119-094127",
+          "SIMODS-Report-1"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_37",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 37
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_15",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 15
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_42",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 42
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_16",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 16
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_130",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 130
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "SIMODS-Report-1",
+          "pnas.201912444",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "d\u00e9sinformation et r\u00e9seaux sociaux",
+        "lang": "fr",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "s41591-022-01713-6",
+          "annurev-publhealth-040119-094127",
+          "SIMODS-Report-1",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_130",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 130
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_110",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 110
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_44",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 44
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_115",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 115
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_129",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 129
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "SIMODS-Report-1",
+          "pnas.201912444",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 2
+      },
+      {
+        "query": "foreign information manipulation interference",
+        "lang": "en",
+        "top_5_docs": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "1-s2.0-S2352250X23001574-main",
+          "annurev-publhealth-040119-094127",
+          "pnas.201912444",
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_10",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 10
+          },
+          {
+            "chunk_id": "1-s2.0-S2352250X23001574-main::chunk_21",
+            "doc_id": "1-s2.0-S2352250X23001574-main",
+            "chunk_index": 21
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_133",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 133
+          },
+          {
+            "chunk_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD::chunk_0",
+            "doc_id": "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_51",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 51
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "youth mental health digital technology",
+        "lang": "en",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "annurev-publhealth-040119-094127",
+          "jhab032",
+          "40359_2023_Article_1210",
+          "s41591-022-01713-6"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_130",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 130
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_110",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 110
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_128",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 128
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_118",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 118
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_114",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 114
+          }
+        ],
+        "relevant": [
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "sant\u00e9 mentale des jeunes et technologies num\u00e9riques",
+        "lang": "fr",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "annurev-publhealth-040119-094127",
+          "jhab032",
+          "s41591-022-01713-6",
+          "40359_2023_Article_1210"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_130",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 130
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_114",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 114
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_110",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 110
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_118",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 118
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_115",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 115
+          }
+        ],
+        "relevant": [
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "public health disinformation interventions inoculation",
+        "lang": "en",
+        "top_5_docs": [
+          "s41591-022-01713-6",
+          "pnas.201912444",
+          "annurev-publhealth-040119-094127",
+          "1-s2.0-S2352250X23001574-main",
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_0",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 0
+          },
+          {
+            "chunk_id": "pnas.201912444::chunk_1",
+            "doc_id": "pnas.201912444",
+            "chunk_index": 1
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_37",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 37
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_1",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 1
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_35",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 35
+          }
+        ],
+        "relevant": [
+          "1-s2.0-S2352250X23001574-main",
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "influencer marketing health claims",
+        "lang": "en",
+        "top_5_docs": [
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "annurev-publhealth-040119-094127",
+          "s41591-022-01713-6",
+          "pnas.201912444"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_83",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 83
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_131",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 131
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_40",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 40
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_32",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 32
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_82",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 82
+          }
+        ],
+        "relevant": [
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report"
+        ],
+        "first_relevant_rank": 1
+      },
+      {
+        "query": "conspiracy theories belief psychology",
+        "lang": "en",
+        "top_5_docs": [
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "s41591-022-01713-6",
+          "jhab032",
+          "40359_2023_Article_1210",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_22",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 22
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_18",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 18
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_19",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 19
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_49",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 49
+          },
+          {
+            "chunk_id": "jhab032::chunk_10",
+            "doc_id": "jhab032",
+            "chunk_index": 10
+          }
+        ],
+        "relevant": [
+          "40359_2023_Article_1210",
+          "pnas.201912444",
+          "1-s2.0-S2352250X23001574-main"
+        ],
+        "first_relevant_rank": 4
+      },
+      {
+        "query": "alcohol tobacco industry misinformation",
+        "lang": "en",
+        "top_5_docs": [
+          "pnas.201912444",
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+          "s41591-022-01713-6",
+          "annurev-publhealth-040119-094127",
+          "WHO-EURO-2025-12187-51959-79851-eng"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "pnas.201912444::chunk_29",
+            "doc_id": "pnas.201912444",
+            "chunk_index": 29
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_71",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 71
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_22",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 22
+          },
+          {
+            "chunk_id": "s41591-022-01713-6::chunk_21",
+            "doc_id": "s41591-022-01713-6",
+            "chunk_index": 21
+          },
+          {
+            "chunk_id": "annurev-publhealth-040119-094127::chunk_2",
+            "doc_id": "annurev-publhealth-040119-094127",
+            "chunk_index": 2
+          }
+        ],
+        "relevant": [
+          "annurev-publhealth-040119-094127",
+          "jhab032"
+        ],
+        "first_relevant_rank": 4
+      },
+      {
+        "query": "measuring online disinformation Europe",
+        "lang": "en",
+        "top_5_docs": [
+          "SIMODS-Report-1",
+          "WHO-EURO-2025-12187-51959-79851-eng",
+          "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "annurev-publhealth-040119-094127"
+        ],
+        "top_5_chunks": [
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_135",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 135
+          },
+          {
+            "chunk_id": "SIMODS-Report-1::chunk_134",
+            "doc_id": "SIMODS-Report-1",
+            "chunk_index": 134
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_134",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 134
+          },
+          {
+            "chunk_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report::chunk_39",
+            "doc_id": "BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report",
+            "chunk_index": 39
+          },
+          {
+            "chunk_id": "WHO-EURO-2025-12187-51959-79851-eng::chunk_147",
+            "doc_id": "WHO-EURO-2025-12187-51959-79851-eng",
+            "chunk_index": 147
+          }
+        ],
+        "relevant": [
+          "EEAS-3nd-ThreatReport-March-2025-05-Digital-HD",
+          "SIMODS-Report-1"
+        ],
+        "first_relevant_rank": 1
+      }
+    ]
+  }
+]

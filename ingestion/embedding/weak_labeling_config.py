@@ -1,0 +1,17 @@
+"""Configuration constants for weak-label generation."""
+
+from __future__ import annotations
+
+GENERATOR_VERSION = "weak-labeling-v1"
+
+HIGH_THRESHOLD = 0.62
+PARTIAL_THRESHOLD = 0.38
+
+DEFAULT_DENSE_TOP_K = 14
+DEFAULT_LEXICAL_TOP_K = 14
+DEFAULT_NEGATIVES = 3
+
+WEIGHT_DENSE_SCORE = 0.44
+WEIGHT_LEXICAL_SCORE = 0.30
+WEIGHT_OVERLAP_SCORE = 0.18
+WEIGHT_ANCHOR_BONUS = 0.08

@@ -162,6 +162,13 @@ cython_debug/
 # Precommit hooks: ruff cache
 .ruff_cache
 
+ingestion/parsing/output/analysis/
+
+# Generated embedding benchmark artifacts
+ingestion/embedding/output/embedding_benchmark_results*.json
+ingestion/embedding/output/embedding_benchmark_summary*.csv
+ingestion/embedding/output/chunk_judging_pool*.json
+ingestion/embedding/output/weak_label_calibration_report*.json
 # Parsing generated artifacts
 ingestion/parsing/output/extracted_texts/
 ingestion/parsing/output/benchmark_results_extended.csv
