@@ -14,8 +14,8 @@ import os
 from pathlib import Path
 from urllib.parse import urlparse
 
-from dotenv import load_dotenv
 from django.core.exceptions import ImproperlyConfigured
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +38,8 @@ SECRET_KEY = (
 
 # DEBUG: default True for local dev. Set to False in production (see .env.template).
 DEBUG = os.environ.get("DEBUG", "true").lower() in ("true", "1", "yes")
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 ALLOWED_HOSTS = []
 
@@ -154,6 +156,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+# Must be an absolute filesystem path (string) for collectstatic / StaticFilesStorage
+STATIC_ROOT = str((BASE_DIR.parent / "staticfiles").resolve())
 
 # S3 / LocalStack storage (switch via AWS_S3_ENDPOINT_URL or USE_LOCAL_STACK)
 # django-storages reads AWS_S3_ENDPOINT_URL from this module
