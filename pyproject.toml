@@ -9,6 +9,7 @@ dependencies = [
     "python-dotenv>=1.0",
     "psycopg[binary]>=3.2",
     "pgvector>=0.2.4",
+    "sentence-transformers>=5.2.3",
     "django-storages[s3]>=1.14",
     "boto3>=1.34",
     "gunicorn>=25.1.0",
@@ -26,7 +27,6 @@ dev = [
     "pytest-django>=4.8",
     "ruff>=0.15.0",
     "seaborn>=0.13.2",
-    "sentence-transformers>=5.2.3",
 ]
 parsing = [
     "docling>=2.73.1",

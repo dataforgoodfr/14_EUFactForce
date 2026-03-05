@@ -18,6 +18,7 @@ dependencies = [
     { name = "pgvector" },
     { name = "psycopg", extra = ["binary"] },
     { name = "python-dotenv" },
+    { name = "sentence-transformers" },
 ]
 
 [package.dev-dependencies]
@@ -28,7 +29,6 @@ dev = [
     { name = "pytest-django" },
     { name = "ruff" },
     { name = "seaborn" },
-    { name = "sentence-transformers" },
 ]
 parsing = [
     { name = "docling" },
@@ -49,6 +49,7 @@ requires-dist = [
     { name = "pgvector", specifier = ">=0.2.4" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
     { name = "python-dotenv", specifier = ">=1.0" },
+    { name = "sentence-transformers", specifier = ">=5.2.3" },
 ]
 
 [package.metadata.requires-dev]
@@ -59,7 +60,6 @@ dev = [
     { name = "pytest-django", specifier = ">=4.8" },
     { name = "ruff", specifier = ">=0.15.0" },
     { name = "seaborn", specifier = ">=0.13.2" },
-    { name = "sentence-transformers", specifier = ">=5.2.3" },
 ]
 parsing = [
     { name = "docling", specifier = ">=2.73.1" },
