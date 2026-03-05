@@ -161,6 +161,12 @@ cython_debug/
 
 # Precommit hooks: ruff cache
 .ruff_cache
+
+# Parsing generated artifacts
+ingestion/parsing/output/extracted_texts/
+ingestion/parsing/output/benchmark_results_extended.csv
+ingestion/parsing/output/extraction_scores.csv
+ingestion/parsing/output/analysis/
 s3/
 
 # Parsing generated artifacts
@@ -168,3 +174,5 @@ ingestion/parsing/output/extracted_texts/
 eu_fact_force/exploration/docling/results/html/
 eu_fact_force/exploration/docling/results/json/
 eu_fact_force/exploration/docling/results/md/
+annotated_pdf/
+eu_fact_force/exploration/docling/results/annotated_pdf/

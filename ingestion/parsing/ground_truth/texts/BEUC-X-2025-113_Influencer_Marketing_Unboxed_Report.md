@@ -76,6 +76,8 @@ Three complaints submitted by BEUC to the European Commission and the CPC-Networ
 
 BEUC, ‘Food marketing to children needs rules with teeth’(2021). BEUC and 10 members submitted over 80 complaints to the EU Pledge’s own ‘Accountability Mechanism’ uncovering the fundamental flaws of the self-regulatory model.
 
+# TABLE OF CONTENTS
+
 [TABLE OF CONTENTS]
 
 # ABOUT THE METHODOLOGY
