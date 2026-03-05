@@ -3,10 +3,12 @@ from pathlib import Path
 
 from django.core.files.storage import default_storage
 from django.db import models
+from pgvector.django import VectorField
 
 from eu_fact_force.ingestion.s3 import save_file_to_s3
 
 logger = logging.getLogger(__name__)
+EMBEDDING_DIMENSIONS = 768
 
 
 class TimeStampedModel(models.Model):
@@ -108,6 +110,12 @@ class DocumentChunk(TimeStampedModel):
     content = models.TextField(help_text="Content of the chunk (e.g. one line)")
     order = models.PositiveIntegerField(
         default=0, help_text="Order in the original file"
+    )
+    embedding = VectorField(
+        dimensions=EMBEDDING_DIMENSIONS,
+        null=True,
+        blank=True,
+        help_text="Dense embedding vector for semantic retrieval.",
     )
 
     class Meta:
