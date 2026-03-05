@@ -28,7 +28,7 @@ parsing/
     ├── extracted_texts/   # Cached raw text extractions
     │   └── raw/<parser_config>/<document_stem>.txt
     ├── benchmark_results_extended.csv
-    └── quality_scores.csv
+    └── extraction_scores.csv
 ```
 
 ## Usage

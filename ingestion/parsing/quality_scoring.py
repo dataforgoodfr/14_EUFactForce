@@ -2,7 +2,7 @@
 Quality scoring orchestrator for the LlamaParse benchmark.
 
 Reads extracted texts from output/extracted_texts/ and compares them against
-ground truth files to produce quality scores per (file, parser_config).
+ground truth files to produce extraction evaluation scores per (file, parser_config).
 
 Scores four complementary dimensions:
   1. Content presence (0-6): title, authors, DOI, abstract, references, key_passage
@@ -10,7 +10,7 @@ Scores four complementary dimensions:
   3. Metadata accuracy (0-100): title, authors, DOI, date, source, abstract, keywords
   4. Reference-text similarity: text_similarity, content_recall, content_precision, order_score
 
-Output: output/quality_scores.csv
+Output: output/extraction_scores.csv
 """
 
 import csv
@@ -47,7 +47,7 @@ from benchmarking.parser_config import (
 # CONFIGURATION
 # =========================
 GROUND_TRUTH_TEXT_DIR = Path("ground_truth/texts")
-OUTPUT_CSV = "output/quality_scores.csv"
+OUTPUT_CSV = "output/extraction_scores.csv"
 
 MISSING_FILE = "missing_file"
 
@@ -67,7 +67,8 @@ _FIELD_DEFAULTS: dict[str, str | float | int | None] = {
     "abstract_found": MISSING_FILE, "abstract_ratio": 0.0,
     "references_found": MISSING_FILE,
     "key_passage_found": MISSING_FILE, "key_passage_ratio": 0.0,
-    "quality_score": 0,
+    # Count of found content signals (0-6).
+    "content_presence_score": 0,
     # Structural quality
     "fragmentation_ratio": None, "section_order_score": None,
     "duplicate_content_ratio": None, "structural_quality": None,
@@ -82,6 +83,9 @@ _FIELD_DEFAULTS: dict[str, str | float | int | None] = {
     # Reference-text similarity
     "text_similarity": None, "content_recall": None,
     "content_precision": None, "order_score": None,
+    # Per-row scoring runtime (ms)
+    "content_ms": None, "structural_ms": None,
+    "metadata_ms": None, "similarity_ms": None, "total_ms": None,
 }
 
 CSV_FIELDNAMES = list(_FIELD_DEFAULTS.keys())
@@ -127,7 +131,7 @@ def _score_content_presence(full_text: str, gt: dict) -> dict:
         title_found, authors_found, doi_found,
         abstract_found, references_found, key_passage_found,
     ]
-    quality_score = sum(v == FOUND for v in presence_results)
+    content_presence_score = sum(v == FOUND for v in presence_results)
 
     return {
         "title_found": title_found, "title_ratio": title_ratio,
@@ -136,7 +140,7 @@ def _score_content_presence(full_text: str, gt: dict) -> dict:
         "abstract_found": abstract_found, "abstract_ratio": abstract_ratio,
         "references_found": references_found,
         "key_passage_found": key_passage_found, "key_passage_ratio": key_passage_ratio,
-        "quality_score": quality_score,
+        "content_presence_score": content_presence_score,
     }
 
 
@@ -351,12 +355,21 @@ def _score_one_document_config(
         "filename": filename,
         "parser_config": config,
         "chars": float(len(full_text)),
-        "content_time_ms": content_time_ms,
-        "structural_time_ms": structural_time_ms,
-        "metadata_time_ms": metadata_time_ms,
-        "similarity_time_ms": similarity_time_ms,
-        "total_time_ms": total_time_ms,
+        "content_ms": content_time_ms,
+        "structural_ms": structural_time_ms,
+        "metadata_ms": metadata_time_ms,
+        "similarity_ms": similarity_time_ms,
+        "total_ms": total_time_ms,
     }
+    record.update(
+        {
+            "content_ms": content_time_ms,
+            "structural_ms": structural_time_ms,
+            "metadata_ms": metadata_time_ms,
+            "similarity_ms": similarity_time_ms,
+            "total_ms": total_time_ms,
+        }
+    )
     _log_row_timing(
         args=args,
         filename=filename,
