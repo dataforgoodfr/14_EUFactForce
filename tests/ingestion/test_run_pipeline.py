@@ -5,6 +5,7 @@ from pathlib import Path
 import pytest
 
 from eu_fact_force.ingestion import parsing as parsing_module
+from eu_fact_force.ingestion import services as services_module
 from eu_fact_force.ingestion.models import DocumentChunk, SourceFile
 from eu_fact_force.ingestion.services import run_pipeline
 
@@ -22,6 +23,7 @@ def test_run_pipeline_uses_readme_md(tmp_storage, monkeypatch):
         "_extract_text_from_source_file",
         lambda _: "first paragraph\n\nsecond paragraph\n\nthird paragraph",
     )
+    monkeypatch.setattr(services_module, "add_embeddings", lambda _: None)
 
     source_file, _ = run_pipeline("README.md")
 
