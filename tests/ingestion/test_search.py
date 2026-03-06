@@ -7,28 +7,27 @@ import pytest
 from eu_fact_force.ingestion import parsing as parsing_module
 from eu_fact_force.ingestion import search as search_module
 from eu_fact_force.ingestion import services as services_module
-from eu_fact_force.ingestion.models import DocumentChunk, SourceFile
+from eu_fact_force.ingestion.chunking import MAX_CHUNK_CHARS
+from eu_fact_force.ingestion.models import DocumentChunk, EMBEDDING_DIMENSIONS, SourceFile
 from eu_fact_force.ingestion.services import run_pipeline
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-# Match app embedding dimension so test vectors are valid for the model field.
-EMBEDDING_DIM = 768
 # Tolerance for float distance comparison.
 DISTANCE_TOLERANCE = 1e-5
 # Paragraph length so chunking yields 3 separate chunks (each under MAX_CHUNK_CHARS).
-PARAGRAPH_LEN = 700
+PARAGRAPH_LEN = (MAX_CHUNK_CHARS // 2) + 1
 # Components for the second-closest vector (distance between near and far).
 SECOND_CLOSEST_VEC_ALIGNED = 0.99
 SECOND_CLOSEST_VEC_OFF = 0.01
 
 
-def _constant_vector(value: float, dim: int = EMBEDDING_DIM) -> list[float]:
+def _constant_vector(value: float, dim: int = EMBEDDING_DIMENSIONS) -> list[float]:
     """Vector with the same value in every dimension."""
     return [value] * dim
 
 
-def _one_hot_vector(index: int, dim: int = EMBEDDING_DIM) -> list[float]:
+def _one_hot_vector(index: int, dim: int = EMBEDDING_DIMENSIONS) -> list[float]:
     """One-hot vector: 1.0 at index, 0 elsewhere (for distinct cosine distances)."""
     v = [0.0] * dim
     v[index] = 1.0
@@ -120,7 +119,7 @@ def test_pipeline_then_search_returns_chunks_ordered_by_similarity(
     def _add_known_embeddings(chunks):
         near = _one_hot_vector(0)
         mid = [SECOND_CLOSEST_VEC_ALIGNED] + [SECOND_CLOSEST_VEC_OFF] + [0.0] * (
-            EMBEDDING_DIM - 2
+            EMBEDDING_DIMENSIONS - 2
         )
         far = _one_hot_vector(1)
         vecs = [near, mid, far]
