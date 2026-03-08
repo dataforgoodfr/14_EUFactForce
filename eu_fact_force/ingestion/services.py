@@ -4,12 +4,20 @@ This file is mostly a placeholder for future implementation.
 Create a dedicated file for real pipeline steps.
 """
 
+import hashlib
 from pathlib import Path
 
 from eu_fact_force.ingestion.embedding import add_embeddings
 from eu_fact_force.ingestion.parsing import parse_file
 
 from .models import DocumentChunk, FileMetadata, SourceFile
+
+
+def hash_doi(doi: str) -> str:
+    """
+    Hash the DOI to a string of 128 bits.
+    """
+    return hashlib.sha256(doi.encode()).hexdigest()
 
 
 def fetch_file_and_metadata(doi: str) -> tuple[str, list[str]]:
