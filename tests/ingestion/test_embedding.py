@@ -38,6 +38,7 @@ def test_add_embeddings_updates_persisted_chunks(monkeypatch):
 
 @pytest.mark.django_db
 def test_add_embeddings_skips_unsaved_and_empty_chunks(monkeypatch):
+    """Only persisted, non-empty chunks are embedded; unsaved and empty-content chunks are ignored."""
     source = SourceFileFactory()
     persisted = DocumentChunkFactory(source_file=source, content="ok", order=1)
     empty_chunk = DocumentChunk(source_file=source, content="   ", order=2)
@@ -48,6 +49,8 @@ def test_add_embeddings_skips_unsaved_and_empty_chunks(monkeypatch):
 
     embedding_module.add_embeddings([persisted, empty_chunk, unsaved_chunk])
 
+    # DB still has only the one persisted chunk; empty_chunk and unsaved_chunk were never saved
+    assert DocumentChunk.objects.count() == 1
     persisted.refresh_from_db()
     assert len(persisted.embedding) == 768
     assert persisted.embedding[0] == pytest.approx(0.1)
