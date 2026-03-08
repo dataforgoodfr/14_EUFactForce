@@ -30,7 +30,12 @@ def _normalize_paragraphs(text: str) -> list[str]:
     return paragraphs
 
 
-def _split_long_text(text: str, chunk_size: int, overlap: int) -> list[str]:
+def _split_into_fixed_size_chunks(text: str, chunk_size: int, overlap: int) -> list[str]:
+    """Split a single string into chunks of at most chunk_size chars with overlap.
+
+    Consecutive chunks overlap by `overlap` characters. Each chunk is stripped
+    of leading/trailing whitespace; empty chunks are omitted.
+    """
     if chunk_size <= overlap:
         raise ValueError("chunk_size must be strictly greater than overlap.")
 
@@ -69,7 +74,7 @@ def split_into_paragraph_chunks(
                 chunks.append(current)
                 current = ""
             chunks.extend(
-                _split_long_text(
+                _split_into_fixed_size_chunks(
                     paragraph,
                     chunk_size=max_chunk_chars,
                     overlap=overlap_chars,
