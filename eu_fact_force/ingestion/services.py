@@ -12,7 +12,7 @@ from eu_fact_force.ingestion.parsing import parse_file
 from .models import DocumentChunk, FileMetadata, SourceFile
 
 
-def fetch_file_and_metadata(doi: str) -> tuple[str, list[str]]:
+def fetch_file_and_metadata(doi: str) -> tuple[Path, list[str]]:
     """
     Simulate an API call to fetch a PDF and metadata.
     V0: returns a local file path and a list of tags (tags_pubmed); no real HTTP call.

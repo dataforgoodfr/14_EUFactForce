@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pytest
 
+from eu_fact_force.ingestion import parsing as parsing_module
 from eu_fact_force.ingestion.models import DocumentChunk, SourceFile
 from eu_fact_force.ingestion.services import run_pipeline
 
@@ -11,10 +12,16 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 @pytest.mark.django_db
-def test_run_pipeline_uses_readme_md(tmp_storage):
+def test_run_pipeline_uses_readme_md(tmp_storage, monkeypatch):
     """Run the full pipeline with the project README.md as the test file."""
     readme_fn = PROJECT_ROOT / "README.md"
     assert readme_fn.exists(), f"Test file must exist: {readme_fn}"
+
+    monkeypatch.setattr(
+        parsing_module,
+        "_extract_text_from_source_file",
+        lambda _: "first paragraph\n\nsecond paragraph\n\nthird paragraph",
+    )
 
     source_file, _ = run_pipeline("README.md")
 
@@ -29,4 +36,4 @@ def test_run_pipeline_uses_readme_md(tmp_storage):
         DocumentChunk.objects.filter(source_file=source_file).order_by("order")
     )
     saved_chunk_contents = [chunk.content for chunk in saved_chunks]
-    assert saved_chunk_contents == ["simulated", "README.md"]
+    assert saved_chunk_contents == ["first paragraph\n\nsecond paragraph\n\nthird paragraph"]
