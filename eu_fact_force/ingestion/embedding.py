@@ -42,5 +42,4 @@ def add_embeddings(chunks: list[DocumentChunk]):
         )
         for chunk, vector in zip(batch, vectors):
             chunk.embedding = vector.tolist() if hasattr(vector, "tolist") else list(vector)
-
-    DocumentChunk.objects.bulk_update(persisted_chunks, ["embedding"])
+        DocumentChunk.objects.bulk_update(batch, ["embedding"])
