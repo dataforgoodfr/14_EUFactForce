@@ -9,6 +9,16 @@ class TestSplitIntoParagraphChunks:
     """Tests for split_into_paragraph_chunks."""
 
     def test_keeps_order(self):
+        """Order of chunks matches order of paragraphs; multiple chunks when limit is small."""
+        text = "alpha\n\nbeta\n\ngamma"
+        # Force separate chunks so we can assert order
+        chunks = split_into_paragraph_chunks(
+            text, max_chunk_chars=10, overlap_chars=0
+        )
+        assert chunks == ["alpha", "beta", "gamma"]
+
+    def test_merges_paragraphs_when_under_limit(self):
+        """When all paragraphs fit in one chunk, they are merged."""
         text = "alpha\n\nbeta\n\ngamma"
         assert split_into_paragraph_chunks(
             text, max_chunk_chars=100, overlap_chars=10
