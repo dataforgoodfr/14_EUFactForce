@@ -21,10 +21,12 @@ pythonpath = ["."]
 
 [dependency-groups]
 dev = [
+    "factory-boy>=3.3.0",
     "jupyter>=1.1.1",
     "pre-commit>=4.5.1",
     "pytest>=9.0.2",
     "pytest-django>=4.8",
+    "pytest-factoryboy>=2.6.0",
     "ruff>=0.15.0",
     "seaborn>=0.13.2",
 ]
