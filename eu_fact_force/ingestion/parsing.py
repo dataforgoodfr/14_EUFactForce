@@ -14,22 +14,14 @@ from eu_fact_force.ingestion.models import SourceFile
 
 @contextmanager
 def _source_file_local_path(source_file: SourceFile):
-    """Yield a local file path for a source file stored via Django storage."""
+    """Yield a local file path for a source file stored in S3.
+
+    S3 does not expose a filesystem path, so we stream the object into a temp
+    file and yield that path. Downstream (e.g. Docling) expects a path to a
+    real file on disk.
+    """
     if not source_file.s3_key:
         raise ValueError("Cannot parse a source file without s3_key.")
-
-    storage_path: Path | None = None
-    try:
-        candidate = Path(default_storage.path(source_file.s3_key))
-        if candidate.exists():
-            storage_path = candidate
-    except Exception:
-        # Some storage backends (e.g. S3) do not expose local paths.
-        pass
-
-    if storage_path is not None:
-        yield storage_path
-        return
 
     suffix = Path(source_file.s3_key).suffix
     with default_storage.open(source_file.s3_key, mode="rb") as handle:
