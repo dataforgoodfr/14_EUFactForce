@@ -2,6 +2,7 @@ from eu_fact_force.ingestion.models import DocumentChunk
 from typing import Iterator
 
 MODEL_ID = "intfloat/multilingual-e5-base"
+# E5 models expect "passage: " for documents to index and "query: " for search queries (asymmetric retrieval).
 PASSAGE_PREFIX = "passage: "
 EMBED_BATCH_SIZE = 32
 _MODEL = None
