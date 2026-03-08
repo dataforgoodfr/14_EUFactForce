@@ -39,17 +39,12 @@ def _split_into_fixed_size_chunks(text: str, chunk_size: int, overlap: int) -> l
     if chunk_size <= overlap:
         raise ValueError("chunk_size must be strictly greater than overlap.")
 
-    chunks: list[str] = []
-    start = 0
-    while start < len(text):
-        end = min(start + chunk_size, len(text))
-        chunk = text[start:end].strip()
-        if chunk:
-            chunks.append(chunk)
-        if end == len(text):
-            break
-        start = end - overlap
-    return chunks
+    step = chunk_size - overlap
+    return [
+        chunk
+        for start in range(0, len(text), step)
+        if (chunk := text[start : min(start + chunk_size, len(text))].strip())
+    ]
 
 
 def split_into_paragraph_chunks(
