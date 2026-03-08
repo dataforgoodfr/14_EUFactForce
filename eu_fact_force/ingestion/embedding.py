@@ -2,6 +2,7 @@ from eu_fact_force.ingestion.models import DocumentChunk
 from typing import Iterator
 
 MODEL_ID = "intfloat/multilingual-e5-base"
+# E5 models expect "passage: " for documents to index and "query: " for search queries (asymmetric retrieval).
 PASSAGE_PREFIX = "passage: "
 QUERY_PREFIX = "query: "
 EMBED_BATCH_SIZE = 32
@@ -60,5 +61,4 @@ def add_embeddings(chunks: list[DocumentChunk]):
         )
         for chunk, vector in zip(batch, vectors):
             chunk.embedding = vector.tolist() if hasattr(vector, "tolist") else list(vector)
-
-    DocumentChunk.objects.bulk_update(persisted_chunks, ["embedding"])
+        DocumentChunk.objects.bulk_update(batch, ["embedding"])
