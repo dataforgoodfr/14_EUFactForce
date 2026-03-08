@@ -13,6 +13,13 @@ _RE_HAS_ALPHANUM = re.compile(r"[A-Za-z0-9]")
 
 
 def _normalize_paragraphs(text: str) -> list[str]:
+    """Normalize text into a list of non-empty paragraphs.
+
+    - Normalize line endings (CRLF/CR to LF).
+    - Split on blank lines.
+    - For each segment: collapse internal whitespace to a single space, strip.
+    - Drop empty segments and segments with no alphanumeric characters.
+    """
     normalized = text.replace("\r\n", "\n").replace("\r", "\n")
     raw_paragraphs = _RE_PARAGRAPH_SPLIT.split(normalized)
     paragraphs: list[str] = []
