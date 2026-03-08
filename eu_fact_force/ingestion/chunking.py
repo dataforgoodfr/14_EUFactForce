@@ -7,14 +7,18 @@ import re
 MAX_CHUNK_CHARS = 1200
 CHUNK_OVERLAP_CHARS = 200
 
+_RE_PARAGRAPH_SPLIT = re.compile(r"\n\s*\n")
+_RE_WHITESPACE = re.compile(r"\s+")
+_RE_HAS_ALPHANUM = re.compile(r"[A-Za-z0-9]")
+
 
 def _normalize_paragraphs(text: str) -> list[str]:
     normalized = text.replace("\r\n", "\n").replace("\r", "\n")
-    raw_paragraphs = re.split(r"\n\s*\n", normalized)
+    raw_paragraphs = _RE_PARAGRAPH_SPLIT.split(normalized)
     paragraphs: list[str] = []
     for paragraph in raw_paragraphs:
-        compact = re.sub(r"\s+", " ", paragraph).strip()
-        if compact and re.search(r"[A-Za-z0-9]", compact):
+        compact = _RE_WHITESPACE.sub(" ", paragraph).strip()
+        if compact and _RE_HAS_ALPHANUM.search(compact):
             paragraphs.append(compact)
     return paragraphs
 
