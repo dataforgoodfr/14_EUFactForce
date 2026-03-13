@@ -1,5 +1,4 @@
 import json
-import sys
 
 import requests
 import argparse
@@ -10,12 +9,12 @@ api_to_metadata = {
     "HAL": {
         "url": "https://api.archives-ouvertes.fr/search/?q=doiId_s:",
         "url_suffix": "&fl=*",
-        "response_root": "/response/docs/0",  # path to the document in the response
+        "response_root": "/response/docs/0",
         "metadata_fields": {
             "author": "authFullName_s",
             "journal": "journalTitle_s",
             "link": "uri_s",
-            "keywords": "mesh_s",
+            "keywords": {"fallback": ["mesh_s", "keyword_s"]},
             "publish date": "publicationDate_s",
             "cited articles": "",
             "article name": "title_s",
@@ -27,56 +26,72 @@ api_to_metadata = {
     },
     "CrossRef": {
         "url": "https://api.crossref.org/works/doi/",
-        "response_root": "",  # fields use absolute paths from root
+        "response_root": "",
         "metadata_fields": {
             "author": {
-                "first_name": "/message/author/0/given",
-                "last_name": "/message/author/0/family"
+                "path": "/message/author",
+                "each": {
+                    "format": "{first} {last}",
+                    "fields": {
+                        "first": {"path": "given"},
+                        "last": {"path": "family"}
+                    }
+                }
             },
             "journal": "message/publisher",
             "link": "message/resource/primary/URL",
             "keywords": "",
-            "publish date": {
-                "year": "/message/published/date-parts/0/0",
-                "month": "/message/published/date-parts/0/1",
-                "day": "/message/published/date-parts/0/2",
+            "publish date": {"path": "/message/published/date-parts/0", "join": "-", "pad": 2},
+            "cited articles": {
+                "path": "/message/reference",
+                "each": {"extract_first": ["DOI", "unstructured"]}
             },
-            "cited articles": {"key": "message", "extract": "reference"},  # id/DOI ou unstructured
             "article name": "/message/title/0",
             "doi code": "/message/DOI",
             "article type": "/message/type",
             "open_access": "",
             "status": {
-                "updated" : "/message/updated_by", # id/type (can be "correction", "retraction")
+                "path": "/message/updated-by",
+                "default": "published",
+                "each": {
+                    "format": "{type} on {date}",
+                    "fields": {
+                        "type": {"path": "type", "labels": {"correction": "corrected", "retraction": "retracted"}},
+                        "date": {"path": "updated/date-time", "slice": 10}
+                    }
+                }
             }
         }
     },
     "OpenAlex": {
-        "url": "https://api.openalex.org/works/doi:",  # ?api_key={OPENALEX_API_KEY}
+        "url": "https://api.openalex.org/works/doi:",
         "response_root": "",
         "metadata_fields": {
-            "author": {"key": "authorships", "extract": "raw_author_name"},
-            "journal": "locations/0/source/host_organization_name",
-            "link" : "best_oa_location/pdf_url",
-            "keywords": {"key": "mesh", "extract": "descriptor_name"},
+            "author": {"path": "authorships", "each": {"extract": "raw_author_name"}},
+            "journal": "primary_location/source/host_organization_name",
+            "link": "best_oa_location/pdf_url",
+            "keywords": {"path": "mesh", "each": {"extract": "descriptor_name", "unique": True}},
             "publish date": "publication_date",
-            "cited articles": "referenced_works",  # id (donne un lien openalex auquel on ajoute api. avant openalex pour avoir les métadonnées)
+            "cited articles": {
+                "path": "referenced_works",
+                "fetch": {
+                    "url": "https://api.openalex.org/works?filter=ids.openalex:{ids}&select=id,{field}&per-page=200",
+                    "id_from": "url_last_segment",
+                    "field": "doi"
+                }
+            },
             "article name": "title",
             "doi code": "doi",
             "article type": "type",
-            "open access": "open_access/is_oa", #boolean
-            "status": {
-                "accepted": "locations/0/is_accepted",
-                "published": "locations/0/is_published",
-                "retracted": "is_retracted"
-            }
+            "open access": "open_access/is_oa",
+            "status": {"path": "is_retracted", "if_true": "retracted", "if_false": "published"}
         }
     }
 }
 
 
-def resolve_path(data: dict, path: str):
-    """Navigate a slash-separated JSON path like /message/author/0/given."""
+def resolve_path(data, path: str):
+    """Navigate a slash-separated path: /a/b/0/c, a/b/c, or plain_key."""
     for part in path.strip("/").split("/"):
         if data is None:
             return None
@@ -84,24 +99,90 @@ def resolve_path(data: dict, path: str):
     return data
 
 
+def _extract_each(items: list, spec: dict):
+    """Apply a spec to each item in a list and return the collected results."""
+    results = []
+    for item in items:
+        if "extract" in spec:
+            val = resolve_path(item, spec["extract"])
+            if val is not None:
+                results.append(val)
+        elif "extract_first" in spec:
+            for field in spec["extract_first"]:
+                if field in item:
+                    results.append(item[field])
+                    break
+        elif "format" in spec:
+            fields = {}
+            for name, field_spec in spec["fields"].items():
+                val = resolve_path(item, field_spec["path"])
+                if "slice" in field_spec:
+                    val = str(val or "")[:field_spec["slice"]]
+                if "labels" in field_spec:
+                    val = field_spec["labels"].get(val, val)
+                fields[name] = val
+            results.append(spec["format"].format(**fields))
+    if spec.get("unique"):
+        results = list(dict.fromkeys(results))
+    return results[0] if len(results) == 1 else results
+
+
+def _fetch_secondary(urls: list, spec: dict) -> list:
+    """Fetch a field for a list of resource URLs via a secondary batch API call."""
+    if not urls:
+        return []
+    field = spec["field"]
+    ids = [u.split("/")[-1] for u in urls] if spec.get("id_from") == "url_last_segment" else urls
+    url = spec["url"].format(ids="|".join(ids), field=field)
+    response = requests.get(url)
+    response.raise_for_status()
+    return [r[field] for r in response.json().get("results", []) if r.get(field)]
+
+
 def _extract_field(data: dict, doc: dict, path):
-    """
-    Resolve a field value:
-    - {"key": ..., "extract": ...} → get a list, return unique values of the given subkey
-    - {"k": "v", ...} without "key"  → resolve each value recursively (e.g. author sub-fields)
-    - "/absolute/path"               → resolve from response root
-    - "plain_key"                    → simple lookup on extracted doc
+    """Resolve a field from the API response according to a path spec.
+
+    Supported specs:
+    - ""                          → None
+    - "plain_key"                 → doc["plain_key"]
+    - "nested/path"               → resolve from doc
+    - "/absolute/path"            → resolve from response root
+    - {"fallback": [...]}         → first non-null among listed paths
+    - {"path": ..., "default": ...}              → path or default if null
+    - {"path": ..., "if_true": x, "if_false": y} → boolean to string
+    - {"path": ..., "join": "-", "pad": 2}        → join list elements as string
+    - {"path": ..., "each": {spec}}               → iterate list, apply spec per item
+    - {"path": ..., "fetch": {spec}}              → secondary HTTP batch fetch
+    - {k: v, ...}                                 → nested dict, resolve each value
     """
     if isinstance(path, dict):
-        if "key" in path and "extract" in path:
-            items = doc.get(path["key"]) or []
-            return list(dict.fromkeys(item[path["extract"]] for item in items if path["extract"] in item))
+        if "fallback" in path:
+            for p in path["fallback"]:
+                value = _extract_field(data, doc, p)
+                if value:
+                    return value
+            return None
+        if "path" in path:
+            value = _extract_field(data, doc, path["path"])
+            if "if_true" in path:
+                return path["if_true"] if value else path["if_false"]
+            if not value:
+                return path.get("default")
+            if "join" in path:
+                pad = path.get("pad", 0)
+                return path["join"].join(str(p).zfill(pad) for p in value)
+            if "fetch" in path:
+                return _fetch_secondary(value, path["fetch"])
+            if "each" in path:
+                result = _extract_each(value, path["each"])
+                return result if result else path.get("default")
+            return value
         return {k: _extract_field(data, doc, v) for k, v in path.items()}
     if not path:
         return None
     if path.startswith("/"):
         return resolve_path(data, path)
-    return doc.get(path)
+    return resolve_path(doc, path)
 
 
 def fetch_metadata(doi: str, api: str) -> dict:
@@ -126,11 +207,9 @@ def fetch_metadata(doi: str, api: str) -> dict:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch metadata for a DOI from a specified API.")
-    parser.add_argument("--doi", required=False, default="10.1038/nature12373", help="DOI of the article")
+    parser.add_argument("--doi", required=False, default="10.1016/S0140-6736(97)11096-0", help="DOI of the article")
     parser.add_argument("--api", required=False, default="CrossRef", choices=api_to_metadata.keys(), help="API to use (HAL, CrossRef, OpenAlex)")
     args = parser.parse_args()
 
-    doi = args.doi
-    api = args.api
-    metadata = fetch_metadata(doi, api)
+    metadata = fetch_metadata(args.doi, args.api)
     print(json.dumps(metadata, indent=2, ensure_ascii=False))
