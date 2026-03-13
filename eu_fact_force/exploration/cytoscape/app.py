@@ -1,4 +1,6 @@
 from dash import Dash, dcc, html
+from dash.dependencies import Input, Output, State
+from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
 import plotly.io as pio
 import plotly.graph_objects as go
@@ -7,7 +9,7 @@ import dash_cytoscape as cyto
 import json
 
 from utils.colors import AppColors
-from utils.graph import elements, stylesheet
+from utils.graph import RandomGraphGenerator
 
 # Plotly template
 with open("assets/template.json", "r") as f:
@@ -28,6 +30,9 @@ DASHBOARD_NAME = "EU Fact Force"
 # Custom dash app tab and logo
 app.title = DASHBOARD_NAME
 app._favicon = "icon.png"
+
+# Graph generator
+generator = RandomGraphGenerator()
 
 # Header
 header = html.Div(
@@ -65,14 +70,33 @@ header = html.Div(
     },
 )
 # Content
-graph_example = html.Div(
-    cyto.Cytoscape(
-        id="graph",
-        elements=elements,
-        stylesheet=stylesheet,
-        layout={"name": "cose"},
-        style={"width": "100%", "height": "500px"},
-    ),
+search_bar = html.Div(
+    children=[
+        dbc.Row(
+            [
+                dbc.Col(
+                    dbc.Input(
+                        id="search-input",
+                        placeholder="Naratif de désinformation...",
+                        style={"overflow": "hidden"},
+                    )
+                ),
+                dbc.Col(
+                    dbc.Button(
+                        "Envoyer",
+                        id="search-button",
+                        color="primary",
+                        className="me-1",
+                        n_clicks=0,
+                        disabled=True,
+                    ),
+                    width="auto",
+                ),
+            ],
+            align="center",
+        )
+    ],
+    id="search",
     style={
         "border-radius": "15px",
         "padding": "20px",
@@ -80,20 +104,112 @@ graph_example = html.Div(
     },
 )
 
+graph = html.Div(
+    children=cyto.Cytoscape(
+        id="graph-cytoscape",
+        stylesheet=generator.stylesheet,
+        layout={"name": "cose"},
+        style={"width": "100%", "height": "400px"},
+    ),
+    id="graph",
+    style={
+        "border-radius": "15px",
+        "padding": "20px",
+        "background-color": AppColors.white,
+        "display": "none",
+    },
+)
+
+list_elements = html.Div(
+    id="list",
+    style={
+        "border-radius": "15px",
+        "padding": "20px",
+        "background-color": AppColors.white,
+        "display": "none",
+    },
+)
+
 
 content = html.Div(
-    children=graph_example,
-    id="page-content",
+    [search_bar, html.Br(), graph, html.Br(), list_elements],
     style={
         "margin-left": "1rem",
         "margin-right": "1rem",
         "padding": "1rem",
         "padding-top": "120px",
     },
+    id="page-content",
 )
+
 
 # Layout
 app.layout = html.Div([dcc.Location(id="url", refresh=False), header, content])
+
+
+# --------------------
+# Callbacks
+# --------------------
+
+
+# Callback search button activate
+@app.callback(
+    Output("search-button", "disabled"),
+    inputs=[Input("search-input", "value"), Input("graph", "children")],
+)
+def activate_search_buton(search_text, graph):
+    if search_text is None or search_text == "":
+        return True
+    else:
+        return False
+
+
+# Callback update graph
+@app.callback(
+    [
+        Output("graph-cytoscape", "elements"),
+        Output("list", "children"),
+        Output("graph", "style"),
+        Output("list", "style"),
+        Output("search-input", "value"),
+    ],
+    inputs=[Input("search-button", "n_clicks")],
+    state=[State("search-input", "value")],
+    prevent_updates=True,
+)
+def update_graph(n_clicks, search_text):
+    if n_clicks > 0:
+        graph_elements = generator.get_graph_data()
+        list_elements = [x["data"] for x in graph_elements if "id" in x["data"]]
+        list_elements = sorted(list_elements, key=lambda x: x["id"])
+        return [
+            graph_elements,
+            dbc.Accordion(
+                [
+                    dbc.AccordionItem(
+                        dcc.Markdown("\n".join([f"- {key} : {x[key]}" for key in x])),
+                        title=x["label"],
+                    )
+                    for x in list_elements
+                ]
+            ),
+            {
+                "border-radius": "15px",
+                "padding": "20px",
+                "background-color": AppColors.white,
+                "display": "block",
+            },
+            {
+                "border-radius": "15px",
+                "padding": "20px",
+                "background-color": AppColors.white,
+                "display": "block",
+            },
+            "",
+        ]
+    else:
+        raise PreventUpdate
+
 
 if __name__ == "__main__":
     app.run(debug=True)
