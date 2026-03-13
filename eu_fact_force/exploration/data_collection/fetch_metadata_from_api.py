@@ -13,12 +13,16 @@ api_to_metadata = {
         "response_root": "/response/docs/0",  # path to the document in the response
         "metadata_fields": {
             "author": "authFullName_s",
+            "journal": "journalTitle_s",
+            "link": "uri_s",
             "keywords": "mesh_s",
             "publish date": "publicationDate_s",
             "cited articles": "",
             "article name": "title_s",
             "doi code": "doiId_s",
-            "article type": "docType_s"
+            "article type": "docType_s",
+            "open access": "openAccess_bool",
+            "status": "",
         }
     },
     "CrossRef": {
@@ -29,6 +33,8 @@ api_to_metadata = {
                 "first_name": "/message/author/0/given",
                 "last_name": "/message/author/0/family"
             },
+            "journal": "message/publisher",
+            "link": "message/resource/primary/URL",
             "keywords": "",
             "publish date": {
                 "year": "/message/published/date-parts/0/0",
@@ -38,7 +44,11 @@ api_to_metadata = {
             "cited articles": {"key": "message", "extract": "reference"},  # id/DOI ou unstructured
             "article name": "/message/title/0",
             "doi code": "/message/DOI",
-            "article type": "/message/type"
+            "article type": "/message/type",
+            "open_access": "",
+            "status": {
+                "updated" : "/message/updated_by", # id/type (can be "correction", "retraction")
+            }
         }
     },
     "OpenAlex": {
@@ -46,12 +56,20 @@ api_to_metadata = {
         "response_root": "",
         "metadata_fields": {
             "author": {"key": "authorships", "extract": "raw_author_name"},
+            "journal": "locations/0/source/host_organization_name",
+            "link" : "best_oa_location/pdf_url",
             "keywords": {"key": "mesh", "extract": "descriptor_name"},
             "publish date": "publication_date",
             "cited articles": "referenced_works",  # id (donne un lien openalex auquel on ajoute api. avant openalex pour avoir les métadonnées)
             "article name": "title",
             "doi code": "doi",
-            "article type": "type"
+            "article type": "type",
+            "open access": "open_access/is_oa", #boolean
+            "status": {
+                "accepted": "locations/0/is_accepted",
+                "published": "locations/0/is_published",
+                "retracted": "is_retracted"
+            }
         }
     }
 }
