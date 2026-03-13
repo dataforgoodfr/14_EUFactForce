@@ -83,7 +83,7 @@ search_bar = html.Div(
                 ),
                 dbc.Col(
                     dbc.Button(
-                        "Envoyer",
+                        "Rechercher",
                         id="search-button",
                         color="primary",
                         className="me-1",
@@ -130,9 +130,17 @@ list_elements = html.Div(
     },
 )
 
+offcanevas = dbc.Offcanvas(
+    id="offcanvas",
+    title="Selectionné",
+    is_open=False,
+    placement="end",
+    style={"width": "50%"},
+)
+
 
 content = html.Div(
-    [search_bar, html.Br(), graph, html.Br(), list_elements],
+    [search_bar, html.Br(), graph, html.Br(), list_elements, offcanevas],
     style={
         "margin-left": "1rem",
         "margin-right": "1rem",
@@ -187,11 +195,16 @@ def update_graph(n_clicks, search_text):
             dbc.Accordion(
                 [
                     dbc.AccordionItem(
-                        dcc.Markdown("\n".join([f"- {key} : {x[key]}" for key in x])),
+                        dcc.Markdown(
+                            "\n".join(
+                                [f"- {key.capitalize()} : __{x[key]}__" for key in x]
+                            )
+                        ),
                         title=x["label"],
                     )
                     for x in list_elements
-                ]
+                ],
+                start_collapsed=True,
             ),
             {
                 "border-radius": "15px",
@@ -209,6 +222,32 @@ def update_graph(n_clicks, search_text):
         ]
     else:
         raise PreventUpdate
+
+
+# Callback show selected element
+@app.callback(
+    [
+        Output("offcanvas", "is_open"),
+        Output("offcanvas", "children"),
+    ],
+    inputs=[Input("graph-cytoscape", "tapNodeData")],
+    state=[State("offcanvas", "is_open")],
+    prevent_initial_call=True,
+)
+def toggle_offcanvas(node_data, is_open):
+    if node_data:
+        return [
+            not is_open,
+            dcc.Markdown(
+                "\n".join(
+                    [
+                        f"- {key.capitalize()} : __{node_data[key]}__"
+                        for key in node_data
+                        if key != "timeStamp"
+                    ]
+                )
+            ),
+        ]
 
 
 if __name__ == "__main__":
