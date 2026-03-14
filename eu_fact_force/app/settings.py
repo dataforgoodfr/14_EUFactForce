@@ -114,20 +114,14 @@ def _get_databases():
             "PASSWORD": parsed.password,
             "HOST": parsed.hostname,
             "PORT": parsed.port or "5432",
+            "TEST": {
+                "NAME": f"test_{parsed.path.lstrip('/')}",
+            },
         }
     }
 
 
 DATABASES = _get_databases()
-
-# Use a dedicated test database name so tests do not overwrite dev/prod data
-if (
-    "default" in DATABASES
-    and DATABASES["default"]["ENGINE"] == "django.db.backends.postgresql"
-):
-    _db_name = DATABASES["default"].get("NAME", "eu_fact_force")
-    DATABASES["default"].setdefault("TEST", {})["NAME"] = f"test_{_db_name}"
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
