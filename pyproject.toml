@@ -30,6 +30,11 @@ dev = [
     "ruff>=0.15.0",
     "seaborn>=0.13.2",
 ]
+graph = [
+    "dash>=4.0.0",
+    "dash-bootstrap-components>=2.0.4",
+    "dash-cytoscape>=1.0.2",
+]
 parsing = [
     "docling>=2.73.1",
     "docling-hierarchical-pdf>=0.1.3",
