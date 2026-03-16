@@ -23,10 +23,11 @@ def embed_query(query: str) -> list[float]:
     Embed a search query with the same model as ingestion (E5 query prefix).
     Returns a 768-d normalized vector for use with pgvector similarity search.
     """
-    if not query or not query.strip():
+    normalized_query = query.strip() if query is not None else ""
+    if not normalized_query:
         raise ValueError("query must be non-empty")
     model = _get_model()
-    text = f"{QUERY_PREFIX}{query.strip()}"
+    text = f"{QUERY_PREFIX}{normalized_query}"
     vector = model.encode(
         [text],
         show_progress_bar=False,
