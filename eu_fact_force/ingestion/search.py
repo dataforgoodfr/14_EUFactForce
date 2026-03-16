@@ -1,7 +1,5 @@
 """Semantic search over ingested document chunks using pgvector."""
 
-from __future__ import annotations
-
 from eu_fact_force.ingestion.embedding import embed_query
 from eu_fact_force.ingestion.models import DocumentChunk
 from pgvector.django import CosineDistance
