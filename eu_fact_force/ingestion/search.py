@@ -19,7 +19,7 @@ def search_chunks(query: str, k: int = 10) -> list[tuple[DocumentChunk, float]]:
     via the ORM relation for display (e.g. source_file.doi).
     """
     if k <= 0:
-        return []
+        raise ValueError("k must be a positive integer")
     query_vector = embed_query(query)
     qs = (
         DocumentChunk.objects.filter(embedding__isnull=False)

@@ -92,10 +92,10 @@ def test_search_chunks_respects_k(monkeypatch):
 
 
 @pytest.mark.django_db
-def test_search_chunks_k_zero_returns_empty():
-    """k<=0 returns empty list without calling embed_query."""
-    results = search_module.search_chunks("q", k=0)
-    assert results == []
+def test_search_chunks_k_zero_raises_value_error():
+    """k<=0 raises ValueError to signal incorrect usage."""
+    with pytest.raises(ValueError):
+        search_module.search_chunks("q", k=0)
 
 
 @pytest.mark.django_db
