@@ -6,7 +6,7 @@ from pathlib import Path
 
 import fitz as PyMuPDF
 from dotenv import load_dotenv
-from .benchmarking.benchmark_metadata import (
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.benchmark_metadata import (
     compute_metadata_score,
     detect_abstract,
     detect_authors,
@@ -14,19 +14,24 @@ from .benchmarking.benchmark_metadata import (
     detect_references,
     detect_title,
 )
-from .benchmarking.parsers import parse_with_config
-from .benchmarking.extracted_text_store import (
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.parsers import (
+    parse_with_config,
+)
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.extracted_text_store import (
     RAW_DATASET_VARIANT,
     resolve_existing_path,
     structured_path,
 )
-from .benchmarking.ground_truth_loader import get_doc_type_map, get_filenames_for_doc_type
-from .benchmarking.parser_config import (
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.ground_truth_loader import (
+    get_doc_type_map,
+    get_filenames_for_doc_type,
+)
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.parser_config import (
     CONFIGS,
     CONFIG_PROFILES,
     deduplicate_parser_config_names,
 )
-from .text_cleaning import postprocess_text
+from eu_fact_force.ingestion.parsing.text_cleaning import postprocess_text
 
 load_dotenv()
 

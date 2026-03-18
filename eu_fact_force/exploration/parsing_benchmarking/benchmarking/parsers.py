@@ -8,7 +8,7 @@ import fitz as PyMuPDF
 from docling.document_converter import DocumentConverter
 from hierarchical.postprocessor import ResultPostprocessor
 
-from ..docling_postprocess import render_docling_output
+from eu_fact_force.ingestion.parsing.docling_postprocess import render_docling_output
 
 
 def parse_llamaparse(file_path: Path, result_type: str, api_key: str | None):

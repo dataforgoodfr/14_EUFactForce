@@ -9,7 +9,7 @@ import re
 from difflib import SequenceMatcher
 from pathlib import Path
 
-from ..text_cleaning import strip_legal_boilerplate_lines
+from eu_fact_force.ingestion.parsing.text_cleaning import strip_legal_boilerplate_lines
 
 # =========================
 # SHARED CONSTANTS

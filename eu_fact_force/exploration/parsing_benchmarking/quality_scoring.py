@@ -18,7 +18,7 @@ import argparse
 import time
 from pathlib import Path
 
-from .benchmarking.extracted_text_store import (
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.extracted_text_store import (
     RAW_DATASET_VARIANT,
     resolve_existing_path,
     structured_path,
@@ -35,9 +35,15 @@ from .scoring.metadata import (
     score_keywords_accuracy, compute_metadata_accuracy_score,
 )
 from .scoring.similarity import score_reference_text
-from .scoring.utils import FOUND, find_reference_text_path
-from .benchmarking.ground_truth_loader import get_ground_truth_documents, filter_documents
-from .benchmarking.parser_config import (
+from eu_fact_force.exploration.parsing_benchmarking.scoring.utils import (
+    FOUND,
+    find_reference_text_path,
+)
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.ground_truth_loader import (
+    get_ground_truth_documents,
+    filter_documents,
+)
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.parser_config import (
     deduplicate_parser_config_names,
     get_scoring_configs,
     get_scoring_profiles,

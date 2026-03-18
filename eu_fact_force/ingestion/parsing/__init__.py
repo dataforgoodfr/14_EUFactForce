@@ -5,6 +5,9 @@ from __future__ import annotations
 from contextlib import contextmanager
 from pathlib import Path
 import tempfile
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.parsers import (
+    parse_docling,
+)
 
 
 @contextmanager
@@ -33,7 +36,6 @@ def _source_file_local_path(source_file):
 
 def _extract_text_from_source_file(source_file) -> str:
     """Parse a source file with Docling and return postprocessed markdown text."""
-    from .benchmarking.parsers import parse_docling
 
     with _source_file_local_path(source_file) as file_path:
         full_text, _, _ = parse_docling(

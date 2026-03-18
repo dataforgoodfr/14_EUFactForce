@@ -11,9 +11,11 @@ import argparse
 from difflib import SequenceMatcher
 from pathlib import Path
 
-from .benchmarking.extracted_text_store import DATASET_VARIANTS
+from eu_fact_force.exploration.parsing_benchmarking.benchmarking.extracted_text_store import (
+    DATASET_VARIANTS,
+)
 from .scoring.similarity import score_reference_text
-from .scoring.utils import (
+from eu_fact_force.exploration.parsing_benchmarking.scoring.utils import (
     find_reference_text_path,
     normalize_for_similarity,
     strip_footnotes_section,
