@@ -9,7 +9,7 @@ from eu_fact_force.exploration.parsing_benchmarking.benchmarking.parsers import 
     parse_docling,
 )
 from eu_fact_force.ingestion.chunking import MAX_CHUNK_CHARS, split_into_paragraph_chunks
-
+from django.core.files.storage import default_storage
 
 @contextmanager
 def _source_file_local_path(source_file):
@@ -19,7 +19,6 @@ def _source_file_local_path(source_file):
     file and yield that path. Downstream (e.g. Docling) expects a path to a
     real file on disk.
     """
-    from django.core.files.storage import default_storage
 
     if not source_file.s3_key:
         raise ValueError("Cannot parse a source file without s3_key.")
