@@ -4,7 +4,7 @@ import requests
 # API configuration
 # ---------------------------------------------------------------------------
 
-API_ORDER = ["CrossRef", "HAL", "OpenAlex"]
+API_ORDER = ["CrossRef", "HAL", "OpenAlex", "PubMed"]
 
 API_CONFIG = {
     "HAL": {
@@ -88,6 +88,30 @@ API_CONFIG = {
             "status":       {"path": "is_retracted", "if_true": "retracted", "if_false": "published"},
         },
     },
+    "PubMed": {
+        "resolve": {
+            "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+            "params": {"db": "pubmed", "retmode": "json"},
+            "doi_term": "[DOI]",
+            "id_path": "/esearchresult/idlist/0",
+        },
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=",
+        "url_suffix": "&retmode=json",
+        "response_root": "/result/{id}",
+        "fields": {
+            "article name":  "title",
+            "author":        {"path": "authors", "each": {"extract": "name"}},
+            "journal":       "fulljournalname",
+            "publish date":  "pubdate",
+            "link":          "",
+            "keywords":      "",
+            "cited articles": "",
+            "doi code":      {"path": "articleids", "each": {"filter": {"idtype": "doi"}, "extract": "value"}},
+            "article type":  "pubtype/0",
+            "open access":   "",
+            "status":        {"path": "pubtype", "any_contains": "Retracted Publication", "if_true": "retracted", "if_false": "published"},
+        },
+    },
 }
 
 # ---------------------------------------------------------------------------
@@ -108,6 +132,8 @@ def _resolve_path(data, path: str):
 
 def _extract_each(items: list, spec: dict):
     """Apply an extraction spec to each item in a list and return the collected results."""
+    if "filter" in spec:
+        items = [item for item in items if all(item.get(k) == v for k, v in spec["filter"].items())]
     results = []
     for item in items:
         if "extract" in spec:
@@ -170,6 +196,8 @@ def _extract_field(data: dict, doc: dict, path):
             return None
         if "path" in path:
             value = _extract_field(data, doc, path["path"])
+            if "any_contains" in path:
+                return path["if_true"] if path["any_contains"] in (value or []) else path["if_false"]
             if "if_true" in path:
                 return path["if_true"] if value else path["if_false"]
             if not value:
@@ -201,7 +229,19 @@ def fetch_metadata(doi: str, api: str) -> dict:
     if config is None:
         raise ValueError(f"Unknown API: {api}. Choose from {list(API_CONFIG)}")
 
-    url = config["url"] + doi + config.get("url_suffix", "")
+    resolved_id = doi
+    if "resolve" in config:
+        resolve_cfg = config["resolve"]
+        params = dict(resolve_cfg.get("params", {}))
+        params["term"] = doi + resolve_cfg.get("doi_term", "")
+        r = requests.get(resolve_cfg["url"], params=params)
+        r.raise_for_status()
+        resolved_id = _resolve_path(r.json(), resolve_cfg["id_path"])
+        if not resolved_id:
+            print(f"DOI not found in {api}: {doi}")
+            return {"found": False}
+
+    url = config["url"] + resolved_id + config.get("url_suffix", "")
     response = requests.get(url)
     if response.status_code == 404:
         print(f"DOI not found in {api}: {doi}")
@@ -209,7 +249,7 @@ def fetch_metadata(doi: str, api: str) -> dict:
     response.raise_for_status()
     data = response.json()
 
-    response_root = config.get("response_root", "")
+    response_root = config.get("response_root", "").replace("{id}", resolved_id)
     doc = _resolve_path(data, response_root) if response_root else data
     if doc is None:
         print(f"DOI not found in {api}: {doi}")
