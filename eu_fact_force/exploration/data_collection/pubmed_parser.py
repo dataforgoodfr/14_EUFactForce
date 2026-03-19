@@ -28,8 +28,7 @@ class PubMedMetadataParser(MetadataParser):
         return None
 
     def _get_article_type(self, doc):
-        pubtypes = doc.get("pubtype", [])
-        return pubtypes[0] if pubtypes else None
+        return doc.get("pubtype") or None
 
     def _get_status(self, doc):
         return "retracted" if "Retracted Publication" in doc.get("pubtype", []) else "published"
@@ -67,7 +66,13 @@ class PubMedMetadataParser(MetadataParser):
 
 
 if __name__ == "__main__":
+    import argparse
+    import json
+
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument("--doi", default="10.1016/S0140-6736(97)11096-0")
+    args = arg_parser.parse_args()
+
     parser = PubMedMetadataParser()
-    doi = "10.1016/S0140-6736(97)11096-0"
-    metadata = parser.get_metadata(doi)
-    print(metadata)
+    metadata = parser.get_metadata(args.doi)
+    print(json.dumps(metadata, indent=2, ensure_ascii=False))
