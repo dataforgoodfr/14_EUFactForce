@@ -38,47 +38,36 @@ class HALMetadataParser(MetadataParser):
     def __init__(self):
         super().__init__()
         self.url = "https://api.archives-ouvertes.fr/search/?q=doiId_s:{doi}&fl=*"
-        self.metadata_mapping = {
-            "article name":  "title_s",
-            "authors":       "authFullName_s",
-            "journal":       "journalTitle_s",
-            "publish date":  "publicationDate_s",
-            "link":          "uri_s",
-            "keywords":      ["mesh_s", "keyword_s"],
-            "cited articles": "",
-            "doi":           "doiId_s",
-            "article type":  "docType_s",
-            "open access":   "openAccess_bool",
-            "status":        ""
-        }
-        
+
+    def _get_keywords(self, doc):
+        return next((doc[key] for key in ["mesh_s", "keyword_s"] if doc.get(key)), None)
 
     def get_metadata(self, doi: str) -> dict:
         response = requests.get(self.url.format(doi=doi))
-        response.raise_for_status()                                                                
+        response.raise_for_status()
         docs = response.json().get("response", {}).get("docs", [])
 
         if not docs:
             return {"found": False}
 
         doc = docs[0]
-        results = {}
 
-        for metadata_type, metadata_value in self.metadata_mapping.items():
-            if metadata_value is None:
-                pass
+        return {
+            "found":          True,
+            "article name":   doc.get("title_s"),
+            "authors":        doc.get("authFullName_s"),
+            "journal":        doc.get("journalTitle_s"),
+            "publish date":   doc.get("publicationDate_s"),
+            "link":           doc.get("uri_s"),
+            "keywords":       self._get_keywords(doc),
+            "cited articles": None,
+            "doi":            doc.get("doiId_s"),
+            "article type":   doc.get("docType_s"),
+            "open access":    doc.get("openAccess_bool"),
+            "status":         None,
+        }
+    
 
-            # if the field is a list of possible fields, take the first one that exists in the doc
-            elif isinstance(metadata_value, list):
-                results[metadata_type] = next(                                                          
-                    (doc[key] for key in metadata_value if doc.get(key)), None
-                )
-
-            # champ simple
-            else:
-                results[metadata_type] = doc.get(metadata_value)
-
-        return {"found": True} | results
 
 if __name__ == "__main__":
     parser = HALMetadataParser()
