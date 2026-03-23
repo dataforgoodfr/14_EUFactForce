@@ -2,6 +2,36 @@ import random
 
 from .colors import EUPHAColors
 
+stylesheet = [
+    {
+        "selector": "node",
+        "style": {
+            "label": "data(label)",
+            "text-valign": "center",
+            "color": "black",
+        },
+    },
+    {
+        "selector": 'node[type="paper"]',
+        "style": {
+            "background-color": EUPHAColors.dark_blue,
+        },
+    },
+    {
+        "selector": 'node[type="journal"]',
+        "style": {
+            "background-color": EUPHAColors.light_blue,
+        },
+    },
+    {
+        "selector": "edge",
+        "style": {
+            "width": 2,
+            "line-color": "black",
+        },
+    },
+]
+
 
 class RandomGraphGenerator:
     def __init__(self):
@@ -16,35 +46,7 @@ class RandomGraphGenerator:
             {"data": {"id": "node_journal_1", "label": "Journal B", "type": "journal"}},
             {"data": {"id": "node_journal_2", "label": "Journal C", "type": "journal"}},
         ]
-        self.stylesheet = [
-            {
-                "selector": "node",
-                "style": {
-                    "label": "data(label)",
-                    "text-valign": "center",
-                    "color": "black",
-                },
-            },
-            {
-                "selector": 'node[type="paper"]',
-                "style": {
-                    "background-color": EUPHAColors.dark_blue,
-                },
-            },
-            {
-                "selector": 'node[type="journal"]',
-                "style": {
-                    "background-color": EUPHAColors.light_blue,
-                },
-            },
-            {
-                "selector": "edge",
-                "style": {
-                    "width": 2,
-                    "line-color": "black",
-                },
-            },
-        ]
+        self.stylesheet = stylesheet
 
     def get_graph_data(self):
         nodes = random.sample(

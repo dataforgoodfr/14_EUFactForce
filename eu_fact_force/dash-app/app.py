@@ -4,12 +4,12 @@ from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
 import plotly.io as pio
 import plotly.graph_objects as go
-import dash_cytoscape as cyto
 
 import json
 
 from utils.colors import EUPHAColors
 from utils.graph import RandomGraphGenerator
+from pages import readme, ingest, graph
 
 # Plotly template
 with open("assets/template.json", "r") as f:
@@ -31,34 +31,82 @@ DASHBOARD_NAME = "EU Fact Force"
 app.title = DASHBOARD_NAME
 app._favicon = "logo-eupha-u-blue.png"
 
-# Graph generator
-generator = RandomGraphGenerator()
+# App pages
+pages = {
+    "Readme": {"href": "/", "content": readme},
+    "Ingestion": {"href": "/ingest", "content": ingest},
+    "Graph": {"href": "/graph", "content": graph},
+}
 
-# Header
+# Header and navigation
+nav_pages = [
+    dbc.NavLink(
+        page,
+        href=pages[page]["href"],
+        style={"color": EUPHAColors.white},
+        active="exact",
+    )
+    for page in pages
+]
+
+nav_col = dbc.Col(
+    [dbc.Nav(nav_pages, vertical=False, pills=True, justified=True)],
+    width=4,
+    align="center",
+    style={"padding": "0rem"},
+)
+
 header = html.Div(
     dbc.Row(
-        dbc.Col(
-            html.Div(
-                [
-                    html.Img(src="assets/logo-eupha-white.png", alt="image", height=50, style={"padding-right": "10px"}),
-                    html.H1(
-                        DASHBOARD_NAME,
-                        style={
-                            "color": EUPHAColors.white,
-                            "font-weight": "bold",
-                            "margin": "0",
-                            "padding": "0",
-                        },
-                    ),
-                ],
-                style={
-                    "display": "flex",
-                    "alignItems": "center",
-                    "gap": "0px",
-                },
+        [
+            dbc.Col(
+                html.Div(
+                    [
+                        html.Img(
+                            src="assets/logo-eupha-white.png",
+                            alt="image",
+                            height=50,
+                            style={"padding-right": "10px"},
+                        ),
+                        html.H1(
+                            DASHBOARD_NAME,
+                            style={
+                                "color": EUPHAColors.white,
+                                "font-weight": "bold",
+                                "margin": "0",
+                                "padding": "0",
+                            },
+                        ),
+                    ],
+                    style={
+                        "display": "flex",
+                        "alignItems": "center",
+                        "gap": "0px",
+                    },
+                ),
+                width=4,
             ),
-            width=12,
-        ),
+            nav_col,
+            dbc.Col(
+                html.Div(
+                    [
+                        html.Img(
+                            src="assets/logo-d4g.png",
+                            alt="image",
+                            height=50,
+                            style={"padding-right": "10px"},
+                        )
+                    ],
+                    style={
+                        "display": "flex",
+                        "alignItems": "center",
+                        "gap": "0px",
+                    },
+                ),
+                width=4,
+                className="d-grid gap-2 d-md-flex justify-content-md-end",
+            ),
+        ],
         className="g-0",
     ),
     style={
@@ -69,78 +117,9 @@ header = html.Div(
         "zIndex": 1000,
     },
 )
+
 # Content
-search_bar = html.Div(
-    children=[
-        dbc.Row(
-            [
-                dbc.Col(
-                    dbc.Input(
-                        id="search-input",
-                        placeholder="Disinformation narrative...",
-                        style={"overflow": "hidden"},
-                    )
-                ),
-                dbc.Col(
-                    dbc.Button(
-                        "Rechercher",
-                        id="search-button",
-                        color="primary",
-                        className="me-1",
-                        n_clicks=0,
-                        disabled=True,
-                    ),
-                    width="auto",
-                ),
-            ],
-            align="center",
-        )
-    ],
-    id="search",
-    style={
-        "border-radius": "15px",
-        "padding": "20px",
-        "background-color": EUPHAColors.white,
-    },
-)
-
-graph = html.Div(
-    children=cyto.Cytoscape(
-        id="graph-cytoscape",
-        stylesheet=generator.stylesheet,
-        layout={"name": "cose"},
-        style={"width": "100%", "height": "400px"},
-    ),
-    id="graph",
-    style={
-        "border-radius": "15px",
-        "padding": "20px",
-        "background-color": EUPHAColors.light_blue,
-        "display": "none",
-    },
-)
-
-list_elements = html.Div(
-    id="list",
-    style={
-        "border-radius": "15px",
-        "padding": "20px",
-        "background-color": EUPHAColors.light_blue,
-        "display": "none",
-    },
-)
-
-offcanevas = dbc.Offcanvas(
-    id="offcanvas",
-    title="Focus",
-    is_open=False,
-    placement="end",
-    style={"width": "50%"},
-)
-
-
 content = html.Div(
-    [search_bar, html.Br(), graph, html.Br(), list_elements, offcanevas],
     style={
         "margin-left": "1rem",
         "margin-right": "1rem",
@@ -156,7 +135,22 @@ app.layout = html.Div([dcc.Location(id="url", refresh=False), header, content])
 
 
 # --------------------
-# Callbacks
+# Callbacks - General
+# --------------------
+
+
+# Routing
+@app.callback(Output("page-content", "children"), Input("url", "pathname"))
+def display_page(pathname):
+    for page in pages:
+        if pages[page]["href"] == pathname:
+            return pages[page]["content"].make_layout()
+
+    return html.Div("404 - Page not found")
+
+
+# --------------------
+# Callbacks - Graph
 # --------------------
 
 
@@ -176,7 +170,7 @@ def activate_search_buton(search_text, graph):
 @app.callback(
     [
         Output("graph-cytoscape", "elements"),
-        Output("list", "children"),
+        Output("list-elements", "children"),
         Output("graph", "style"),
         Output("list", "style"),
         Output("search-input", "value"),
@@ -187,7 +181,8 @@ def activate_search_buton(search_text, graph):
 )
 def update_graph(n_clicks, search_text):
     if n_clicks > 0:
-        graph_elements = generator.get_graph_data()
+        # Graph generator
+        graph_elements = RandomGraphGenerator().get_graph_data()
         list_elements = [x["data"] for x in graph_elements if "id" in x["data"]]
         list_elements = sorted(list_elements, key=lambda x: x["id"])
         return [
@@ -248,6 +243,13 @@ def toggle_offcanvas(node_data, is_open):
                 )
             ),
         ]
+
+
+# --------------------
+# Callbacks - Ingest
+# --------------------
+
+### Create here callbacks for ingestions
 
 
 if __name__ == "__main__":

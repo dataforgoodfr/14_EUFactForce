@@ -68,3 +68,14 @@ hr {
     background-color: var(--color-dark-blue);
     color: var(--color-white)
 }
+
+/* Navigation */
+.nav-pills .nav-link.active {
+    background-color: var(--color-white);
+    color: var(--color-black) !important;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: var(--color-light-blue);
+    color: var(--color-black) !important;
+}
