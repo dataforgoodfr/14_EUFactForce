@@ -14,13 +14,13 @@ stylesheet = [
     {
         "selector": 'node[type="paper"]',
         "style": {
-            "background-color": EUPHAColors.dark_blue,
+            "background-color": EUPHAColors.green,
         },
     },
     {
         "selector": 'node[type="journal"]',
         "style": {
-            "background-color": EUPHAColors.light_blue,
+            "background-color": EUPHAColors.orange,
         },
     },
     {
