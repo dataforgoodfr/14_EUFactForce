@@ -2,6 +2,10 @@ import requests
 
 from parsers.base import MetadataParser
 
+from utils import doi_to_id
+import os
+
+
 
 class PubMedMetadataParser(MetadataParser):
     """Fetches metadata from the PubMed API (https://eutils.ncbi.nlm.nih.gov)."""
@@ -48,6 +52,27 @@ class PubMedMetadataParser(MetadataParser):
 
     def get_pdf_url(self, doi: str) -> list[str]:
         return []
+
+    def download_pdf(self, doi: str, output_dir: str = "pdf") -> bool:
+        """Download the first valid PDF found and save it to output_dir. Returns True on success."""
+        output_path = os.path.join(output_dir, f"{doi_to_id(doi)}.pdf")
+        pdf_urls = self.get_pdf_url(doi)
+        if not pdf_urls:
+            return False
+        try:
+            for pdf_url in pdf_urls:
+                response = requests.get(pdf_url, timeout=30)
+                response.raise_for_status()
+                if not response.content.startswith(b"%PDF"):
+                    print(f"Content at {pdf_url} is not a valid PDF (possibly a paywall page).")
+                    continue
+                with open(output_path, "wb") as f:
+                    f.write(response.content)
+                return True
+            return False
+        except Exception as e:
+            print(f"Download failed: {e}")
+            return False
 
 
 if __name__ == "__main__":
