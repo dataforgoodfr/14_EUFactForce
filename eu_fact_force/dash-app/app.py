@@ -132,7 +132,7 @@ list_elements = html.Div(
 
 offcanevas = dbc.Offcanvas(
     id="offcanvas",
-    title="Selectionné",
+    title="Focus",
     is_open=False,
     placement="end",
     style={"width": "50%"},
