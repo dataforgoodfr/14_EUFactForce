@@ -1,0 +1,99 @@
+# Parsing Benchmark
+
+Exploration and comparison of PDF parsing methods/tools (LlamaParse, PyMuPDF) on a diverse set of documents.
+
+## Structure
+
+```
+parsing/
+├── benchmark.py          # Run PDF parsing benchmarks (speed, volume, metadata)
+├── text_cleaning.py      # Text post-processing (fix encoding, rejoin hyphens, remove noise)
+├── quality_scoring.py    # Orchestrate quality evaluation across all scoring dimensions
+├── benchmarking/         # Benchmarking domain modules (parsers, configs, storage, GT)
+│
+├── scoring/              # Scoring sub-modules
+│   ├── content.py        # Content presence scoring (title, authors, DOI, abstract, ...)
+│   ├── metadata.py       # Metadata accuracy scoring
+│   ├── similarity.py     # Reference-text similarity scoring
+│   └── utils.py          # Shared utilities (fuzzy matching, normalization)
+│
+├── data/                 # PDF documents
+│   └── document_diversity/       # Raw PDFs
+│
+├── ground_truth/         # Reference data for scoring
+│   ├── ground_truth.json # Per-document annotations (title, authors, key passages, ...)
+│   └── texts/            # Human-written reference texts for similarity scoring
+│
+└── output/               # Generated outputs (CSV results + extracted texts)
+    ├── extracted_texts/   # Cached raw text extractions
+    │   └── raw/<parser_config>/<document_stem>.txt
+    ├── benchmark_results_extended.csv
+    └── extraction_scores.csv
+```
+
+## Usage
+
+Run scripts from the repo root using the module path:
+
+```bash
+# 1. Run parsing benchmark on raw PDFs (requires LLAMA_CLOUD_API_KEY in .env)
+python -m eu_fact_force.ingestion.parsing.benchmark [--no-cache]
+# Parser profile default is now `fast` (pruned set for speed).
+# Optional doc-type filter from ground truth:
+#   --doc-type scientific_paper
+# Profiles available:
+#   --profile full|fast|docling_only
+# Or provide explicit config list:
+#   --configs "pymupdf,docling_markdown,llamaparse_markdown"
+# Retrieval-focused Docling export (cleaner indexing text):
+#   --configs "docling_markdown"
+# New extraction outputs are written under output/extracted_texts/raw/...
+
+# 2. Evaluate extraction quality
+python -m eu_fact_force.ingestion.parsing.quality_scoring
+# Quality scoring profile default is now `fast`.
+# Same pruning controls are available:
+#   python -m eu_fact_force.ingestion.parsing.quality_scoring --profile fast
+#   python -m eu_fact_force.ingestion.parsing.quality_scoring --filename BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report.pdf --profile docling_only
+# Optional doc-type filtering + per-row timing CSV:
+#   python -m eu_fact_force.ingestion.parsing.quality_scoring --doc-type scientific_paper --configs docling_markdown --timing-output-csv output/analysis/scientific_timing.csv
+# Timing diagnostics:
+#   python -m eu_fact_force.ingestion.parsing.quality_scoring --profile fast --log-timing --timing-threshold-ms 500
+# Optional speed mode (skip expensive similarity metrics):
+#   python -m eu_fact_force.ingestion.parsing.quality_scoring --profile fast --skip-similarity
+
+# 3. Quickly rank variants for one document (fast mode by default)
+python -m eu_fact_force.ingestion.parsing.score_single_file BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report.pdf --parser-prefix docling
+# Optional slower full fidelity metrics:
+# python -m eu_fact_force.ingestion.parsing.score_single_file BEUC-X-2025-113_Influencer_Marketing_Unboxed_Report.pdf --parser-prefix docling --mode full
+```
+
+## Scientific-Paper Optimization Loop
+
+Use this loop when tuning Docling quality specifically for `scientific_paper` documents:
+
+```bash
+# 1) Refresh scientific-paper Docling extractions with runtime metrics
+python -m eu_fact_force.ingestion.parsing.benchmark --doc-type scientific_paper --configs docling_markdown --no-cache
+
+# 2) Score only scientific papers and export per-row timing
+python -m eu_fact_force.ingestion.parsing.quality_scoring --doc-type scientific_paper --configs docling_markdown --timing-output-csv output/analysis/scientific_paper_docling_timing.csv
+
+# 3) Optional quick smoke validation across fast profile (without heavy similarity)
+python -m eu_fact_force.ingestion.parsing.quality_scoring --profile fast --skip-similarity
+```
+
+Recommended outputs to keep for iteration tracking:
+- `output/analysis/scientific_paper_docling_baseline.csv`
+- `output/analysis/scientific_paper_docling_after.csv`
+- `output/analysis/scientific_paper_docling_changelog.csv`
+
+## Environment
+
+Requires the `parsing` dependency group:
+
+```bash
+uv sync --group parsing
+```
+
+A `.env` file with `LLAMA_CLOUD_API_KEY=<your-key>` is needed for LlamaParse benchmarks.
