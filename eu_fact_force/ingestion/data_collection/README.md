@@ -4,8 +4,10 @@ Fetches metadata and PDFs for scientific articles by DOI, aggregating results ac
 
 ## Usage
 
+Depuis la racine du projet :
+
 ```bash
-python3 main.py --doi 10.1128/mbio.01735-25
+python -m eu_fact_force.ingestion.data_collection --doi 10.1128/mbio.01735-25
 ```
 
 | Flag | Default | Description |
@@ -15,7 +17,7 @@ python3 main.py --doi 10.1128/mbio.01735-25
 | `--pdf-dir` | `pdf/` | Directory for PDF output |
 | `--no-pdf` | | Skip PDF download |
 
-**Output:** `<json-dir>/<id>.json` and optionally `<pdf-dir>/<id>.pdf`
+**Output:** `<json-dir>/<id>.json` and optionally `<pdf-dir>/<id>_<api>.pdf`
 
 The article `id` is the DOI with `/`, `-`, `.` replaced by `_`.
 
@@ -62,11 +64,13 @@ Fields may be `null` if unavailable. For each field, the most complete value acr
 
 ```
 data_collection/
-  main.py          # CLI entry point
+  __init__.py      # package
+  __main__.py      # CLI entry point
+  collector.py     # fetch_all() — agrège les métadonnées de tous les parsers
   utils.py         # doi_to_id, dict_to_string
   parsers/
     __init__.py    # PARSERS list
-    base.py        # MetadataParser base class
+    base.py        # MetadataParser base class + doi_to_id
     crossref.py
     openalex.py
     pubmed.py
@@ -74,4 +78,8 @@ data_collection/
     arxiv.py
 ```
 
-To run a single parser: `python3 -m parsers.crossref` from `data_collection/`.
+Pour tester un parser seul, depuis la racine du projet :
+
+```bash
+python -m eu_fact_force.ingestion.data_collection.parsers.crossref
+```

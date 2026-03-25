@@ -1,8 +1,6 @@
 import requests
-import os
-from utils import doi_to_id
 
-from parsers.base import MetadataParser
+from .base import MetadataParser
 
 
 class CrossrefMetadataParser(MetadataParser):
@@ -14,7 +12,10 @@ class CrossrefMetadataParser(MetadataParser):
         self.url = "https://api.crossref.org/works/{doi}"
 
     def _get_authors(self, doc):
-        return [f"{a.get('given', '')} {a.get('family', '')}".strip() for a in doc.get("author", [])]
+        return [
+            f"{a.get('given', '')} {a.get('family', '')}".strip()
+            for a in doc.get("author", [])
+        ]
 
     def _get_publish_date(self, doc):
         date_parts = ((doc.get("published") or {}).get("date-parts") or [[]])[0]
@@ -44,7 +45,10 @@ class CrossrefMetadataParser(MetadataParser):
     def _get_status(self, doc):
         updates = doc.get("updated-by") or []
         if updates:
-            return [f"{u.get('type')} on {u.get('updated', {}).get('date-time', '')[:10]}" for u in updates]
+            return [
+                f"{u.get('type')} on {u.get('updated', {}).get('date-time', '')[:10]}"
+                for u in updates
+            ]
         return "published"
 
     def get_metadata(self, doi: str) -> dict:
@@ -81,7 +85,7 @@ class CrossrefMetadataParser(MetadataParser):
                     return [link["URL"]]
             return []
         except Exception as e:
-            print(f"CrossRef error: {e}")
+            self.logger.error(f"CrossRef error: {e}")
             return []
 
 

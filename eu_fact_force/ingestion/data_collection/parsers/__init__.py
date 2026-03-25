@@ -1,8 +1,8 @@
-from parsers.arxiv import ArxivMetadataParser
-from parsers.crossref import CrossrefMetadataParser
-from parsers.hal import HALMetadataParser
-from parsers.openalex import OpenAlexMetadataParser
-from parsers.pubmed import PubMedMetadataParser
+from .arxiv import ArxivMetadataParser
+from .crossref import CrossrefMetadataParser
+from .hal import HALMetadataParser
+from .openalex import OpenAlexMetadataParser
+from .pubmed import PubMedMetadataParser
 
 PARSERS = [
     CrossrefMetadataParser(),

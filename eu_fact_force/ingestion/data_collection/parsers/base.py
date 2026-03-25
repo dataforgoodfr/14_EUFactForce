@@ -1,9 +1,20 @@
+import logging
 import os
 from abc import ABC, abstractmethod
 
 import requests
 
-from utils import doi_to_id
+
+def doi_to_id(doi: str) -> str:
+    """Convert a DOI to a filesystem-safe ID."""
+    return (
+        doi.replace(
+            "/",
+            "_",
+        )
+        .replace(".", "_")
+        .replace("-", "_")
+    )
 
 
 class MetadataParser(ABC):
@@ -11,6 +22,7 @@ class MetadataParser(ABC):
 
     def __init__(self):
         self.api_name = None
+        self.logger = logging.getLogger(self.__class__.__name__)
 
     @abstractmethod
     def get_metadata(self, doi: str) -> dict:
@@ -22,23 +34,44 @@ class MetadataParser(ABC):
         """Return a list of candidate PDF URLs for a DOI, in order of preference."""
         pass
 
+    def _fetch_pdf_content(self, url: str) -> bytes | None:
+        """Fetch URL and return content if it is a valid PDF, else None."""
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        if not response.content.startswith(b"%PDF"):
+            self.logger.warning(
+                f"Content at {url} is not a valid PDF (possibly a paywall page)."
+            )
+            return None
+        return response.content
+
+    def _is_better_than_existing(self, path: str, content: bytes) -> bool:
+        """Return True if content should replace the file at path (larger or file absent)."""
+        if not os.path.exists(path):
+            return True
+        return len(content) > os.path.getsize(path)
+
+    def _save_pdf(self, path: str, content: bytes) -> None:
+        """Write content to path, or skip if the existing file is already as large or larger."""
+        if self._is_better_than_existing(path, content):
+            with open(path, "wb") as f:
+                f.write(content)
+        else:
+            self.logger.info(
+                f"Skipping {path}: existing file is already as large or larger."
+            )
+
     def download_pdf(self, doi: str, output_dir: str = "pdf") -> bool:
         """Download the first valid PDF found and save it to output_dir. Returns True on success."""
         output_path = os.path.join(output_dir, f"{doi_to_id(doi)}_{self.api_name}.pdf")
-        pdf_urls = self.get_pdf_url(doi)
-        if not pdf_urls:
-            return False
-        try:
-            for pdf_url in pdf_urls:
-                response = requests.get(pdf_url, timeout=30)
-                response.raise_for_status()
-                if not response.content.startswith(b"%PDF"):
-                    print(f"Content at {pdf_url} is not a valid PDF (possibly a paywall page).")
-                    continue
-                with open(output_path, "wb") as f:
-                    f.write(response.content)
-                return True
-            return False
-        except Exception as e:
-            print(f"Download failed: {e}")
-            return False
+        for url in self.get_pdf_url(doi):
+            try:
+                content = self._fetch_pdf_content(url)
+            except Exception as e:
+                self.logger.error(f"Download failed for {url}: {e}")
+                continue
+            if content is None:
+                continue
+            self._save_pdf(output_path, content)
+            return True
+        return False

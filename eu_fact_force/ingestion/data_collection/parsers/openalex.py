@@ -1,6 +1,6 @@
 import requests
 
-from parsers.base import MetadataParser
+from .base import MetadataParser
 
 
 class OpenAlexMetadataParser(MetadataParser):
@@ -13,10 +13,18 @@ class OpenAlexMetadataParser(MetadataParser):
         self.cited_articles_url = "https://api.openalex.org/works?filter=ids.openalex:{ids}&select=id,doi&per-page=200"
 
     def _get_authors(self, doc):
-        return [a.get("raw_author_name") for a in doc.get("authorships", []) if a.get("raw_author_name")]
+        return [
+            a.get("raw_author_name")
+            for a in doc.get("authorships", [])
+            if a.get("raw_author_name")
+        ]
 
     def _get_journal(self, doc):
-        return (doc.get("primary_location") or {}).get("source", {}).get("host_organization_name")
+        return (
+            (doc.get("primary_location") or {})
+            .get("source", {})
+            .get("host_organization_name")
+        )
 
     def _get_link(self, doc):
         return (doc.get("primary_location") or {}).get("landing_page_url")
@@ -37,10 +45,14 @@ class OpenAlexMetadataParser(MetadataParser):
             return []
         results = []
         for i in range(0, len(ids), 100):
-            response = requests.get(self.cited_articles_url.format(ids="|".join(ids[i: i + 100])))
+            response = requests.get(
+                self.cited_articles_url.format(ids="|".join(ids[i: i + 100]))
+            )
             response.raise_for_status()
             results += [
-                r["doi"].removeprefix("https://doi.org/") for r in response.json().get("results", []) if r.get("doi")
+                r["doi"].removeprefix("https://doi.org/")
+                for r in response.json().get("results", [])
+                if r.get("doi")
             ]
         return results
 
@@ -87,9 +99,9 @@ class OpenAlexMetadataParser(MetadataParser):
                 results.append(oa_url)
             return results
         except Exception as e:
-            print(f"OpenAlex error: {e}")
+            self.logger.error(f"OpenAlex error: {e}")
             return []
-        
+
 
 if __name__ == "__main__":
     import json

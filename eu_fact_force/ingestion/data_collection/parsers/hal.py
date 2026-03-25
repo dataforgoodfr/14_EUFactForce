@@ -1,10 +1,6 @@
-from xml.etree import ElementTree as ET
-
 import requests
-from utils import doi_to_id
-import os
 
-from parsers.base import MetadataParser
+from .base import MetadataParser
 
 
 class HALMetadataParser(MetadataParser):
@@ -49,15 +45,15 @@ class HALMetadataParser(MetadataParser):
         try:
             response = requests.get(self.url.format(doi=doi), timeout=10)
             response.raise_for_status()
-            root = ET.fromstring(response.content)
-            if int(root.find(".//result").get("numFound", "0")) == 0:
+            docs = response.json().get("response", {}).get("docs", [])
+            if not docs:
                 return []
-            uri_el = root.find(".//str[@name='uri_s']")
-            if uri_el is None or not uri_el.text:
+            uri = docs[0].get("uri_s")
+            if not uri:
                 return []
-            return [f"{uri_el.text}/document"]
+            return [f"{uri}/document"]
         except Exception as e:
-            print(f"HAL error: {e}")
+            self.logger.error(f"HAL error: {e}")
             return []
 
 

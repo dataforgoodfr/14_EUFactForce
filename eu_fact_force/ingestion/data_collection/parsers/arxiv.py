@@ -1,9 +1,6 @@
 import arxiv
-import requests
-from utils import doi_to_id
-import os
 
-from parsers.base import MetadataParser
+from .base import MetadataParser
 
 ARXIV_DOI_PREFIX = "10.48550/arXiv."
 
@@ -34,7 +31,9 @@ class ArxivMetadataParser(MetadataParser):
             "authors": [str(a) for a in article.authors],
             "journal": article.journal_ref,
             "publish date": str(article.published)[:10],
-            "link": next((link.href for link in article.links if link.rel == "alternate"), None),
+            "link": next(
+                (link.href for link in article.links if link.rel == "alternate"), None
+            ),
             "keywords": None,
             "cited articles": None,
             "doi": doi,

@@ -1,10 +1,6 @@
 import requests
 
-from parsers.base import MetadataParser
-
-from utils import doi_to_id
-import os
-
+from .base import MetadataParser
 
 
 class PubMedMetadataParser(MetadataParser):
@@ -17,7 +13,10 @@ class PubMedMetadataParser(MetadataParser):
         self.summary_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
 
     def _resolve_pubmed_id(self, doi: str):
-        response = requests.get(self.search_url, params={"db": "pubmed", "retmode": "json", "term": doi + "[DOI]"})
+        response = requests.get(
+            self.search_url,
+            params={"db": "pubmed", "retmode": "json", "term": doi + "[DOI]"},
+        )
         response.raise_for_status()
         ids = response.json().get("esearchresult", {}).get("idlist", [])
         return ids[0] if ids else None
@@ -26,13 +25,23 @@ class PubMedMetadataParser(MetadataParser):
         return [a.get("name") for a in doc.get("authors", []) if a.get("name")]
 
     def _get_doi(self, doc):
-        return next((item["value"] for item in doc.get("articleids", []) if item.get("idtype") == "doi"), None)
+        return next(
+            (
+                item["value"]
+                for item in doc.get("articleids", [])
+                if item.get("idtype") == "doi"
+            ),
+            None,
+        )
 
     def get_metadata(self, doi: str) -> dict:
         pubmed_id = self._resolve_pubmed_id(doi)
         if not pubmed_id:
             return {"found": False}
-        response = requests.get(self.summary_url, params={"db": "pubmed", "id": pubmed_id, "retmode": "json"})
+        response = requests.get(
+            self.summary_url,
+            params={"db": "pubmed", "id": pubmed_id, "retmode": "json"},
+        )
         response.raise_for_status()
         doc = response.json().get("result", {}).get(pubmed_id)
         if not doc:
@@ -49,11 +58,14 @@ class PubMedMetadataParser(MetadataParser):
             "doi": self._get_doi(doc),
             "document type": doc.get("pubtype") or None,
             "open access": None,
-            "status": "retracted" if "Retracted Publication" in doc.get("pubtype", []) else "published",
+            "status": "retracted"
+            if "Retracted Publication" in doc.get("pubtype", [])
+            else "published",
         }
 
     def get_pdf_url(self, doi: str) -> list[str]:
         return []
+
 
 if __name__ == "__main__":
     import json
