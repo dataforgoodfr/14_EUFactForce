@@ -2,9 +2,9 @@
 
 Fetches metadata and PDFs for scientific articles by DOI, aggregating results across multiple APIs.
 
-## Usage
+## To test it
 
-Depuis la racine du projet :
+From root :
 
 ```bash
 python -m eu_fact_force.ingestion.data_collection --doi 10.1128/mbio.01735-25
@@ -17,9 +17,9 @@ python -m eu_fact_force.ingestion.data_collection --doi 10.1128/mbio.01735-25
 | `--pdf-dir` | `pdf/` | Directory for PDF output |
 | `--no-pdf` | | Skip PDF download |
 
-**Output:** `<json-dir>/<id>.json` and optionally `<pdf-dir>/<id>_<api>.pdf`
+**Output:** `data_collection/json/<id>.json` and optionally `data_collection/pdf/<id>_<api>.pdf`
 
-The article `id` is the DOI with `/`, `-`, `.` replaced by `_`.
+> *The article `id` is the DOI with `/`, `-`, `.` replaced by `_`.*
 
 ## Metadata fields
 
@@ -66,8 +66,7 @@ Fields may be `null` if unavailable. For each field, the most complete value acr
 data_collection/
   __init__.py      # package
   __main__.py      # CLI entry point
-  collector.py     # fetch_all() — agrège les métadonnées de tous les parsers
-  utils.py         # doi_to_id, dict_to_string
+  collector.py     # fetch_all() - merge all metadata from all API
   parsers/
     __init__.py    # PARSERS list
     base.py        # MetadataParser base class + doi_to_id
@@ -78,7 +77,7 @@ data_collection/
     arxiv.py
 ```
 
-Pour tester un parser seul, depuis la racine du projet :
+To test only one parser, from root :
 
 ```bash
 python -m eu_fact_force.ingestion.data_collection.parsers.crossref
