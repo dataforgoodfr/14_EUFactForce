@@ -172,7 +172,7 @@ def activate_search_buton(search_text, graph):
         Output("graph-cytoscape", "elements"),
         Output("list-elements", "children"),
         Output("graph", "style"),
-        Output("list", "style"),
+        Output("results", "style"),
         Output("search-input", "value"),
     ],
     inputs=[Input("search-button", "n_clicks")],
@@ -208,9 +208,6 @@ def update_graph(n_clicks, search_text):
                 "display": "block",
             },
             {
-                "border-radius": "15px",
-                "padding": "20px",
-                "background-color": EUPHAColors.white,
                 "display": "block",
             },
             "",
