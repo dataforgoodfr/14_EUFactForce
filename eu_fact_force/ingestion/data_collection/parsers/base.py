@@ -63,7 +63,7 @@ class MetadataParser(ABC):
 
     def download_pdf(self, doi: str, output_dir: str = "pdf") -> bool:
         """Download the first valid PDF found and save it to output_dir. Returns True on success."""
-        output_path = os.path.join(output_dir, f"{doi_to_id(doi)}_{self.api_name}.pdf")
+        output_path = os.path.join(output_dir, f"{doi_to_id(doi)}.pdf")
         for url in self.get_pdf_url(doi):
             try:
                 content = self._fetch_pdf_content(url)

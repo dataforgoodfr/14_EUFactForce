@@ -40,7 +40,7 @@ def fetch_file_and_metadata(doi: str) -> tuple[Path | None, dict]:
     for parser in PARSERS:
         try:
             if parser.download_pdf(doi, pdf_dir):
-                pdf_path = Path(pdf_dir) / f"{doi_to_id(doi)}_{parser.api_name}.pdf"
+                pdf_path = Path(pdf_dir) / f"{doi_to_id(doi)}.pdf"
                 break
         except Exception as e:
             logging.warning(f"{parser.__class__.__name__} PDF error: {e}")
