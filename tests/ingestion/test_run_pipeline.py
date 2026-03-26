@@ -35,14 +35,18 @@ def test_run_pipeline_uses_readme_md(tmp_storage, monkeypatch):
 
     monkeypatch.setattr(services_module, "add_embeddings", _capture_embeddings)
 
-    source_file, _ = run_pipeline("README.md")
+    doi = "10.26855/ijcemr.2021.01.001"
+    doi_str = doi.replace("/","_").replace(".", "_").replace("-", "_")
+
+    source_file, _ = run_pipeline(doi)
 
     assert source_file is not None
-    assert source_file.doi == "README.md"
+    assert source_file.doi == doi
     assert source_file.status == SourceFile.Status.PARSED
-    assert "README.md" in source_file.s3_key
 
-    assert (tmp_storage / "ingestion" / "sources" / "README.md").exists()
+    assert doi_str in source_file.s3_key
+
+    assert (tmp_storage / "ingestion" / "sources" / f"{doi_str}.pdf" ).exists()
 
     saved_chunks = list(
         DocumentChunk.objects.filter(source_file=source_file).order_by("order")
