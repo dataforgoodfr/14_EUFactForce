@@ -13,6 +13,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 @patch("eu_fact_force.ingestion.services.fetch_file_and_metadata", return_value=(PROJECT_ROOT / "tests/ingestion/fixtures/jhab032.pdf", ["test"]))
 @pytest.mark.django_db
+@pytest.mark.skip(reason="Need embedding model cache to avoid using all free ci cpu.")
 def test_run_pipeline_uses_readme_md(tmp_storage, monkeypatch):
     """Run the full pipeline with the project README.md as the test file."""
     source_file, _ = run_pipeline("test/doi")
