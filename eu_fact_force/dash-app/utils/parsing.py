@@ -3,12 +3,12 @@ from typing import Optional
 import re
 import fitz  # PyMuPDF
 
-def load_svg_as_data_uri(svg_path: str) -> Optional[str]:
-    """Return a data URI for an SVG file, or None if not found."""
+def load_png_as_data_uri(png_path: str) -> Optional[str]:
+    """Return a data URI for an PNG file, or None if not found."""
     try:
-        with open(svg_path, "rb") as f:
+        with open(png_path, "rb") as f:
             b64 = base64.b64encode(f.read()).decode("utf-8")
-        return f"data:image/svg+xml;base64,{b64}"
+        return f"data:image/png+xml;base64,{b64}"
     except FileNotFoundError:
         return None
 
