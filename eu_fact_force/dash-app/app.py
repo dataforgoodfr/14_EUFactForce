@@ -1,4 +1,4 @@
-from dash import Dash, dcc, html, Input, Output, State, ALL, ctx
+from dash import Dash, dcc, html, Input, Output, State, ALL, ctx, no_update
 from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
 
@@ -12,6 +12,7 @@ import uuid
 
 from utils.colors import EUPHAColors
 from utils.graph import RandomGraphGenerator
+from utils.parsing import extract_pdf_metadata
 from pages import readme, ingest, graph
 
 # Plotly template
@@ -266,16 +267,15 @@ def toggle_offcanvas(node_data, is_open):
 )
 def handle_pdf_upload(contents):
 
-    # TOI BE ADDRESSED
-    # if contents is None:
-    #     return dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, dash.no_update, {}
+    if contents is None:
+        return no_update, no_update, no_update, no_update, no_update, no_update, {}
 
     # decoding of passed PDFs
     content_type, content_string = contents.split(',')
     decoded = base64.b64decode(content_string)
 
     # extract_pdf_metadata call
-    metadata = ingest.extract_pdf_metadata(io.BytesIO(decoded))
+    metadata = extract_pdf_metadata(io.BytesIO(decoded))
 
     return (
         metadata.get('doi', ''),
