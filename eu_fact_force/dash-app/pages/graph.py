@@ -13,7 +13,9 @@ def make_layout():
         children=[
             dbc.Row(
                 [
-                    dbc.Col(html.H5("Search", style={"margin-bottom": '2px'}), width="auto"),
+                    dbc.Col(
+                        html.H5("Search", style={"margin-bottom": "2px"}), width="auto"
+                    ),
                     dbc.Col(
                         dbc.Input(
                             id="search-input",
@@ -88,9 +90,6 @@ def make_layout():
 
     # Filters
 
-    # > Health topics
-    topics_filter = dbc.Row([html.H6("Health topics")])
-
     # > Keywords
     keyword_filter = dbc.Row([html.H6("Keywords")])
 
@@ -107,8 +106,6 @@ def make_layout():
         id="filters",
         children=[
             html.H5("Filters"),
-            topics_filter,
-            html.Br(),
             keyword_filter,
             html.Br(),
             evidence_filter,
