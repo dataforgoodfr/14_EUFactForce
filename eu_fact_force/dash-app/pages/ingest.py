@@ -2,10 +2,6 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 
 from utils.colors import EUPHAColors
-from utils.parsing import *
-
-logo_uri = load_png_as_data_uri("eupha-logo.svg")
-
 
 def make_layout():
 
@@ -14,17 +10,6 @@ def make_layout():
         [
             html.Div(
                 [
-                    html.Img(
-                        src=logo_uri,
-                        style={
-                            "width": "100%",
-                            "maxWidth": "220px",
-                            "height": "auto",
-                            "display": "block",
-                            "margin": "0 auto 20px auto",
-                            "marginTop": "40px"
-                        }
-                    ) if logo_uri else html.Div(),
 
                     html.H3(
                         "EU Fact Force",
@@ -33,7 +18,7 @@ def make_layout():
                             "fontWeight": "700",
                             "fontSize": "1.9rem",
                             "marginBottom": "20px",
-                            "color": "#212529"
+                            "color": EUPHAColors.dark_blue
                         }
                     ),
 
@@ -70,7 +55,7 @@ def make_layout():
         ],
         style={
             "padding": "2rem 1rem",
-            "backgroundColor": "#f5f7fa",
+            "backgroundColor": EUPHAColors.white,
             "height": "100vh",
             "position": "fixed",
             "top": 0,
@@ -98,7 +83,7 @@ def make_layout():
                         "Welcome to EU Fact Force articles uploading pages",
                         className="text-center mb-4",
                         style={
-                            "color": "#6c757d",
+                            "color": EUPHAColors.black,
                             "fontWeight": "500",
                             "fontSize": "1.5rem",
                             "lineHeight": "1.3"
@@ -112,7 +97,7 @@ def make_layout():
                             "margin": "0 auto",
                             "fontSize": "1.1rem",
                             "lineHeight": "1.7",
-                            "color": "#212529"
+                            "color": EUPHAColors.black
                         }
                     ),
                 ],
@@ -137,11 +122,11 @@ def make_layout():
                             'lineHeight': '80px',
                             'borderWidth': '2px',
                             'borderStyle': 'dashed',
-                            'borderColor': '#adb5bd',
+                            'borderColor': EUPHAColors.dark_blue,
                             'textAlign': 'center',
                             'borderRadius': '10px',
                             'marginBottom': '20px',
-                            'backgroundColor': '#f8f9fa',
+                            'backgroundColor': EUPHAColors.white,
                             'cursor': 'pointer'
                         }
                     ),
@@ -243,8 +228,8 @@ def make_layout():
                 size="lg",
                 className="w-100 mb-4",
                 style={
-                    "backgroundColor": "#3B6096",
-                    "borderColor": "#3B6096",
+                    "backgroundColor": EUPHAColors.dark_blue,
+                    "borderColor": EUPHAColors.dark_blue,
                     "color": "white",
                     "fontWeight": "600",
                     "borderRadius": "10px"
