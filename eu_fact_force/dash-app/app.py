@@ -1,14 +1,18 @@
-from dash import Dash, dcc, html
-from dash.dependencies import Input, Output, State
+from dash import Dash, dcc, html, Input, Output, State, ALL, ctx, no_update
 from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
+
 import plotly.io as pio
 import plotly.graph_objects as go
 
+import base64
+import io
 import json
+import uuid
 
 from utils.colors import EUPHAColors
 from utils.graph import RandomGraphGenerator
+from utils.parsing import extract_pdf_metadata
 from pages import readme, ingest, graph
 
 # Plotly template
@@ -251,6 +255,156 @@ def toggle_offcanvas(node_data, is_open):
 
 ### Create here callbacks for ingestions
 
+@app.callback(
+    Output('input-doi', 'value'),
+    Output('input-abstract', 'value'),
+    Output('input-journal', 'value'),
+    Output('input-date', 'value'),
+    Output('input-link', 'value'),
+    Output('input-title', 'value'),
+    Output('session-store', 'data'),
+    Input('upload-pdf', 'contents')
+)
+def handle_pdf_upload(contents):
+
+    if contents is None:
+        return no_update, no_update, no_update, no_update, no_update, no_update, {}
+
+    # decoding of passed PDFs
+    content_type, content_string = contents.split(',')
+    decoded = base64.b64decode(content_string)
+
+    # extract_pdf_metadata call
+    metadata = extract_pdf_metadata(io.BytesIO(decoded))
+
+    return (
+        metadata.get('doi', ''),
+        metadata.get('abstract', ''),
+        metadata.get('journal', ''),
+        metadata.get('publication_date', ''),
+        metadata.get('article_link', ''),
+        metadata.get('title', ''),
+        metadata
+    )
+@app.callback(
+    Output('authors-container', 'children'),
+    Input('btn-add-author', 'n_clicks'),
+    Input({'type': 'remove-author', 'index': ALL}, 'n_clicks'),
+    Input('session-store', 'data'),
+    State({'type': 'auth-name', 'index': ALL}, 'value'),
+    State({'type': 'auth-surname', 'index': ALL}, 'value'),
+    State({'type': 'auth-email', 'index': ALL}, 'value'),
+    State({'type': 'auth-name', 'index': ALL}, 'id'),
+)
+def update_authors_list(add_clicks, remove_clicks, metadata, names, surnames, emails, ids):
+    triggered = ctx.triggered_id
+
+    # on a new pdf uplaod
+    if triggered == 'session-store' and metadata:
+        authors = metadata.get('authors', [])
+        return [ingest.add_author_line(str(uuid.uuid4()), a.get('name', ''), a.get('surname', ''), a.get('email', '')) for a in authors]
+
+    # reconstructing authors list
+    current_authors = []
+    if ids:
+        for idx_id, name, surname, email in zip(ids, names, surnames, emails):
+            current_authors.append({
+                'index': idx_id['index'],
+                'name': name or "",
+                'surname': surname or "",
+                'email': email or ""
+            })
+
+    # if missing author
+    if triggered == 'btn-add-author':
+        current_authors.append({
+            'index': str(uuid.uuid4()),
+            'name': "",
+            'surname': "",
+            'email': ""
+        })
+
+    # remove blank/irrelevant author field
+    if isinstance(triggered, dict) and triggered.get('type') == 'remove-author':
+        remove_index = triggered.get('index')
+        current_authors = [a for a in current_authors if a['index'] != remove_index]
+
+    return [ingest.add_author_line(a['index'], a['name'], a['surname'], a['email']) for a in current_authors]
+
+
+@app.callback(
+    Output('input-doi', 'disabled'),
+    Output('input-abstract', 'disabled'),
+    Output('input-journal', 'disabled'),
+    Output('input-date', 'disabled'),
+    Output('input-link', 'disabled'),
+    Output('input-category', 'disabled'),
+    Output('input-type', 'disabled'),
+    Output('input-title', 'disabled'),
+    Input('chk-meta-correct', 'value')
+)
+def lock_metadata(is_correct):
+    val = bool(is_correct)
+    return val, val, val, val, val, val, val, val
+
+
+@app.callback(
+    Output({'type': 'auth-name', 'index': ALL}, 'disabled'),
+    Output({'type': 'auth-surname', 'index': ALL}, 'disabled'),
+    Output({'type': 'auth-email', 'index': ALL}, 'disabled'),
+    Output({'type': 'remove-author', 'index': ALL}, 'disabled'),
+    Output('btn-add-author', 'disabled'),
+    Input('chk-authors-correct', 'value'),
+    State({'type': 'auth-name', 'index': ALL}, 'id')
+)
+def lock_authors(is_correct, ids):
+    is_corr = bool(is_correct)
+    if not ids:
+        return [], [], [], [], is_corr
+    length = len(ids)
+    return [is_corr]*length, [is_corr]*length, [is_corr]*length, [is_corr]*length, is_corr
+
+
+@app.callback(
+    Output('final-output', 'children'),
+    Input('btn-final-upload', 'n_clicks'),
+    State('input-doi', 'value'),
+    State('input-abstract', 'value'),
+    State('input-journal', 'value'),
+    State('input-date', 'value'),
+    State('input-link', 'value'),
+    State('input-category', 'value'),
+    State('input-type', 'value'),
+    State('input-title', 'value'),
+    State({'type': 'auth-name', 'index': ALL}, 'value'),
+    State({'type': 'auth-surname', 'index': ALL}, 'value'),
+    State({'type': 'auth-email', 'index': ALL}, 'value'),
+    prevent_initial_call=True
+)
+def finalize_and_display_json(n_clicks, doi, abstract, journal, date, link, category, study_type, title, names, surnames, emails):
+
+    authors_list = [
+        {"name": n, "surname": s, "email": e}
+        for n, s, e in zip(names, surnames, emails) if n or s
+    ]
+
+    metadata_json = {
+        "title": title,
+        "category": category,
+        "study_type": study_type,
+        "journal": journal,
+        "publication_year": date,
+        "doi": doi,
+        "article_link": link,
+        "abstract": abstract,
+        "authors": authors_list
+    }
+
+    return html.Div([
+        dbc.Alert("Successfully contributed, thank you!", color="success"),
+        html.H4("Metadata JSON"),
+        html.Pre(json.dumps(metadata_json, indent=4), style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6'})
+                    ])
 
 if __name__ == "__main__":
     app.run(debug=True)
