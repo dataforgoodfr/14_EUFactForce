@@ -51,12 +51,11 @@ def make_layout():
     graph_results = html.Div(
         id="graph",
         children=[
-            html.H5("Graph"),
             cyto.Cytoscape(
                 id="graph-cytoscape",
                 stylesheet=stylesheet,
                 layout={"name": "cose"},
-                style={"width": "100%", "height": "400px"},
+                style={"width": "100%", "height": "500px"},
                 zoomingEnabled=True,
                 userZoomingEnabled=False,
             ),
@@ -81,7 +80,7 @@ def make_layout():
     # List
     list_results = html.Div(
         id="list",
-        children=[html.H5("List of results"), html.Div(id="list-elements")],
+        children=[html.Div(id="list-elements")],
         style={
             "border-radius": "15px",
             "padding": "20px",
@@ -91,9 +90,20 @@ def make_layout():
 
     # Filters
 
+    # > Nodes
+    node_type_filter = dbc.Row(
+        [
+            html.H6("Nodes"),
+            dcc.Dropdown(id="filter_node_types", multi=True, searchable=False),
+        ]
+    )
+
     # > Chunk types
     chunk_type_filter = dbc.Row(
-        [html.H6("Chunk types"), dcc.Dropdown(id="filter_chunk_types", multi=True)]
+        [
+            html.H6("Chunk types"),
+            dcc.Dropdown(id="filter_chunk_types", multi=True, searchable=False),
+        ]
     )
 
     # > Keywords
@@ -104,7 +114,7 @@ def make_layout():
     # > Document filters
     document_filter = dbc.Row(
         [
-            html.H6("Document filters"),
+            html.H6("Documents"),
             html.P("Date", style={"margin-bottom": 0, "margin-top": "5px"}),
             dcc.DatePickerRange(id="filter_dates"),
             html.P("Journal", style={"margin-bottom": 0, "margin-top": "5px"}),
@@ -120,6 +130,8 @@ def make_layout():
         id="filters",
         children=[
             html.H5("Filters"),
+            node_type_filter,
+            html.Br(),
             keyword_filter,
             html.Br(),
             chunk_type_filter,
@@ -127,11 +139,20 @@ def make_layout():
             document_filter,
             html.Br(),
         ],
-        style={
-            "border-radius": "15px",
-            "padding": "20px",
-            "background-color": EUPHAColors.white,
-        },
+    )
+
+    # Tabs
+    tab_graph = dbc.Card(dbc.CardBody([graph_results, offcanevas]))
+
+    tab_list = dbc.Card(
+        dbc.CardBody([list_results]),
+    )
+
+    tabs = dbc.Tabs(
+        [
+            dbc.Tab(tab_graph, label="Graph"),
+            dbc.Tab(tab_list, label="List"),
+        ]
     )
 
     # Results
@@ -140,7 +161,7 @@ def make_layout():
         children=dbc.Row(
             [
                 dbc.Col(filter_results, width=3),
-                dbc.Col([graph_results, html.Br(), list_results], width=9),
+                dbc.Col(tabs, width=9),
             ]
         ),
         style={"display": "none"},

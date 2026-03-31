@@ -173,12 +173,13 @@ def activate_search_buton(search_text, graph):
         return False
 
 
-# Callback get search data
+# Callback search data
 @app.callback(
     [
         Output("store-search", "data"),
         Output("results", "style"),
         Output("search-input", "value"),
+        Output("filter_node_types", "options"),
         Output("filter_chunk_types", "options"),
         Output("filter_keywords", "options"),
         Output("filter_documents", "options"),
@@ -186,6 +187,7 @@ def activate_search_buton(search_text, graph):
         Output("filter_authors", "options"),
         Output("filter_dates", "min_date_allowed"),
         Output("filter_dates", "max_date_allowed"),
+        Output("filter_node_types", "value"),
         Output("filter_chunk_types", "value"),
         Output("filter_keywords", "value"),
         Output("filter_documents", "value"),
@@ -198,15 +200,19 @@ def activate_search_buton(search_text, graph):
     state=[State("search-input", "value")],
     prevent_updates=True,
 )
-def load_data(n_clicks, search_text):
+def get_search_data(n_clicks, search_text):
     if n_clicks > 0:
         nodes, edges, filters = TestGraph().transform()
         return [
             {"nodes": nodes, "edges": edges},
             {
                 "display": "block",
+                "border-radius": "15px",
+                "padding": "20px",
+                "background-color": EUPHAColors.white,
             },
             "",
+            list(set(filters["node_types"])),
             list(set(filters["chunk_types"])),
             list(set(filters["keywords"])),
             list(set(filters["documents"])),
@@ -214,6 +220,7 @@ def load_data(n_clicks, search_text):
             list(set(filters["authors"])),
             min(filters["date"]),
             max(filters["date"]),
+            list(set(filters["node_types"])),
             list(set(filters["chunk_types"])),
             list(set(filters["keywords"])),
             list(set(filters["documents"])),
@@ -226,7 +233,7 @@ def load_data(n_clicks, search_text):
         raise PreventUpdate
 
 
-# Callback update graph
+# Callback update graph and list
 @app.callback(
     [
         Output("graph-cytoscape", "elements"),
@@ -235,6 +242,7 @@ def load_data(n_clicks, search_text):
     ],
     inputs=[
         Input("store-search", "data"),
+        Input("filter_node_types", "value"),
         Input("filter_chunk_types", "value"),
         Input("filter_keywords", "value"),
         Input("filter_documents", "value"),
@@ -245,8 +253,9 @@ def load_data(n_clicks, search_text):
     ],
     prevent_updates=True,
 )
-def update_graph(
+def update_graph_and_list(
     store_search,
+    filter_node_types,
     filter_chunk_types,
     filter_keywords,
     filter_documents,
@@ -262,8 +271,22 @@ def update_graph(
         nodes = store_search["nodes"]
         edges = store_search["edges"]
 
-        # Filters
-        # TODO: filter nodes and edges
+        # Filters TODO: update filtering step here using:
+        # > filter_chunk_types
+        # > filter_keywords
+        # > filter_documents
+        # > filter_journals
+        # > filter_authors
+        # > start_date
+        # > end_date
+        nodes = {
+            n: nodes[n] for n in nodes if nodes[n]["data"]["type"] in filter_node_types
+        }
+        edges = [
+            e
+            for e in edges
+            if e["data"]["source"] in nodes and e["data"]["target"] in nodes
+        ]
 
         # Graph elements
         graph_elements = [nodes[x] for x in nodes] + edges
@@ -296,7 +319,7 @@ def update_graph(
         ]
 
 
-# Callback show selected element
+# Callback focus selected element
 @app.callback(
     [
         Output("offcanvas", "is_open"),

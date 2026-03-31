@@ -79,3 +79,16 @@ hr {
     background-color: var(--color-light-blue);
     color: var(--color-black) !important;
 }
+
+/* Tabs */
+.card {
+    --bs-card-border-color: none !important;
+}
+
+.nav-tabs .nav-link {
+    color: var(--color-black) !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--color-black) !important;
+}

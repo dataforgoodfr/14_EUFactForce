@@ -1,4 +1,3 @@
-import random
 import json
 
 from .colors import EUPHAColors
@@ -53,53 +52,28 @@ stylesheet = [
 ]
 
 
-class RandomGraphGenerator:
-    def __init__(self):
-        self.n_min_paper_nodes = 5
-        self.n_max_paper_nodes = 10
-        self.nodes_paper = [
-            {"data": {"id": f"node_paper_{i}", "label": f"Paper {i}", "type": "paper"}}
-            for i in range(self.n_max_paper_nodes)
-        ]
-        self.nodes_journal = [
-            {"data": {"id": "node_journal_0", "label": "Journal A", "type": "journal"}},
-            {"data": {"id": "node_journal_1", "label": "Journal B", "type": "journal"}},
-            {"data": {"id": "node_journal_2", "label": "Journal C", "type": "journal"}},
-        ]
-        self.stylesheet = stylesheet
-
-    def get_graph_data(self):
-        nodes = random.sample(
-            self.nodes_paper,
-            random.randint(self.n_min_paper_nodes, self.n_max_paper_nodes),
-        )
-        edges = []
-        for source_node in nodes:
-            target_node = random.sample(self.nodes_journal, 1)[0]
-            edges.append(
-                {
-                    "data": {
-                        "source": source_node["data"]["id"],
-                        "target": target_node["data"]["id"],
-                    }
-                }
-            )
-        return nodes + self.nodes_journal + edges
-
-
 class TestGraph:
+    """Test graph object from static JSON file."""
+
     def __init__(self):
         self.load_search_results()
         self.stylesheet = stylesheet
 
     def load_search_results(self):
+        """Load JSON file from data/"""
         with open("data/search_results.json", "r") as f:
             self.search_results = json.load(f)
 
     def transform(self):
+        """Parse JSON file and create nodes (dict), edges (list) and filters (dict)."""
         nodes = {}
         edges = []
         filters = {
+            "node_types": [
+                x["selector"].split('type="')[1].split('"')[0]
+                for x in self.stylesheet
+                if "type" in x["selector"]
+            ],
             "chunk_types": [],
             "documents": [],
             "journal": [],
