@@ -1,4 +1,4 @@
-from dash import html
+from dash import html, dcc
 import dash_bootstrap_components as dbc
 import dash_cytoscape as cyto
 
@@ -17,10 +17,11 @@ def make_layout():
                         html.H5("Search", style={"margin-bottom": "2px"}), width="auto"
                     ),
                     dbc.Col(
-                        dbc.Input(
+                        dcc.Dropdown(
                             id="search-input",
-                            placeholder="Disinformation narrative...",
-                            style={"overflow": "hidden"},
+                            options=[
+                                {"label": "Test local", "value": "Test local"},
+                            ],
                         )
                     ),
                     dbc.Col(
@@ -55,7 +56,7 @@ def make_layout():
                 id="graph-cytoscape",
                 stylesheet=stylesheet,
                 layout={"name": "cose"},
-                style={"width": "100%", "height": "300px"},
+                style={"width": "100%", "height": "400px"},
                 zoomingEnabled=True,
                 userZoomingEnabled=False,
             ),
@@ -90,17 +91,30 @@ def make_layout():
 
     # Filters
 
+    # > Chunk types
+    chunk_type_filter = dbc.Row(
+        [html.H6("Chunk types"), dcc.Dropdown(id="filter_chunk_types", multi=True)]
+    )
+
     # > Keywords
-    keyword_filter = dbc.Row([html.H6("Keywords")])
+    keyword_filter = dbc.Row(
+        [html.H6("Keywords"), dcc.Dropdown(id="filter_keywords", multi=True)]
+    )
 
-    # > Evidence type
-    evidence_filter = dbc.Row([html.H6("Evidence type")])
-
-    # > Type of document
-    doc_type_filter = dbc.Row([html.H6("Document type")])
-
-    # > Paper filters
-    paper_filter = dbc.Row([html.H6("Paper filters")])
+    # > Document filters
+    document_filter = dbc.Row(
+        [
+            html.H6("Document filters"),
+            html.P("Date", style={"margin-bottom": 0, "margin-top": "5px"}),
+            dcc.DatePickerRange(id="filter_dates"),
+            html.P("Journal", style={"margin-bottom": 0, "margin-top": "5px"}),
+            dcc.Dropdown(id="filter_journals", multi=True),
+            html.P("Authors", style={"margin-bottom": 0, "margin-top": "5px"}),
+            dcc.Dropdown(id="filter_authors", multi=True),
+            html.P("Documents", style={"margin-bottom": 0, "margin-top": "5px"}),
+            dcc.Dropdown(id="filter_documents", multi=True),
+        ]
+    )
 
     filter_results = html.Div(
         id="filters",
@@ -108,11 +122,9 @@ def make_layout():
             html.H5("Filters"),
             keyword_filter,
             html.Br(),
-            evidence_filter,
+            chunk_type_filter,
             html.Br(),
-            doc_type_filter,
-            html.Br(),
-            paper_filter,
+            document_filter,
             html.Br(),
         ],
         style={
@@ -126,11 +138,12 @@ def make_layout():
     results = html.Div(
         id="results",
         children=dbc.Row(
-            [dbc.Col(filter_results, width=3), dbc.Col(list_results, width=9)]
+            [
+                dbc.Col(filter_results, width=3),
+                dbc.Col([graph_results, html.Br(), list_results], width=9),
+            ]
         ),
         style={"display": "none"},
     )
 
-    return html.Div(
-        [search_bar, html.Br(), graph_results, html.Br(), results, offcanevas]
-    )
+    return html.Div([search_bar, html.Br(), results, offcanevas])
