@@ -1,6 +1,7 @@
 import os
 import json
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
+from botocore.client import Config
 from fastapi.middleware.cors import CORSMiddleware
 import boto3
 import uvicorn
@@ -25,16 +26,28 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+
 # 3. Configuration Client S3 (LocalStack ou AWS)
 s3_client = boto3.client(
     "s3",
     endpoint_url=os.getenv("AWS_S3_ENDPOINT_URL"), # Crucial pour LocalStack
     aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-    region_name=os.getenv("AWS_REGION")
+    region_name=os.getenv("AWS_REGION"),
+    config=Config(s3={'addressing_style': 'path'}) # <-- Ajoute cette ligne impérativement
 )
 
+
+
 BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+
+# Au démarrage de l'API
+try:
+    s3_client.create_bucket(Bucket=BUCKET_NAME)
+    print(f"Bucket '{BUCKET_NAME}' créé ou déjà existant.")
+except Exception as e:
+    print(f"Note: Le bucket existe peut-être déjà : {e}")
 
 @app.get("/")
 async def root():
