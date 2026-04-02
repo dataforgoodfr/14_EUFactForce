@@ -428,7 +428,7 @@ def finalize_and_send(n_clicks, pdf_base64, filename, doi, abstract, journal, da
         }
 
         # Timeout ajouté pour éviter que Dash ne freeze si FastAPI est éteint
-        response = requests.post(url, files=files, data=data, timeout=10)
+        response = requests.post(url, files=files, data=data, timeout=70)
 
         if response.status_code == 200:
             return dbc.Alert(f"Succès ! {filename} est sur S3.", color="success")
