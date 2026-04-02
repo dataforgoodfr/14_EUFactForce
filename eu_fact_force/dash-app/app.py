@@ -1,12 +1,14 @@
 from dash import Dash, dcc, html, Input, Output, State, ALL, ctx, no_update
 from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
+from pathlib import Path
 
 import plotly.io as pio
 import plotly.graph_objects as go
 
 import base64
 import io
+
 import json
 import uuid
 
@@ -16,7 +18,7 @@ from utils.parsing import extract_pdf_metadata
 from pages import readme, ingest, graph
 
 # Plotly template
-with open("assets/template.json", "r") as f:
+with open(Path(__file__).parent / "assets/template.json", "r") as f:
     debate_template = json.load(f)
 pio.templates["app_template"] = go.layout.Template(debate_template)
 pio.templates.default = "app_template"
