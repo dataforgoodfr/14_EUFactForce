@@ -7,13 +7,12 @@ import boto3
 import uvicorn
 from dotenv import load_dotenv
 
-# 1. Chargement des variables d'environnement
+# 1. Environment var loading
 load_dotenv()
 
 app = FastAPI(title="EUFactForce API")
 
-# 2. Configuration des CORS
-# Adapte l'URL selon le port de ton frontend (Streamlit, Dash, etc.)
+# 2. Dash-app URL
 origins = [
     "http://localhost:8050",
 ]
@@ -26,23 +25,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-
-# 3. Configuration Client S3 (LocalStack ou AWS)
+# 3. S3 instancing
 s3_client = boto3.client(
     "s3",
-    endpoint_url=os.getenv("AWS_S3_ENDPOINT_URL"), # Crucial pour LocalStack
+    endpoint_url=os.getenv("AWS_S3_ENDPOINT_URL"),
     aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
     region_name=os.getenv("AWS_REGION"),
     config=Config(s3={'addressing_style': 'path'}) # <-- Ajoute cette ligne impérativement
 )
 
-
-
 BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
 
-# Au démarrage de l'API
+# API print debugging
 try:
     s3_client.create_bucket(Bucket=BUCKET_NAME)
     print(f"Bucket '{BUCKET_NAME}' créé ou déjà existant.")
@@ -53,18 +48,18 @@ except Exception as e:
 async def root():
     return {"message": "API EUFactForce opérationnelle"}
 
-# 4. Route d'upload
+# 4. Upload routine
 @app.post("/upload/")
 async def upload_file(
     file: UploadFile = File(...),
     metadata: str = Form(...)
 ):
     try:
-        # Nettoyage du nom de fichier
+        # filename cleanup
         filename = file.filename
         json_filename = f"{os.path.splitext(filename)[0]}.json"
 
-        # A. Upload du PDF sur S3
+        # A. PDF upload on S3
         file_content = await file.read()
         s3_client.put_object(
             Bucket=BUCKET_NAME,
@@ -73,8 +68,8 @@ async def upload_file(
             ContentType="application/pdf"
         )
 
-        # B. Upload des métadonnées (JSON) sur S3
-        # On vérifie que c'est du JSON valide avant d'envoyer
+        # B. JSON Metadatas S3 upload
+        # Json type check
         try:
             json_data = json.loads(metadata)
         except json.JSONDecodeError:
@@ -96,5 +91,5 @@ async def upload_file(
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    # Lancement sur le port 8001 comme demandé
+    # Uvicorn server exposition on 8001
     uvicorn.run(app, host="0.0.0.0", port=8001)
