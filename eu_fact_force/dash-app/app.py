@@ -1,15 +1,16 @@
 from dash import Dash, dcc, html, Input, Output, State, ALL, ctx, no_update
 from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
-from pathlib import Path
 
 import plotly.io as pio
 import plotly.graph_objects as go
 
+# PDF ingestion
 import base64
 import io
-
 import json
+from pathlib import Path
+import requests
 import uuid
 
 from utils.colors import EUPHAColors
@@ -367,68 +368,6 @@ def lock_authors(is_correct, ids):
     return [is_corr]*length, [is_corr]*length, [is_corr]*length, [is_corr]*length, is_corr
 
 
-# @app.callback(
-#     Output('final-output', 'children'),
-#     Input('btn-final-upload', 'n_clicks'),
-#     State('input-doi', 'value'),
-#     State('input-abstract', 'value'),
-#     State('input-journal', 'value'),
-#     State('input-date', 'value'),
-#     State('input-link', 'value'),
-#     State('input-category', 'value'),
-#     State('input-type', 'value'),
-#     State('input-title', 'value'),
-#     State({'type': 'auth-name', 'index': ALL}, 'value'),
-#     State({'type': 'auth-surname', 'index': ALL}, 'value'),
-#     State({'type': 'auth-email', 'index': ALL}, 'value'),
-#     prevent_initial_call=True
-# )
-# def finalize_and_display_json(n_clicks, doi, abstract, journal, date, link, category, study_type, title, names, surnames, emails):
-
-#     authors_list = [
-#         {"name": n, "surname": s, "email": e}
-#         for n, s, e in zip(names, surnames, emails) if n or s
-#     ]
-
-#     metadata_json = {
-#         "title": title,
-#         "category": category,
-#         "study_type": study_type,
-#         "journal": journal,
-#         "publication_year": date,
-#         "doi": doi,
-#         "article_link": link,
-#         "abstract": abstract,
-#         "authors": authors_list
-#     }
-
-#     return html.Div([
-#         dbc.Alert("Successfully contributed, thank you!", color="success"),
-#         html.H4("Metadata JSON"),
-#         html.Pre(json.dumps(metadata_json, indent=4), style={'backgroundColor': '#f8f9fa', 'padding': '15px', 'borderRadius': '8px', 'border': '1px solid #dee2e6'})
-#                     ])
-
-
-
-import requests
-import json
-import base64
-from dash import Input, Output, State, no_update
-import dash_bootstrap_components as dbc
-
-# @app.callback(
-#     Output('upload-status-output', 'children'), # Un composant pour afficher le succès/erreur
-#     Input('btn-final-upload', 'n_clicks'),    # Ton bouton "Upload to S3/DB"
-#     State('upload-pdf', 'contents'),            # Le PDF d'origine (base64)
-#     State('upload-pdf', 'filename'),            # Le nom du fichier
-#     State('input-title', 'value'),              # Les champs potentiellement modifiés
-#     State('input-doi', 'value'),
-#     State('input-abstract', 'value'),
-#     State('input-journal', 'value'),
-#     State('input-date', 'value'),
-#     State('input-link', 'value'),
-#     prevent_initial_call=True
-# )
 @app.callback(
     Output('final-output', 'children'),
     Input('btn-final-upload', 'n_clicks'),
