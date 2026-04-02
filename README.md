@@ -20,13 +20,13 @@ EU Fact Force is a collaborative platform developed by [EUPHA](https://www.eupha
 ###  Use Case
 
 > **Marie**, a health communicator at a national public health association, sees a viral post claiming "vaccines cause autism." She needs to respond quickly with solid evidence.
-> 
+>
 > She searches **"vaccines autism"** on EU Fact Force and immediately sees:
 > - An interactive graph showing 15+ peer-reviewed articles that refute this claim
 > - The scientific consensus: **"Refuted with high confidence"**
 > - Current disinformation trends: 1,200 mentions this week, peak in France/Belgium
 > - Key evidence to cite in her response
-> 
+>
 > **Time to find relevant evidence: <30 seconds**
 
 ## Key Features
@@ -112,7 +112,7 @@ uv run pytest
 
 ### Déploiement de l'application
 
-L'application se compose d'un serveur Django, d'une base PostgreSQL (avec pgvector) et de LocalStack pour le stockage S3. 
+L'application se compose d'un serveur Django, d'une base PostgreSQL (avec pgvector) et de LocalStack pour le stockage S3.
 Pour déployer et utiliser l'application en local :
 
 **1. Prérequis**
@@ -176,3 +176,42 @@ AWS_S3_REGION_NAME=eu-west-1
 ```
 
 Sans ces variables, l'application utilise le stockage fichier local par défaut.
+
+
+**7. Démarrer la web-app d'ingestion vers le S3**
+
+Pour rapatrier l'upload d'un couple PDF/métadatas :
+
+***Lancer le containeur Docker ***
+```bash
+docker compose up -d
+```
+
+Cela démarre PostgreSQL (port 5432) et LocalStack S3 (port 4566) et écoute sur
+ce port.
+Le bucket configuré est créé automatiquement au démarrage de LocalStack.
+
+***Installer les dépendances et appliquer les migrations***
+
+```bash
+uv sync
+uv run python manage.py migrate
+```
+
+***Démarrer le serveur Django :***
+
+```bash
+uv run python manage.py runserver
+```
+
+***Démarrer le script FastAPI***
+
+```bash
+uv run python ingestion/front_upload/api_front_upload.py
+```
+
+***Démarrer la webapp Dash***
+
+```bash
+uv run python ingestion/front_upload/api_front_upload.py
+```
