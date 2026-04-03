@@ -1,8 +1,3 @@
-"""
-Ingest vaccins pipeline: read vaccins_annotated.json from S3 bucket performances,
-download PDF + JSON per entry, run full pipeline (save to S3 + Postgres, parse, chunks, embeddings).
-"""
-
 import json
 import logging
 from pathlib import Path
