@@ -27,7 +27,7 @@ EU Fact Force is a collaborative platform developed by [EUPHA](https://www.eupha
 > - Current disinformation trends: 1,200 mentions this week, peak in France/Belgium
 > - Key evidence to cite in her response
 > 
-> **Time to find relevant evidence: <30 seconds**
+> **Time to find relevant evidence: <30 s**
 
 ## Key Features
 
