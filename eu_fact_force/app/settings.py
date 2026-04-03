@@ -170,12 +170,19 @@ if AWS_S3_ENDPOINT_URL and (
 ):
     os.environ.setdefault("AWS_ACCESS_KEY_ID", "minioadmin")
     os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "minioadmin")
-if os.environ.get("AWS_STORAGE_BUCKET_NAME"):
+# Must match eu_fact_force.ingestion.s3.save_file_to_s3 / get_default_bucket(): uploads use
+# boto3 with this default bucket even when AWS_STORAGE_BUCKET_NAME is unset, so default_storage
+# must use the same bucket or opens fall back to FileSystemStorage and FileNotFoundError.
+_DEFAULT_FILES_BUCKET = "eu-fact-force-files"
+_AWS_STORAGE_BUCKET_NAME = (
+    os.environ.get("AWS_STORAGE_BUCKET_NAME") or _DEFAULT_FILES_BUCKET
+)
+if _AWS_STORAGE_BUCKET_NAME:
     STORAGES = {
         "default": {
             "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
             "OPTIONS": {
-                "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME"),
+                "bucket_name": _AWS_STORAGE_BUCKET_NAME,
                 "region_name": os.environ.get("AWS_S3_REGION_NAME", "eu-west-1"),
                 "custom_domain": False,
             },
