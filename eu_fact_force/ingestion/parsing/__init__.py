@@ -2,14 +2,24 @@
 
 from __future__ import annotations
 
+import tempfile
 from contextlib import contextmanager
 from pathlib import Path
-import tempfile
+
+import structlog
+from django.core.files.storage import default_storage
+
 from eu_fact_force.exploration.parsing_benchmarking.benchmarking.parsers import (
     parse_docling,
 )
-from eu_fact_force.ingestion.chunking import MAX_CHUNK_CHARS, split_into_paragraph_chunks
-from django.core.files.storage import default_storage
+from eu_fact_force.ingestion.chunking import (
+    MAX_CHUNK_CHARS,
+    split_into_paragraph_chunks,
+)
+from eu_fact_force.utils.decorators import tracker
+
+LOGGER = structlog.get_logger(__name__)
+
 
 @contextmanager
 def _source_file_local_path(source_file):
@@ -47,6 +57,7 @@ def _extract_text_from_source_file(source_file) -> str:
     return full_text
 
 
+@tracker(ulogger=LOGGER, inputs=True, log_start=True)
 def parse_file(source_file) -> list[str]:
     """
     Parse the source file and return paragraph-bounded text chunks.
