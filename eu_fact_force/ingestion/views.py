@@ -5,6 +5,12 @@ from django.http import JsonResponse
 from django.shortcuts import render
 
 from eu_fact_force.app.settings import FLAG_RETRIEVE_DEFAULT_JSON
+from eu_fact_force.ingestion.search import (
+    NarrativeNotFoundError,
+    chunks_context,
+    list_prompt_keywords,
+    search_narrative,
+)
 
 from .forms import IngestForm
 from .services import run_pipeline
@@ -50,4 +56,17 @@ def search(request, keyword: str):
         return JsonResponse(
             json.loads(_DEFAULT_SEARCH_PATH.read_text(encoding="utf-8"))
         )
-    return JsonResponse({"status": "success", "narrative": keyword})
+    try:
+        chunks = search_narrative(keyword)
+    except NarrativeNotFoundError:
+        return JsonResponse(
+            {
+                "error": f"Unknown narrative keyword {keyword!r}; no matching prompt.",
+                "keywords": list_prompt_keywords(),
+            },
+            status=404,
+        )
+
+    return JsonResponse(
+        {"status": "success", "narrative": keyword, **chunks_context(chunks)}
+    )
