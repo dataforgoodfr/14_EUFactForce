@@ -1,7 +1,17 @@
+import json
+from pathlib import Path
+
+from django.http import JsonResponse
 from django.shortcuts import render
+
+from eu_fact_force.app.settings import FLAG_RETRIEVE_DEFAULT_JSON
 
 from .forms import IngestForm
 from .services import run_pipeline
+
+_DEFAULT_SEARCH_PATH = (
+    Path(__file__).resolve().parent / "data_collection" / "default_search.json"
+)
 
 
 def ingest(request):
@@ -31,3 +41,13 @@ def ingest(request):
         else:
             context["form"] = form
     return render(request, "ingestion/ingest.html", context)
+
+
+def search(request, keyword: str):
+    """Return the default search fixture JSON (keyword reserved for future filtering)."""
+    _ = keyword
+    if FLAG_RETRIEVE_DEFAULT_JSON:
+        return JsonResponse(
+            json.loads(_DEFAULT_SEARCH_PATH.read_text(encoding="utf-8"))
+        )
+    return JsonResponse({"status": "success", "narrative": keyword})

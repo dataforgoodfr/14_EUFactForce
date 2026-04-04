@@ -1,0 +1,37 @@
+{
+    "status": "success",
+    "narrative": "vaccine_autism",
+    "chunks": [
+        {
+            "type": "text",
+            "content": "...",
+            "score": 0.94,
+            "metadata": {
+                "document_id": "<document_id>",
+                "page": 0
+            }
+        }
+    ],
+    "documents": {
+        "<document_id>": {
+            "link": "https://.../",
+            "title": "...",
+            "date": "...",
+            "journal": "...",
+            "authors": [
+                "...",
+                "..."
+            ],
+            "doi": "...",
+            "abstract": "...",
+            "keywords": [
+                "keyword_1",
+                "keyword_2"
+            ],
+            "evidence": {
+                "name": "...",
+                "rank": 0
+            }
+        }
+    }
+}
