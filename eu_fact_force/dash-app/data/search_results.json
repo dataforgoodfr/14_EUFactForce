@@ -1,0 +1,98 @@
+{
+    "status": "success",
+    "narrative": {
+        "theme": "Test local"
+    },
+    "chunks": [
+        {
+            "type": "text",
+            "content": "This is the text from chunk 0...",
+            "score": 0.94,
+            "metadata": {
+                "document_id": "document_0",
+                "page": 0,
+                "keywords": [
+                    "keyword_0",
+                    "keyword_1"
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "This is the text from chunk 1...",
+            "score": 0.90,
+            "metadata": {
+                "document_id": "document_0",
+                "page": 0,
+                "keywords": [
+                    "keyword_0",
+                    "keyword_2"
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "This is the text from chunk 2...",
+            "score": 0.84,
+            "metadata": {
+                "document_id": "document_1",
+                "page": 0,
+                "keywords": [
+                    "keyword_0",
+                    "keyword_1",
+                    "keyword_2"
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "This is the text from chunk 3...",
+            "score": 0.70,
+            "metadata": {
+                "document_id": "document_1",
+                "page": 0,
+                "keywords": [
+                    "keyword_1",
+                    "keyword_2"
+                ]
+            }
+        },
+        {
+            "type": "text",
+            "content": "This is the text from chunk 4...",
+            "score": 0.5,
+            "metadata": {
+                "document_id": "document_1",
+                "page": 0,
+                "keywords": [
+                    "keyword_0",
+                    "keyword_2"
+                ]
+            }
+        }
+    ],
+    "documents": {
+        "document_0": {
+            "link": "...",
+            "title": "Document 0",
+            "date": "2025-01-01",
+            "journal": "Journal A",
+            "authors": [
+                "Author A",
+                "Author B"
+            ],
+            "abstract": "Abstract document 0..."
+        },
+        "document_1": {
+            "link": "...",
+            "title": "Document 1",
+            "date": "2026-01-01",
+            "journal": "Journal A",
+            "authors": [
+                "Author A",
+                "Author C"
+            ],
+            "abstract": "Abstract document 1..."
+        }
+    }
+}

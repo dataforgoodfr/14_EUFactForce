@@ -11,7 +11,7 @@ This folder contains a first version of a local Dash app.
 
 ## Setup
 - Install `graph` group depedencies using `uv sync --group graph`.
-- Start app from here with `pyhon app.py`.
+- Start app from here with `python app.py`.
 - Visit `http://127.0.0.1:8050/` to see the app on your local.
 
 ## App overview
