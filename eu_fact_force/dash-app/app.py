@@ -372,7 +372,6 @@ def lock_authors(is_correct, ids):
 @app.callback(
     Output('final-output', 'children'),
     Input('btn-final-upload', 'n_clicks'),
-    # AJOUT DES DEUX STATES MANQUANTS ICI
     State('upload-pdf', 'contents'),
     State('upload-pdf', 'filename'),
     State('input-doi', 'value'),
