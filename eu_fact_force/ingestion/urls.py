@@ -1,4 +1,3 @@
-# eu_fact_force/ingestion/urls.py
 from django.urls import path
 from . import views, api
 
