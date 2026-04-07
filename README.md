@@ -198,18 +198,12 @@ uv sync
 uv run python manage.py migrate
 ```
 
-***Lancer le pipeline Dash-app > API > Localstack***
+***Lancer la Dash-app pour sauvegarder PDF & métadatas Localstack***
 
 ***Démarrer le serveur Django :***
 
 ```bash
 uv run python manage.py runserver
-```
-
-***Démarrer le script FastAPI***
-
-```bash
-uv run python ingestion/front_upload/api_front_upload.py
 ```
 
 ***Démarrer la webapp Dash***
