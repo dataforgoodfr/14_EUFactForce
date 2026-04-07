@@ -430,8 +430,8 @@ def finalize_and_send(n_clicks, pdf_base64, filename, doi, abstract, journal, da
         # Timeout ajouté pour éviter que Dash ne freeze si FastAPI est éteint
         response = requests.post(url, files=files, data=data, timeout=70)
 
-        if response.status_code == 200:
-            return dbc.Alert(f"Succès ! {filename} est sur S3.", color="success")
+        if response.status_code == 201:
+            return dbc.Alert(f"Succès ! {metadata_payload['title']} est sur S3.", color="success")
         else:
             return dbc.Alert(f"Erreur API : {response.text}", color="danger")
 
