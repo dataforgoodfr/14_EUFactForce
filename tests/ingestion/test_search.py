@@ -1,5 +1,6 @@
 """Tests for semantic search over document chunks."""
 
+from pathlib import Path
 from unittest.mock import patch
 
 import pytest
@@ -7,8 +8,14 @@ import pytest
 from eu_fact_force.ingestion import models as ingestion_models
 from eu_fact_force.ingestion import search as search_module
 from eu_fact_force.ingestion.chunking import MAX_CHUNK_CHARS
-from eu_fact_force.ingestion.models import EMBEDDING_DIMENSIONS, DocumentChunk
-from tests.factories import DocumentChunkFactory, SourceFileFactory
+from eu_fact_force.ingestion.models import (
+    EMBEDDING_DIMENSIONS,
+    DocumentChunk,
+)
+from eu_fact_force.ingestion.search import chunks_context
+from tests.factories import DocumentChunkFactory, FileMetadataFactory, SourceFileFactory
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # Tolerance for float distance comparison.
 DISTANCE_TOLERANCE = 1e-5
@@ -135,3 +142,56 @@ class TestSearchChunks:
             pytest.approx(1.0),
         ]
         assert all(r[0].source_file_id == source_file.pk for r in results)
+
+
+@pytest.mark.django_db
+class TestChunksContext:
+    def test_empty_top_chunks(self):
+        assert chunks_context([]) == {"chunks": [], "documents": {}}
+
+    def test_two_chunks_single_source_file(self):
+        source = SourceFileFactory(doi="doi/single", s3_key="key/single")
+        FileMetadataFactory(source_file=source, tags_pubmed=["mesh:a"])
+        chunk_a = DocumentChunkFactory(source_file=source, content="first")
+        chunk_b = DocumentChunkFactory(source_file=source, content="second")
+
+        result = chunks_context([(chunk_a, 0.9), (chunk_b, 0.8)])
+
+        assert result["chunks"] == [
+            {
+                "type": "text",
+                "content": "first",
+                "score": 0.9,
+                "metadata": {"document_id": source.id, "page": -1},
+            },
+            {
+                "type": "text",
+                "content": "second",
+                "score": 0.8,
+                "metadata": {"document_id": source.id, "page": -1},
+            },
+        ]
+        assert result["documents"] == {
+            source.id: {
+                "id": source.id,
+                "doi": "doi/single",
+                "tags_pubmed": ["mesh:a"],
+            }
+        }
+
+    def test_two_chunks_two_source_files(self):
+        src1 = SourceFileFactory(doi="doi/one", s3_key="k1")
+        FileMetadataFactory(source_file=src1, tags_pubmed=["t1"])
+        src2 = SourceFileFactory(doi="doi/two", s3_key="k2")
+        FileMetadataFactory(source_file=src2, tags_pubmed=["t2", "t3"])
+
+        c1 = DocumentChunkFactory(source_file=src1, content="alpha", order=0)
+        c2 = DocumentChunkFactory(source_file=src2, content="beta", order=0)
+
+        result = chunks_context([(c1, 0.1), (c2, 0.2)])
+
+        assert [x["content"] for x in result["chunks"]] == ["alpha", "beta"]
+        assert result["documents"] == {
+            src1.id: {"id": src1.id, "doi": "doi/one", "tags_pubmed": ["t1"]},
+            src2.id: {"id": src2.id, "doi": "doi/two", "tags_pubmed": ["t2", "t3"]},
+        }

@@ -172,9 +172,7 @@ eu_fact_force/ingestion/parsing/output/benchmark_results_extended.csv
 eu_fact_force/ingestion/parsing/output/extraction_scores.csv
 eu_fact_force/ingestion/parsing/output/analysis/
 s3/
-eu_fact_force/exploration/docling/results/html/
-eu_fact_force/exploration/docling/results/json/
-eu_fact_force/exploration/docling/results/md/
+eu_fact_force/exploration/
 annotated_pdf/
 eu_fact_force/exploration/docling/results/annotated_pdf/
 postgres_data/

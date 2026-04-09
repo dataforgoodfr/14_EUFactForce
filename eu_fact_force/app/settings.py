@@ -200,3 +200,10 @@ else:
             "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
         },
     }
+
+
+FLAG_RETRIEVE_DEFAULT_JSON = os.getenv("FLAG_RETRIEVE_DEFAULT_JSON", "0").lower() in (
+    "true",
+    "1",
+    "yes",
+)
