@@ -7,8 +7,8 @@ from factory.django import DjangoModelFactory
 
 from eu_fact_force.ingestion.models import (
     EMBEDDING_DIMENSIONS,
+    Document,
     DocumentChunk,
-    FileMetadata,
     SourceFile,
 )
 
@@ -22,12 +22,13 @@ class SourceFileFactory(DjangoModelFactory):
     status = SourceFile.Status.STORED
 
 
-class FileMetadataFactory(DjangoModelFactory):
+class DocumentFactory(DjangoModelFactory):
     class Meta:
-        model = FileMetadata
+        model = Document
 
-    source_file = factory.SubFactory(SourceFileFactory)
-    tags_pubmed = factory.LazyFunction(list)
+    title = factory.Sequence(lambda n: f"Document {n}")
+    doi = ""
+    external_ids = factory.LazyFunction(dict)
 
 
 def _random_embedding_vector() -> list[float]:
@@ -38,7 +39,7 @@ class DocumentChunkFactory(DjangoModelFactory):
     class Meta:
         model = DocumentChunk
 
-    source_file = factory.SubFactory(SourceFileFactory)
+    document = factory.SubFactory(DocumentFactory)
     order = factory.Sequence(lambda n: n)
     content = factory.Sequence(lambda n: f"Paragraphe {n + 1}")
     embedding = factory.LazyFunction(_random_embedding_vector)
