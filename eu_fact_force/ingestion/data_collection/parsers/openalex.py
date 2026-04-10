@@ -12,12 +12,23 @@ class OpenAlexMetadataParser(MetadataParser):
         self.url = "https://api.openalex.org/works/doi:{doi}"
         self.cited_articles_url = "https://api.openalex.org/works?filter=ids.openalex:{ids}&select=id,doi&per-page=200"
 
-    def _get_authors(self, doc):
-        return [
-            a.get("raw_author_name")
-            for a in doc.get("authorships", [])
-            if a.get("raw_author_name")
-        ]
+    def _get_authors(self, doc, data):
+        if data == "name":
+            data_field = "raw_author_name"
+            return [
+                a.get(data_field)
+                for a in doc.get("authorships", [])
+                if a.get(data_field)
+            ]
+        elif data == "orcid":
+            data_field = "orcid"
+            return [
+                a.get("author").get(data_field)
+                for a in doc.get("authorships", [])
+                if a.get("author") and a.get("author").get(data_field)
+            ]
+        else:
+            return None
 
     def _get_journal(self, doc):
         return (
@@ -70,16 +81,23 @@ class OpenAlexMetadataParser(MetadataParser):
         return {
             "found": True,
             "article name": doc.get("title"),
-            "authors": self._get_authors(doc),
+            "authors": {
+                "name": self._get_authors(doc, "name"),
+                "orcid": self._get_authors(doc, "orcid"),
+            },
             "journal": self._get_journal(doc),
             "publish date": doc.get("publication_date"),
             "link": self._get_link(doc),
+            "abstract": None,
             "keywords": self._get_keywords(doc),
             "cited articles": self._get_cited_articles(doc),
             "doi": self._get_doi(doc),
             "document type": doc.get("type"),
+            "document subtypes": None,
             "open access": (doc.get("open_access") or {}).get("is_oa"),
+            "language": doc.get("language"),
             "status": "retracted" if doc.get("is_retracted") else "published",
+            "cited by count": doc.get("cited_by_count"),
         }
 
     def get_pdf_url(self, doi: str) -> list[str]:

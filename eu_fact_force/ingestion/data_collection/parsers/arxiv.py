@@ -28,20 +28,27 @@ class ArxivMetadataParser(MetadataParser):
         return {
             "found": True,
             "article name": article.title,
-            "authors": [str(a) for a in article.authors],
+            "authors": {
+                "name": [str(a) for a in article.authors],
+                "orcid": None,
+            },
             "journal": article.journal_ref,
             "publish date": str(article.published)[:10],
             "link": next(
                 (link.href for link in article.links if link.rel == "alternate"), None
             ),
+            "abstract": article.summary,
             "keywords": None,
             "cited articles": None,
             "doi": doi,
             "document type": None,
+            "document subtypes": None,
             "open access": True,
+            "language": None,
             "status": f"updated on {str(article.updated)[:10]}"
             if article.updated != article.published
             else "published",
+            "cited by count": None
         }
 
     def get_pdf_url(self, doi: str) -> list[str]:

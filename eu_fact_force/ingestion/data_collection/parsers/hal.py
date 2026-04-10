@@ -29,16 +29,23 @@ class HALMetadataParser(MetadataParser):
         return {
             "found": True,
             "article name": doc.get("title_s"),
-            "authors": doc.get("authFullName_s"),
+            "authors": {
+                "name": doc.get("authFullName_s"),
+                "orcid": doc.get("authORCIDIdExt_s"),
+            },
             "journal": doc.get("journalTitle_s"),
             "publish date": doc.get("publicationDate_s"),
             "link": doc.get("uri_s"),
+            "abstract": doc.get("abstract_s"),
             "keywords": self._get_keywords(doc),
             "cited articles": None,
             "doi": doc.get("doiId_s"),
             "document type": self._get_type(doc),
+            "document subtypes": None,
             "open access": doc.get("openAccess_bool"),
+            "language": doc.get("language_s"),
             "status": None,
+            "cited by count": None,
         }
 
     def get_pdf_url(self, doi: str) -> list[str]:

@@ -36,7 +36,7 @@ def main():
             try:
                 if p.download_pdf(args.doi, args.pdf_dir):
                     path = os.path.join(
-                        args.pdf_dir, f"{doi_to_id(args.doi)}_{p.api_name}.pdf"
+                        args.pdf_dir, f"{doi_to_id(args.doi)}.pdf"
                     )
                     print(f"PDF saved: {path} ({os.path.getsize(path)} bytes)")
                     break

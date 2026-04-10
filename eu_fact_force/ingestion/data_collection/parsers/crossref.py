@@ -62,16 +62,23 @@ class CrossrefMetadataParser(MetadataParser):
         return {
             "found": True,
             "article name": (doc.get("title") or [None])[0],
-            "authors": self._get_authors(doc),
+            "authors": {
+                "name": self._get_authors(doc),
+                "orcid": None,
+            },
             "journal": doc.get("publisher"),
             "publish date": self._get_publish_date(doc),
             "link": self._get_link(doc),
+            "abstract": None,
             "keywords": None,
             "cited articles": self._get_cited_articles(doc),
             "doi": doc.get("DOI"),
             "document type": doc.get("type"),
+            "document subtypes": None,
             "open access": None,
+            "language": doc.get("language"),
             "status": self._get_status(doc),
+            "cited by count": None,
         }
 
     def get_pdf_url(self, doi: str) -> list[str]:
