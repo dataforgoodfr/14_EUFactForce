@@ -174,7 +174,7 @@ eu_fact_force/ingestion/parsing/output/analysis/
 s3/
 eu_fact_force/exploration/
 annotated_pdf/
-
-# docker volumes
+eu_fact_force/exploration/docling/results/annotated_pdf/
 postgres_data/
-rustfs_data
+rustfs_data/
+data/
