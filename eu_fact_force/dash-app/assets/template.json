@@ -1,0 +1,47 @@
+{
+    "layout": {
+        "title": {
+            "x": 0.02
+        },
+        "colorway": [
+            "#2d61a4",
+            "#7fa7d3",
+            "#a0c063",
+            "#f29f05"
+        ],
+        "font": {
+            "size": 16,
+            "color": "black"
+        },
+        "plot_bgcolor": "white",
+        "paper_bgcolor": "rgb(0,0,0,0)",
+        "xaxis": {
+            "tickfont": {
+                "size": 12
+            },
+            "title": {
+                "font": {
+                    "size": 14
+                }
+            },
+            "showgrid": false
+        },
+        "yaxis": {
+            "tickfont": {
+                "size": 12
+            },
+            "title": {
+                "font": {
+                    "size": 14
+                }
+            },
+            "showgrid": false
+        },
+        "legend": {
+            "font": {
+                "size": 12
+            },
+            "bgcolor": "white"
+        }
+    }
+}

@@ -20,6 +20,10 @@ dependencies = [
     "requests>=2.32.5",
     "arxiv>=2.4.1",
     "structlog>=25.5.0",
+    "dash>=4.1.0",
+    "dash-bootstrap-components>=2.0.4",
+    "dash-cytoscape>=1.0.2",
+    "pymupdf>=1.27.1",
 ]
 
 [tool.pytest.ini_options]
@@ -43,4 +47,10 @@ parsing = [
     "llama-index-readers-llama-parse>=0.4.0",
     "pymupdf>=1.25.0",
     "python-dotenv>=1.0.0",
+]
+graph = [
+    "dash>=4.0.0",
+    "dash-bootstrap-components>=2.0.4",
+    "dash-cytoscape>=1.0.2",
+    "pymupdf>=1.27.1"
 ]
