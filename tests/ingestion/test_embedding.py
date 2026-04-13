@@ -4,7 +4,7 @@ import pytest
 
 from eu_fact_force.ingestion import embedding as embedding_module
 from eu_fact_force.ingestion.models import DocumentChunk
-from tests.factories import DocumentChunkFactory, SourceFileFactory
+from tests.factories import DocumentChunkFactory, DocumentFactory
 
 
 class _FakeModel:
@@ -18,9 +18,8 @@ class _FakeModel:
 
 @pytest.mark.django_db
 def test_add_embeddings_updates_persisted_chunks(monkeypatch):
-    source = SourceFileFactory()
-    chunk_1 = DocumentChunkFactory(source_file=source, content="alpha", order=1)
-    chunk_2 = DocumentChunkFactory(source_file=source, content="beta", order=2)
+    chunk_1 = DocumentChunkFactory(content="alpha", order=1)
+    chunk_2 = DocumentChunkFactory(content="beta", order=2)
 
     fake_model = _FakeModel()
     monkeypatch.setattr(embedding_module, "_get_model", lambda: fake_model)
@@ -39,10 +38,10 @@ def test_add_embeddings_updates_persisted_chunks(monkeypatch):
 @pytest.mark.django_db
 def test_add_embeddings_skips_unsaved_and_empty_chunks(monkeypatch):
     """Only persisted, non-empty chunks are embedded; unsaved and empty-content chunks are ignored."""
-    source = SourceFileFactory()
-    persisted = DocumentChunkFactory(source_file=source, content="ok", order=1)
-    empty_chunk = DocumentChunk(source_file=source, content="   ", order=2)
-    unsaved_chunk = DocumentChunk(source_file=source, content="temp", order=3)
+    doc = DocumentFactory()
+    persisted = DocumentChunkFactory(document=doc, content="ok", order=1)
+    empty_chunk = DocumentChunk(document=doc, content="   ", order=2)
+    unsaved_chunk = DocumentChunk(document=doc, content="temp", order=3)
 
     fake_model = _FakeModel()
     monkeypatch.setattr(embedding_module, "_get_model", lambda: fake_model)
