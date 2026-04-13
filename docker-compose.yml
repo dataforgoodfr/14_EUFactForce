@@ -17,6 +17,9 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
       AWS_S3_REGION_NAME: ${AWS_S3_REGION_NAME:-eu-west-1}
       AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-eu-fact-force-files}
+    volumes:
+      - .:/app
+      - /app/.venv
     depends_on:
       postgres:
         condition: service_healthy

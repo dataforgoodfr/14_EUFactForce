@@ -71,12 +71,10 @@ class TestDocumentDOI:
         assert Document.objects.filter(doi="").count() == 2
 
     @pytest.mark.django_db
-    def test_multiple_documents_with_none_doi_allowed(self):
-        """doi=None is stored as an empty string and is treated identically to doi=""."""
-        doc = Document.objects.create(title="Report C", doi=None)
-        assert doc.doi == ""
-        Document.objects.create(title="Report D", doi=None)
-        assert Document.objects.filter(doi="").count() == 2
+    def test_doi_none_raises_integrity_error(self):
+        """doi=None is NOT equivalent to doi="" — it violates the NOT NULL constraint."""
+        with pytest.raises(IntegrityError):
+            Document.objects.create(title="Report C", doi=None)
 
 
 class TestDocumentSourceFile:
