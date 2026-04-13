@@ -1,0 +1,2068 @@
+{
+  "summary": {
+    "total_documents": 27,
+    "total_queries": 81,
+    "found_count": 75,
+    "found_percentage": 92.5925925925926,
+    "found_in_top_5_percentage": 82.71604938271605,
+    "found_in_top_10_percentage": 85.18518518518519
+  },
+  "metrics": {
+    "avg_similarity": 0.6023946488276124,
+    "avg_rank_when_found": 2.230769230769231
+  },
+  "results": [
+    {
+      "article_id": "arxiv:1409.2651v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.6659211615721384
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 479,
+          "source_rank": 1,
+          "source_similarity": 0.8887748718261719,
+          "top_5_documents": [
+            "arxiv:1409.2651v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2604.06499v1"
+          ],
+          "top_5_similarities": [
+            0.8887748718261719,
+            0.3709866404533386,
+            0.3161258399486542,
+            0.31419581174850464,
+            0.30306708812713623
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 79,
+          "source_rank": 1,
+          "source_similarity": 0.303290992975235,
+          "top_5_documents": [
+            "arxiv:1409.2651v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26935v1",
+            "arxiv:2604.07309v1",
+            "arxiv:2603.26548v1"
+          ],
+          "top_5_similarities": [
+            0.303290992975235,
+            0.21022149920463562,
+            0.1841123104095459,
+            0.11388679593801498,
+            0.10654382407665253
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 559,
+          "source_rank": 1,
+          "source_similarity": 0.8056976199150085,
+          "top_5_documents": [
+            "arxiv:1409.2651v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26548v1"
+          ],
+          "top_5_similarities": [
+            0.8056976199150085,
+            0.3141586184501648,
+            0.29131531715393066,
+            0.2530433237552643,
+            0.23256893455982208
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:1905.12616v3",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 2,
+        "found_in_top_10": 2,
+        "found_at_all": 2,
+        "avg_rank": 1.0,
+        "avg_similarity": 1.0
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 827,
+          "source_rank": 1,
+          "source_similarity": 1.0,
+          "top_5_documents": [
+            "arxiv:1905.12616v3",
+            "arxiv:2603.26914v1",
+            "arxiv:2603.29316v1",
+            "arxiv:2604.03970v1",
+            "arxiv:2604.08334v1"
+          ],
+          "top_5_similarities": [
+            1.0,
+            0.6405197978019714,
+            0.6224138140678406,
+            0.5883582234382629,
+            0.5876590609550476
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 53,
+          "source_rank": null,
+          "source_similarity": null,
+          "top_5_documents": [
+            "arxiv:2604.02886v1",
+            "arxiv:2603.26358v1",
+            "arxiv:1409.2651v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.26913v1"
+          ],
+          "top_5_similarities": [
+            0.2606149911880493,
+            0.21596254408359528,
+            0.187078595161438,
+            0.16614612936973572,
+            0.14915114641189575
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 881,
+          "source_rank": 1,
+          "source_similarity": 1.0,
+          "top_5_documents": [
+            "arxiv:1905.12616v3",
+            "arxiv:2603.26914v1",
+            "arxiv:2603.29316v1",
+            "arxiv:2604.03970v1",
+            "arxiv:2604.08334v1"
+          ],
+          "top_5_similarities": [
+            1.0,
+            0.6405197978019714,
+            0.6224138140678406,
+            0.5883582234382629,
+            0.5876590609550476
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.26358v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.6666666666666667,
+        "avg_similarity": 0.7586571176846822
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 593,
+          "source_rank": 1,
+          "source_similarity": 0.9882808327674866,
+          "top_5_documents": [
+            "arxiv:2603.26358v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2604.06499v1"
+          ],
+          "top_5_similarities": [
+            0.9882808327674866,
+            0.6143072843551636,
+            0.5885742902755737,
+            0.5720741152763367,
+            0.5634541511535645
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 204,
+          "source_rank": 3,
+          "source_similarity": 0.3930615186691284,
+          "top_5_documents": [
+            "arxiv:2604.07309v1",
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.04032v1"
+          ],
+          "top_5_similarities": [
+            0.6043550968170166,
+            0.46574804186820984,
+            0.3930615186691284,
+            0.3756697177886963,
+            0.2967720925807953
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 798,
+          "source_rank": 1,
+          "source_similarity": 0.8946290016174316,
+          "top_5_documents": [
+            "arxiv:2603.26358v1",
+            "arxiv:2604.07309v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.03970v1"
+          ],
+          "top_5_similarities": [
+            0.8946290016174316,
+            0.5576285719871521,
+            0.5515674948692322,
+            0.531114399433136,
+            0.5177264213562012
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.26502v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.6666666666666667,
+        "avg_similarity": 0.48009467124938965
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 81,
+          "source_rank": 3,
+          "source_similarity": 0.3537067174911499,
+          "top_5_documents": [
+            "arxiv:2604.06499v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26502v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2603.29316v1"
+          ],
+          "top_5_similarities": [
+            0.36230742931365967,
+            0.3541924059391022,
+            0.3537067174911499,
+            0.3393329381942749,
+            0.3086610436439514
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 238,
+          "source_rank": 1,
+          "source_similarity": 0.5106405019760132,
+          "top_5_documents": [
+            "arxiv:2603.26502v1",
+            "arxiv:2604.04032v1",
+            "arxiv:2603.26935v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2604.04858v1"
+          ],
+          "top_5_similarities": [
+            0.5106405019760132,
+            0.47124001383781433,
+            0.29308560490608215,
+            0.2726686894893646,
+            0.26953190565109253
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 320,
+          "source_rank": 1,
+          "source_similarity": 0.5759367942810059,
+          "top_5_documents": [
+            "arxiv:2603.26502v1",
+            "arxiv:2604.04032v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2604.06499v1"
+          ],
+          "top_5_similarities": [
+            0.5759367942810059,
+            0.4335107207298279,
+            0.32884681224823,
+            0.30511534214019775,
+            0.29580873250961304
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.26548v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 2.0,
+        "avg_similarity": 0.6834441224733988
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 514,
+          "source_rank": 1,
+          "source_similarity": 0.9865671396255493,
+          "top_5_documents": [
+            "arxiv:2603.26548v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26914v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2603.26913v1"
+          ],
+          "top_5_similarities": [
+            0.9865671396255493,
+            0.5703126192092896,
+            0.5426372289657593,
+            0.5192497968673706,
+            0.5021085143089294
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 116,
+          "source_rank": 4,
+          "source_similarity": 0.13384723663330078,
+          "top_5_documents": [
+            "arxiv:2604.07557v1",
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26994v1",
+            "arxiv:2603.26548v1",
+            "arxiv:2604.03970v1"
+          ],
+          "top_5_similarities": [
+            0.1917744278907776,
+            0.18052756786346436,
+            0.1469772756099701,
+            0.13384723663330078,
+            0.13247638940811157
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 631,
+          "source_rank": 1,
+          "source_similarity": 0.9299179911613464,
+          "top_5_documents": [
+            "arxiv:2603.26548v1",
+            "arxiv:2604.08334v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2603.26914v1",
+            "arxiv:2603.29316v1"
+          ],
+          "top_5_similarities": [
+            0.9299179911613464,
+            0.5261412858963013,
+            0.44988709688186646,
+            0.44935646653175354,
+            0.4380544126033783
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.26888v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.6824510792891184
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 520,
+          "source_rank": 1,
+          "source_similarity": 0.8327791690826416,
+          "top_5_documents": [
+            "arxiv:2603.26888v1",
+            "arxiv:2604.03970v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26913v1"
+          ],
+          "top_5_similarities": [
+            0.8327791690826416,
+            0.6397859454154968,
+            0.5718697309494019,
+            0.5160906314849854,
+            0.4929600656032562
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 113,
+          "source_rank": 1,
+          "source_similarity": 0.3578130900859833,
+          "top_5_documents": [
+            "arxiv:2603.26888v1",
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.26994v1",
+            "arxiv:2604.07557v1"
+          ],
+          "top_5_similarities": [
+            0.3578130900859833,
+            0.27919644117355347,
+            0.26932814717292786,
+            0.24662533402442932,
+            0.20037730038166046
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 634,
+          "source_rank": 1,
+          "source_similarity": 0.8567609786987305,
+          "top_5_documents": [
+            "arxiv:2603.26888v1",
+            "arxiv:2604.03970v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2604.07557v1"
+          ],
+          "top_5_similarities": [
+            0.8567609786987305,
+            0.5744866132736206,
+            0.5058867335319519,
+            0.4814342260360718,
+            0.47213107347488403
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.26913v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 2.3333333333333335,
+        "avg_similarity": 0.42919303476810455
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 182,
+          "source_rank": 1,
+          "source_similarity": 0.6345393061637878,
+          "top_5_documents": [
+            "arxiv:2603.26913v1",
+            "arxiv:2603.26914v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2604.07493v1",
+            "arxiv:2604.01385v1"
+          ],
+          "top_5_similarities": [
+            0.6345393061637878,
+            0.6250757575035095,
+            0.4378262460231781,
+            0.4329378306865692,
+            0.4272453486919403
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 195,
+          "source_rank": 5,
+          "source_similarity": 0.15316267311573029,
+          "top_5_documents": [
+            "arxiv:2604.04032v1",
+            "arxiv:2603.26935v1",
+            "arxiv:2604.01734v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26913v1"
+          ],
+          "top_5_similarities": [
+            0.29193222522735596,
+            0.26020359992980957,
+            0.18155480921268463,
+            0.17510098218917847,
+            0.15316267311573029
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 378,
+          "source_rank": 1,
+          "source_similarity": 0.49987712502479553,
+          "top_5_documents": [
+            "arxiv:2603.26913v1",
+            "arxiv:2604.04032v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26935v1",
+            "arxiv:2604.08334v1"
+          ],
+          "top_5_similarities": [
+            0.49987712502479553,
+            0.45558691024780273,
+            0.44423356652259827,
+            0.41829270124435425,
+            0.38441431522369385
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.26914v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 2,
+        "found_in_top_10": 2,
+        "found_at_all": 2,
+        "avg_rank": 1.0,
+        "avg_similarity": 1.0000001192092896
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 943,
+          "source_rank": 1,
+          "source_similarity": 1.0000001192092896,
+          "top_5_documents": [
+            "arxiv:2603.26914v1",
+            "arxiv:2603.26913v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2604.07493v1",
+            "arxiv:2604.01475v1"
+          ],
+          "top_5_similarities": [
+            1.0000001192092896,
+            0.6450681686401367,
+            0.6405197381973267,
+            0.6298531293869019,
+            0.6117665767669678
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 158,
+          "source_rank": null,
+          "source_similarity": null,
+          "top_5_documents": [
+            "arxiv:2604.07557v1",
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26994v1",
+            "arxiv:2604.07309v1",
+            "arxiv:2604.04032v1"
+          ],
+          "top_5_similarities": [
+            0.3173665404319763,
+            0.27446550130844116,
+            0.25083574652671814,
+            0.19007134437561035,
+            0.18157300353050232
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 1102,
+          "source_rank": 1,
+          "source_similarity": 1.0000001192092896,
+          "top_5_documents": [
+            "arxiv:2603.26914v1",
+            "arxiv:2603.26913v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2604.07493v1",
+            "arxiv:2604.01475v1"
+          ],
+          "top_5_similarities": [
+            1.0000001192092896,
+            0.6450681686401367,
+            0.6405197381973267,
+            0.6298531293869019,
+            0.6117665767669678
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.26935v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 2,
+        "found_in_top_10": 2,
+        "found_at_all": 3,
+        "avg_rank": 5.0,
+        "avg_similarity": 0.5399256348609924
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 275,
+          "source_rank": 13,
+          "source_similarity": 0.32278943061828613,
+          "top_5_documents": [
+            "arxiv:2603.26913v1",
+            "arxiv:2604.07493v1",
+            "arxiv:2603.26914v1",
+            "arxiv:2604.01475v1",
+            "arxiv:2603.29316v1"
+          ],
+          "top_5_similarities": [
+            0.6528587937355042,
+            0.5471363663673401,
+            0.5458475351333618,
+            0.5209981203079224,
+            0.4933006763458252
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 213,
+          "source_rank": 1,
+          "source_similarity": 0.5507274270057678,
+          "top_5_documents": [
+            "arxiv:2603.26935v1",
+            "arxiv:2604.01734v1",
+            "arxiv:2603.27095v2",
+            "arxiv:2604.04032v1",
+            "arxiv:2604.04858v1"
+          ],
+          "top_5_similarities": [
+            0.5507274270057678,
+            0.1849433332681656,
+            0.16914796829223633,
+            0.14604893326759338,
+            0.14588144421577454
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 489,
+          "source_rank": 1,
+          "source_similarity": 0.7462600469589233,
+          "top_5_documents": [
+            "arxiv:2603.26935v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2604.01475v1",
+            "arxiv:2604.04032v1"
+          ],
+          "top_5_similarities": [
+            0.7462600469589233,
+            0.4709394574165344,
+            0.4463229179382324,
+            0.3547911047935486,
+            0.3291170001029968
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.26994v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.5716446240743002
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 320,
+          "source_rank": 1,
+          "source_similarity": 0.6380219459533691,
+          "top_5_documents": [
+            "arxiv:2603.26994v1",
+            "arxiv:2604.01385v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26913v1"
+          ],
+          "top_5_similarities": [
+            0.6380219459533691,
+            0.39910995960235596,
+            0.39816465973854065,
+            0.3730924129486084,
+            0.3654680550098419
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 181,
+          "source_rank": 1,
+          "source_similarity": 0.43927353620529175,
+          "top_5_documents": [
+            "arxiv:2603.26994v1",
+            "arxiv:2604.01385v1",
+            "arxiv:2604.01734v1",
+            "arxiv:2604.00871v1",
+            "arxiv:2604.07557v1"
+          ],
+          "top_5_similarities": [
+            0.43927353620529175,
+            0.25819966197013855,
+            0.252338171005249,
+            0.2327219545841217,
+            0.18209081888198853
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 502,
+          "source_rank": 1,
+          "source_similarity": 0.6376383900642395,
+          "top_5_documents": [
+            "arxiv:2603.26994v1",
+            "arxiv:2604.01385v1",
+            "arxiv:2604.00871v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2604.01734v1"
+          ],
+          "top_5_similarities": [
+            0.6376383900642395,
+            0.3730083107948303,
+            0.31106138229370117,
+            0.29570773243904114,
+            0.29190707206726074
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.27095v2",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 2,
+        "found_in_top_10": 2,
+        "found_at_all": 3,
+        "avg_rank": 4.666666666666667,
+        "avg_similarity": 0.47599439819653827
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 302,
+          "source_rank": 2,
+          "source_similarity": 0.6513093709945679,
+          "top_5_documents": [
+            "arxiv:1905.12616v3",
+            "arxiv:2603.27095v2",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26914v1",
+            "arxiv:2603.29316v1"
+          ],
+          "top_5_similarities": [
+            0.6581187844276428,
+            0.6513093709945679,
+            0.5523764491081238,
+            0.531404972076416,
+            0.5165825486183167
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 119,
+          "source_rank": 11,
+          "source_similarity": 0.14816966652870178,
+          "top_5_documents": [
+            "arxiv:1409.2651v1",
+            "arxiv:2604.03970v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.26994v1",
+            "arxiv:2604.07557v1"
+          ],
+          "top_5_similarities": [
+            0.26528528332710266,
+            0.2542276680469513,
+            0.23447132110595703,
+            0.19843320548534393,
+            0.17962273955345154
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 422,
+          "source_rank": 1,
+          "source_similarity": 0.6285041570663452,
+          "top_5_documents": [
+            "arxiv:2603.27095v2",
+            "arxiv:1905.12616v3",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26914v1",
+            "arxiv:2603.29316v1"
+          ],
+          "top_5_similarities": [
+            0.6285041570663452,
+            0.6100028157234192,
+            0.5316339731216431,
+            0.47655850648880005,
+            0.4750133752822876
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.27276v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 2,
+        "found_in_top_10": 2,
+        "found_at_all": 2,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.4753379374742508
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 82,
+          "source_rank": 1,
+          "source_similarity": 0.5478577017784119,
+          "top_5_documents": [
+            "arxiv:2603.27276v1",
+            "arxiv:2604.01475v1",
+            "arxiv:2603.29316v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2604.02886v1"
+          ],
+          "top_5_similarities": [
+            0.5478577017784119,
+            0.3413581848144531,
+            0.3356815278530121,
+            0.32668912410736084,
+            0.281935453414917
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 118,
+          "source_rank": null,
+          "source_similarity": null,
+          "top_5_documents": [
+            "arxiv:2603.26502v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2604.06499v1",
+            "arxiv:2603.27095v2"
+          ],
+          "top_5_similarities": [
+            0.23923638463020325,
+            0.18191836774349213,
+            0.18142467737197876,
+            0.16696198284626007,
+            0.15853622555732727
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 201,
+          "source_rank": 1,
+          "source_similarity": 0.4028181731700897,
+          "top_5_documents": [
+            "arxiv:2603.27276v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.06499v1",
+            "arxiv:2603.29316v1"
+          ],
+          "top_5_similarities": [
+            0.4028181731700897,
+            0.2802005112171173,
+            0.257956862449646,
+            0.25525304675102234,
+            0.2508356273174286
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.28930v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.6666666666666667,
+        "avg_similarity": 0.47483398020267487
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 284,
+          "source_rank": 2,
+          "source_similarity": 0.5760168433189392,
+          "top_5_documents": [
+            "arxiv:2603.29316v1",
+            "arxiv:2603.28930v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2603.26913v1",
+            "arxiv:2603.26914v1"
+          ],
+          "top_5_similarities": [
+            0.6653438210487366,
+            0.5760168433189392,
+            0.5503209829330444,
+            0.5498846173286438,
+            0.5046737194061279
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 150,
+          "source_rank": 2,
+          "source_similarity": 0.23451749980449677,
+          "top_5_documents": [
+            "arxiv:1409.2651v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.27095v2",
+            "arxiv:2603.26935v1",
+            "arxiv:2604.04858v1"
+          ],
+          "top_5_similarities": [
+            0.24884913861751556,
+            0.23451749980449677,
+            0.2277642786502838,
+            0.17888271808624268,
+            0.17059260606765747
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 435,
+          "source_rank": 1,
+          "source_similarity": 0.6139675974845886,
+          "top_5_documents": [
+            "arxiv:2603.28930v1",
+            "arxiv:2603.27095v2",
+            "arxiv:2603.29316v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2604.06499v1"
+          ],
+          "top_5_similarities": [
+            0.6139675974845886,
+            0.5296220779418945,
+            0.4771822690963745,
+            0.416675329208374,
+            0.4066351056098938
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2603.29316v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 1,
+        "found_in_top_10": 2,
+        "found_at_all": 3,
+        "avg_rank": 10.333333333333334,
+        "avg_similarity": 0.39873039722442627
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 275,
+          "source_rank": 1,
+          "source_similarity": 0.7065665125846863,
+          "top_5_documents": [
+            "arxiv:2603.29316v1",
+            "arxiv:2604.06499v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2604.07493v1",
+            "arxiv:2604.01475v1"
+          ],
+          "top_5_similarities": [
+            0.7065665125846863,
+            0.5318127870559692,
+            0.49830830097198486,
+            0.4965183138847351,
+            0.4950053095817566
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 200,
+          "source_rank": 20,
+          "source_similarity": 0.09265375137329102,
+          "top_5_documents": [
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.04858v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26888v1"
+          ],
+          "top_5_similarities": [
+            0.37717121839523315,
+            0.36149391531944275,
+            0.30461475253105164,
+            0.30371594429016113,
+            0.2911098897457123
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 476,
+          "source_rank": 10,
+          "source_similarity": 0.3969709277153015,
+          "top_5_documents": [
+            "arxiv:2603.26358v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.06499v1",
+            "arxiv:2604.04032v1"
+          ],
+          "top_5_similarities": [
+            0.5058413743972778,
+            0.4996025264263153,
+            0.4787026643753052,
+            0.4619535207748413,
+            0.4403448700904846
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.00871v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.45834339658419293
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 262,
+          "source_rank": 1,
+          "source_similarity": 0.4784705936908722,
+          "top_5_documents": [
+            "arxiv:2604.00871v1",
+            "arxiv:2603.26914v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2603.29316v1",
+            "arxiv:2603.26913v1"
+          ],
+          "top_5_similarities": [
+            0.4784705936908722,
+            0.4702377915382385,
+            0.4626164138317108,
+            0.459283709526062,
+            0.4471169710159302
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 301,
+          "source_rank": 1,
+          "source_similarity": 0.37190282344818115,
+          "top_5_documents": [
+            "arxiv:2604.00871v1",
+            "arxiv:2604.07309v1",
+            "arxiv:1409.2651v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.26358v1"
+          ],
+          "top_5_similarities": [
+            0.37190282344818115,
+            0.25551992654800415,
+            0.1973484605550766,
+            0.1751852184534073,
+            0.1600615531206131
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 564,
+          "source_rank": 1,
+          "source_similarity": 0.5246567726135254,
+          "top_5_documents": [
+            "arxiv:2604.00871v1",
+            "arxiv:2604.01385v1",
+            "arxiv:2604.06499v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26502v1"
+          ],
+          "top_5_similarities": [
+            0.5246567726135254,
+            0.32058677077293396,
+            0.30258670449256897,
+            0.29999664425849915,
+            0.281868040561676
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.01385v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.48638322949409485
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 58,
+          "source_rank": 1,
+          "source_similarity": 0.27015450596809387,
+          "top_5_documents": [
+            "arxiv:2604.01385v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2603.27276v1",
+            "arxiv:2603.26914v1",
+            "arxiv:2603.26888v1"
+          ],
+          "top_5_similarities": [
+            0.27015450596809387,
+            0.269645094871521,
+            0.2467413991689682,
+            0.23007255792617798,
+            0.20227323472499847
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 182,
+          "source_rank": 1,
+          "source_similarity": 0.534534215927124,
+          "top_5_documents": [
+            "arxiv:2604.01385v1",
+            "arxiv:2603.26994v1",
+            "arxiv:2604.00871v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2603.26935v1"
+          ],
+          "top_5_similarities": [
+            0.534534215927124,
+            0.3821773827075958,
+            0.22376254200935364,
+            0.17119038105010986,
+            0.15326115489006042
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 241,
+          "source_rank": 1,
+          "source_similarity": 0.6544609665870667,
+          "top_5_documents": [
+            "arxiv:2604.01385v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2603.26994v1",
+            "arxiv:2604.03970v1",
+            "arxiv:2603.26913v1"
+          ],
+          "top_5_similarities": [
+            0.6544609665870667,
+            0.3878999650478363,
+            0.3844257593154907,
+            0.2660256326198578,
+            0.26144012808799744
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.01475v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 1,
+        "found_in_top_10": 1,
+        "found_at_all": 3,
+        "avg_rank": 9.666666666666666,
+        "avg_similarity": 0.13960174998889366
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 35,
+          "source_rank": 2,
+          "source_similarity": 0.3736816644668579,
+          "top_5_documents": [
+            "arxiv:2603.26913v1",
+            "arxiv:2604.01475v1",
+            "arxiv:2603.27276v1",
+            "arxiv:2603.26548v1",
+            "arxiv:2603.26914v1"
+          ],
+          "top_5_similarities": [
+            0.39204856753349304,
+            0.3736816644668579,
+            0.31766757369041443,
+            0.28618335723876953,
+            0.2847040891647339
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 137,
+          "source_rank": 16,
+          "source_similarity": 0.004557621665298939,
+          "top_5_documents": [
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2604.08334v1"
+          ],
+          "top_5_similarities": [
+            0.18325723707675934,
+            0.15107461810112,
+            0.13421420753002167,
+            0.11350759863853455,
+            0.10281575471162796
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 173,
+          "source_rank": 11,
+          "source_similarity": 0.040565963834524155,
+          "top_5_documents": [
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26935v1"
+          ],
+          "top_5_similarities": [
+            0.17685510218143463,
+            0.16825947165489197,
+            0.1364213079214096,
+            0.12252208590507507,
+            0.11449943482875824
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.01734v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.6651877959569296
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 231,
+          "source_rank": 1,
+          "source_similarity": 0.7440569996833801,
+          "top_5_documents": [
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.04032v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2603.28930v1"
+          ],
+          "top_5_similarities": [
+            0.7440569996833801,
+            0.3947311341762543,
+            0.3836385905742645,
+            0.37654781341552734,
+            0.37141382694244385
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 199,
+          "source_rank": 1,
+          "source_similarity": 0.45492464303970337,
+          "top_5_documents": [
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26935v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.26994v1"
+          ],
+          "top_5_similarities": [
+            0.45492464303970337,
+            0.36098581552505493,
+            0.29209181666374207,
+            0.25771716237068176,
+            0.24236302077770233
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 431,
+          "source_rank": 1,
+          "source_similarity": 0.7965817451477051,
+          "top_5_documents": [
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26935v1",
+            "arxiv:2604.04032v1"
+          ],
+          "top_5_similarities": [
+            0.7965817451477051,
+            0.3587587773799896,
+            0.3545873165130615,
+            0.3535468876361847,
+            0.3285672962665558
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.02886v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 2,
+        "found_in_top_10": 2,
+        "found_at_all": 2,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.7595297992229462
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 327,
+          "source_rank": 1,
+          "source_similarity": 0.866773247718811,
+          "top_5_documents": [
+            "arxiv:2604.02886v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.27276v1",
+            "arxiv:2604.06499v1",
+            "arxiv:2603.26913v1"
+          ],
+          "top_5_similarities": [
+            0.866773247718811,
+            0.3821960389614105,
+            0.37354204058647156,
+            0.336494505405426,
+            0.32085731625556946
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 186,
+          "source_rank": null,
+          "source_similarity": null,
+          "top_5_documents": [
+            "arxiv:2604.04032v1",
+            "arxiv:2603.26935v1",
+            "arxiv:2603.26888v1",
+            "arxiv:1409.2651v1",
+            "arxiv:2603.27095v2"
+          ],
+          "top_5_similarities": [
+            0.25496864318847656,
+            0.22393718361854553,
+            0.21600347757339478,
+            0.1866501271724701,
+            0.1842355728149414
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 514,
+          "source_rank": 1,
+          "source_similarity": 0.6522863507270813,
+          "top_5_documents": [
+            "arxiv:2604.02886v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2604.06499v1",
+            "arxiv:2603.26548v1"
+          ],
+          "top_5_similarities": [
+            0.6522863507270813,
+            0.40847936272621155,
+            0.39273855090141296,
+            0.3850876986980438,
+            0.3584725558757782
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.03970v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.7416976094245911
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 746,
+          "source_rank": 1,
+          "source_similarity": 1.000000238418579,
+          "top_5_documents": [
+            "arxiv:2604.03970v1",
+            "arxiv:2603.28930v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26914v1"
+          ],
+          "top_5_similarities": [
+            1.000000238418579,
+            0.6363357305526733,
+            0.5883581638336182,
+            0.5666509866714478,
+            0.5627011060714722
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 387,
+          "source_rank": 1,
+          "source_similarity": 0.225092351436615,
+          "top_5_documents": [
+            "arxiv:2604.03970v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26935v1",
+            "arxiv:2604.04032v1",
+            "arxiv:2603.26913v1"
+          ],
+          "top_5_similarities": [
+            0.225092351436615,
+            0.17742037773132324,
+            0.159056156873703,
+            0.1557382345199585,
+            0.13289757072925568
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 1134,
+          "source_rank": 1,
+          "source_similarity": 1.000000238418579,
+          "top_5_documents": [
+            "arxiv:2604.03970v1",
+            "arxiv:2603.28930v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26914v1"
+          ],
+          "top_5_similarities": [
+            1.000000238418579,
+            0.6363357305526733,
+            0.5883581638336182,
+            0.5666509866714478,
+            0.5627011060714722
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.04032v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.829835057258606
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 1249,
+          "source_rank": 1,
+          "source_similarity": 1.0,
+          "top_5_documents": [
+            "arxiv:2604.04032v1",
+            "arxiv:2604.03970v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.07557v1"
+          ],
+          "top_5_similarities": [
+            1.0,
+            0.5165072679519653,
+            0.5153419375419617,
+            0.5148964524269104,
+            0.47184133529663086
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 286,
+          "source_rank": 1,
+          "source_similarity": 0.48950517177581787,
+          "top_5_documents": [
+            "arxiv:2604.04032v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2604.01385v1"
+          ],
+          "top_5_similarities": [
+            0.48950517177581787,
+            0.4481090307235718,
+            0.338813841342926,
+            0.3181943893432617,
+            0.31421589851379395
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 1536,
+          "source_rank": 1,
+          "source_similarity": 1.0,
+          "top_5_documents": [
+            "arxiv:2604.04032v1",
+            "arxiv:2604.03970v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.07557v1"
+          ],
+          "top_5_similarities": [
+            1.0,
+            0.5165072679519653,
+            0.5153419375419617,
+            0.5148964524269104,
+            0.47184133529663086
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.04858v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 0,
+        "found_in_top_10": 0,
+        "found_at_all": 1,
+        "avg_rank": Infinity,
+        "avg_similarity": 0.13414731621742249
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 150,
+          "source_rank": null,
+          "source_similarity": null,
+          "top_5_documents": [
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26548v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2603.29316v1",
+            "arxiv:2603.26914v1"
+          ],
+          "top_5_similarities": [
+            0.5196057558059692,
+            0.504397988319397,
+            0.4964168071746826,
+            0.48385173082351685,
+            0.4295003116130829
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 75,
+          "source_rank": 13,
+          "source_similarity": 0.13414731621742249,
+          "top_5_documents": [
+            "arxiv:2604.07309v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26935v1",
+            "arxiv:2604.06499v1"
+          ],
+          "top_5_similarities": [
+            0.2732274830341339,
+            0.22955788671970367,
+            0.22073450684547424,
+            0.20920513570308685,
+            0.20621143281459808
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 226,
+          "source_rank": null,
+          "source_similarity": null,
+          "top_5_documents": [
+            "arxiv:2604.08334v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2603.26548v1",
+            "arxiv:2603.28930v1"
+          ],
+          "top_5_similarities": [
+            0.5021136999130249,
+            0.41156768798828125,
+            0.41050684452056885,
+            0.40638166666030884,
+            0.3887830972671509
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.06499v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.6172533134619395
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 386,
+          "source_rank": 1,
+          "source_similarity": 0.7571704387664795,
+          "top_5_documents": [
+            "arxiv:2604.06499v1",
+            "arxiv:2604.07493v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2603.29316v1",
+            "arxiv:2603.26914v1"
+          ],
+          "top_5_similarities": [
+            0.7571704387664795,
+            0.6843982934951782,
+            0.5727742314338684,
+            0.5474908947944641,
+            0.5327098369598389
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 195,
+          "source_rank": 1,
+          "source_similarity": 0.3832581341266632,
+          "top_5_documents": [
+            "arxiv:2604.06499v1",
+            "arxiv:2604.04858v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2604.04032v1"
+          ],
+          "top_5_similarities": [
+            0.3832581341266632,
+            0.2664734125137329,
+            0.19473788142204285,
+            0.16393500566482544,
+            0.16026222705841064
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 582,
+          "source_rank": 1,
+          "source_similarity": 0.7113313674926758,
+          "top_5_documents": [
+            "arxiv:2604.06499v1",
+            "arxiv:2604.07493v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2604.08334v1"
+          ],
+          "top_5_similarities": [
+            0.7113313674926758,
+            0.45435741543769836,
+            0.3891679346561432,
+            0.35997578501701355,
+            0.34114065766334534
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.07309v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.7227054437001547
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 221,
+          "source_rank": 1,
+          "source_similarity": 0.6259530782699585,
+          "top_5_documents": [
+            "arxiv:2604.07309v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.26548v1"
+          ],
+          "top_5_similarities": [
+            0.6259530782699585,
+            0.4668549597263336,
+            0.44727322459220886,
+            0.41560348868370056,
+            0.4152430593967438
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 341,
+          "source_rank": 1,
+          "source_similarity": 0.7240699529647827,
+          "top_5_documents": [
+            "arxiv:2604.07309v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.01734v1",
+            "arxiv:2603.28930v1"
+          ],
+          "top_5_similarities": [
+            0.7240699529647827,
+            0.3663879632949829,
+            0.3175505995750427,
+            0.25558793544769287,
+            0.2509821653366089
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 563,
+          "source_rank": 1,
+          "source_similarity": 0.8180932998657227,
+          "top_5_documents": [
+            "arxiv:2604.07309v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.28930v1",
+            "arxiv:2604.04032v1"
+          ],
+          "top_5_similarities": [
+            0.8180932998657227,
+            0.4623115658760071,
+            0.3851585388183594,
+            0.3426433205604553,
+            0.2759433686733246
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.07493v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 2,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 3.0,
+        "avg_similarity": 0.6759067277113596
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 405,
+          "source_rank": 1,
+          "source_similarity": 0.830400824546814,
+          "top_5_documents": [
+            "arxiv:2604.07493v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2603.26914v1",
+            "arxiv:2604.06499v1",
+            "arxiv:1905.12616v3"
+          ],
+          "top_5_similarities": [
+            0.830400824546814,
+            0.5417415499687195,
+            0.5379408001899719,
+            0.5191848278045654,
+            0.5179333686828613
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 1102,
+          "source_rank": 7,
+          "source_similarity": 0.2746342718601227,
+          "top_5_documents": [
+            "arxiv:1905.12616v3",
+            "arxiv:2603.26914v1",
+            "arxiv:2603.26548v1",
+            "arxiv:2603.27276v1",
+            "arxiv:2604.08334v1"
+          ],
+          "top_5_similarities": [
+            0.4270959496498108,
+            0.3988012969493866,
+            0.38218870759010315,
+            0.3746989965438843,
+            0.3645741939544678
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 1508,
+          "source_rank": 1,
+          "source_similarity": 0.9226850867271423,
+          "top_5_documents": [
+            "arxiv:2604.07493v1",
+            "arxiv:2603.26914v1",
+            "arxiv:1905.12616v3",
+            "arxiv:2603.26913v1",
+            "arxiv:2604.06499v1"
+          ],
+          "top_5_similarities": [
+            0.9226850867271423,
+            0.6827670335769653,
+            0.631132185459137,
+            0.5838437080383301,
+            0.5196563005447388
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.07557v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.7672990163167318
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 349,
+          "source_rank": 1,
+          "source_similarity": 0.8811350464820862,
+          "top_5_documents": [
+            "arxiv:2604.07557v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26914v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2604.03970v1"
+          ],
+          "top_5_similarities": [
+            0.8811350464820862,
+            0.49409136176109314,
+            0.4900552034378052,
+            0.4776245653629303,
+            0.4717380106449127
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 141,
+          "source_rank": 1,
+          "source_similarity": 0.5033405423164368,
+          "top_5_documents": [
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2603.26994v1",
+            "arxiv:2604.01385v1"
+          ],
+          "top_5_similarities": [
+            0.5033405423164368,
+            0.4061809778213501,
+            0.3831551671028137,
+            0.3444375991821289,
+            0.34234172105789185
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 491,
+          "source_rank": 1,
+          "source_similarity": 0.9174214601516724,
+          "top_5_documents": [
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26888v1",
+            "arxiv:2604.08334v1",
+            "arxiv:2604.03970v1",
+            "arxiv:2603.26914v1"
+          ],
+          "top_5_similarities": [
+            0.9174214601516724,
+            0.5082053542137146,
+            0.5075318217277527,
+            0.4852364659309387,
+            0.47984790802001953
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    },
+    {
+      "article_id": "arxiv:2604.08334v1",
+      "num_queries": 3,
+      "metrics": {
+        "found_in_top_5": 3,
+        "found_in_top_10": 3,
+        "found_at_all": 3,
+        "avg_rank": 1.0,
+        "avg_similarity": 0.6305367847283682
+      },
+      "query_details": [
+        {
+          "query_idx": 1,
+          "query_length": 308,
+          "source_rank": 1,
+          "source_similarity": 0.7139233350753784,
+          "top_5_documents": [
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2604.07493v1",
+            "arxiv:2603.26914v1",
+            "arxiv:2603.29316v1"
+          ],
+          "top_5_similarities": [
+            0.7139233350753784,
+            0.6205896735191345,
+            0.5738159418106079,
+            0.5633322596549988,
+            0.5342799425125122
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 2,
+          "query_length": 289,
+          "source_rank": 1,
+          "source_similarity": 0.3861483037471771,
+          "top_5_documents": [
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26994v1",
+            "arxiv:2604.01734v1",
+            "arxiv:2603.26502v1",
+            "arxiv:2604.07557v1"
+          ],
+          "top_5_similarities": [
+            0.3861483037471771,
+            0.37250086665153503,
+            0.37045055627822876,
+            0.34470850229263306,
+            0.337152898311615
+          ],
+          "unique_in_top_20": 20
+        },
+        {
+          "query_idx": 3,
+          "query_length": 598,
+          "source_rank": 1,
+          "source_similarity": 0.7915387153625488,
+          "top_5_documents": [
+            "arxiv:2604.08334v1",
+            "arxiv:2603.26913v1",
+            "arxiv:2603.26358v1",
+            "arxiv:2604.07557v1",
+            "arxiv:2603.26502v1"
+          ],
+          "top_5_similarities": [
+            0.7915387153625488,
+            0.5476067066192627,
+            0.5305485129356384,
+            0.49629756808280945,
+            0.46435850858688354
+          ],
+          "unique_in_top_20": 20
+        }
+      ]
+    }
+  ]
+}

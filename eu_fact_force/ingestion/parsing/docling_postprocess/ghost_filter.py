@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from typing import Iterator
 
-import fitz as PyMuPDF
+import pymupdf as PyMuPDF
 
 from .constants import (
     DOCLING_PICTURE_OVERLAP_BLOCK_RATIO,

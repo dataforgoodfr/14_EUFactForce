@@ -1,6 +1,16 @@
 # data_collection
 
-Fetches metadata and PDFs for scientific articles by DOI, aggregating results across multiple APIs.
+Fetches metadata and PDFs for scientific articles, supporting both **DOI-based lookup** and **topic-based search**.
+
+## Two Workflows
+
+### 1. Single Article by DOI (Existing)
+Fetch metadata + PDF for one article by its DOI.
+
+### 2. Seed Database Collection (NEW)
+Search for articles on a topic, then batch ingest 33-50 articles for evaluation.
+
+**→ Start here:** See [SEED_DB_GUIDE.md](../../SEED_DB_GUIDE.md) for building a seed database.
 
 ## To test it
 

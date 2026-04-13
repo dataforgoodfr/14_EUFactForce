@@ -4,7 +4,7 @@ import csv
 import argparse
 from pathlib import Path
 
-import fitz as PyMuPDF
+import pymupdf as PyMuPDF
 from dotenv import load_dotenv
 from eu_fact_force.exploration.parsing_benchmarking.benchmarking.benchmark_metadata import (
     compute_metadata_score,

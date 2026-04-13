@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-import fitz as PyMuPDF
+import pymupdf as PyMuPDF
 
 
 def docling_bbox_to_rect(bbox: dict, page_height: float) -> PyMuPDF.Rect:

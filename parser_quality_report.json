@@ -1,0 +1,342 @@
+{
+  "summary": {
+    "total_pdfs": 32,
+    "with_ground_truth": 27,
+    "without_ground_truth": 5
+  },
+  "metrics": {
+    "similarity_avg": 0.43250096851476916,
+    "recall_avg": 0.6951118796682826,
+    "precision_avg": 0.614625693326797,
+    "structural_quality_avg": 0.920272114247015
+  },
+  "results": [
+    {
+      "article_id": "arxiv:1409.2651v1",
+      "has_ground_truth": true,
+      "extracted_chars": 30374,
+      "ground_truth_chars": 23540,
+      "parse_time_s": 8.69396686553955,
+      "similarity": 0.5766344666481018,
+      "recall": 0.8347578347578347,
+      "precision": 0.5605867346938775,
+      "structural_quality": 0.9157894736842105
+    },
+    {
+      "article_id": "arxiv:1905.12616v3",
+      "has_ground_truth": true,
+      "extracted_chars": 82200,
+      "ground_truth_chars": 2332,
+      "parse_time_s": 7.620383977890015,
+      "similarity": 0.08692903816699982,
+      "recall": 0.6086956521739131,
+      "precision": 0.033123028391167195,
+      "structural_quality": 0.9635922330097088
+    },
+    {
+      "article_id": "arxiv:2603.25713v1",
+      "has_ground_truth": false,
+      "extracted_chars": 49822,
+      "parse_time_s": 7.915513753890991
+    },
+    {
+      "article_id": "arxiv:2603.26358v1",
+      "has_ground_truth": true,
+      "extracted_chars": 64456,
+      "ground_truth_chars": 57892,
+      "parse_time_s": 8.656836986541748,
+      "similarity": 0.4418531656265259,
+      "recall": 0.7311698717948718,
+      "precision": 0.6817332835263354,
+      "structural_quality": 0.9030303030303031
+    },
+    {
+      "article_id": "arxiv:2603.26502v1",
+      "has_ground_truth": true,
+      "extracted_chars": 103252,
+      "ground_truth_chars": 137601,
+      "parse_time_s": 18.99834394454956,
+      "similarity": 0.5996874570846558,
+      "recall": 0.581704456606724,
+      "precision": 0.7270358306188925,
+      "structural_quality": 0.9370277078085643
+    },
+    {
+      "article_id": "arxiv:2603.26548v1",
+      "has_ground_truth": true,
+      "extracted_chars": 84421,
+      "ground_truth_chars": 68734,
+      "parse_time_s": 22.262866973876953,
+      "similarity": 0.3319619297981262,
+      "recall": 0.8260162601626017,
+      "precision": 0.7180212014134275,
+      "structural_quality": 0.9541284403669725
+    },
+    {
+      "article_id": "arxiv:2603.26888v1",
+      "has_ground_truth": true,
+      "extracted_chars": 49941,
+      "ground_truth_chars": 37100,
+      "parse_time_s": 9.79279899597168,
+      "similarity": 0.5279902219772339,
+      "recall": 0.8134592680047226,
+      "precision": 0.676485027000491,
+      "structural_quality": 0.9281609195402298
+    },
+    {
+      "article_id": "arxiv:2603.26913v1",
+      "has_ground_truth": true,
+      "extracted_chars": 82070,
+      "ground_truth_chars": 73703,
+      "parse_time_s": 11.362331867218018,
+      "similarity": 0.2680013179779053,
+      "recall": 0.8034428794992176,
+      "precision": 0.7488331388564761,
+      "structural_quality": 0.9638297872340426
+    },
+    {
+      "article_id": "arxiv:2603.26914v1",
+      "has_ground_truth": true,
+      "extracted_chars": 59087,
+      "ground_truth_chars": 46347,
+      "parse_time_s": 7.763591289520264,
+      "similarity": 0.04657714068889618,
+      "recall": 0.7486218302094818,
+      "precision": 0.6252302025782689,
+      "structural_quality": 0.9213483146067416
+    },
+    {
+      "article_id": "arxiv:2603.26935v1",
+      "has_ground_truth": true,
+      "extracted_chars": 85120,
+      "ground_truth_chars": 69433,
+      "parse_time_s": 19.601341247558594,
+      "similarity": 0.7695706486701965,
+      "recall": 0.7892548768787976,
+      "precision": 0.6847946725860156,
+      "structural_quality": 0.8676789587852495
+    },
+    {
+      "article_id": "arxiv:2603.26994v1",
+      "has_ground_truth": true,
+      "extracted_chars": 80019,
+      "ground_truth_chars": 68728,
+      "parse_time_s": 15.62276291847229,
+      "similarity": 0.7272269129753113,
+      "recall": 0.832796276405299,
+      "precision": 0.6728377205669656,
+      "structural_quality": 0.8729016786570744
+    },
+    {
+      "article_id": "arxiv:2603.27095v2",
+      "has_ground_truth": true,
+      "extracted_chars": 28754,
+      "ground_truth_chars": 23685,
+      "parse_time_s": 38.96343398094177,
+      "similarity": 0.378447562456131,
+      "recall": 0.7659247889485802,
+      "precision": 0.6552856204858831,
+      "structural_quality": 0.9382716049382716
+    },
+    {
+      "article_id": "arxiv:2603.27104v1",
+      "has_ground_truth": false,
+      "extracted_chars": 43875,
+      "parse_time_s": 6.455786943435669
+    },
+    {
+      "article_id": "arxiv:2603.27276v1",
+      "has_ground_truth": true,
+      "extracted_chars": 86168,
+      "ground_truth_chars": 74474,
+      "parse_time_s": 13.892354965209961,
+      "similarity": 0.00021461211144924164,
+      "recall": 0.7910404624277456,
+      "precision": 0.7431441759435243,
+      "structural_quality": 0.7968992248062016
+    },
+    {
+      "article_id": "arxiv:2603.28930v1",
+      "has_ground_truth": true,
+      "extracted_chars": 49267,
+      "ground_truth_chars": 42796,
+      "parse_time_s": 7.213758945465088,
+      "similarity": 0.3829749822616577,
+      "recall": 0.8144132653061225,
+      "precision": 0.6735232067510548,
+      "structural_quality": 0.9355932203389831
+    },
+    {
+      "article_id": "arxiv:2603.29316v1",
+      "has_ground_truth": true,
+      "extracted_chars": 269020,
+      "ground_truth_chars": 106032,
+      "parse_time_s": 74.04135799407959,
+      "similarity": 0.02303317002952099,
+      "recall": 0.662,
+      "precision": 0.7030918102430965,
+      "structural_quality": 0.9551148225469729
+    },
+    {
+      "article_id": "arxiv:2604.00251v1",
+      "has_ground_truth": false,
+      "extracted_chars": 17653,
+      "parse_time_s": 4.4238667488098145
+    },
+    {
+      "article_id": "arxiv:2604.00871v1",
+      "has_ground_truth": true,
+      "extracted_chars": 33388,
+      "ground_truth_chars": 37330,
+      "parse_time_s": 6.357724905014038,
+      "similarity": 0.6382941603660583,
+      "recall": 0.6867949568679496,
+      "precision": 0.8124018838304553,
+      "structural_quality": 0.9557739557739557
+    },
+    {
+      "article_id": "arxiv:2604.01385v1",
+      "has_ground_truth": true,
+      "extracted_chars": 57344,
+      "ground_truth_chars": 56404,
+      "parse_time_s": 14.014549016952515,
+      "similarity": 0.678392231464386,
+      "recall": 0.6823354774863929,
+      "precision": 0.6766437684003925,
+      "structural_quality": 0.9222462203023758
+    },
+    {
+      "article_id": "arxiv:2604.01475v1",
+      "has_ground_truth": true,
+      "extracted_chars": 108504,
+      "ground_truth_chars": 72531,
+      "parse_time_s": 16.95404887199402,
+      "similarity": 0.04110041260719299,
+      "recall": 0.8329986613119144,
+      "precision": 0.6919655268279121,
+      "structural_quality": 0.8726003490401396
+    },
+    {
+      "article_id": "arxiv:2604.01734v1",
+      "has_ground_truth": true,
+      "extracted_chars": 56925,
+      "ground_truth_chars": 54176,
+      "parse_time_s": 15.022403001785278,
+      "similarity": 0.8856813311576843,
+      "recall": 0.708829568788501,
+      "precision": 0.8133836003770029,
+      "structural_quality": 0.9755700325732899
+    },
+    {
+      "article_id": "arxiv:2604.02454v1",
+      "has_ground_truth": false,
+      "extracted_chars": 56268,
+      "parse_time_s": 10.332284927368164
+    },
+    {
+      "article_id": "arxiv:2604.02886v1",
+      "has_ground_truth": true,
+      "extracted_chars": 88231,
+      "ground_truth_chars": 113098,
+      "parse_time_s": 20.313838720321655,
+      "similarity": 0.0,
+      "recall": 0.5818076140656786,
+      "precision": 0.6449742268041238,
+      "structural_quality": 0.9365351629502573
+    },
+    {
+      "article_id": "arxiv:2604.03970v1",
+      "has_ground_truth": true,
+      "extracted_chars": 311286,
+      "ground_truth_chars": 158825,
+      "parse_time_s": 106.59447288513184,
+      "similarity": 0.426305890083313,
+      "recall": 0.3713338856669428,
+      "precision": 0.36545988258317025,
+      "structural_quality": 0.9762787249814677
+    },
+    {
+      "article_id": "arxiv:2604.04032v1",
+      "has_ground_truth": true,
+      "extracted_chars": 88531,
+      "ground_truth_chars": 70808,
+      "parse_time_s": 19.218806982040405,
+      "similarity": 0.7901924848556519,
+      "recall": 0.6802721088435374,
+      "precision": 0.6899055918663762,
+      "structural_quality": 0.9690909090909091
+    },
+    {
+      "article_id": "arxiv:2604.04858v1",
+      "has_ground_truth": true,
+      "extracted_chars": 49622,
+      "ground_truth_chars": 46333,
+      "parse_time_s": 7.444056749343872,
+      "similarity": 0.8581607937812805,
+      "recall": 0.9069884364002011,
+      "precision": 0.8851815505397449,
+      "structural_quality": 0.9274809160305344
+    },
+    {
+      "article_id": "arxiv:2604.06499v1",
+      "has_ground_truth": true,
+      "extracted_chars": 74260,
+      "ground_truth_chars": 58413,
+      "parse_time_s": 11.830594062805176,
+      "similarity": 0.42451804876327515,
+      "recall": 0.6870229007633588,
+      "precision": 0.6081081081081081,
+      "structural_quality": 0.884180790960452
+    },
+    {
+      "article_id": "arxiv:2604.07309v1",
+      "has_ground_truth": true,
+      "extracted_chars": 61052,
+      "ground_truth_chars": 66805,
+      "parse_time_s": 19.618587732315063,
+      "similarity": 0.8178660273551941,
+      "recall": 0.5774483027701912,
+      "precision": 0.7838983050847458,
+      "structural_quality": 0.970873786407767
+    },
+    {
+      "article_id": "arxiv:2604.07493v1",
+      "has_ground_truth": true,
+      "extracted_chars": 127426,
+      "ground_truth_chars": 2655,
+      "parse_time_s": 155.50892114639282,
+      "similarity": 0.0,
+      "recall": 0.049079754601226995,
+      "precision": 0.0018876828692779614,
+      "structural_quality": 0.9018987341772152
+    },
+    {
+      "article_id": "arxiv:2604.07557v1",
+      "has_ground_truth": true,
+      "extracted_chars": 89591,
+      "ground_truth_chars": 1624,
+      "parse_time_s": 65.17030119895935,
+      "similarity": 0.49634695053100586,
+      "recall": 0.5769230769230769,
+      "precision": 0.02016671148158107,
+      "structural_quality": 0.9123134328358209
+    },
+    {
+      "article_id": "arxiv:2604.08334v1",
+      "has_ground_truth": true,
+      "extracted_chars": 78508,
+      "ground_truth_chars": 63823,
+      "parse_time_s": 46.13566780090332,
+      "similarity": 0.4595651924610138,
+      "recall": 0.8228882833787466,
+      "precision": 0.6971912273951519,
+      "structural_quality": 0.7891373801916933
+    },
+    {
+      "article_id": "arxiv:2604.08356v1",
+      "has_ground_truth": false,
+      "extracted_chars": 41406,
+      "parse_time_s": 38.05987787246704
+    }
+  ]
+}

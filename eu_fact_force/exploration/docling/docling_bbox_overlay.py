@@ -6,7 +6,7 @@ import argparse
 import json
 from pathlib import Path
 
-import fitz as PyMuPDF
+import pymupdf as PyMuPDF
 
 
 DEFAULT_OUTPUT_DIR = Path("results/annotated_pdf")

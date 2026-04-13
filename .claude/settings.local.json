@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/ayman/Documents/GitHub/14_EUFactForce/eu_fact_force/ingestion/data_collection/*.py /Users/ayman/Documents/GitHub/14_EUFactForce/eu_fact_force/ingestion/data_collection/*.md)",
+      "Bash(grep -E \"\\\\.py$|\\\\.md$\")",
+      "Bash(python:*)",
+      "Bash(uv run:*)",
+      "Bash(grep -E \"\\\\.py$\")",
+      "Bash(tee parser_test.log)",
+      "Bash(uv pip:*)",
+      "Bash(ls -la /Users/ayman/Documents/GitHub/14_EUFactForce/.venv/lib/python3.12/site-packages/fitz*)",
+      "Bash(uv sync:*)",
+      "Bash(grep -E \"\\\\.\\(py|md\\)$\")",
+      "Bash(ls -la /Users/ayman/Documents/GitHub/14_EUFactForce/eu_fact_force/ingestion/search*)",
+      "Bash(tee retrieval_realism.log)"
+    ]
+  }
+}

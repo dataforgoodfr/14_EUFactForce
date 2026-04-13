@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import fitz as PyMuPDF
+import pymupdf as PyMuPDF
 from docling.document_converter import DocumentConverter
 from hierarchical.postprocessor import ResultPostprocessor
 
