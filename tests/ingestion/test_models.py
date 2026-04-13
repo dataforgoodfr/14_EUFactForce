@@ -7,7 +7,7 @@ import pytest
 from django.db import IntegrityError
 
 from eu_fact_force.ingestion.models import Document, DocumentChunk, SourceFile
-from tests.factories import DocumentChunkFactory, DocumentFactory
+from tests.factories import DocumentChunkFactory
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 README_PATH = PROJECT_ROOT / "README.md"
