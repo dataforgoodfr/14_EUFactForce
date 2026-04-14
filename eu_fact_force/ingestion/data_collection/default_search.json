@@ -1,6 +1,8 @@
 {
     "status": "success",
-    "narrative": "vaccine_autism",
+    "narrative": {
+        "theme": "vaccine_autism"
+    },
     "chunks": [
         {
             "type": "text",
