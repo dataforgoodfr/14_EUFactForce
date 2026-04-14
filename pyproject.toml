@@ -13,6 +13,10 @@ dependencies = [
     "django-storages[s3]>=1.14",
     "boto3>=1.34",
     "gunicorn>=25.1.0",
+    "dash>=4.1.0",
+    "dash-bootstrap-components>=2.0.4",
+    "dash-cytoscape>=1.0.2",
+    "pymupdf>=1.27.1",
     "psycopg2-binary>=2.9.11",
     "fitz>=0.0.1.dev2",
     "docling>=2.76.0",
@@ -43,4 +47,10 @@ parsing = [
     "llama-index-readers-llama-parse>=0.4.0",
     "pymupdf>=1.25.0",
     "python-dotenv>=1.0.0",
+]
+graph = [
+    "dash>=4.0.0",
+    "dash-bootstrap-components>=2.0.4",
+    "dash-cytoscape>=1.0.2",
+    "pymupdf>=1.27.1"
 ]
