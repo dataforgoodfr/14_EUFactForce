@@ -1,5 +1,11 @@
-from eu_fact_force.ingestion.models import DocumentChunk
 from typing import Iterator
+
+import structlog
+
+from eu_fact_force.ingestion.models import DocumentChunk
+from eu_fact_force.utils.decorators import tracker
+
+LOGGER = structlog.get_logger(__name__)
 
 MODEL_ID = "intfloat/multilingual-e5-base"
 # E5 models expect "passage: " for documents to index and "query: " for search queries (asymmetric retrieval).
@@ -37,11 +43,14 @@ def embed_query(query: str) -> list[float]:
     return out.tolist() if hasattr(out, "tolist") else list(out)
 
 
-def _iter_batches(items: list[DocumentChunk], batch_size: int) -> Iterator[list[DocumentChunk]]:
+def _iter_batches(
+    items: list[DocumentChunk], batch_size: int
+) -> Iterator[list[DocumentChunk]]:
     for start in range(0, len(items), batch_size):
         yield items[start : start + batch_size]
 
 
+@tracker(ulogger=LOGGER, inputs=True, log_start=True)
 def add_embeddings(chunks: list[DocumentChunk]):
     """
     Add embeddings to the chunks and update in the DB.
@@ -61,5 +70,7 @@ def add_embeddings(chunks: list[DocumentChunk]):
             normalize_embeddings=True,
         )
         for chunk, vector in zip(batch, vectors):
-            chunk.embedding = vector.tolist() if hasattr(vector, "tolist") else list(vector)
+            chunk.embedding = (
+                vector.tolist() if hasattr(vector, "tolist") else list(vector)
+            )
         DocumentChunk.objects.bulk_update(batch, ["embedding"])

@@ -5,12 +5,18 @@ Create a dedicated file for real pipeline steps.
 """
 
 import hashlib
+import logging
+import os
 from pathlib import Path
 
 from eu_fact_force.ingestion.embedding import add_embeddings
 from eu_fact_force.ingestion.parsing import parse_file
 
-from .models import DocumentChunk, FileMetadata, SourceFile
+from eu_fact_force.ingestion.data_collection.collector import fetch_all
+from eu_fact_force.ingestion.data_collection.parsers import PARSERS
+from eu_fact_force.ingestion.data_collection.parsers.base import doi_to_id
+
+from .models import DocumentChunk, SourceFile
 
 
 def hash_doi(doi: str) -> str:
@@ -20,16 +26,26 @@ def hash_doi(doi: str) -> str:
     return hashlib.sha256(doi.encode()).hexdigest()
 
 
-def fetch_file_and_metadata(doi: str) -> tuple[Path, list[str]]:
+def fetch_file_and_metadata(doi: str) -> tuple[Path | None, dict]:
     """
     Simulate an API call to fetch a PDF and metadata.
     V0: returns a local file path and a list of tags (tags_pubmed); no real HTTP call.
     The returned path must point to an existing local file (e.g. PDF, CSV, JPEG).
     """
-    # V0: fixed path; replace with a real local path or path from API response
-    filename = Path(__file__).parents[2] / doi
-    tags_pubmed = ["simulated", doi]
-    return filename, tags_pubmed
+    pdf_dir = os.path.join(os.path.dirname(__file__), "data_collection", "pdf")
+    metadata = fetch_all(doi)
+
+    os.makedirs(pdf_dir, exist_ok=True)
+    pdf_path = None
+    for parser in PARSERS:
+        try:
+            if parser.download_pdf(doi, pdf_dir):
+                pdf_path = Path(pdf_dir) / f"{doi_to_id(doi)}.pdf"
+                break
+        except Exception as e:
+            logging.warning(f"{parser.__class__.__name__} PDF error: {e}")
+
+    return pdf_path, metadata
 
 
 def save_to_s3_and_postgres(
@@ -39,10 +55,9 @@ def save_to_s3_and_postgres(
 ) -> SourceFile:
     """
     Read the local file at local_file_path (e.g. PDF, CSV, JPEG), upload it to S3
-    (or default storage), and create SourceFile + FileMetadata in Postgres.
+    (or default storage), and create a SourceFile in Postgres.
     """
     source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
-    FileMetadata.objects.create(source_file=source_file, tags_pubmed=tags_pubmed)
     return source_file
 
 
