@@ -62,6 +62,13 @@ services:
     volumes:
       - ./s3:/var/lib/localstack
       - ./docker/localstack/init-ready.d:/etc/localstack/init/ready.d:ro
-
+  dash:
+    build:
+      context: ./eu_fact_force/dash-app
+      dockerfile: Dockerfile
+    ports:
+      - "8050:8050"
+    depends_on:
+      - app
 volumes:
   postgres_data:
