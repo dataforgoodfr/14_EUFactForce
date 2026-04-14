@@ -17,6 +17,8 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
       AWS_S3_REGION_NAME: ${AWS_S3_REGION_NAME:-eu-west-1}
       AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-eu-fact-force-files}
+    volumes:
+      - .:/app
     depends_on:
       postgres:
         condition: service_healthy
@@ -38,7 +40,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-eu_fact_force}
       POSTGRES_DB: ${POSTGRES_DB:-eu_fact_force}
     ports:
-      - 5432
+      - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql
       - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro

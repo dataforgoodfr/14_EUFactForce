@@ -13,7 +13,7 @@ from eu_fact_force.ingestion.models import (
     DocumentChunk,
 )
 from eu_fact_force.ingestion.search import chunks_context
-from tests.factories import DocumentChunkFactory, FileMetadataFactory, SourceFileFactory
+from tests.factories import DocumentChunkFactory, DocumentFactory
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -45,13 +45,13 @@ class TestSearchChunks:
         """search_chunks returns (chunk, distance) tuples ordered by cosine distance."""
         mock_embed_query.side_effect = lambda _: _one_hot_vector(0)
 
-        source = SourceFileFactory()
+        doc = DocumentFactory()
         # Query [1,0,...,0]: closest to chunk_near (same), then chunk_far ([0,1,0,...,0]).
         chunk_far = DocumentChunkFactory(
-            source_file=source, content="far", embedding=_one_hot_vector(1)
+            document=doc, content="far", embedding=_one_hot_vector(1)
         )
         chunk_near = DocumentChunkFactory(
-            source_file=source, content="near", embedding=_one_hot_vector(0)
+            document=doc, content="near", embedding=_one_hot_vector(0)
         )
 
         results = search_module.search_chunks("dummy", k=5)
@@ -71,11 +71,11 @@ class TestSearchChunks:
         """Only chunks with a stored embedding are returned."""
         mock_embed_query.side_effect = lambda _: _constant_vector(0.1)
 
-        source = SourceFileFactory()
+        doc = DocumentFactory()
         with_emb = DocumentChunkFactory(
-            source_file=source, content="with", embedding=_constant_vector(0.1)
+            document=doc, content="with", embedding=_constant_vector(0.1)
         )
-        DocumentChunkFactory(source_file=source, content="without", embedding=None)
+        DocumentChunkFactory(document=doc, content="without", embedding=None)
 
         results = search_module.search_chunks("q", k=5)
 
@@ -89,10 +89,10 @@ class TestSearchChunks:
         """At most k results are returned."""
         mock_embed_query.side_effect = lambda _: _constant_vector(0.5)
 
-        source = SourceFileFactory()
+        doc = DocumentFactory()
         for _ in range(5):
             DocumentChunkFactory(
-                source_file=source,
+                document=doc,
                 embedding=_constant_vector(0.5),
             )
 
@@ -118,16 +118,16 @@ class TestSearchChunks:
         def _rank2_in_full_space(x: float, y: float) -> list[float]:
             return [x, y] + [0.0] * (full_dim - rank_dim)
 
-        source_file = SourceFileFactory()
+        doc = DocumentFactory()
 
         same = DocumentChunkFactory(
-            source_file=source_file, embedding=_rank2_in_full_space(1.0, 0.0)
+            document=doc, embedding=_rank2_in_full_space(1.0, 0.0)
         )
         near = DocumentChunkFactory(
-            source_file=source_file, embedding=_rank2_in_full_space(0.99, 0.01)
+            document=doc, embedding=_rank2_in_full_space(0.99, 0.01)
         )
         far = DocumentChunkFactory(
-            source_file=source_file, embedding=_rank2_in_full_space(0.0, 1.0)
+            document=doc, embedding=_rank2_in_full_space(0.0, 1.0)
         )
 
         mock_embed_query.side_effect = lambda _: _rank2_in_full_space(1.0, 0.0)
@@ -141,7 +141,7 @@ class TestSearchChunks:
             pytest.approx(5.1e-5, abs=1e-6),
             pytest.approx(1.0),
         ]
-        assert all(r[0].source_file_id == source_file.pk for r in results)
+        assert all(r[0].document_id == doc.pk for r in results)
 
 
 @pytest.mark.django_db
@@ -149,11 +149,10 @@ class TestChunksContext:
     def test_empty_top_chunks(self):
         assert chunks_context([]) == {"chunks": [], "documents": {}}
 
-    def test_two_chunks_single_source_file(self):
-        source = SourceFileFactory(doi="doi/single", s3_key="key/single")
-        FileMetadataFactory(source_file=source, tags_pubmed=["mesh:a"])
-        chunk_a = DocumentChunkFactory(source_file=source, content="first")
-        chunk_b = DocumentChunkFactory(source_file=source, content="second")
+    def test_two_chunks_single_document(self):
+        doc = DocumentFactory(doi="doi/single")
+        chunk_a = DocumentChunkFactory(document=doc, content="first")
+        chunk_b = DocumentChunkFactory(document=doc, content="second")
 
         result = chunks_context([(chunk_a, 0.9), (chunk_b, 0.8)])
 
@@ -162,36 +161,33 @@ class TestChunksContext:
                 "type": "text",
                 "content": "first",
                 "score": 0.9,
-                "metadata": {"document_id": source.id, "page": -1},
+                "metadata": {"document_id": doc.id, "page": -1},
             },
             {
                 "type": "text",
                 "content": "second",
                 "score": 0.8,
-                "metadata": {"document_id": source.id, "page": -1},
+                "metadata": {"document_id": doc.id, "page": -1},
             },
         ]
         assert result["documents"] == {
-            source.id: {
-                "id": source.id,
+            doc.id: {
+                "id": doc.id,
                 "doi": "doi/single",
-                "tags_pubmed": ["mesh:a"],
             }
         }
 
-    def test_two_chunks_two_source_files(self):
-        src1 = SourceFileFactory(doi="doi/one", s3_key="k1")
-        FileMetadataFactory(source_file=src1, tags_pubmed=["t1"])
-        src2 = SourceFileFactory(doi="doi/two", s3_key="k2")
-        FileMetadataFactory(source_file=src2, tags_pubmed=["t2", "t3"])
+    def test_two_chunks_two_documents(self):
+        doc1 = DocumentFactory(doi="doi/one")
+        doc2 = DocumentFactory(doi="doi/two")
 
-        c1 = DocumentChunkFactory(source_file=src1, content="alpha", order=0)
-        c2 = DocumentChunkFactory(source_file=src2, content="beta", order=0)
+        c1 = DocumentChunkFactory(document=doc1, content="alpha", order=0)
+        c2 = DocumentChunkFactory(document=doc2, content="beta", order=0)
 
         result = chunks_context([(c1, 0.1), (c2, 0.2)])
 
         assert [x["content"] for x in result["chunks"]] == ["alpha", "beta"]
         assert result["documents"] == {
-            src1.id: {"id": src1.id, "doi": "doi/one", "tags_pubmed": ["t1"]},
-            src2.id: {"id": src2.id, "doi": "doi/two", "tags_pubmed": ["t2", "t3"]},
+            doc1.id: {"id": doc1.id, "doi": "doi/one"},
+            doc2.id: {"id": doc2.id, "doi": "doi/two"},
         }

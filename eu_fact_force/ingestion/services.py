@@ -16,7 +16,7 @@ from eu_fact_force.ingestion.data_collection.collector import fetch_all
 from eu_fact_force.ingestion.data_collection.parsers import PARSERS
 from eu_fact_force.ingestion.data_collection.parsers.base import doi_to_id
 
-from .models import DocumentChunk, FileMetadata, SourceFile
+from .models import DocumentChunk, SourceFile
 
 
 def hash_doi(doi: str) -> str:
@@ -55,10 +55,9 @@ def save_to_s3_and_postgres(
 ) -> SourceFile:
     """
     Read the local file at local_file_path (e.g. PDF, CSV, JPEG), upload it to S3
-    (or default storage), and create SourceFile + FileMetadata in Postgres.
+    (or default storage), and create a SourceFile in Postgres.
     """
     source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
-    FileMetadata.objects.create(source_file=source_file, tags_pubmed=tags_pubmed)
     return source_file
 
 
