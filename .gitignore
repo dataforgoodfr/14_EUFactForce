@@ -179,3 +179,4 @@ postgres_data/
 rustfs_data/
 data/
 ground_truth_data/
+verified_ground_truth_data/
