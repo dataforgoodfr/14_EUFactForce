@@ -1,4 +1,5 @@
 import json
+from dash import dcc
 
 from .colors import EUPHAColors
 
@@ -170,3 +171,16 @@ class TestGraph:
                 )
 
         return nodes, edges, filters
+
+
+def format_node_metadata(node_data):
+    """Format node metadata into card content"""
+    return dcc.Markdown(
+        "\n".join(
+            [
+                f"- {key.capitalize()} : __{node_data[key]}__"
+                for key in node_data
+                if key != "timeStamp"
+            ]
+        )
+    )

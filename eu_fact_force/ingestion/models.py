@@ -37,6 +37,13 @@ class SourceFile(TimeStampedModel):
         choices=Status.choices,
         default=Status.PENDING,
     )
+    document = models.ForeignKey(
+        "Document",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="source_files",
+    )
 
     class Meta:
         app_label = "ingestion"
@@ -76,36 +83,47 @@ class SourceFile(TimeStampedModel):
             )
 
 
-class FileMetadata(TimeStampedModel):
-    """Metadata associated with an ingested file."""
+class Document(TimeStampedModel):
+    """Canonical bibliographic record for a publication."""
 
-    source_file = models.OneToOneField(
-        "SourceFile",
-        on_delete=models.CASCADE,
-        related_name="metadata",
-    )
-    tags_pubmed = models.JSONField(
-        default=list,
+    _TITLE_DISPLAY_LENGTH = 80
+
+    title = models.CharField(max_length=1024)
+    doi = models.CharField(max_length=255, blank=True)
+    external_ids = models.JSONField(
+        default=dict,
         blank=True,
-        help_text="List of PubMed-style tags (list of strings)",
+        help_text="Provider-specific identifiers, e.g. {'pmid': '123', 'arxiv': '2301.00001'}",
     )
 
     class Meta:
         app_label = "ingestion"
-        verbose_name = "file metadata"
-        verbose_name_plural = "file metadata"
+        verbose_name = "document"
+        verbose_name_plural = "documents"
+        ordering = ["-created_at"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["doi"],
+                condition=models.Q(doi__gt=""),
+                name="unique_document_doi_when_nonempty",
+            )
+        ]
 
     def __str__(self):
-        return f"Metadata for {self.source_file_id}"
+        if len(self.title) > self._TITLE_DISPLAY_LENGTH:
+            return self.title[:self._TITLE_DISPLAY_LENGTH] + "..."
+        return self.title
 
 
 class DocumentChunk(TimeStampedModel):
     """One chunk of a document (e.g. one line from CSV) linked to the source file."""
 
-    source_file = models.ForeignKey(
-        SourceFile,
+    _CONTENT_DISPLAY_LENGTH = 50
+
+    document = models.ForeignKey(
+        Document,
         on_delete=models.CASCADE,
-        related_name="document_chunks",
+        related_name="chunks",
     )
     content = models.TextField(help_text="Content of the chunk (e.g. one line)")
     order = models.PositiveIntegerField(
@@ -122,7 +140,10 @@ class DocumentChunk(TimeStampedModel):
         app_label = "ingestion"
         verbose_name = "document chunk"
         verbose_name_plural = "document chunks"
-        ordering = ["source_file", "order"]
+        ordering = ["document", "order"]
 
     def __str__(self):
-        return self.content[:50] + ("..." if len(self.content) > 50 else "")
+        content = self.content
+        if len(content) > self._CONTENT_DISPLAY_LENGTH:
+            return content[:self._CONTENT_DISPLAY_LENGTH] + "..."
+        return content

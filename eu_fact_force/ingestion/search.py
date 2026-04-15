@@ -1,8 +1,22 @@
 """Semantic search over ingested document chunks using pgvector."""
 
+from pathlib import Path
+
+from pgvector.django import CosineDistance
+
 from eu_fact_force.ingestion.embedding import embed_query
 from eu_fact_force.ingestion.models import DocumentChunk
-from pgvector.django import CosineDistance
+
+_PROMPTS_DIR = Path(__file__).resolve().parent / "data_collection" / "prompts"
+
+
+class NarrativeNotFoundError(FileNotFoundError):
+    """No prompts/<narrative>.md for the given narrative keyword."""
+
+
+def list_prompt_keywords() -> list[str]:
+    """Basenames of narrative prompts (one .md file per keyword), sorted."""
+    return sorted(p.stem for p in _PROMPTS_DIR.glob("*.md"))
 
 
 def search_chunks(query: str, k: int = 10) -> list[tuple[DocumentChunk, float]]:
@@ -21,8 +35,41 @@ def search_chunks(query: str, k: int = 10) -> list[tuple[DocumentChunk, float]]:
     query_vector = embed_query(query)
     qs = (
         DocumentChunk.objects.filter(embedding__isnull=False)
-        .select_related("source_file")
+        .select_related("document")
         .annotate(distance=CosineDistance("embedding", query_vector))
         .order_by("distance")[:k]
     )
     return [(chunk, float(chunk.distance)) for chunk in qs]
+
+
+def search_narrative(narrative: str, k: int = 10) -> list[tuple[DocumentChunk, float]]:
+    prompt = _PROMPTS_DIR / f"{narrative}.md"
+    if not prompt.exists():
+        raise NarrativeNotFoundError(f"Prompt file not found: {prompt}")
+    return search_chunks(prompt.read_text(), k)
+
+
+def chunks_context(top_chunks: list[tuple[DocumentChunk, float]]) -> dict:
+    chunks = [
+        {
+            "type": "text",
+            "content": chunk.content,
+            "score": score,
+            "metadata": {"document_id": chunk.document.id, "page": -1},
+        }
+        for chunk, score in top_chunks
+    ]
+
+    documents = {}
+    for chunk, _ in top_chunks:
+        doc = chunk.document
+        if doc.id in documents:
+            continue
+        documents[doc.id] = {
+            "id": doc.id,
+            "doi": doc.doi,
+        }
+    return {
+        "chunks": chunks,
+        "documents": documents,
+    }

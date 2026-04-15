@@ -20,14 +20,14 @@ EU Fact Force is a collaborative platform developed by [EUPHA](https://www.eupha
 ###  Use Case
 
 > **Marie**, a health communicator at a national public health association, sees a viral post claiming "vaccines cause autism." She needs to respond quickly with solid evidence.
->
+> 
 > She searches **"vaccines autism"** on EU Fact Force and immediately sees:
 > - An interactive graph showing 15+ peer-reviewed articles that refute this claim
 > - The scientific consensus: **"Refuted with high confidence"**
 > - Current disinformation trends: 1,200 mentions this week, peak in France/Belgium
 > - Key evidence to cite in her response
->
-> **Time to find relevant evidence: <30 seconds**
+> 
+> **Time to find relevant evidence: <30 s**
 
 ## Key Features
 
@@ -112,13 +112,13 @@ uv run pytest
 
 ### Déploiement de l'application
 
-L'application se compose d'un serveur Django, d'une base PostgreSQL (avec pgvector) et de LocalStack pour le stockage S3.
+L'application se compose d'un serveur Django, d'une base PostgreSQL (avec pgvector) et de **RustFS** pour le stockage S3 (compatible AWS), avec une interface web pour déposer des fichiers manuellement.
 Pour déployer et utiliser l'application en local :
 
 **1. Prérequis**
 
 - [Python 3.12+](https://www.python.org/) et [uv](https://docs.astral.sh/uv/)
-- [Docker](https://www.docker.com/) et Docker Compose (pour Postgres et LocalStack)
+- [Docker](https://www.docker.com/) et Docker Compose (pour Postgres et RustFS)
 
 **2. Variables d'environnement**
 
@@ -130,7 +130,7 @@ cp .env.template .env
 
 Pour un usage local avec les services Docker, les valeurs par défaut de `.env.template` (notamment `DATABASE_URL=postgresql://eu_fact_force:eu_fact_force@localhost:5432/eu_fact_force`) conviennent.
 
-**3. Lancer les services (Postgres et LocalStack)**
+**3. Lancer les services (Postgres et RustFS)**
 
 À la racine du projet :
 
@@ -138,7 +138,7 @@ Pour un usage local avec les services Docker, les valeurs par défaut de `.env.t
 docker compose up -d
 ```
 
-Cela démarre PostgreSQL (port 5432) et LocalStack S3 (port 4566). Le bucket configuré est créé automatiquement au démarrage de LocalStack.
+Cela démarre PostgreSQL (port 5432) et RustFS (API S3 sur le port 9000). Le bucket configuré est créé automatiquement au premier démarrage. **Interface web RustFS** : [http://localhost:9001](http://localhost:9001) — identifiants S3 (Access Key / Secret Key) : ceux définis dans `.env` (par défaut `minioadmin`). Vous pouvez y créer des buckets, des dossiers et déposer des fichiers manuellement.
 
 **4. Installer les dépendances et appliquer les migrations**
 
@@ -165,33 +165,49 @@ L'application est alors disponible sur [http://127.0.0.1:8000/](http://127.0.0.1
 
 **Utilisation du stockage S3 en local**
 
-Pour que Django utilise LocalStack pour le stockage des fichiers, décommentez et renseignez dans `.env` les variables S3 (voir `.env.template`), par exemple :
+Avec `docker compose`, l’app est configurée pour utiliser RustFS. Pour lancer Django au host (sans conteneur app) et pointer vers RustFS, décommentez dans `.env` les variables S3 (voir `.env.template`) et définissez par exemple :
 
 ```bash
-USE_LOCAL_STACK=1
-AWS_ACCESS_KEY_ID=test
-AWS_SECRET_ACCESS_KEY=test
+AWS_S3_ENDPOINT_URL=http://localhost:9000
+AWS_ACCESS_KEY_ID=minioadmin
+AWS_SECRET_ACCESS_KEY=minioadmin
 AWS_STORAGE_BUCKET_NAME=eu-fact-force-files
 AWS_S3_REGION_NAME=eu-west-1
 ```
 
-Sans ces variables, l'application utilise le stockage fichier local par défaut.
+Sans ces variables, l’application utilise le stockage fichier local par défaut.
 
+## Test de performance
 
-**7. Démarrer la web-app d'ingestion vers le S3 local**
+Le projet propose un ensemble de documents relatifs aux liens entre les vaccins et l'autisme.
+Ces documents vont permettre de tester de bout en bout la pipeline : 
+- parsing des pdf,
+- extraction des chunks,
+- vectorisation des chuncks,
+- mécanisme de recherche.
 
-Pour permettre l'upload d'un couple PDF/métadatas vers le serveur S3 :
+Puisque tous les documents ne sont pas nécessairement facilement accessible via les API, les documents et les metadata sont réunis dans un archive (puis un S3 dans un second temps).
+L'archive contient : 
+- la liste des paragraphes les plus pertinents à extraire dans le json `vaccins_annotated.json`,
+- les fichiers pdf,
+- un fichier json par pdf contenant les métadonnées.
 
-**Lancer les services (Postgres et LocalStack) et le serveur Django (étapes 3 à 6)**
+Le fichier json contient la structure suivante :
 
-**Démarrer la webapp Dash**
-
-```bash
-uv run python eu_fact_force/dash-app/app.py
-```
-
-**Optionnel: Créer le bucket de sauvegarde si non disponible**
-
-```bash
-docker exec -it 14_eufactforce_fork-localstack-1 awslocal s3 mb s3://eu-fact-force-files
+```json
+{
+    "tags_pubmed": [
+        "tag1",
+        "tag2",
+        "tag3"
+    ],
+    "title" : "Title",
+    "category" : "category",
+    "type" : "type",
+    "journal": "journal",
+    "authors" : ["first author", "seocond author"],
+    "year": 2022,
+    "url" : "http",
+    "doi" : "test_doi"
+}
 ```
