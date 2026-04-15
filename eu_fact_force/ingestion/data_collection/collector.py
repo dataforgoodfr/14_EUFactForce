@@ -5,11 +5,26 @@ from eu_fact_force.ingestion.data_collection.parsers import PARSERS
 logger = logging.getLogger(__name__)
 
 
-def _better(new, current):
-    """Return True if new is a longer list or string than current."""
-    if isinstance(new, (list, str)) and isinstance(new, type(current)):
+def _better(new, current) -> bool:
+    """Return True if new is more complete than current."""
+    if current is None:
+        return True
+    if isinstance(new, list) and isinstance(current, list):
+        return sum(v is not None for v in new) > sum(v is not None for v in current)
+    if isinstance(new, str) and isinstance(current, str):
         return len(new) > len(current)
     return False
+
+
+def _merge(merged: dict, update: dict) -> None:
+    """Merge update into merged, keeping the most complete value per field."""
+    for key, value in update.items():
+        if value is None:
+            continue
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            _merge(merged[key], value)
+        elif _better(value, merged.get(key)):
+            merged[key] = value
 
 
 def fetch_all(doi: str) -> dict:
@@ -26,9 +41,5 @@ def fetch_all(doi: str) -> dict:
         if not result.get("found"):
             continue
         sources.append(parser.__class__.__name__)
-        for field, value in result.items():
-            if field == "found" or value is None:
-                continue
-            if field not in merged or _better(value, merged[field]):
-                merged[field] = value
+        _merge(merged, result)
     return {"found": bool(sources), "sources": sources} | merged
