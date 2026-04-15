@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -25,6 +26,13 @@ _load_env = BASE_DIR.parent / ".env"
 if _load_env.exists():
     load_dotenv(_load_env)
 
+# Sous pytest : forcer S3 local (RustFS) pour éviter InvalidAccessKeyId avec des clés .env
+_run_by_pytest = "pytest" in sys.argv[0] or "pytest" in str(sys.argv)
+if _run_by_pytest:
+    os.environ["AWS_S3_ENDPOINT_URL"] = "http://localhost:9000"
+    os.environ["AWS_ACCESS_KEY_ID"] = "minioadmin"
+    os.environ["AWS_SECRET_ACCESS_KEY"] = "minioadmin"
+    os.environ["AWS_STORAGE_BUCKET_NAME"] = "eu-fact-force-files"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -106,20 +114,14 @@ def _get_databases():
             "PASSWORD": parsed.password,
             "HOST": parsed.hostname,
             "PORT": parsed.port or "5432",
+            "TEST": {
+                "NAME": f"test_{parsed.path.lstrip('/')}",
+            },
         }
     }
 
 
 DATABASES = _get_databases()
-
-# Use a dedicated test database name so tests do not overwrite dev/prod data
-if (
-    "default" in DATABASES
-    and DATABASES["default"]["ENGINE"] == "django.db.backends.postgresql"
-):
-    _db_name = DATABASES["default"].get("NAME", "eu_fact_force")
-    DATABASES["default"].setdefault("TEST", {})["NAME"] = f"test_{_db_name}"
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -159,17 +161,28 @@ STATIC_URL = "static/"
 # Must be an absolute filesystem path (string) for collectstatic / StaticFilesStorage
 STATIC_ROOT = str((BASE_DIR.parent / "staticfiles").resolve())
 
-# S3 / LocalStack storage (switch via AWS_S3_ENDPOINT_URL or USE_LOCAL_STACK)
+# S3 / MinIO / LocalStack storage (switch via AWS_S3_ENDPOINT_URL or USE_LOCAL_STACK)
 # django-storages reads AWS_S3_ENDPOINT_URL from this module
-AWS_S3_ENDPOINT_URL = os.environ.get("AWS_S3_ENDPOINT_URL") or (
-    "http://localhost:4566" if os.environ.get("USE_LOCAL_STACK") else None
+# Valeurs par défaut : RustFS local (9000) ou LocalStack (4566) si USE_LOCAL_STACK=1
+AWS_S3_ENDPOINT_URL = os.environ.get("AWS_S3_ENDPOINT_URL") or "http://localhost:9000"
+if AWS_S3_ENDPOINT_URL and (
+    "localhost" in AWS_S3_ENDPOINT_URL or "127.0.0.1" in AWS_S3_ENDPOINT_URL
+):
+    os.environ.setdefault("AWS_ACCESS_KEY_ID", "minioadmin")
+    os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "minioadmin")
+# Must match eu_fact_force.ingestion.s3.save_file_to_s3 / get_default_bucket(): uploads use
+# boto3 with this default bucket even when AWS_STORAGE_BUCKET_NAME is unset, so default_storage
+# must use the same bucket or opens fall back to FileSystemStorage and FileNotFoundError.
+_DEFAULT_FILES_BUCKET = "eu-fact-force-files"
+_AWS_STORAGE_BUCKET_NAME = (
+    os.environ.get("AWS_STORAGE_BUCKET_NAME") or _DEFAULT_FILES_BUCKET
 )
-if os.environ.get("AWS_STORAGE_BUCKET_NAME"):
+if _AWS_STORAGE_BUCKET_NAME:
     STORAGES = {
         "default": {
             "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
             "OPTIONS": {
-                "bucket_name": os.environ.get("AWS_STORAGE_BUCKET_NAME"),
+                "bucket_name": _AWS_STORAGE_BUCKET_NAME,
                 "region_name": os.environ.get("AWS_S3_REGION_NAME", "eu-west-1"),
                 "custom_domain": False,
             },

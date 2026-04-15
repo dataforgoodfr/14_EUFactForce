@@ -35,7 +35,7 @@ def search_chunks(query: str, k: int = 10) -> list[tuple[DocumentChunk, float]]:
     query_vector = embed_query(query)
     qs = (
         DocumentChunk.objects.filter(embedding__isnull=False)
-        .select_related("source_file")
+        .select_related("document")
         .annotate(distance=CosineDistance("embedding", query_vector))
         .order_by("distance")[:k]
     )
@@ -55,21 +55,19 @@ def chunks_context(top_chunks: list[tuple[DocumentChunk, float]]) -> dict:
             "type": "text",
             "content": chunk.content,
             "score": score,
-            "metadata": {"document_id": chunk.source_file.id, "page": -1},
+            "metadata": {"document_id": chunk.document.id, "page": -1},
         }
         for chunk, score in top_chunks
     ]
 
     documents = {}
     for chunk, _ in top_chunks:
-        source_file = chunk.source_file
-        if source_file.id in documents:
+        doc = chunk.document
+        if doc.id in documents:
             continue
-        meta = source_file.metadata
-        documents[source_file.id] = {
-            "id": source_file.id,
-            "doi": source_file.doi,
-            "tags_pubmed": meta.tags_pubmed,
+        documents[doc.id] = {
+            "id": doc.id,
+            "doi": doc.doi,
         }
     return {
         "chunks": chunks,

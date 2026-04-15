@@ -1,6 +1,7 @@
 """Tests for ingestion models: constraints, cascade behaviour, and relationships."""
 
 from pathlib import Path
+from unittest.mock import patch
 
 import pytest
 from django.db import IntegrityError

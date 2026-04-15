@@ -110,7 +110,9 @@ class Document(TimeStampedModel):
         ]
 
     def __str__(self):
-        return self.title[:self._TITLE_DISPLAY_LENGTH]
+        if len(self.title) > self._TITLE_DISPLAY_LENGTH:
+            return self.title[:self._TITLE_DISPLAY_LENGTH] + "..."
+        return self.title
 
 
 class DocumentChunk(TimeStampedModel):
