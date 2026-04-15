@@ -178,3 +178,4 @@ eu_fact_force/exploration/docling/results/annotated_pdf/
 postgres_data/
 rustfs_data/
 data/
+ground_truth_data/
