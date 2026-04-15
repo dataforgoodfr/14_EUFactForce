@@ -5,7 +5,7 @@ See the pages on <url>/admin
 
 from django.contrib import admin
 
-from .models import Document, DocumentChunk, SourceFile
+from .models import Document, DocumentChunk, ParsedArtifact, SourceFile
 
 
 @admin.register(SourceFile)
@@ -19,6 +19,12 @@ class SourceFileAdmin(admin.ModelAdmin):
 class DocumentAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "doi", "created_at")
     search_fields = ("title", "doi")
+
+
+@admin.register(ParsedArtifact)
+class ParsedArtifactAdmin(admin.ModelAdmin):
+    list_display = ("id", "document", "created_at")
+    raw_id_fields = ("document",)
 
 
 @admin.register(DocumentChunk)
