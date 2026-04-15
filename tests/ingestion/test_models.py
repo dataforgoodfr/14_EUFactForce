@@ -80,10 +80,32 @@ class TestDocumentDOI:
 class TestDocumentSourceFile:
     @pytest.mark.django_db
     def test_document_created_without_source_file(self):
-        """A Document can exist without a linked SourceFile, and source_files is empty."""
+        """A Document can exist without a linked SourceFile (metadata-only state)."""
         doc = Document.objects.create(title="Metadata-only paper", doi="10.9999/meta")
         assert doc.pk is not None
-        assert doc.source_files.count() == 0
+        assert doc.source_file is None
+
+    @pytest.mark.django_db
+    def test_deleting_source_file_cascades_to_document(self):
+        """Deleting a SourceFile deletes the linked Document via CASCADE."""
+        sf = SourceFile.objects.create(doi="10.1111/cascade", status=SourceFile.Status.STORED)
+        doc = Document.objects.create(title="Cascade paper", source_file=sf)
+        doc_pk = doc.pk
+
+        sf.delete()
+
+        assert not Document.objects.filter(pk=doc_pk).exists()
+
+    @pytest.mark.django_db
+    def test_document_cannot_link_to_more_than_one_source_file(self):
+        """A SourceFile can be linked to at most one Document (OneToOneField constraint)."""
+        from django.db import IntegrityError
+
+        sf = SourceFile.objects.create(doi="10.2222/unique", status=SourceFile.Status.STORED)
+        Document.objects.create(title="First paper", source_file=sf)
+
+        with pytest.raises(IntegrityError):
+            Document.objects.create(title="Second paper", source_file=sf)
 
 
 class TestParsedArtifact:

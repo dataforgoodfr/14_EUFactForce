@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/ayman/Documents/GitHub/14_EUFactForce/eu_fact_force/ingestion/data_collection/*.py /Users/ayman/Documents/GitHub/14_EUFactForce/eu_fact_force/ingestion/data_collection/*.md)",
+      "Bash(grep -E \"\\\\.py$|\\\\.md$\")",
+      "Bash(python:*)",
+      "Bash(uv run:*)",
+      "Bash(grep -E \"\\\\.py$\")",
+      "Bash(tee parser_test.log)",
+      "Bash(uv pip:*)",
+      "Bash(ls -la /Users/ayman/Documents/GitHub/14_EUFactForce/.venv/lib/python3.12/site-packages/fitz*)",
+      "Bash(uv sync:*)",
+      "Bash(grep -E \"\\\\.\\(py|md\\)$\")",
+      "Bash(ls -la /Users/ayman/Documents/GitHub/14_EUFactForce/eu_fact_force/ingestion/search*)",
+      "Bash(tee retrieval_realism.log)",
+      "Bash(gh pr:*)",
+      "Bash(python3 -m json.tool)",
+      "Bash(gh api:*)",
+      "Bash(python3 -m pytest tests/ingestion/test_models.py -v)",
+      "Bash(ls Makefile docker-compose*)",
+      "Bash(docker compose:*)",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('eu_fact_force/ingestion/models.py'\\).read\\(\\)\\); print\\('models.py OK'\\)\")",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('tests/ingestion/test_models.py'\\).read\\(\\)\\); print\\('test_models.py OK'\\)\")",
+      "Bash(ls -la /Users/ayman/Documents/GitHub/14_EUFactForce/.env*)",
+      "Bash(docker system:*)",
+      "Bash(docker volume:*)",
+      "Bash(docker image:*)",
+      "Bash(docker buildx:*)",
+      "Bash(docker run:*)",
+      "Bash(grep -v \"^$\")",
+      "Bash(gh issue *)",
+      "Bash(DATABASE_URL=postgresql://eu_fact_force:eu_fact_force@localhost:5432/eu_fact_force python -m pytest tests/ingestion/test_models.py -v)",
+      "Bash(git -C /Users/ayman/Documents/GitHub/14_EUFactForce diff main...HEAD --stat)",
+      "Bash(DATABASE_URL=postgresql://eu_fact_force:eu_fact_force@localhost:5432/eu_fact_force python manage.py makemigrations ingestion --name document_source_file_link)",
+      "Bash(git stash *)",
+      "Bash(git add *)",
+      "Bash(git checkout *)"
+    ]
+  }
+}
