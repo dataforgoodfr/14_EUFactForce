@@ -6,8 +6,8 @@ from unittest.mock import patch
 import pytest
 from django.db import IntegrityError
 
-from eu_fact_force.ingestion.models import Document, DocumentChunk, ParsedArtifact, SourceFile
-from tests.factories import DocumentChunkFactory, DocumentFactory, ParsedArtifactFactory
+from eu_fact_force.ingestion.models import Document, DocumentChunk, IngestionRun, ParsedArtifact, SourceFile
+from tests.factories import DocumentChunkFactory, DocumentFactory, IngestionRunFactory, ParsedArtifactFactory
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 README_PATH = PROJECT_ROOT / "README.md"
@@ -144,6 +144,69 @@ class TestParsedArtifact:
         """Document.parsed_artifact reverse accessor returns the linked artifact."""
         artifact = ParsedArtifactFactory()
         assert artifact.document.parsed_artifact == artifact
+
+
+class TestIngestionRun:
+    @pytest.mark.django_db
+    def test_success_metadata_only(self):
+        """A run can transition to success with success_kind=metadata_only and stage=done."""
+        run = IngestionRunFactory(status=IngestionRun.Status.RUNNING, stage=IngestionRun.Stage.ACQUIRE)
+        run.status = IngestionRun.Status.SUCCESS
+        run.success_kind = IngestionRun.SuccessKind.METADATA_ONLY
+        run.stage = IngestionRun.Stage.DONE
+        run.save()
+
+        fetched = IngestionRun.objects.get(pk=run.pk)
+        assert fetched.status == IngestionRun.Status.SUCCESS
+        assert fetched.success_kind == IngestionRun.SuccessKind.METADATA_ONLY
+        assert fetched.stage == IngestionRun.Stage.DONE
+
+    @pytest.mark.django_db
+    def test_success_full(self):
+        """A run can transition to success with success_kind=full and stage=done."""
+        run = IngestionRunFactory(status=IngestionRun.Status.RUNNING, stage=IngestionRun.Stage.ACQUIRE)
+        run.status = IngestionRun.Status.SUCCESS
+        run.success_kind = IngestionRun.SuccessKind.FULL
+        run.stage = IngestionRun.Stage.DONE
+        run.save()
+
+        fetched = IngestionRun.objects.get(pk=run.pk)
+        assert fetched.status == IngestionRun.Status.SUCCESS
+        assert fetched.success_kind == IngestionRun.SuccessKind.FULL
+        assert fetched.stage == IngestionRun.Stage.DONE
+
+    @pytest.mark.django_db
+    def test_failed_run_records_error_fields(self):
+        """A failed run records error_message and error_stage."""
+        run = IngestionRunFactory(status=IngestionRun.Status.RUNNING, stage=IngestionRun.Stage.ACQUIRE)
+        run.status = IngestionRun.Status.FAILED
+        run.error_message = "Metadata provider returned 404"
+        run.error_stage = IngestionRun.Stage.ACQUIRE
+        run.save()
+
+        fetched = IngestionRun.objects.get(pk=run.pk)
+        assert fetched.status == IngestionRun.Status.FAILED
+        assert fetched.error_message == "Metadata provider returned 404"
+        assert fetched.error_stage == IngestionRun.Stage.ACQUIRE
+
+    @pytest.mark.django_db
+    def test_duplicate_doi_rejected_before_ingestion_run_created(self):
+        """A duplicate non-empty DOI raises ValueError before any IngestionRun row is created."""
+        doi = "10.9999/duplicate"
+        existing_doc = Document.objects.create(title="Existing paper", doi=doi)
+        new_doc = Document.objects.create(title="New paper attempt", doi="")
+
+        count_before = IngestionRun.objects.count()
+        with pytest.raises(ValueError, match=doi):
+            IngestionRun.start(
+                document=new_doc,
+                input_type=IngestionRun.InputType.DOI,
+                input_identifier=doi,
+                pipeline_version="0.1.0",
+            )
+
+        assert IngestionRun.objects.count() == count_before
+        existing_doc  # silence unused-variable warning
 
 
 class TestDocumentChunk:

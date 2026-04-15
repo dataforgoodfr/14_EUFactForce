@@ -9,6 +9,7 @@ from eu_fact_force.ingestion.models import (
     EMBEDDING_DIMENSIONS,
     Document,
     DocumentChunk,
+    IngestionRun,
     ParsedArtifact,
     SourceFile,
 )
@@ -41,6 +42,24 @@ class ParsedArtifactFactory(DjangoModelFactory):
     postprocessed_text = factory.Sequence(lambda n: f"Postprocessed text {n}")
     metadata_extracted = factory.LazyFunction(dict)
     parser_config = factory.LazyFunction(dict)
+
+
+class IngestionRunFactory(DjangoModelFactory):
+    class Meta:
+        model = IngestionRun
+
+    document = factory.SubFactory(DocumentFactory)
+    source_file = None
+    status = IngestionRun.Status.RUNNING
+    stage = IngestionRun.Stage.ACQUIRE
+    success_kind = None
+    input_type = IngestionRun.InputType.DOI
+    input_identifier = factory.Sequence(lambda n: f"10.1234/run{n}")
+    provider = None
+    raw_provider_payload = None
+    error_message = None
+    error_stage = None
+    pipeline_version = "0.1.0"
 
 
 def _random_embedding_vector() -> list[float]:
