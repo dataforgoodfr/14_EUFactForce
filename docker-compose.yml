@@ -79,3 +79,15 @@ services:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-minioadmin}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
       AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-eu-fact-force-files}
+
+  dash:
+    build:
+      context: ./eu_fact_force/dash-app
+      dockerfile: Dockerfile
+    ports:
+      - "8050:8050"
+    depends_on:
+      - app
+volumes:
+  postgres_data:
+  
