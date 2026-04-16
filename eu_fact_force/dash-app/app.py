@@ -1,22 +1,21 @@
-from dash import Dash, dcc, html, Input, Output, State, ALL, ctx, no_update
-from dash.exceptions import PreventUpdate
-import dash_bootstrap_components as dbc
-
-import plotly.io as pio
-import plotly.graph_objects as go
-
 import base64
 import io
 import json
 import uuid
+from pathlib import Path
 
+import dash_bootstrap_components as dbc
+import plotly.graph_objects as go
+import plotly.io as pio
+from dash import ALL, Dash, Input, Output, State, ctx, dcc, html, no_update
+from dash.exceptions import PreventUpdate
+from pages import graph, ingest, readme
 from utils.colors import EUPHAColors
 from utils.graph import TestGraph, format_node_metadata
 from utils.parsing import extract_pdf_metadata
-from pages import readme, ingest, graph
 
-# Plotly template
-with open("assets/template.json", "r") as f:
+plotly_template = Path(__file__).parent / "assets/template.json"
+with plotly_template.open() as f:
     debate_template = json.load(f)
 pio.templates["app_template"] = go.layout.Template(debate_template)
 pio.templates.default = "app_template"
