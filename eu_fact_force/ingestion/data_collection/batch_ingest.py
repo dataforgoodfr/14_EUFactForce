@@ -57,6 +57,8 @@ def ingest_article(doi: str, pdf_url: str | None = None) -> dict:
     document = Document.objects.create(
         doi=doi,
         title=metadata.get("article name") or "",
+        # TODO: populate provider IDs (pmid, openalex_id, etc.) once parsers
+        # expose their internal identifiers in the metadata dict.
         external_ids={},
         source_file=source_file,  # None if no PDF found — that's fine
     )
