@@ -1,7 +1,17 @@
 import json
+import os
+from urllib.parse import urlparse
+
+import psycopg2
 from dash import dcc
+from dotenv import load_dotenv
 
 from .colors import EUPHAColors
+
+# Load DATABASE_URL from project root .env when running the dash app standalone
+_env_path = os.path.join(os.path.dirname(__file__), "..", "..", "..", ".env")
+if os.path.exists(_env_path):
+    load_dotenv(_env_path)
 
 stylesheet = [
     {
@@ -169,6 +179,116 @@ class TestGraph:
                         }
                     }
                 )
+
+        return nodes, edges, filters
+
+
+class DBGraph:
+    """Graph built from real DocumentChunk / Document rows in PostgreSQL."""
+
+    def __init__(self, search_query: str):
+        self.search_query = search_query.strip()
+        self.stylesheet = stylesheet
+
+    def _connect(self):
+        db_url = os.environ.get("DATABASE_URL")
+        if not db_url:
+            raise RuntimeError("DATABASE_URL is not set")
+        p = urlparse(db_url)
+        return psycopg2.connect(
+            dbname=p.path.lstrip("/"),
+            user=p.username,
+            password=p.password,
+            host=p.hostname,
+            port=p.port or 5432,
+        )
+
+    def fetch_data(self):
+        query = f"%{self.search_query}%"
+        sql = """
+            SELECT
+                c.id, c.content, c."order",
+                d.id, d.title, d.doi, d.created_at
+            FROM ingestion_documentchunk c
+            JOIN ingestion_document d ON c.document_id = d.id
+            WHERE d.title ILIKE %(q)s OR c.content ILIKE %(q)s
+            ORDER BY d.id, c."order"
+            LIMIT 300
+        """
+        conn = self._connect()
+        try:
+            with conn.cursor() as cur:
+                cur.execute(sql, {"q": query})
+                return cur.fetchall()
+        finally:
+            conn.close()
+
+    def transform(self):
+        rows = self.fetch_data()
+        nodes = {}
+        edges = []
+        filters = {
+            "node_types": ["chunk", "document"],
+            "chunk_types": [],
+            "documents": [],
+            "journal": [],
+            "keywords": [],
+            "authors": [],
+            "date": [],
+        }
+
+        for chunk_id, content, order, doc_id, title, doi, created_at in rows:
+            chunk_node_id = f"chunk_{chunk_id}"
+            doc_node_id = f"doc_{doc_id}"
+            date_str = created_at.strftime("%Y-%m-%d") if created_at else "2000-01-01"
+            label = (content[:50] + "…") if len(content) > 50 else content
+
+            filters["chunk_types"].append("text")
+            filters["documents"].append(doc_node_id)
+            filters["date"].append(date_str)
+
+            nodes[chunk_node_id] = {
+                "data": {
+                    "id": chunk_node_id,
+                    "label": label,
+                    "type": "chunk",
+                    "metadata": {
+                        "type": "text",
+                        "content": content,
+                        "metadata": {
+                            "document_id": doc_node_id,
+                            "keywords": [],
+                        },
+                    },
+                    "document_metadata": {
+                        "date": date_str,
+                        "journal": "",
+                        "authors": [],
+                        "title": title,
+                    },
+                }
+            }
+
+            if doc_node_id not in nodes:
+                nodes[doc_node_id] = {
+                    "data": {
+                        "id": doc_node_id,
+                        "label": title,
+                        "type": "document",
+                        "metadata": {
+                            "title": title,
+                            "doi": doi or "",
+                            "date": date_str,
+                            "journal": "",
+                            "authors": [],
+                        },
+                    }
+                }
+
+            edges.append({"data": {"source": chunk_node_id, "target": doc_node_id}})
+
+        if not filters["date"]:
+            filters["date"] = ["2000-01-01"]
 
         return nodes, edges, filters
 
