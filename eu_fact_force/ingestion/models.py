@@ -115,6 +115,36 @@ class Document(TimeStampedModel):
         return self.title
 
 
+class ParsedArtifact(TimeStampedModel):
+    """Single parse output for a Document (one per Document, enforced at DB level)."""
+
+    document = models.OneToOneField(
+        Document,
+        on_delete=models.CASCADE,
+        related_name="parsed_artifact",
+    )
+    docling_output = models.JSONField(
+        help_text="Raw Docling JSON output.",
+    )
+    postprocessed_text = models.TextField(
+        help_text="Text after postprocessing pipeline.",
+    )
+    metadata_extracted = models.JSONField(
+        help_text="Snapshot of parser-extracted metadata, used for audit and reconciliation.",
+    )
+    parser_config = models.JSONField(
+        help_text="Docling parameters and model versions used during parsing.",
+    )
+
+    class Meta:
+        app_label = "ingestion"
+        verbose_name = "parsed artifact"
+        verbose_name_plural = "parsed artifacts"
+
+    def __str__(self):
+        return f"ParsedArtifact for {self.document}"
+
+
 class DocumentChunk(TimeStampedModel):
     """One chunk of a document (e.g. one line from CSV) linked to the source file."""
 

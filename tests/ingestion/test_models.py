@@ -6,8 +6,8 @@ from unittest.mock import patch
 import pytest
 from django.db import IntegrityError
 
-from eu_fact_force.ingestion.models import Document, DocumentChunk, SourceFile
-from tests.factories import DocumentChunkFactory
+from eu_fact_force.ingestion.models import Document, DocumentChunk, ParsedArtifact, SourceFile
+from tests.factories import DocumentChunkFactory, DocumentFactory, ParsedArtifactFactory
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 README_PATH = PROJECT_ROOT / "README.md"
@@ -84,6 +84,44 @@ class TestDocumentSourceFile:
         doc = Document.objects.create(title="Metadata-only paper", doi="10.9999/meta")
         assert doc.pk is not None
         assert doc.source_files.count() == 0
+
+
+class TestParsedArtifact:
+    @pytest.mark.django_db
+    def test_parsed_artifact_fields_writable_and_retrievable(self):
+        """All four ParsedArtifact fields can be written and retrieved."""
+        doc = DocumentFactory()
+        artifact = ParsedArtifact.objects.create(
+            document=doc,
+            docling_output={"pages": 10, "tables": []},
+            postprocessed_text="Clean text content.",
+            metadata_extracted={"title": "My Paper", "authors": ["Alice"]},
+            parser_config={"model": "docling-v2", "ocr": True},
+        )
+        fetched = ParsedArtifact.objects.get(pk=artifact.pk)
+        assert fetched.docling_output == {"pages": 10, "tables": []}
+        assert fetched.postprocessed_text == "Clean text content."
+        assert fetched.metadata_extracted == {"title": "My Paper", "authors": ["Alice"]}
+        assert fetched.parser_config == {"model": "docling-v2", "ocr": True}
+
+    @pytest.mark.django_db
+    def test_second_parsed_artifact_for_same_document_raises_integrity_error(self):
+        """OneToOneField enforces at most one ParsedArtifact per Document."""
+        artifact = ParsedArtifactFactory()
+        with pytest.raises(IntegrityError):
+            ParsedArtifact.objects.create(
+                document=artifact.document,
+                docling_output={},
+                postprocessed_text="",
+                metadata_extracted={},
+                parser_config={},
+            )
+
+    @pytest.mark.django_db
+    def test_parsed_artifact_accessible_via_document(self):
+        """Document.parsed_artifact reverse accessor returns the linked artifact."""
+        artifact = ParsedArtifactFactory()
+        assert artifact.document.parsed_artifact == artifact
 
 
 class TestDocumentChunk:
