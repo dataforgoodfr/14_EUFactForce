@@ -26,7 +26,7 @@ _load_env = BASE_DIR.parent / ".env"
 if _load_env.exists():
     load_dotenv(_load_env)
 
-# Sous pytest : forcer S3 local (RustFS) pour éviter InvalidAccessKeyId avec des clés .env
+# Sous pytest : forcer S3 local (MinIO) pour éviter InvalidAccessKeyId avec des clés .env
 _run_by_pytest = "pytest" in sys.argv[0] or "pytest" in str(sys.argv)
 if _run_by_pytest:
     os.environ["AWS_S3_ENDPOINT_URL"] = "http://localhost:9000"
@@ -161,10 +161,12 @@ STATIC_URL = "static/"
 # Must be an absolute filesystem path (string) for collectstatic / StaticFilesStorage
 STATIC_ROOT = str((BASE_DIR.parent / "staticfiles").resolve())
 
-# S3 / MinIO / LocalStack storage (switch via AWS_S3_ENDPOINT_URL or USE_LOCAL_STACK)
+# S3 / MinIO storage (switch via AWS_S3_ENDPOINT_URL)
 # django-storages reads AWS_S3_ENDPOINT_URL from this module
-# Valeurs par défaut : RustFS local (9000) ou LocalStack (4566) si USE_LOCAL_STACK=1
+# Valeur par défaut : MinIO local (9000)
 AWS_S3_ENDPOINT_URL = os.environ.get("AWS_S3_ENDPOINT_URL") or "http://localhost:9000"
+AWS_S3_ADDRESSING_STYLE = os.environ.get("AWS_S3_ADDRESSING_STYLE", "path")
+AWS_S3_SIGNATURE_VERSION = os.environ.get("AWS_S3_SIGNATURE_VERSION", "s3v4")
 if AWS_S3_ENDPOINT_URL and (
     "localhost" in AWS_S3_ENDPOINT_URL or "127.0.0.1" in AWS_S3_ENDPOINT_URL
 ):
@@ -185,6 +187,8 @@ if _AWS_STORAGE_BUCKET_NAME:
                 "bucket_name": _AWS_STORAGE_BUCKET_NAME,
                 "region_name": os.environ.get("AWS_S3_REGION_NAME", "eu-west-1"),
                 "custom_domain": False,
+                "addressing_style": AWS_S3_ADDRESSING_STYLE,
+                "signature_version": AWS_S3_SIGNATURE_VERSION,
             },
         },
         "staticfiles": {

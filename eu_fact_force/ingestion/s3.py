@@ -3,12 +3,11 @@ import os
 from pathlib import Path
 
 import boto3
+from botocore.config import Config
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
-# Alignés sur docker-compose (RustFS) pour dev local et tests.
-AWS_ACCESS_KEY_ID_DEFAULT = "minioadmin"
-AWS_SECRET_ACCESS_KEY_DEFAULT = "minioadmin"
+# Alignés sur docker-compose (MinIO) pour dev local et tests.
 AWS_STORAGE_BUCKET_NAME_DEFAULT = "eu-fact-force-files"
 
 
@@ -20,39 +19,38 @@ def get_default_bucket() -> str | None:
     )
 
 
-def _is_local_endpoint(endpoint_url: str | None) -> bool:
-    """True if endpoint points to local S3 (RustFS, MinIO, LocalStack)."""
-    if not endpoint_url:
-        return False
-    return "localhost" in endpoint_url or "127.0.0.1" in endpoint_url
-
-
 def get_s3_client():
     """
     Build boto3 S3 client using project config (endpoint, credentials, region).
     Single entry point for all S3 access; same config as default_storage (django-storages).
     Lit endpoint et credentials dans os.environ au moment de l'appel pour que les tests
-    (conftest) puissent forcer RustFS local même si settings ont été chargés avant.
-    Si l'endpoint est local (localhost / 127.0.0.1), on force minioadmin pour RustFS.
+    (conftest) puissent forcer MinIO local même si settings ont été chargés avant.
     """
     endpoint_url = os.environ.get("AWS_S3_ENDPOINT_URL") or getattr(
         settings, "AWS_S3_ENDPOINT_URL", None
     )
     endpoint_url = endpoint_url or None
-    if _is_local_endpoint(endpoint_url):
-        access_key = AWS_ACCESS_KEY_ID_DEFAULT
-        secret_key = AWS_SECRET_ACCESS_KEY_DEFAULT
-    else:
-        access_key = os.environ.get("AWS_ACCESS_KEY_ID", AWS_ACCESS_KEY_ID_DEFAULT)
-        secret_key = os.environ.get(
-            "AWS_SECRET_ACCESS_KEY", AWS_SECRET_ACCESS_KEY_DEFAULT
+
+    access_key = os.environ.get("AWS_ACCESS_KEY_ID")
+    secret_key = os.environ.get("AWS_SECRET_ACCESS_KEY")
+    if not access_key or not secret_key:
+        raise ImproperlyConfigured(
+            "AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY must be set."
         )
+
     return boto3.client(
         "s3",
         endpoint_url=endpoint_url,
         aws_access_key_id=access_key,
         aws_secret_access_key=secret_key,
         region_name=os.environ.get("AWS_S3_REGION_NAME", "eu-west-1"),
+        config=Config(
+            retries={"max_attempts": 5, "mode": "standard"},
+            connect_timeout=5,
+            read_timeout=60,
+            signature_version=os.environ.get("AWS_S3_SIGNATURE_VERSION", "s3v4"),
+            s3={"addressing_style": os.environ.get("AWS_S3_ADDRESSING_STYLE", "path")},
+        ),
     )
 
 
