@@ -17,12 +17,17 @@ RUN apt-get update && apt-get install -y \
 
 # Put the venv outside /app so the .:/app bind mount never shadows it
 ENV UV_PROJECT_ENVIRONMENT=/venv
+# Put the HF model cache outside /app for the same reason
+ENV HF_HOME=/hf_cache
 
 # Copy only the dependency definitions first to leverage Docker's layer caching
 COPY pyproject.toml uv.lock ./
 
 # Install all Python dependencies including dev group (needed for tests)
 RUN uv sync --group dev
+
+# Pre-download the embedding model so it's baked into the image (outside /app to survive the bind mount).
+RUN /venv/bin/python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('intfloat/multilingual-e5-base')"
 
 # Copy the rest of the application code into the container
 COPY . .
