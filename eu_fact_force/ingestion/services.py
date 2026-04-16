@@ -61,20 +61,24 @@ def save_to_s3_and_postgres(
     return source_file
 
 
-def save_chunks(source_file: SourceFile, chunks: list[str]) -> list[DocumentChunk]:
+def save_chunks(document, chunks: list[str]) -> list[DocumentChunk]:
     """
-    Save the file chunks as DocumentChunks with a link to the source file.
-    As a v0 we assume the chunks are the tags.
+    Save the file chunks as DocumentChunks linked to the document.
+    Also marks the associated SourceFile (if any) as parsed.
     """
-    chunks = [
-        DocumentChunk(source_file=source_file, content=tag, order=order)
+    from eu_fact_force.ingestion.models import Document
+
+    chunk_objs = [
+        DocumentChunk(document=document, content=tag, order=order)
         for order, tag in enumerate(chunks, start=1)
     ]
-    DocumentChunk.objects.bulk_create(chunks)
+    DocumentChunk.objects.bulk_create(chunk_objs)
 
-    source_file.status = SourceFile.Status.PARSED
-    source_file.save(update_fields=["status", "updated_at"])
-    return chunks
+    source_file = getattr(document, "source_file", None)
+    if source_file is not None:
+        source_file.status = SourceFile.Status.PARSED
+        source_file.save(update_fields=["status", "updated_at"])
+    return chunk_objs
 
 
 def run_pipeline(doi: str) -> tuple[SourceFile, list[DocumentChunk]]:

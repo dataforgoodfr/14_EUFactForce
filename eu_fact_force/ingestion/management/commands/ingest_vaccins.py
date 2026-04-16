@@ -34,7 +34,7 @@ class Command(BaseCommand):
                 doi=key,
             )
             document_parts = parse_file(source_file)
-            chunks = save_chunks(source_file, document_parts)
+            chunks = save_chunks(source_file.document, document_parts)
             add_embeddings(chunks)
 
         self.stdout.write(self.style.SUCCESS(f"Done. Processed: {len(pdfs)}"))

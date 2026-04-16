@@ -111,7 +111,10 @@ def _download_and_store_pdf(doi: str, SourceFile, pdf_url: str | None = None) ->
         # 1. Try the known URL from the curated source
         if pdf_url:
             try:
-                resp = requests.get(pdf_url, timeout=_PDF_TIMEOUT)
+                resp = requests.get(pdf_url, timeout=_PDF_TIMEOUT, headers={
+                    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                                  "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                })
                 resp.raise_for_status()
                 if resp.content.startswith(b"%PDF"):
                     expected_path.write_bytes(resp.content)
