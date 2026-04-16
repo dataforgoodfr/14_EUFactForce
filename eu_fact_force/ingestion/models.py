@@ -37,13 +37,6 @@ class SourceFile(TimeStampedModel):
         choices=Status.choices,
         default=Status.PENDING,
     )
-    document = models.ForeignKey(
-        "Document",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name="source_files",
-    )
 
     class Meta:
         app_label = "ingestion"
@@ -90,6 +83,13 @@ class Document(TimeStampedModel):
 
     title = models.CharField(max_length=1024)
     doi = models.CharField(max_length=255, blank=True)
+    source_file = models.OneToOneField(
+        "SourceFile",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="document",
+    )
     external_ids = models.JSONField(
         default=dict,
         blank=True,

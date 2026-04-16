@@ -17,8 +17,9 @@ class SourceFileAdmin(admin.ModelAdmin):
 
 @admin.register(Document)
 class DocumentAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "doi", "created_at")
+    list_display = ("id", "title", "doi", "source_file", "created_at")
     search_fields = ("title", "doi")
+    raw_id_fields = ("source_file",)
 
 
 @admin.register(ParsedArtifact)
