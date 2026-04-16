@@ -26,9 +26,6 @@ COPY pyproject.toml uv.lock ./
 # Install all Python dependencies including dev group (needed for tests)
 RUN uv sync --group dev
 
-# Pre-download the embedding model so it's baked into the image (outside /app to survive the bind mount).
-RUN /venv/bin/python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('intfloat/multilingual-e5-base')"
-
 # Copy the rest of the application code into the container
 COPY . .
 
@@ -42,4 +39,4 @@ EXPOSE 8000
 ENTRYPOINT ["/entrypoint.sh"]
 # PYTHONPATH: /app for eu_fact_force.*, /app/eu_fact_force for app.settings (used in wsgi)
 ENV PYTHONPATH=/app:/app/eu_fact_force
-CMD ["uv", "run", "--no-sync", "gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "--access-logfile", "-", "--error-logfile", "-", "--log-level", "info", "eu_fact_force.app.wsgi:application"]
+CMD ["uv", "run", "--no-sync", "gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "--preload", "--access-logfile", "-", "--error-logfile", "-", "--log-level", "info", "eu_fact_force.app.wsgi:application"]

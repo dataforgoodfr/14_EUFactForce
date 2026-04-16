@@ -9,3 +9,6 @@ class IngestionConfig(AppConfig):
 
     def ready(self):
         import eu_fact_force.ingestion.signals  # noqa: F401
+        import eu_fact_force.ingestion.embedding as embedding
+
+        embedding._get_model()
