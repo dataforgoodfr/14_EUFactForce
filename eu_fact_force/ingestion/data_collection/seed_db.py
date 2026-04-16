@@ -1,29 +1,24 @@
 """
-Seed the database with articles on a given topic.
+Seed the database from a curated CSV of articles.
 
-Three modes:
+Each row in the CSV must have at minimum a `doi` column. An optional `pdf_url`
+column is used as the first attempt for PDF download before falling back to the
+parser chain (Crossref, OpenAlex, PubMed, HAL, arXiv).
 
-  search   -- Query PubMed + Crossref and save results to JSON for inspection
-  ingest   -- Ingest articles from a saved search JSON into the database
-  full     -- search + ingest in one shot
+Rows without a `doi` are skipped and reported.
 
 Usage:
 
-  # Search and inspect results before ingesting
-  python -m eu_fact_force.ingestion.data_collection.seed_db search \\
-      --query "vaccine autism" --output search_results.json --max-results 100
+  python -m eu_fact_force.ingestion.data_collection.seed_db \\
+      --csv vaccine_autism_evidence_curated.csv
 
-  # Ingest from a previous search
-  python -m eu_fact_force.ingestion.data_collection.seed_db ingest \\
-      --search-results search_results.json --max-articles 50
-
-  # Full pipeline in one command
-  python -m eu_fact_force.ingestion.data_collection.seed_db full \\
-      --query "vaccine autism" --max-articles 50
+  # Dry-run: print what would be ingested without touching the DB
+  python -m eu_fact_force.ingestion.data_collection.seed_db \\
+      --csv vaccine_autism_evidence_curated.csv --dry-run
 """
 
 import argparse
-import json
+import csv
 import logging
 import os
 import sys
@@ -44,71 +39,45 @@ def _setup_django() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Sub-commands
+# Command
 # ---------------------------------------------------------------------------
 
-def cmd_search(args: argparse.Namespace) -> None:
-    from eu_fact_force.ingestion.data_collection.search import ArticleSearcher
+def cmd_from_csv(args: argparse.Namespace) -> None:
+    with open(args.csv, encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
 
-    searcher = ArticleSearcher()
-    results = searcher.search(
-        query=args.query,
-        max_results=args.max_results,
-        min_year=args.min_year,
-    )
+    if "doi" not in rows[0]:
+        print(f"Error: CSV must have a 'doi' column.", file=sys.stderr)
+        sys.exit(1)
 
-    output = {
-        "query": args.query,
-        "total": len(results),
-        "results": [r.to_dict() for r in results],
-    }
+    entries, skipped = [], []
+    for row in rows:
+        doi = row.get("doi", "").strip()
+        article_id = row.get("article_id", "?")
+        if not doi:
+            skipped.append(article_id)
+            logger.warning("seed.skip article_id=%s reason=no_doi", article_id)
+            continue
+        entries.append({
+            "doi": doi,
+            "pdf_url": row.get("pdf_url", "").strip() or None,
+        })
 
-    with open(args.output, "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
+    print(f"Loaded {len(entries)} articles from {args.csv}")
+    if skipped:
+        print(f"Skipped {len(skipped)} rows without DOI: {', '.join(skipped)}")
 
-    oa_count = sum(1 for r in results if r.open_access)
-    print(f"Found {len(results)} articles ({oa_count} open access)")
-    print(f"Saved to {args.output}")
-
-
-def cmd_ingest(args: argparse.Namespace) -> None:
-    _setup_django()
-    from eu_fact_force.ingestion.data_collection.batch_ingest import bulk_ingest
-
-    with open(args.search_results, encoding="utf-8") as f:
-        data = json.load(f)
-
-    dois = [r["doi"] for r in data.get("results", []) if r.get("doi")]
-    print(f"Loaded {len(dois)} DOIs from {args.search_results}")
-
-    summary = bulk_ingest(dois, max_articles=args.max_articles)
-    _print_summary(summary)
-
-
-def cmd_full(args: argparse.Namespace) -> None:
-    from eu_fact_force.ingestion.data_collection.search import ArticleSearcher
-
-    # --- Search ---
-    print(f"Searching for: {args.query!r}")
-    searcher = ArticleSearcher()
-    results = searcher.search(
-        query=args.query,
-        max_results=args.max_results,
-        min_year=args.min_year,
-    )
-    oa_count = sum(1 for r in results if r.open_access)
-    print(f"Found {len(results)} articles ({oa_count} open access)")
-
-    if not results:
-        print("Nothing to ingest.")
+    if args.dry_run:
+        print("\nDry run — no changes made. Articles that would be ingested:")
+        for e in entries:
+            pdf = e["pdf_url"] or "parser chain"
+            print(f"  {e['doi']}  (pdf: {pdf})")
         return
 
-    # --- Ingest ---
     _setup_django()
     from eu_fact_force.ingestion.data_collection.batch_ingest import bulk_ingest
 
-    dois = [r.doi for r in results]
-    summary = bulk_ingest(dois, max_articles=args.max_articles)
+    summary = bulk_ingest(entries)
     _print_summary(summary)
 
 
@@ -123,7 +92,7 @@ def _print_summary(summary: dict) -> None:
 
     failed = [r for r in summary["results"] if not r.get("success")]
     if failed:
-        print(f"\nFailed DOIs:")
+        print(f"\nFailed:")
         for r in failed:
             reason = r.get("reason") or r.get("error") or "unknown"
             print(f"  {r['doi']}: {reason}")
@@ -135,37 +104,19 @@ def _print_summary(summary: dict) -> None:
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Seed the database with articles on a topic.",
+        description="Seed the database from a curated CSV of articles.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )
-    sub = parser.add_subparsers(dest="command")
-
-    # search
-    p = sub.add_parser("search", help="Search PubMed + Crossref and save results")
-    p.add_argument("--query", required=True)
-    p.add_argument("--output", default="search_results.json",
-                   help="Path to write results JSON (default: search_results.json)")
-    p.add_argument("--max-results", type=int, default=100,
-                   help="Max results per source (default: 100)")
-    p.add_argument("--min-year", type=int, default=None)
-    p.set_defaults(func=cmd_search)
-
-    # ingest
-    p = sub.add_parser("ingest", help="Ingest articles from a search results JSON")
-    p.add_argument("--search-results", required=True,
-                   help="Path to search_results.json from a previous 'search' run")
-    p.add_argument("--max-articles", type=int, default=None)
-    p.set_defaults(func=cmd_ingest)
-
-    # full
-    p = sub.add_parser("full", help="Search + ingest in one shot")
-    p.add_argument("--query", required=True)
-    p.add_argument("--max-results", type=int, default=100)
-    p.add_argument("--max-articles", type=int, default=None)
-    p.add_argument("--min-year", type=int, default=None)
-    p.set_defaults(func=cmd_full)
-
+    parser.add_argument(
+        "--csv", required=True,
+        help="Path to a curated CSV with at least a 'doi' column (e.g. vaccine_autism_evidence_curated.csv)",
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true",
+        help="Print what would be ingested without writing to the database",
+    )
+    parser.set_defaults(func=cmd_from_csv)
     return parser
 
 
@@ -176,9 +127,6 @@ def main() -> None:
     )
     parser = _build_parser()
     args = parser.parse_args()
-    if not args.command:
-        parser.print_help()
-        sys.exit(1)
     args.func(args)
 
 
