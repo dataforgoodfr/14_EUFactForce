@@ -1,23 +1,22 @@
-from dash import Dash, dcc, html, Input, Output, State, ALL, ctx, no_update
-from dash.exceptions import PreventUpdate
-import dash_bootstrap_components as dbc
-
-import plotly.io as pio
-import plotly.graph_objects as go
-
 import base64
 import io
 import json
 import uuid
+from pathlib import Path
 
+import dash_bootstrap_components as dbc
+import plotly.graph_objects as go
+import plotly.io as pio
+from dash import ALL, Dash, Input, Output, State, ctx, dcc, html, no_update
+from dash.exceptions import PreventUpdate
+from pages import graph, ingest, readme, semantic_search
 from utils.colors import EUPHAColors
-from utils.graph import DBGraph, format_node_metadata
+from utils.graph import BackendGraph, format_node_metadata
 from utils.search import search_chunks
 from utils.parsing import extract_pdf_metadata
-from pages import readme, ingest, graph, semantic_search
 
-# Plotly template
-with open("assets/template.json", "r") as f:
+plotly_template = Path(__file__).parent / "assets/template.json"
+with plotly_template.open() as f:
     debate_template = json.load(f)
 pio.templates["app_template"] = go.layout.Template(debate_template)
 pio.templates.default = "app_template"
@@ -204,7 +203,7 @@ def activate_search_buton(search_text, graph):
 )
 def get_search_data(n_clicks, search_text):
     if n_clicks > 0:
-        nodes, edges, filters = DBGraph(search_text).transform()
+        nodes, edges, filters = BackendGraph(search_text).transform()
         return [
             {"nodes": nodes, "edges": edges},
             {
@@ -220,16 +219,16 @@ def get_search_data(n_clicks, search_text):
             list(set(filters["documents"])),
             list(set(filters["journal"])),
             list(set(filters["authors"])),
-            min(filters["date"]),
-            max(filters["date"]),
+            min(filters["date"]) if filters["date"] else None,
+            max(filters["date"]) if filters["date"] else None,
             list(set(filters["node_types"])),
             list(set(filters["chunk_types"])),
             list(set(filters["keywords"])),
             list(set(filters["documents"])),
             list(set(filters["journal"])),
             list(set(filters["authors"])),
-            min(filters["date"]),
-            max(filters["date"]),
+            min(filters["date"]) if filters["date"] else None,
+            max(filters["date"]) if filters["date"] else None,
         ]
     else:
         raise PreventUpdate
@@ -291,12 +290,19 @@ def update_graph_and_list(
             nodes = {
                 n: nodes[n]
                 for n in nodes
-                if nodes[n]["data"]["type"] not in ("chunk", "keyword")
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "keyword")
                 or (
                     nodes[n]["data"]["type"] == "chunk"
                     and any(
                         item in filter_keywords
-                        for item in nodes[n]["data"]["metadata"]["metadata"]["keywords"]
+                        for item in nodes[n]["data"]["document_metadata"].get("keywords", [])
+                    )
+                )
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and any(
+                        item in filter_keywords
+                        for item in nodes[n]["data"]["metadata"].get("keywords", [])
                     )
                 )
                 or (
@@ -329,7 +335,7 @@ def update_graph_and_list(
             if nodes[n]["data"]["type"] not in ("chunk", "document")
             or (
                 nodes[n]["data"]["type"] == "chunk"
-                and nodes[n]["data"]["metadata"]["metadata"]["document_id"]
+                and str(nodes[n]["data"]["metadata"].get("metadata", {}).get("document_id"))
                 in filter_documents
             )
             or (
