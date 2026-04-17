@@ -57,10 +57,7 @@ def save_to_s3_and_postgres(
     Read the local file at local_file_path (e.g. PDF, CSV, JPEG), upload it to S3
     (or default storage), and create a SourceFile in Postgres.
     """
-    # source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
-    source_file = None
-    print(metadata)
-
+    source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
     meta = metadata or {}
     keywords = meta.get("keywords", [])
     document, _ = Document.objects.update_or_create(
@@ -74,22 +71,19 @@ def save_to_s3_and_postgres(
 
     document.authors.set(Author.from_list(meta.get("authors", [])))
 
-    return source_file
+    return document
 
 
-def save_chunks(source_file: SourceFile, chunks: list[str]) -> list[DocumentChunk]:
+def save_chunks(document: Document, chunks: list[str]) -> list[DocumentChunk]:
     """
     Save the file chunks as DocumentChunks with a link to the source file.
     As a v0 we assume the chunks are the tags.
     """
     chunks = [
-        DocumentChunk(source_file=source_file, content=tag, order=order)
+        DocumentChunk(document=document, content=tag, order=order)
         for order, tag in enumerate(chunks, start=1)
     ]
     DocumentChunk.objects.bulk_create(chunks)
-
-    source_file.status = SourceFile.Status.PARSED
-    source_file.save(update_fields=["status", "updated_at"])
     return chunks
 
 
@@ -99,10 +93,8 @@ def run_pipeline(doi: str) -> tuple[SourceFile, list[DocumentChunk]]:
     Returns (source_file, list of DocumentChunk).
     """
     local_file_path, tags_pubmed = fetch_file_and_metadata(doi)
-    print(local_file_path)
-    print(tags_pubmed)
-    source_file = save_to_s3_and_postgres(local_file_path, tags_pubmed, doi=doi)
-    document_parts = parse_file(source_file)
-    chunks = save_chunks(source_file, document_parts)
+    document = save_to_s3_and_postgres(local_file_path, tags_pubmed, doi=doi)
+    document_parts = parse_file(document)
+    chunks = save_chunks(document, document_parts)
     add_embeddings(chunks)
-    return source_file, chunks
+    return document, chunks
