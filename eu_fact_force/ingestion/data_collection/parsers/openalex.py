@@ -14,7 +14,7 @@ class OpenAlexMetadataParser(MetadataParser):
 
     def _get_authors(self, doc):
         return [
-            a.get("raw_author_name")
+            {"name": a["raw_author_name"], "orcid": None}
             for a in doc.get("authorships", [])
             if a.get("raw_author_name")
         ]
@@ -69,7 +69,7 @@ class OpenAlexMetadataParser(MetadataParser):
             return {"found": False}
         return {
             "found": True,
-            "article name": doc.get("title"),
+            "title": doc.get("title"),
             "authors": self._get_authors(doc),
             "journal": self._get_journal(doc),
             "publish date": doc.get("publication_date"),

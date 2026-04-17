@@ -15,12 +15,16 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
+# Put the venv outside /app so the .:/app bind mount never shadows it
+ENV UV_PROJECT_ENVIRONMENT=/venv
+# Put the HF model cache outside /app for the same reason
+ENV HF_HOME=/hf_cache
+
 # Copy only the dependency definitions first to leverage Docker's layer caching
 COPY pyproject.toml uv.lock ./
 
-# Install Python dependencies for production
-RUN uv sync --no-group dev 
-# --group prod
+# Install all Python dependencies including dev group (needed for tests)
+RUN uv sync --group dev
 
 # Copy the rest of the application code into the container
 COPY . .
@@ -33,7 +37,6 @@ RUN chmod +x /entrypoint.sh
 EXPOSE 8000
 
 ENTRYPOINT ["/entrypoint.sh"]
-# Run with gunicorn
 # PYTHONPATH: /app for eu_fact_force.*, /app/eu_fact_force for app.settings (used in wsgi)
 ENV PYTHONPATH=/app:/app/eu_fact_force
-CMD ["uv", "run", "--no-sync", "gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "--access-logfile", "-", "--error-logfile", "-", "--log-level", "info", "eu_fact_force.app.wsgi:application"]
+CMD ["uv", "run", "--no-sync", "gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "--preload", "--access-logfile", "-", "--error-logfile", "-", "--log-level", "info", "eu_fact_force.app.wsgi:application"]

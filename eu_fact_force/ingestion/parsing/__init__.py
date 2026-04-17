@@ -16,6 +16,7 @@ from eu_fact_force.ingestion.chunking import (
     MAX_CHUNK_CHARS,
     split_into_paragraph_chunks,
 )
+from eu_fact_force.ingestion.models import Document
 from eu_fact_force.utils.decorators import tracker
 
 LOGGER = structlog.get_logger(__name__)
@@ -58,11 +59,10 @@ def _extract_text_from_source_file(source_file) -> str:
 
 
 @tracker(ulogger=LOGGER, inputs=True, log_start=True)
-def parse_file(source_file) -> list[str]:
+def parse_file(document: Document) -> list[str]:
     """
     Parse the source file and return paragraph-bounded text chunks.
     As a v0 we assume the chunks are the tags.
     """
-
-    full_text = _extract_text_from_source_file(source_file)
+    full_text = _extract_text_from_source_file(document.source_file)
     return split_into_paragraph_chunks(full_text, max_chunk_chars=MAX_CHUNK_CHARS)

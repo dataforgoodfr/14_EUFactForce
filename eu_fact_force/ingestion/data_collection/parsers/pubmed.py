@@ -22,7 +22,7 @@ class PubMedMetadataParser(MetadataParser):
         return ids[0] if ids else None
 
     def _get_authors(self, doc):
-        return [a.get("name") for a in doc.get("authors", []) if a.get("name")]
+        return [{"name": a["name"], "orcid": None} for a in doc.get("authors", []) if a.get("name")]
 
     def _get_doi(self, doc):
         return next(
@@ -48,7 +48,7 @@ class PubMedMetadataParser(MetadataParser):
             return {"found": False}
         return {
             "found": True,
-            "article name": doc.get("title"),
+            "title": doc.get("title"),
             "authors": self._get_authors(doc),
             "journal": doc.get("fulljournalname"),
             "publish date": doc.get("pubdate"),

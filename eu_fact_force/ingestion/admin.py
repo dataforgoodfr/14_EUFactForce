@@ -5,7 +5,7 @@ See the pages on <url>/admin
 
 from django.contrib import admin
 
-from .models import DocumentChunk, FileMetadata, SourceFile
+from .models import Document, DocumentChunk, IngestionRun, ParsedArtifact, SourceFile
 
 
 @admin.register(SourceFile)
@@ -15,19 +15,49 @@ class SourceFileAdmin(admin.ModelAdmin):
     search_fields = ("doi",)
 
 
-@admin.register(FileMetadata)
-class FileMetadataAdmin(admin.ModelAdmin):
-    list_display = ("source_file", "tags_pubmed", "created_at")
+@admin.register(Document)
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "doi", "source_file", "created_at")
+    search_fields = ("title", "doi")
     raw_id_fields = ("source_file",)
+
+
+@admin.register(ParsedArtifact)
+class ParsedArtifactAdmin(admin.ModelAdmin):
+    list_display = ("id", "document", "created_at")
+    raw_id_fields = ("document",)
+
+
+@admin.register(IngestionRun)
+class IngestionRunAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "document",
+        "input_type",
+        "input_identifier",
+        "status",
+        "stage",
+        "success_kind",
+        "pipeline_version",
+        "created_at",
+    )
+    list_filter = ("status", "stage", "input_type", "success_kind")
+    search_fields = ("input_identifier", "provider", "error_message")
+    raw_id_fields = ("document", "source_file")
 
 
 @admin.register(DocumentChunk)
 class DocumentChunkAdmin(admin.ModelAdmin):
-    list_display = ("id", "source_file", "order", "content_preview", "created_at")
-    list_filter = ("source_file",)
-    raw_id_fields = ("source_file",)
-    ordering = ("source_file", "order")
+    _CONTENT_PREVIEW_LENGTH = 80
+
+    list_display = ("id", "document", "order", "content_preview", "created_at")
+    list_filter = ("document",)
+    raw_id_fields = ("document",)
+    ordering = ("document", "order")
 
     @admin.display(description="Content")
     def content_preview(self, obj):
-        return obj.content[:80] + ("..." if len(obj.content) > 80 else "")
+        content = obj.content
+        if len(content) > self._CONTENT_PREVIEW_LENGTH:
+            return content[:self._CONTENT_PREVIEW_LENGTH] + "..."
+        return content
