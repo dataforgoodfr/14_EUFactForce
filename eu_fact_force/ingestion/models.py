@@ -76,6 +76,47 @@ class SourceFile(TimeStampedModel):
             )
 
 
+class Author(models.Model):
+    """A person who authored a document."""
+
+    full_name = models.CharField(max_length=512)
+    orcid = models.CharField(
+        max_length=19,
+        null=True,
+        blank=True,
+        unique=True,
+        help_text="ORCID identifier (e.g. 0000-0001-2345-6789). Unique when set.",
+    )
+
+    class Meta:
+        app_label = "ingestion"
+        verbose_name = "author"
+        verbose_name_plural = "authors"
+
+    def __str__(self):
+        return self.full_name
+
+    @classmethod
+    def from_list(cls, entries: list[dict]) -> list["Author"]:
+        """
+        Create or retrieve Author instances from a list of {name, orcid} dicts.
+        Returns the list of Author instances in the same order.
+        """
+        authors = []
+        for entry in entries:
+            if not isinstance(entry, dict) or not entry.get("name"):
+                continue
+            orcid = entry.get("orcid") or None
+            if orcid:
+                author, _ = cls.objects.get_or_create(orcid=orcid, defaults={"full_name": entry["name"]})
+            else:
+                author = cls.objects.filter(full_name=entry["name"]).first()
+                if author is None:
+                    author = cls.objects.create(full_name=entry["name"])
+            authors.append(author)
+        return authors
+
+
 class Document(TimeStampedModel):
     """Canonical bibliographic record for a publication."""
 
@@ -94,6 +135,16 @@ class Document(TimeStampedModel):
         default=dict,
         blank=True,
         help_text="Provider-specific identifiers, e.g. {'pmid': '123', 'arxiv': '2301.00001'}",
+    )
+    keywords = models.JSONField(
+        default=list,
+        blank=True,
+        help_text="List of keywords associated with the document.",
+    )
+    authors = models.ManyToManyField(
+        Author,
+        blank=True,
+        related_name="documents",
     )
 
     class Meta:

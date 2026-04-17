@@ -8,15 +8,15 @@ import hashlib
 import logging
 import os
 from pathlib import Path
-
-from eu_fact_force.ingestion.embedding import add_embeddings
-from eu_fact_force.ingestion.parsing import parse_file
+from typing import Any
 
 from eu_fact_force.ingestion.data_collection.collector import fetch_all
 from eu_fact_force.ingestion.data_collection.parsers import PARSERS
 from eu_fact_force.ingestion.data_collection.parsers.base import doi_to_id
+from eu_fact_force.ingestion.embedding import add_embeddings
+from eu_fact_force.ingestion.parsing import parse_file
 
-from .models import DocumentChunk, SourceFile
+from .models import Author, Document, DocumentChunk, SourceFile
 
 
 def hash_doi(doi: str) -> str:
@@ -32,7 +32,7 @@ def fetch_file_and_metadata(doi: str) -> tuple[Path | None, dict]:
     V0: returns a local file path and a list of tags (tags_pubmed); no real HTTP call.
     The returned path must point to an existing local file (e.g. PDF, CSV, JPEG).
     """
-    pdf_dir = os.path.join(os.path.dirname(__file__), "data_collection", "pdf")
+    pdf_dir = Path(__file__).parents[2] / "data" / "data_collection" / "pdf"
     metadata = fetch_all(doi)
 
     os.makedirs(pdf_dir, exist_ok=True)
@@ -50,14 +50,30 @@ def fetch_file_and_metadata(doi: str) -> tuple[Path | None, dict]:
 
 def save_to_s3_and_postgres(
     local_file_path: str | Path,
-    tags_pubmed: list[str] | None = None,
+    metadata: dict[str, Any] | None = None,
     doi: str | None = None,
 ) -> SourceFile:
     """
     Read the local file at local_file_path (e.g. PDF, CSV, JPEG), upload it to S3
     (or default storage), and create a SourceFile in Postgres.
     """
-    source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
+    # source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
+    source_file = None
+    print(metadata)
+
+    meta = metadata or {}
+    keywords = meta.get("keywords", [])
+    document, _ = Document.objects.update_or_create(
+        source_file=source_file,
+        defaults={
+            "title": meta.get("title", ""),
+            "doi": doi or "",
+            "keywords": keywords if isinstance(keywords, list) else [],
+        },
+    )
+
+    document.authors.set(Author.from_list(meta.get("authors", [])))
+
     return source_file
 
 
@@ -83,6 +99,8 @@ def run_pipeline(doi: str) -> tuple[SourceFile, list[DocumentChunk]]:
     Returns (source_file, list of DocumentChunk).
     """
     local_file_path, tags_pubmed = fetch_file_and_metadata(doi)
+    print(local_file_path)
+    print(tags_pubmed)
     source_file = save_to_s3_and_postgres(local_file_path, tags_pubmed, doi=doi)
     document_parts = parse_file(source_file)
     chunks = save_chunks(source_file, document_parts)

@@ -27,8 +27,8 @@ class ArxivMetadataParser(MetadataParser):
             return {"found": False}
         return {
             "found": True,
-            "article name": article.title,
-            "authors": [str(a) for a in article.authors],
+            "title": article.title,
+            "authors": [{"name": str(a), "orcid": None} for a in article.authors],
             "journal": article.journal_ref,
             "publish date": str(article.published)[:10],
             "link": next(

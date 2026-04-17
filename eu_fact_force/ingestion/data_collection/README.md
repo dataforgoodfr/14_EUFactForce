@@ -28,7 +28,7 @@ python -m eu_fact_force.ingestion.data_collection --doi 10.1128/mbio.01735-25
   "id": "10_1128_mbio_01735-25",
   "found": true,
   "sources": ["CrossrefMetadataParser", "OpenAlexMetadataParser"],
-  "article name": "...",
+  "title": "...",
   "authors": ["Author One", "Author Two"],
   "journal": "...",
   "publish date": "2024-01-15",

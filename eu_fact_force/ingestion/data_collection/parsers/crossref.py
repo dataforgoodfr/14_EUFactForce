@@ -12,10 +12,15 @@ class CrossrefMetadataParser(MetadataParser):
         self.url = "https://api.crossref.org/works/{doi}"
 
     def _get_authors(self, doc):
-        return [
-            f"{a.get('given', '')} {a.get('family', '')}".strip()
-            for a in doc.get("author", [])
-        ]
+        result = []
+        for a in doc.get("author", []):
+            name = f"{a.get('given', '')} {a.get('family', '')}".strip()
+            if not name:
+                continue
+            orcid_url = a.get("ORCID") or ""
+            orcid = orcid_url.split("orcid.org/")[-1] if "orcid.org/" in orcid_url else None
+            result.append({"name": name, "orcid": orcid})
+        return result
 
     def _get_publish_date(self, doc):
         date_parts = ((doc.get("published") or {}).get("date-parts") or [[]])[0]
@@ -61,7 +66,7 @@ class CrossrefMetadataParser(MetadataParser):
             return {"found": False}
         return {
             "found": True,
-            "article name": (doc.get("title") or [None])[0],
+            "title": (doc.get("title") or [None])[0],
             "authors": self._get_authors(doc),
             "journal": doc.get("publisher"),
             "publish date": self._get_publish_date(doc),
