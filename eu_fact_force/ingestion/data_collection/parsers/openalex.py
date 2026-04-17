@@ -13,15 +13,11 @@ class OpenAlexMetadataParser(MetadataParser):
         self.cited_articles_url = "https://api.openalex.org/works?filter=ids.openalex:{ids}&select=id,doi&per-page=200"
 
     def _get_authors(self, doc):
-        result = []
-        for a in doc.get("authorships", []):
-            name = a.get("raw_author_name")
-            if not name:
-                continue
-            orcid_url = (a.get("author") or {}).get("orcid") or ""
-            orcid = orcid_url.split("orcid.org/")[-1] if "orcid.org/" in orcid_url else None
-            result.append({"name": name, "orcid": orcid})
-        return result
+        return [
+            {"name": a["raw_author_name"], "orcid": None}
+            for a in doc.get("authorships", [])
+            if a.get("raw_author_name")
+        ]
 
     def _get_journal(self, doc):
         return (

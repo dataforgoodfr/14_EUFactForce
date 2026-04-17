@@ -17,9 +17,7 @@ class CrossrefMetadataParser(MetadataParser):
             name = f"{a.get('given', '')} {a.get('family', '')}".strip()
             if not name:
                 continue
-            orcid_url = a.get("ORCID") or ""
-            orcid = orcid_url.split("orcid.org/")[-1] if "orcid.org/" in orcid_url else None
-            result.append({"name": name, "orcid": orcid})
+            result.append({"name": name, "orcid": None})
         return result
 
     def _get_publish_date(self, doc):
