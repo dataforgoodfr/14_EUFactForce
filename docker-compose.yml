@@ -22,8 +22,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      rustfs:
-        condition: service_started
+      rustfs-init:
+        condition: service_completed_successfully
     labels:
       - traefik.enable=true
       - traefik.http.routers.eu-fact-force.rule=Host(`eu-fact-force.services.d4g.fr`)
@@ -65,16 +65,22 @@ services:
     command: ["--console-enable", "/data"]
     volumes:
       - ./rustfs_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget --server-response -qO /dev/null http://localhost:9000/minio/health/live 2>&1 | grep -qE 'HTTP/1\\.[01] (200|403)'"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
 
   # Create default S3 bucket on first run (depends on RustFS).
   rustfs-init:
     image: amazon/aws-cli:latest
     depends_on:
-      - rustfs
+      rustfs:
+        condition: service_healthy
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        sleep 5
         aws s3 mb s3://$${AWS_STORAGE_BUCKET_NAME} --endpoint-url http://rustfs:9000 2>/dev/null || true
         echo "Bucket ready."
     environment:
