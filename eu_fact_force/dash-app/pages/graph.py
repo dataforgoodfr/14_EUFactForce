@@ -17,11 +17,11 @@ def make_layout():
                         html.H5("Search", style={"margin-bottom": "2px"}), width="auto"
                     ),
                     dbc.Col(
-                        dcc.Dropdown(
+                        dbc.Input(
                             id="search-input",
-                            options=[
-                                {"label": "vaccine_autism", "value": "vaccine_autism"},
-                            ],
+                            type="text",
+                            placeholder="Search by document title or chunk content…",
+                            debounce=False,
                         )
                     ),
                     dbc.Col(
@@ -57,7 +57,7 @@ def make_layout():
                 layout={"name": "cose"},
                 style={"width": "100%", "height": "500px"},
                 zoomingEnabled=True,
-                userZoomingEnabled=False,
+                userZoomingEnabled=True,
             ),
         ],
         style={

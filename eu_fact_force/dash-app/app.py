@@ -9,9 +9,10 @@ import plotly.graph_objects as go
 import plotly.io as pio
 from dash import ALL, Dash, Input, Output, State, ctx, dcc, html, no_update
 from dash.exceptions import PreventUpdate
-from pages import graph, ingest, readme
+from pages import graph, ingest, readme, semantic_search
 from utils.colors import EUPHAColors
 from utils.graph import BackendGraph, format_node_metadata
+from utils.search import search_chunks
 from utils.parsing import extract_pdf_metadata
 
 plotly_template = Path(__file__).parent / "assets/template.json"
@@ -37,8 +38,9 @@ app._favicon = "logo-eupha-u-blue.png"
 # App pages
 pages = {
     "Readme": {"href": "/", "content": readme},
-    "Ingestion": {"href": "/ingest", "content": ingest},
+    "Search": {"href": "/search", "content": semantic_search},
     "Graph": {"href": "/graph", "content": graph},
+    "Ingestion": {"href": "/ingest", "content": ingest},
 }
 
 # Header and navigation
@@ -283,30 +285,31 @@ def update_graph_and_list(
             or nodes[n]["data"]["metadata"]["type"] in filter_chunk_types
         }
 
-        # Filter keywords
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document", "keyword")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and any(
-                    item in filter_keywords
-                    for item in nodes[n]["data"]["document_metadata"].get("keywords", [])
+        # Filter keywords (skip if no keywords exist in the dataset)
+        if filter_keywords:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "keyword")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and any(
+                        item in filter_keywords
+                        for item in nodes[n]["data"]["document_metadata"].get("keywords", [])
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and any(
-                    item in filter_keywords
-                    for item in nodes[n]["data"]["metadata"].get("keywords", [])
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and any(
+                        item in filter_keywords
+                        for item in nodes[n]["data"]["metadata"].get("keywords", [])
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "keyword"
-                and nodes[n]["data"]["label"] in filter_keywords
-            )
-        }
+                or (
+                    nodes[n]["data"]["type"] == "keyword"
+                    and nodes[n]["data"]["label"] in filter_keywords
+                )
+            }
 
         # Filter dates
         nodes = {
@@ -341,49 +344,51 @@ def update_graph_and_list(
             )
         }
 
-        # Filter journals
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document", "journal")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and nodes[n]["data"]["document_metadata"]["journal"] in filter_journals
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and nodes[n]["data"]["metadata"]["journal"] in filter_journals
-            )
-            or (
-                nodes[n]["data"]["type"] == "journal"
-                and nodes[n]["data"]["label"] in filter_journals
-            )
-        }
+        # Filter journals (skip if no journals exist in the dataset)
+        if filter_journals:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "journal")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and nodes[n]["data"]["document_metadata"]["journal"] in filter_journals
+                )
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and nodes[n]["data"]["metadata"]["journal"] in filter_journals
+                )
+                or (
+                    nodes[n]["data"]["type"] == "journal"
+                    and nodes[n]["data"]["label"] in filter_journals
+                )
+            }
 
-        # Filter authors
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document", "author")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and any(
-                    item in filter_authors
-                    for item in nodes[n]["data"]["document_metadata"]["authors"]
+        # Filter authors (skip if no authors exist in the dataset)
+        if filter_authors:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "author")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and any(
+                        item in filter_authors
+                        for item in nodes[n]["data"]["document_metadata"]["authors"]
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and any(
-                    item in filter_authors
-                    for item in nodes[n]["data"]["metadata"]["authors"]
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and any(
+                        item in filter_authors
+                        for item in nodes[n]["data"]["metadata"]["authors"]
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "author"
-                and nodes[n]["data"]["label"] in filter_authors
-            )
-        }
+                or (
+                    nodes[n]["data"]["type"] == "author"
+                    and nodes[n]["data"]["label"] in filter_authors
+                )
+            }
 
         # Update edges
         edges = [
@@ -642,6 +647,93 @@ def finalize_and_display_json(
             ),
         ]
     )
+
+
+# --------------------
+# Callbacks - Semantic Search
+# --------------------
+
+
+@app.callback(
+    Output("sem-search-button", "disabled"),
+    Input("sem-search-input", "value"),
+)
+def activate_sem_search_button(text):
+    return not bool(text and text.strip())
+
+
+@app.callback(
+    Output("sem-results", "style"),
+    Output("sem-results-content", "children"),
+    Input("sem-search-button", "n_clicks"),
+    State("sem-search-input", "value"),
+    prevent_initial_call=True,
+)
+def run_semantic_search(n_clicks, query):
+    if not n_clicks or not query:
+        raise PreventUpdate
+
+    results = search_chunks(query, k=10)
+
+    if not results:
+        cards = [dbc.Alert("No results found.", color="warning")]
+    else:
+        cards = []
+        for r in results:
+            score_pct = f"{r['similarity'] * 100:.1f}%"
+            doi_line = (
+                [html.Small(f"DOI: {r['doi']}", className="text-muted")]
+                if r["doi"]
+                else []
+            )
+            card = dbc.Card(
+                dbc.CardBody(
+                    [
+                        dbc.Row(
+                            [
+                                dbc.Col(
+                                    html.Span(
+                                        f"#{r['rank']}",
+                                        style={
+                                            "font-size": "1.4rem",
+                                            "font-weight": "bold",
+                                            "color": EUPHAColors.dark_blue,
+                                        },
+                                    ),
+                                    width="auto",
+                                ),
+                                dbc.Col(
+                                    [
+                                        html.Strong(r["doc_title"]),
+                                        html.Br(),
+                                        *doi_line,
+                                    ]
+                                ),
+                                dbc.Col(
+                                    dbc.Badge(
+                                        f"Similarity {score_pct}",
+                                        color="success" if r["similarity"] > 0.8 else "primary",
+                                        className="ms-auto",
+                                    ),
+                                    width="auto",
+                                ),
+                            ],
+                            align="center",
+                            className="mb-2",
+                        ),
+                        html.Hr(style={"margin": "8px 0"}),
+                        html.P(
+                            r["content"][:500] + ("…" if len(r["content"]) > 500 else ""),
+                            style={"white-space": "pre-wrap", "font-size": "0.9rem"},
+                            className="mb-0",
+                        ),
+                    ]
+                ),
+                className="mb-3",
+            )
+            cards.append(card)
+
+    return {"display": "block"}, cards
 
 
 if __name__ == "__main__":

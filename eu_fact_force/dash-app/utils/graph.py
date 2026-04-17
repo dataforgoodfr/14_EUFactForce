@@ -2,8 +2,14 @@ import os
 
 import requests
 from dash import dcc
+from dotenv import load_dotenv
 
 from .colors import EUPHAColors
+
+# Load DATABASE_URL from project root .env when running the dash app standalone
+_env_path = os.path.join(os.path.dirname(__file__), "..", "..", "..", ".env")
+if os.path.exists(_env_path):
+    load_dotenv(_env_path)
 
 stylesheet = [
     {
