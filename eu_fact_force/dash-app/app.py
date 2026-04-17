@@ -11,7 +11,7 @@ from dash import ALL, Dash, Input, Output, State, ctx, dcc, html, no_update
 from dash.exceptions import PreventUpdate
 from pages import graph, ingest, readme
 from utils.colors import EUPHAColors
-from utils.graph import TestGraph, format_node_metadata
+from utils.graph import BackendGraph, format_node_metadata
 from utils.parsing import extract_pdf_metadata
 
 plotly_template = Path(__file__).parent / "assets/template.json"
@@ -201,7 +201,7 @@ def activate_search_buton(search_text, graph):
 )
 def get_search_data(n_clicks, search_text):
     if n_clicks > 0:
-        nodes, edges, filters = TestGraph().transform()
+        nodes, edges, filters = BackendGraph(search_text).transform()
         return [
             {"nodes": nodes, "edges": edges},
             {
@@ -217,16 +217,16 @@ def get_search_data(n_clicks, search_text):
             list(set(filters["documents"])),
             list(set(filters["journal"])),
             list(set(filters["authors"])),
-            min(filters["date"]),
-            max(filters["date"]),
+            min(filters["date"]) if filters["date"] else None,
+            max(filters["date"]) if filters["date"] else None,
             list(set(filters["node_types"])),
             list(set(filters["chunk_types"])),
             list(set(filters["keywords"])),
             list(set(filters["documents"])),
             list(set(filters["journal"])),
             list(set(filters["authors"])),
-            min(filters["date"]),
-            max(filters["date"]),
+            min(filters["date"]) if filters["date"] else None,
+            max(filters["date"]) if filters["date"] else None,
         ]
     else:
         raise PreventUpdate
@@ -287,12 +287,19 @@ def update_graph_and_list(
         nodes = {
             n: nodes[n]
             for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "keyword")
+            if nodes[n]["data"]["type"] not in ("chunk", "document", "keyword")
             or (
                 nodes[n]["data"]["type"] == "chunk"
                 and any(
                     item in filter_keywords
-                    for item in nodes[n]["data"]["metadata"]["metadata"]["keywords"]
+                    for item in nodes[n]["data"]["document_metadata"].get("keywords", [])
+                )
+            )
+            or (
+                nodes[n]["data"]["type"] == "document"
+                and any(
+                    item in filter_keywords
+                    for item in nodes[n]["data"]["metadata"].get("keywords", [])
                 )
             )
             or (
@@ -325,7 +332,7 @@ def update_graph_and_list(
             if nodes[n]["data"]["type"] not in ("chunk", "document")
             or (
                 nodes[n]["data"]["type"] == "chunk"
-                and nodes[n]["data"]["metadata"]["metadata"]["document_id"]
+                and str(nodes[n]["data"]["metadata"].get("metadata", {}).get("document_id"))
                 in filter_documents
             )
             or (

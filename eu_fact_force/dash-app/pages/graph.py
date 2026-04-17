@@ -20,7 +20,7 @@ def make_layout():
                         dcc.Dropdown(
                             id="search-input",
                             options=[
-                                {"label": "Test local", "value": "Test local"},
+                                {"label": "vaccine_autism", "value": "vaccine_autism"},
                             ],
                         )
                     ),

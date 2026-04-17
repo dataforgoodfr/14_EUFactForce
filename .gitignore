@@ -179,3 +179,4 @@ postgres_data/
 rustfs_data/
 data/
 staticfiles/
+.DS_Store
