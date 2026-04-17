@@ -1,7 +1,6 @@
 import xml.etree.ElementTree as ET
 
 import requests
-
 from eu_fact_force.ingestion.data_collection.parsers.base import MetadataParser
 
 
@@ -13,24 +12,39 @@ class PubMedMetadataParser(MetadataParser):
         self.api_name = "pubmed"
         self.search_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
         self.fetch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        self.session = requests.Session()
+        self._cache = {}
+        self.pmcid = None
 
-    def _resolve_pubmed_id(self, doi: str):
-        response = requests.get(
-            self.search_url,
-            params={"db": "pubmed", "retmode": "json", "term": doi + "[DOI]"},
-        )
-        response.raise_for_status()
-        ids = response.json().get("esearchresult", {}).get("idlist", [])
-        return ids[0] if ids else None
+    def _get_response(self, doi: str):
+        if doi not in self._cache:
+            search = self.session.get(
+                self.search_url,
+                params={"db": "pubmed", "retmode": "json", "term": doi + "[DOI]"},
+                timeout=10,
+            )
+            search.raise_for_status()
+            ids = search.json().get("esearchresult", {}).get("idlist", [])
+            if not ids:
+                self._cache[doi] = None
+            else:
+                response = self.session.get(
+                    self.fetch_url,
+                    params={"db": "pubmed", "id": ids[0], "retmode": "xml", "rettype": "abstract"},
+                    timeout=10,
+                )
+                response.raise_for_status()
+                self._cache[doi] = ET.fromstring(response.content)
+        return self._cache[doi]
 
     def _get_authors(self, article):
-        names, orcids = [], []
+        authors = []
         for author in article.findall(".//AuthorList/Author"):
             last = author.findtext("LastName") or ""
             fore = author.findtext("ForeName") or ""
             name = f"{fore} {last}".strip() or author.findtext("CollectiveName") or ""
-            if name:
-                names.append(name)
+            if not name:
+                continue
             orcid = next(
                 (
                     aid.text.replace("http://orcid.org/", "").replace("https://orcid.org/", "")
@@ -39,8 +53,8 @@ class PubMedMetadataParser(MetadataParser):
                 ),
                 None,
             )
-            orcids.append(orcid)
-        return names, orcids
+            authors.append({"name": name, "orcid": orcid})
+        return authors
 
     def _get_doi_and_pmc(self, root):
         doi, pmc_id = None, None
@@ -87,6 +101,16 @@ class PubMedMetadataParser(MetadataParser):
         doc_subtypes = types[1:] if len(types) > 1 else None
         return doc_type, doc_subtypes
 
+    def _get_abstract(self, article):
+        parts = []
+        for at in article.findall("Abstract/AbstractText"):
+            text = "".join(at.itertext()).strip()
+            if not text:
+                continue
+            label = at.get("Label")
+            parts.append(f"{label}: {text}" if label else text)
+        return " ".join(parts) or None
+
     def _get_keywords(self, root):
         keywords = [
             mh.findtext("DescriptorName")
@@ -99,57 +123,55 @@ class PubMedMetadataParser(MetadataParser):
 
         return keywords or None
 
-    def _get_response_from_pubmed_id(self, pubmed_id):
-        response = requests.get(
-            self.fetch_url,
-            params={"db": "pubmed", "id": pubmed_id, "retmode": "xml", "rettype": "abstract"},
-        )
-        response.raise_for_status()
-        return ET.fromstring(response.content)
-
     def get_metadata(self, doi: str) -> dict:
-        pubmed_id = self._resolve_pubmed_id(doi)
-        if not pubmed_id:
+        root = self._get_response(doi)
+        if root is None:
             return {"found": False}
-
-        root = self._get_response_from_pubmed_id(pubmed_id)
         article = root.find(".//MedlineCitation/Article")
         if article is None:
             return {"found": False}
 
-        doi_val, pmc_id = self._get_doi_and_pmc(root)
-        names, orcids = self._get_authors(article)
+        doi_val, self.pmcid = self._get_doi_and_pmc(root)
         doc_type, doc_subtypes = self._get_publication_types(article)
+
+        article_name = article.findtext("ArticleTitle")
+        if not article_name:
+            return {"found": False}
 
         return {
             "found": True,
-            "article name": article.findtext("ArticleTitle"),
-            "authors": {
-                "name": names,
-                "orcid": orcids,
+            "article name": article_name,
+            "authors": self._get_authors(article),
+            "journal": {
+                "name": article.findtext(".//Journal/Title"),
+                "issn": article.findtext(".//Journal/ISSN"),
             },
-            "journal": article.findtext(".//Journal/Title"),
             "publish date": self._get_pubdate(article),
-            "link": f"https://www.ncbi.nlm.nih.gov/pmc/articles/{pmc_id}/" if pmc_id else None,
-            "abstract": article.findtext("Abstract/AbstractText"),
-            "keywords": self._get_keywords(root),
-            "cited articles": self._get_cited_articles(root),
+            "status": self._get_status(root),
             "doi": doi_val,
+            "link": f"https://www.ncbi.nlm.nih.gov/pmc/articles/{self.pmcid}/" if self.pmcid else None,
             "document type": doc_type,
             "document subtypes": doc_subtypes,
-            "open access": pmc_id is not None,
+            "open access": self.pmcid is not None,
             "language": article.findtext("Language"),
-            "status": self._get_status(root),
             "cited by count": None,
+            "abstract": self._get_abstract(article),
+            "keywords": self._get_keywords(root),
+            "cited articles": self._get_cited_articles(root),
         }
 
     def get_pdf_url(self, doi: str) -> list[str]:
-        return []
+        doi_str = doi.replace("/", "_")
+        pdf_url = f"https://pmc.ncbi.nlm.nih.gov/articles/{self.pmcid}/pdf/{doi_str}.pdf"
+
+        return [pdf_url] if self.pmcid else []
 
 
 if __name__ == "__main__":
     import json
 
+    doi = "10.1177/2515690X20967323"
     parser = PubMedMetadataParser()
-    metadata = parser.get_metadata("10.1177/2515690X20967323")
+    metadata = parser.get_metadata(doi)
     print(json.dumps(metadata, indent=2, ensure_ascii=False))
+    parser.download_pdf(doi)

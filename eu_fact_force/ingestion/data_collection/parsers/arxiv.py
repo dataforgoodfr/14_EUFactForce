@@ -1,5 +1,4 @@
 import arxiv
-
 from eu_fact_force.ingestion.data_collection.parsers.base import MetadataParser
 
 ARXIV_DOI_PREFIX = "10.48550/arXiv."
@@ -12,14 +11,17 @@ class ArxivMetadataParser(MetadataParser):
         super().__init__()
         self.api_name = "arxiv"
         self.client = arxiv.Client()
+        self._cache = {}
 
     def _search(self, doi: str):
-        if doi.startswith(ARXIV_DOI_PREFIX):
-            search = arxiv.Search(id_list=[doi[len(ARXIV_DOI_PREFIX):]])
-        else:
-            search = arxiv.Search(query=f"doi:{doi}", max_results=1)
-        results = list(self.client.results(search))
-        return results[0] if results else None
+        if doi not in self._cache:
+            if doi.startswith(ARXIV_DOI_PREFIX):
+                search = arxiv.Search(id_list=[doi[len(ARXIV_DOI_PREFIX):]])
+            else:
+                search = arxiv.Search(query=f"doi:{doi}", max_results=1)
+            results = list(self.client.results(search))
+            self._cache[doi] = results[0] if results else None
+        return self._cache[doi]
 
     def get_metadata(self, doi: str) -> dict:
         article = self._search(doi)
@@ -28,27 +30,22 @@ class ArxivMetadataParser(MetadataParser):
         return {
             "found": True,
             "article name": article.title,
-            "authors": {
-                "name": [str(a) for a in article.authors],
-                "orcid": None,
-            },
-            "journal": article.journal_ref,
+            "authors": [{"name": str(a), "orcid": None} for a in article.authors],
+            "journal": {"name": article.journal_ref, "issn": None},
             "publish date": str(article.published)[:10],
-            "link": next(
-                (link.href for link in article.links if link.rel == "alternate"), None
-            ),
-            "abstract": article.summary,
-            "keywords": None,
-            "cited articles": None,
+            "status": f"updated on {str(article.updated)[:10]}"
+            if article.updated != article.published
+            else "published",
             "doi": doi,
+            "link": next((link.href for link in article.links if link.rel == "alternate"), None),
             "document type": None,
             "document subtypes": None,
             "open access": True,
             "language": None,
-            "status": f"updated on {str(article.updated)[:10]}"
-            if article.updated != article.published
-            else "published",
-            "cited by count": None
+            "cited by count": None,
+            "abstract": article.summary,
+            "keywords": None,
+            "cited articles": None,
         }
 
     def get_pdf_url(self, doi: str) -> list[str]:

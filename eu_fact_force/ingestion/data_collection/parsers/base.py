@@ -39,9 +39,7 @@ class MetadataParser(ABC):
         response = requests.get(url, timeout=30)
         response.raise_for_status()
         if not response.content.startswith(b"%PDF"):
-            self.logger.warning(
-                f"Content at {url} is not a valid PDF (possibly a paywall page)."
-            )
+            self.logger.warning(f"Content at {url} is not a valid PDF (possibly a paywall page).")
             return None
         return response.content
 
@@ -57,9 +55,7 @@ class MetadataParser(ABC):
             with open(path, "wb") as f:
                 f.write(content)
         else:
-            self.logger.info(
-                f"Skipping {path}: existing file is already as large or larger."
-            )
+            self.logger.info(f"Skipping {path}: existing file is already as large or larger.")
 
     def download_pdf(self, doi: str, output_dir: str = "pdf") -> bool:
         """Download the first valid PDF found and save it to output_dir. Returns True on success."""

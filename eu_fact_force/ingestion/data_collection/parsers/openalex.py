@@ -1,5 +1,4 @@
 import requests
-
 from eu_fact_force.ingestion.data_collection.parsers.base import MetadataParser
 
 
@@ -11,31 +10,35 @@ class OpenAlexMetadataParser(MetadataParser):
         self.api_name = "openalex"
         self.url = "https://api.openalex.org/works/doi:{doi}"
         self.cited_articles_url = "https://api.openalex.org/works?filter=ids.openalex:{ids}&select=id,doi&per-page=200"
+        self.session = requests.Session()
+        self._cache = {}
 
-    def _get_authors(self, doc, data):
-        if data == "name":
-            data_field = "raw_author_name"
-            return [
-                a.get(data_field)
-                for a in doc.get("authorships", [])
-                if a.get(data_field)
-            ]
-        elif data == "orcid":
-            data_field = "orcid"
-            return [
-                a.get("author").get(data_field)
-                for a in doc.get("authorships", [])
-                if a.get("author") and a.get("author").get(data_field)
-            ]
-        else:
-            return None
+    def _get_doc(self, doi: str):
+        if doi not in self._cache:
+            response = self.session.get(self.url.format(doi=doi), timeout=10)
+            if response.status_code == 404:
+                self._cache[doi] = None
+            else:
+                response.raise_for_status()
+                self._cache[doi] = response.json()
+        return self._cache[doi]
+
+    def _get_authors(self, doc):
+        return [
+            {
+                "name": a.get("raw_author_name"),
+                "orcid": (a.get("author") or {}).get("orcid"),
+            }
+            for a in doc.get("authorships", [])
+            if a.get("raw_author_name")
+        ]
 
     def _get_journal(self, doc):
-        return (
-            (doc.get("primary_location") or {})
-            .get("source", {})
-            .get("host_organization_name")
-        )
+        source = (doc.get("primary_location") or {}).get("source") or {}
+        return {
+            "name": source.get("host_organization_name"),
+            "issn": source.get("issn_l"),
+        }
 
     def _get_link(self, doc):
         return (doc.get("primary_location") or {}).get("landing_page_url")
@@ -56,14 +59,13 @@ class OpenAlexMetadataParser(MetadataParser):
             return []
         results = []
         for i in range(0, len(ids), 100):
-            response = requests.get(
-                self.cited_articles_url.format(ids="|".join(ids[i: i + 100]))
+            response = self.session.get(
+                self.cited_articles_url.format(ids="|".join(ids[i: i + 100])),
+                timeout=10,
             )
             response.raise_for_status()
             results += [
-                r["doi"].removeprefix("https://doi.org/")
-                for r in response.json().get("results", [])
-                if r.get("doi")
+                r["doi"].removeprefix("https://doi.org/") for r in response.json().get("results", []) if r.get("doi")
             ]
         return results
 
@@ -71,42 +73,33 @@ class OpenAlexMetadataParser(MetadataParser):
         return (doc.get("doi") or "").removeprefix("https://doi.org/") or None
 
     def get_metadata(self, doi: str) -> dict:
-        response = requests.get(self.url.format(doi=doi))
-        if response.status_code == 404:
-            return {"found": False}
-        response.raise_for_status()
-        doc = response.json()
+        doc = self._get_doc(doi)
         if not doc:
             return {"found": False}
         return {
             "found": True,
             "article name": doc.get("title"),
-            "authors": {
-                "name": self._get_authors(doc, "name"),
-                "orcid": self._get_authors(doc, "orcid"),
-            },
+            "authors": self._get_authors(doc),
             "journal": self._get_journal(doc),
             "publish date": doc.get("publication_date"),
-            "link": self._get_link(doc),
-            "abstract": None,
-            "keywords": self._get_keywords(doc),
-            "cited articles": self._get_cited_articles(doc),
+            "status": "retracted" if doc.get("is_retracted") else "published",
             "doi": self._get_doi(doc),
+            "link": self._get_link(doc),
             "document type": doc.get("type"),
             "document subtypes": None,
             "open access": (doc.get("open_access") or {}).get("is_oa"),
             "language": doc.get("language"),
-            "status": "retracted" if doc.get("is_retracted") else "published",
             "cited by count": doc.get("cited_by_count"),
+            "abstract": None,
+            "keywords": self._get_keywords(doc),
+            "cited articles": self._get_cited_articles(doc),
         }
 
     def get_pdf_url(self, doi: str) -> list[str]:
         try:
-            response = requests.get(self.url.format(doi=doi), timeout=10)
-            if response.status_code == 404:
+            doc = self._get_doc(doi)
+            if not doc:
                 return []
-            response.raise_for_status()
-            doc = response.json()
             results = []
             for location in [doc.get("best_oa_location")] + doc.get("locations", []):
                 url = (location or {}).get("pdf_url")
