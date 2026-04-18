@@ -1,7 +1,6 @@
 """Tests for the seed_db management command."""
 
 import csv
-import tempfile
 from io import StringIO
 from pathlib import Path
 from unittest.mock import patch
