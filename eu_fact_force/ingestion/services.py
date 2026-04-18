@@ -27,7 +27,7 @@ def hash_doi(doi: str) -> str:
     return hashlib.sha256(doi.encode()).hexdigest()
 
 
-def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
+def ingest_by_doi(doi: str, pdf_url: str | None = None, pdf_path: Path | None = None) -> IngestionRun:
     """
     Single canonical pipeline entry point for DOI-based ingestion.
 
@@ -50,7 +50,7 @@ def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
 
     try:
         metadata = _acquire_metadata(doi, document, run)
-        source_file = _store_source_file(doi, pdf_url, document, run)
+        source_file = _store_source_file(doi, pdf_url, document, run, pdf_path=pdf_path)
 
         if source_file is None:
             run.status = IngestionRun.Status.SUCCESS
@@ -89,9 +89,10 @@ def _acquire_metadata(doi: str, document: Document, run: IngestionRun) -> dict:
 
 
 def _store_source_file(
-    doi: str, pdf_url: str | None, document: Document, run: IngestionRun
+    doi: str, pdf_url: str | None, document: Document, run: IngestionRun, pdf_path: Path | None = None
 ) -> SourceFile | None:
-    pdf_path = _download_pdf(doi, pdf_url)
+    if pdf_path is None:
+        pdf_path = _download_pdf(doi, pdf_url)
     if pdf_path is None:
         return None
 
