@@ -6,7 +6,6 @@ import hashlib
 import logging
 import os
 from pathlib import Path
-from typing import Any
 
 import requests
 
@@ -14,7 +13,7 @@ from eu_fact_force.ingestion.data_collection.collector import fetch_all
 from eu_fact_force.ingestion.data_collection.parsers import PARSERS
 from eu_fact_force.ingestion.data_collection.parsers.base import doi_to_id
 from eu_fact_force.ingestion.embedding import add_embeddings
-from eu_fact_force.ingestion.parsing import parse_file, parse_source_file
+from eu_fact_force.ingestion.parsing import parse_source_file
 
 from .models import Author, Document, DocumentChunk, IngestionRun, ParsedArtifact, SourceFile
 
@@ -147,60 +146,3 @@ def _download_pdf(doi: str, pdf_url: str | None) -> Path | None:
             logging.warning("%s PDF error: %s", parser.__class__.__name__, exc)
     return None
 
-
-# ---------------------------------------------------------------------------
-# Legacy helpers kept for backward compatibility
-# ---------------------------------------------------------------------------
-
-
-def fetch_file_and_metadata(doi: str) -> tuple[Path | None, dict]:
-    pdf_dir = Path(__file__).parents[2] / "data" / "data_collection" / "pdf"
-    metadata = fetch_all(doi)
-    os.makedirs(pdf_dir, exist_ok=True)
-    pdf_path = None
-    for parser in PARSERS:
-        try:
-            if parser.download_pdf(doi, pdf_dir):
-                pdf_path = Path(pdf_dir) / f"{doi_to_id(doi)}.pdf"
-                break
-        except Exception as exc:
-            logging.warning("%s PDF error: %s", parser.__class__.__name__, exc)
-    return pdf_path, metadata
-
-
-def save_to_s3_and_postgres(
-    local_file_path: str | Path,
-    metadata: dict[str, Any] | None = None,
-    doi: str | None = None,
-) -> Document:
-    source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
-    meta = metadata or {}
-    keywords = meta.get("keywords", [])
-    document, _ = Document.objects.update_or_create(
-        source_file=source_file,
-        defaults={
-            "title": meta.get("title", ""),
-            "doi": doi or "",
-            "keywords": keywords if isinstance(keywords, list) else [],
-        },
-    )
-    document.authors.set(Author.from_list(meta.get("authors", [])))
-    return document
-
-
-def save_chunks(document: Document, chunks: list[str]) -> list[DocumentChunk]:
-    chunk_objs = [
-        DocumentChunk(document=document, content=tag, order=order)
-        for order, tag in enumerate(chunks, start=1)
-    ]
-    DocumentChunk.objects.bulk_create(chunk_objs)
-    return chunk_objs
-
-
-def run_pipeline(doi: str) -> tuple[Document, list[DocumentChunk]]:
-    local_file_path, tags_pubmed = fetch_file_and_metadata(doi)
-    document = save_to_s3_and_postgres(local_file_path, tags_pubmed, doi=doi)
-    document_parts = parse_file(document)
-    chunks = save_chunks(document, document_parts)
-    add_embeddings(chunks)
-    return document, chunks
