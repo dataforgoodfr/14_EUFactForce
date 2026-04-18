@@ -189,6 +189,67 @@ Configuration (JSON par défaut)
 Pour utiliser le JSON par défaut (`default_search.json`) côté backend, définir la variable suivante à 1 dans le fichier `.env`:
 FLAG_RETRIEVE_DEFAULT_JSON=1
 
+## API
+
+Tous les endpoints sont préfixés par `/ingestion/`.
+
+### `POST /ingestion/api/ingest/`
+
+Déclenche le pipeline complet (récupération du PDF, extraction des métadonnées, parsing, embeddings) à partir d'un DOI.
+
+**Corps (JSON) :**
+```json
+{ "doi": "10.1234/example" }
+```
+
+**Réponse :**
+```json
+{ "success": true, "doi": "10.1234/example", "document_pk": 42, "chunks_count": 17 }
+```
+
+---
+
+### `POST /ingestion/api/ingest/<pk>/pdf/`
+
+Attache un PDF à un document existant qui n'en possède pas (créé via métadonnées uniquement), puis déclenche le parsing et l'embedding.
+
+**Corps (multipart/form-data) :**
+| Champ | Type | Description |
+|-------|------|-------------|
+| `pdf` | fichier | Fichier PDF à attacher |
+
+**Réponse :**
+```json
+{ "success": true, "document_pk": 42, "chunks_count": 17 }
+```
+
+Retourne `400` si le document possède déjà un PDF, ou si le champ `pdf` est absent.
+
+---
+
+### `GET /ingestion/search/<keyword>/`
+
+Recherche sémantique sur les chunks indexés à partir d'un mot-clé de narrative.
+
+**Paramètres d'URL :**
+| Paramètre | Description |
+|-----------|-------------|
+| `keyword` | Mot-clé identifiant la narrative (ex. `vaccine_autism`) |
+
+**Réponse :**
+```json
+{
+  "status": "success",
+  "narrative": "vaccine_autism",
+  "chunks": [...]
+  "documents": [...]
+}
+```
+
+Retourne `404` si le mot-clé ne correspond à aucune narrative connue, avec la liste des mots-clés disponibles.
+
+---
+
 ## Test de performance
 
 Le projet propose un ensemble de documents relatifs aux liens entre les vaccins et l'autisme.

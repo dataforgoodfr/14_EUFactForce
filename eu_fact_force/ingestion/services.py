@@ -7,6 +7,7 @@ Create a dedicated file for real pipeline steps.
 import hashlib
 import logging
 import os
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -87,6 +88,45 @@ def save_chunks(document: Document, chunks: list[str]) -> list[DocumentChunk]:
     return chunks
 
 
+def save_uploaded_file_to_document(document: Document, uploaded_file) -> None:
+    """
+    Save an uploaded file to a temp path, upload it to S3 and link the resulting
+    SourceFile to the document. Raises ValueError if the document already has a source file.
+    """
+    if document.source_file_id is not None:
+        raise ValueError("Document already has a PDF attached.")
+
+    suffix = Path(uploaded_file.name).suffix or ".pdf"
+    with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
+        for chunk in uploaded_file.chunks():
+            tmp.write(chunk)
+        tmp_path = Path(tmp.name)
+
+    try:
+        source_file = SourceFile.create_from_file(file_path=tmp_path, doi=document.doi or None)
+        document.source_file = source_file
+        document.save(update_fields=["source_file"])
+    finally:
+        tmp_path.unlink(missing_ok=True)
+
+
+def parse_and_embed_document(document: Document) -> list[DocumentChunk]:
+    """Parse an already-stored document's source file and embed the resulting chunks."""
+    parts = parse_file(document)
+    chunks = save_chunks(document, parts)
+    add_embeddings(chunks)
+    return chunks
+
+
+def attach_pdf_to_document(document: Document, uploaded_file) -> list[DocumentChunk]:
+    """
+    Upload the provided PDF file to S3, link it to the document, then parse and embed.
+    Raises ValueError if the document already has a source file.
+    """
+    save_uploaded_file_to_document(document, uploaded_file)
+    return parse_and_embed_document(document)
+
+
 def run_pipeline(doi: str) -> tuple[SourceFile, list[DocumentChunk]]:
     """
     Run the full pipeline: fetch -> save S3 + Postgres -> parse and save elements.
@@ -94,7 +134,5 @@ def run_pipeline(doi: str) -> tuple[SourceFile, list[DocumentChunk]]:
     """
     local_file_path, tags_pubmed = fetch_file_and_metadata(doi)
     document = save_to_s3_and_postgres(local_file_path, tags_pubmed, doi=doi)
-    document_parts = parse_file(document)
-    chunks = save_chunks(document, document_parts)
-    add_embeddings(chunks)
+    chunks = parse_and_embed_document(document)
     return document, chunks

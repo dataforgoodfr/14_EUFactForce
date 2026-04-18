@@ -1,8 +1,11 @@
 import json
 from pathlib import Path
 
+import requests as http_client
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.urls import reverse
+from django.views.decorators.http import require_POST
 
 from eu_fact_force.app.settings import FLAG_RETRIEVE_DEFAULT_JSON
 from eu_fact_force.ingestion.search import (
@@ -13,7 +16,8 @@ from eu_fact_force.ingestion.search import (
 )
 
 from .forms import IngestForm
-from .services import run_pipeline
+from .models import Document
+from .services import attach_pdf_to_document, run_pipeline
 
 _DEFAULT_SEARCH_PATH = (
     Path(__file__).resolve().parent / "data_collection" / "default_search.json"
@@ -21,36 +25,111 @@ _DEFAULT_SEARCH_PATH = (
 
 
 def ingest(request):
-    """Accept a DOI via form, run the pipeline, display success and count."""
+    """Accept a DOI via form and delegate ingestion to the API endpoint."""
     context = {"form": IngestForm()}
     if request.method == "POST":
         form = IngestForm(request.POST)
         if form.is_valid():
             doi = form.cleaned_data["doi"]
+            api_url = request.build_absolute_uri(reverse("ingestion:api_ingest"))
             try:
-                source_file, elements = run_pipeline(doi)
-                context.update(
-                    {
-                        "success": True,
-                        "doi": doi,
-                        "source_file": source_file,
-                        "elements_count": len(elements),
-                    }
-                )
+                response = http_client.post(api_url, json={"doi": doi}, timeout=300)
+                data = response.json()
+                if data.get("success"):
+                    context.update(
+                        {
+                            "success": True,
+                            "doi": doi,
+                            "elements_count": data.get("chunks_count", 0),
+                        }
+                    )
+                else:
+                    context.update({"success": False, "error": data.get("error", "Unknown error")})
             except Exception as e:
-                context.update(
-                    {
-                        "success": False,
-                        "error": str(e),
-                    }
-                )
+                context.update({"success": False, "error": str(e)})
         else:
             context["form"] = form
     return render(request, "ingestion/ingest.html", context)
 
 
+@require_POST
+def api_ingest(request):
+    """Ingest a document by DOI: fetch metadata, upload PDF to S3, parse and embed chunks.
+
+    Example:
+        import requests
+        response = requests.post(
+            "http://localhost:8000/ingestion/api/ingest/",
+            json={"doi": "10.1056/NEJMoa2001017"},
+        )
+        print(response.json())
+        # {"success": true, "doi": "10.1056/NEJMoa2001017", "document_pk": 42, "chunks_count": 17}
+    """
+    try:
+        body = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON body"}, status=400)
+
+    doi = (body.get("doi") or "").strip()
+    if not doi:
+        return JsonResponse({"error": "doi is required"}, status=400)
+
+    try:
+        document, chunks = run_pipeline(doi)
+        return JsonResponse(
+            {"success": True, "doi": doi, "document_pk": document.pk, "chunks_count": len(chunks)}
+        )
+    except Exception as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=500)
+
+
+@require_POST
+def api_attach_pdf(request, pk):
+    """Attach a PDF to an existing document (metadata-only) and trigger parsing and embedding.
+
+    The document must not already have a PDF attached.
+
+    Example:
+        import requests
+        with open("article.pdf", "rb") as f:
+            response = requests.post(
+                "http://localhost:8000/ingestion/api/ingest/42/pdf/",
+                files={"pdf": ("article.pdf", f, "application/pdf")},
+            )
+        print(response.json())
+        # {"success": true, "document_pk": 42, "chunks_count": 17}
+    """
+    try:
+        document = Document.objects.get(pk=pk)
+    except Document.DoesNotExist:
+        return JsonResponse({"error": "Document not found"}, status=404)
+
+    uploaded_file = request.FILES.get("pdf")
+    if not uploaded_file:
+        return JsonResponse({"error": "'pdf' file field is required"}, status=400)
+
+    try:
+        chunks = attach_pdf_to_document(document, uploaded_file)
+        return JsonResponse(
+            {"success": True, "document_pk": pk, "chunks_count": len(chunks)}
+        )
+    except ValueError as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=400)
+    except Exception as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=500)
+
+
 def search(request, keyword: str):
-    """Return the default search fixture JSON (keyword reserved for future filtering)."""
+    """Semantic search over indexed chunks using a narrative keyword.
+
+    Example:
+        import requests
+        response = requests.get(
+            "http://localhost:8000/ingestion/search/vaccine_autism/",
+        )
+        print(response.json())
+        # {"status": "success", "narrative": "vaccine_autism", "chunks": [...], "documents": [...]}
+    """
     _ = keyword
     if FLAG_RETRIEVE_DEFAULT_JSON:
         return JsonResponse(
