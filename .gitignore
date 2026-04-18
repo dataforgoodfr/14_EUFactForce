@@ -177,6 +177,7 @@ annotated_pdf/
 eu_fact_force/exploration/docling/results/annotated_pdf/
 postgres_data/
 rustfs_data/
-data/
+data/*
+!data/seed/
 staticfiles/
 .DS_Store
