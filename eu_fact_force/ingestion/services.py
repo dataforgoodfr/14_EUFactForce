@@ -5,6 +5,7 @@ Ingestion pipeline services.
 import hashlib
 import logging
 import os
+import tempfile
 from pathlib import Path
 
 import requests
@@ -37,10 +38,8 @@ class DuplicateDOIError(Exception):
 class NoDOIFoundError(Exception):
     pass
 
-
 def hash_doi(doi: str) -> str:
     return hashlib.sha256(doi.encode()).hexdigest()
-
 
 def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
     """
@@ -93,6 +92,46 @@ def ingest_by_pdf(pdf_path: Path) -> IngestionRun:
 
     try:
         return _run_pipeline(doi, pdf_path, document, run)
+    except Exception as exc:
+        _record_failure(run, exc)
+        raise
+
+
+def attach_pdf_to_document(document: Document, uploaded_file) -> IngestionRun:
+    """
+    Attach a PDF to an existing document (metadata-only) and trigger parsing
+    and embedding.
+
+    Raises ValueError if the document already has a source file.
+    """
+    if document.source_file_id is not None:
+        raise ValueError("Document already has a PDF attached.")
+
+    run = IngestionRun.start(
+        document=document,
+        input_type=IngestionRun.InputType.PDF_UPLOAD,
+        input_identifier=uploaded_file.name or "upload",
+        pipeline_version=PIPELINE_VERSION,
+    )
+
+    try:
+        pdf_path = _save_uploaded_file_to_temp(uploaded_file)
+        try:
+            source_file = _store_source_file(
+                document.doi or "", pdf_path, document, run
+            )
+        finally:
+            pdf_path.unlink(missing_ok=True)
+
+        metadata = run.raw_provider_payload or {}
+        parse_result = _parse_artifact(document, source_file, metadata, run)
+        _chunk_and_embed(document, parse_result["chunks"], run)
+
+        run.status = IngestionRun.Status.SUCCESS
+        run.success_kind = IngestionRun.SuccessKind.FULL
+        run.stage = IngestionRun.Stage.DONE
+        run.save(update_fields=["status", "success_kind", "stage"])
+        return run
     except Exception as exc:
         _record_failure(run, exc)
         raise
@@ -182,6 +221,15 @@ def _chunk_and_embed(document: Document, chunks: list[str], run: IngestionRun) -
     DocumentChunk.objects.bulk_create(chunk_objs)
     chunk_objs = list(DocumentChunk.objects.filter(document=document).order_by("order"))
     add_embeddings(chunk_objs)
+
+
+def _save_uploaded_file_to_temp(uploaded_file) -> Path:
+    """Write a Django UploadedFile to a temp file and return its path."""
+    suffix = Path(uploaded_file.name).suffix or ".pdf"
+    with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
+        for chunk in uploaded_file.chunks():
+            tmp.write(chunk)
+        return Path(tmp.name)
 
 
 def _download_pdf_from_url(pdf_url: str, output_path: Path) -> bool:

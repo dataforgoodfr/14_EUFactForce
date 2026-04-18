@@ -3,6 +3,7 @@ from pathlib import Path
 
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.http import require_POST
 
 from eu_fact_force.app.settings import FLAG_RETRIEVE_DEFAULT_JSON
 from eu_fact_force.ingestion.search import (
@@ -12,10 +13,10 @@ from eu_fact_force.ingestion.search import (
     search_narrative,
 )
 
-from eu_fact_force.ingestion.models import DocumentChunk
+from eu_fact_force.ingestion.models import Document, DocumentChunk
 
 from .forms import IngestForm
-from .services import DuplicateDOIError, ingest_by_doi
+from .services import DuplicateDOIError, attach_pdf_to_document, ingest_by_doi
 
 _DEFAULT_SEARCH_PATH = (
     Path(__file__).resolve().parent / "data_collection" / "default_search.json"
@@ -48,8 +49,96 @@ def ingest(request):
     return render(request, "ingestion/ingest.html", context)
 
 
+@require_POST
+def api_ingest(request):
+    """Ingest a document by DOI: fetch metadata, upload PDF to S3, parse and embed chunks.
+
+    Example:
+        import requests
+        response = requests.post(
+            "http://localhost:8000/ingestion/api/ingest/",
+            json={"doi": "10.1056/NEJMoa2001017"},
+        )
+        print(response.json())
+        # {"success": true, "doi": "10.1056/NEJMoa2001017", "document_pk": 42, "chunks_count": 17}
+    """
+    try:
+        body = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON body"}, status=400)
+
+    doi = (body.get("doi") or "").strip()
+    if not doi:
+        return JsonResponse({"error": "doi is required"}, status=400)
+
+    pdf_url = (body.get("pdf_url") or "").strip() or None
+
+    try:
+        run = ingest_by_doi(doi, pdf_url=pdf_url)
+        chunks_count = DocumentChunk.objects.filter(document=run.document).count()
+        return JsonResponse(
+            {
+                "success": True,
+                "doi": doi,
+                "document_pk": run.document.pk,
+                "chunks_count": chunks_count,
+                "run_status": run.status,
+            }
+        )
+    except DuplicateDOIError as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=400)
+    except Exception as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=500)
+
+
+@require_POST
+def api_attach_pdf(request, pk):
+    """Attach a PDF to an existing document (metadata-only) and trigger parsing and embedding.
+
+    The document must not already have a PDF attached.
+
+    Example:
+        import requests
+        with open("article.pdf", "rb") as f:
+            response = requests.post(
+                "http://localhost:8000/ingestion/api/ingest/42/pdf/",
+                files={"pdf": ("article.pdf", f, "application/pdf")},
+            )
+        print(response.json())
+        # {"success": true, "document_pk": 42, "chunks_count": 17}
+    """
+    try:
+        document = Document.objects.get(pk=pk)
+    except Document.DoesNotExist:
+        return JsonResponse({"error": "Document not found"}, status=404)
+
+    uploaded_file = request.FILES.get("pdf")
+    if not uploaded_file:
+        return JsonResponse({"error": "'pdf' file field is required"}, status=400)
+
+    try:
+        run = attach_pdf_to_document(document, uploaded_file)
+        chunks_count = DocumentChunk.objects.filter(document=run.document).count()
+        return JsonResponse(
+            {"success": True, "document_pk": pk, "chunks_count": chunks_count}
+        )
+    except ValueError as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=400)
+    except Exception as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=500)
+
+
 def search(request, keyword: str):
-    """Return the default search fixture JSON (keyword reserved for future filtering)."""
+    """Semantic search over indexed chunks using a narrative keyword.
+
+    Example:
+        import requests
+        response = requests.get(
+            "http://localhost:8000/ingestion/search/vaccine_autism/",
+        )
+        print(response.json())
+        # {"status": "success", "narrative": "vaccine_autism", "chunks": [...], "documents": [...]}
+    """
     _ = keyword
     if FLAG_RETRIEVE_DEFAULT_JSON:
         return JsonResponse(
