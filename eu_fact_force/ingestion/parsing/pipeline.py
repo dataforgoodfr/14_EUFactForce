@@ -37,7 +37,7 @@ def _source_file_local_path(source_file):
         tmp_path.unlink(missing_ok=True)
 
 
-def _parse_source_file(source_file) -> ParseResult:
+def parse_source_file(source_file) -> ParseResult:
     with _source_file_local_path(source_file) as file_path:
         return _parse_file_local(file_path)
 
@@ -45,5 +45,5 @@ def _parse_source_file(source_file) -> ParseResult:
 @tracker(ulogger=LOGGER, inputs=True, log_start=True)
 def parse_file(document: Document) -> list[str]:
     """Parse the source file and return paragraph-bounded text chunks."""
-    result = _parse_source_file(document.source_file)
+    result = parse_source_file(document.source_file)
     return result["chunks"]
