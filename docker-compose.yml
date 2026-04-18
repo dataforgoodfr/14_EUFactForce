@@ -17,8 +17,10 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
       AWS_S3_REGION_NAME: ${AWS_S3_REGION_NAME:-eu-west-1}
       AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-eu-fact-force-files}
+      SERVICE_FQDN_APP_8000:
     volumes:
       - .:/app
+      - hf_cache:/hf_cache
     depends_on:
       postgres:
         condition: service_healthy
@@ -42,7 +44,7 @@ services:
     ports:
       - 5432
     volumes:
-      - ./postgres_data:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql
       - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-eu_fact_force} -d ${POSTGRES_DB:-eu_fact_force}"]
@@ -64,7 +66,7 @@ services:
       RUSTFS_CONSOLE_ENABLE: "true"
     command: ["--console-enable", "/data"]
     volumes:
-      - ./rustfs_data:/data
+      - rustfs_data:/data
     healthcheck:
       test: ["CMD-SHELL", "wget --server-response -qO /dev/null http://localhost:9000/minio/health/live 2>&1 | grep -qE 'HTTP/1\\.[01] (200|403)'"]
       interval: 5s
@@ -87,3 +89,8 @@ services:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-minioadmin}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
       AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-eu-fact-force-files}
+
+volumes:
+  postgres_data:
+  rustfs_data:
+  hf_cache:
