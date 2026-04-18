@@ -9,14 +9,9 @@ from pathlib import Path
 import structlog
 from django.core.files.storage import default_storage
 
-from eu_fact_force.exploration.parsing_benchmarking.benchmarking.parsers import (
-    parse_docling,
-)
-from eu_fact_force.ingestion.chunking import (
-    MAX_CHUNK_CHARS,
-    split_into_paragraph_chunks,
-)
 from eu_fact_force.ingestion.models import Document
+from eu_fact_force.ingestion.parsing.docling_parser import ParseResult
+from eu_fact_force.ingestion.parsing.docling_parser import parse_file as _parse_file_local
 from eu_fact_force.utils.decorators import tracker
 
 LOGGER = structlog.get_logger(__name__)
@@ -45,17 +40,10 @@ def _source_file_local_path(source_file):
         tmp_path.unlink(missing_ok=True)
 
 
-def _extract_text_from_source_file(source_file) -> str:
-    """Parse a source file with Docling and return postprocessed markdown text."""
-
+def _parse_source_file(source_file) -> ParseResult:
+    """Parse a source file with Docling and return a structured ParseResult."""
     with _source_file_local_path(source_file) as file_path:
-        full_text, _, _ = parse_docling(
-            file_path=file_path,
-            result_type="markdown",
-            postprocess=True,
-            validate_text_bboxes=True,
-        )
-    return full_text
+        return _parse_file_local(file_path)
 
 
 @tracker(ulogger=LOGGER, inputs=True, log_start=True)
@@ -64,5 +52,5 @@ def parse_file(document: Document) -> list[str]:
     Parse the source file and return paragraph-bounded text chunks.
     As a v0 we assume the chunks are the tags.
     """
-    full_text = _extract_text_from_source_file(document.source_file)
-    return split_into_paragraph_chunks(full_text, max_chunk_chars=MAX_CHUNK_CHARS)
+    result = _parse_source_file(document.source_file)
+    return result["chunks"]
