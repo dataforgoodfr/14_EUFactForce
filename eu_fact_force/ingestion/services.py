@@ -6,7 +6,6 @@ import hashlib
 import logging
 import os
 from pathlib import Path
-from typing import Any
 
 import requests
 
@@ -14,9 +13,8 @@ from eu_fact_force.ingestion.data_collection.collector import fetch_all
 from eu_fact_force.ingestion.data_collection.parsers import PARSERS
 from eu_fact_force.ingestion.data_collection.parsers.base import doi_to_id
 from eu_fact_force.ingestion.embedding import add_embeddings
-from eu_fact_force.ingestion.parsing import parse_file, parse_source_file
-
-from .models import Author, Document, DocumentChunk, IngestionRun, ParsedArtifact, SourceFile
+from eu_fact_force.ingestion.models import Author, Document, DocumentChunk, IngestionRun, ParsedArtifact, SourceFile
+from eu_fact_force.ingestion.parsing import parse_source_file
 
 PIPELINE_VERSION = "0.1.0"
 
@@ -51,61 +49,18 @@ def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
     )
 
     try:
-        # Acquire: fetch metadata
-        metadata = fetch_all(doi)
-        title = metadata.get("title") or ""
-        keywords = metadata.get("keywords", [])
-        document.title = title
-        document.keywords = keywords if isinstance(keywords, list) else []
-        document.save(update_fields=["title", "keywords"])
-        document.authors.set(Author.from_list(metadata.get("authors", [])))
+        metadata = _acquire_metadata(doi, document, run)
+        source_file = _store_source_file(doi, pdf_url, document, run)
 
-        run.raw_provider_payload = metadata
-        run.save(update_fields=["raw_provider_payload"])
-
-        pdf_path = _download_pdf(doi, pdf_url)
-
-        if pdf_path is None:
+        if source_file is None:
             run.status = IngestionRun.Status.SUCCESS
             run.success_kind = IngestionRun.SuccessKind.METADATA_ONLY
             run.stage = IngestionRun.Stage.DONE
             run.save(update_fields=["status", "success_kind", "stage"])
             return run
 
-        # Store: upload PDF to S3
-        run.stage = IngestionRun.Stage.STORE
-        run.save(update_fields=["stage"])
-
-        source_file = SourceFile.create_from_file(file_path=pdf_path, doi=doi)
-        document.source_file = source_file
-        document.save(update_fields=["source_file"])
-        run.source_file = source_file
-        run.save(update_fields=["source_file"])
-
-        # Parse: run Docling pipeline
-        run.stage = IngestionRun.Stage.PARSE
-        run.save(update_fields=["stage"])
-
-        parse_result = parse_source_file(source_file)
-        ParsedArtifact.objects.create(
-            document=document,
-            docling_output=parse_result["docling_output"],
-            postprocessed_text=parse_result["postprocessed_text"],
-            metadata_extracted=metadata,
-            parser_config=parse_result["parser_config"],
-        )
-
-        # Chunk + embed
-        run.stage = IngestionRun.Stage.CHUNK
-        run.save(update_fields=["stage"])
-
-        chunks = [
-            DocumentChunk(document=document, content=chunk, order=order)
-            for order, chunk in enumerate(parse_result["chunks"], start=1)
-        ]
-        DocumentChunk.objects.bulk_create(chunks)
-        chunks = list(DocumentChunk.objects.filter(document=document).order_by("order"))
-        add_embeddings(chunks)
+        parse_result = _parse_artifact(document, source_file, metadata, run)
+        _chunk_and_embed(document, parse_result["chunks"], run)
 
         run.status = IngestionRun.Status.SUCCESS
         run.success_kind = IngestionRun.SuccessKind.FULL
@@ -119,6 +74,66 @@ def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
         run.error_message = str(exc)
         run.save(update_fields=["status", "error_stage", "error_message"])
         raise
+
+
+def _acquire_metadata(doi: str, document: Document, run: IngestionRun) -> dict:
+    metadata = fetch_all(doi)
+    keywords = metadata.get("keywords", [])
+    document.title = metadata.get("title") or ""
+    document.keywords = keywords if isinstance(keywords, list) else []
+    document.save(update_fields=["title", "keywords"])
+    document.authors.set(Author.from_list(metadata.get("authors", [])))
+    run.raw_provider_payload = metadata
+    run.save(update_fields=["raw_provider_payload"])
+    return metadata
+
+
+def _store_source_file(
+    doi: str, pdf_url: str | None, document: Document, run: IngestionRun
+) -> SourceFile | None:
+    pdf_path = _download_pdf(doi, pdf_url)
+    if pdf_path is None:
+        return None
+
+    run.stage = IngestionRun.Stage.STORE
+    run.save(update_fields=["stage"])
+
+    source_file = SourceFile.create_from_file(file_path=pdf_path, doi=doi)
+    document.source_file = source_file
+    document.save(update_fields=["source_file"])
+    run.source_file = source_file
+    run.save(update_fields=["source_file"])
+    return source_file
+
+
+def _parse_artifact(
+    document: Document, source_file: SourceFile, metadata: dict, run: IngestionRun
+) -> dict:
+    run.stage = IngestionRun.Stage.PARSE
+    run.save(update_fields=["stage"])
+
+    parse_result = parse_source_file(source_file)
+    ParsedArtifact.objects.create(
+        document=document,
+        docling_output=parse_result["docling_output"],
+        postprocessed_text=parse_result["postprocessed_text"],
+        metadata_extracted=metadata,
+        parser_config=parse_result["parser_config"],
+    )
+    return parse_result
+
+
+def _chunk_and_embed(document: Document, chunks: list[str], run: IngestionRun) -> None:
+    run.stage = IngestionRun.Stage.CHUNK
+    run.save(update_fields=["stage"])
+
+    chunk_objs = [
+        DocumentChunk(document=document, content=chunk, order=order)
+        for order, chunk in enumerate(chunks, start=1)
+    ]
+    DocumentChunk.objects.bulk_create(chunk_objs)
+    chunk_objs = list(DocumentChunk.objects.filter(document=document).order_by("order"))
+    add_embeddings(chunk_objs)
 
 
 def _download_pdf(doi: str, pdf_url: str | None) -> Path | None:
@@ -146,61 +161,3 @@ def _download_pdf(doi: str, pdf_url: str | None) -> Path | None:
         except Exception as exc:
             logging.warning("%s PDF error: %s", parser.__class__.__name__, exc)
     return None
-
-
-# ---------------------------------------------------------------------------
-# Legacy helpers kept for backward compatibility
-# ---------------------------------------------------------------------------
-
-
-def fetch_file_and_metadata(doi: str) -> tuple[Path | None, dict]:
-    pdf_dir = Path(__file__).parents[2] / "data" / "data_collection" / "pdf"
-    metadata = fetch_all(doi)
-    os.makedirs(pdf_dir, exist_ok=True)
-    pdf_path = None
-    for parser in PARSERS:
-        try:
-            if parser.download_pdf(doi, pdf_dir):
-                pdf_path = Path(pdf_dir) / f"{doi_to_id(doi)}.pdf"
-                break
-        except Exception as exc:
-            logging.warning("%s PDF error: %s", parser.__class__.__name__, exc)
-    return pdf_path, metadata
-
-
-def save_to_s3_and_postgres(
-    local_file_path: str | Path,
-    metadata: dict[str, Any] | None = None,
-    doi: str | None = None,
-) -> Document:
-    source_file = SourceFile.create_from_file(file_path=local_file_path, doi=doi)
-    meta = metadata or {}
-    keywords = meta.get("keywords", [])
-    document, _ = Document.objects.update_or_create(
-        source_file=source_file,
-        defaults={
-            "title": meta.get("title", ""),
-            "doi": doi or "",
-            "keywords": keywords if isinstance(keywords, list) else [],
-        },
-    )
-    document.authors.set(Author.from_list(meta.get("authors", [])))
-    return document
-
-
-def save_chunks(document: Document, chunks: list[str]) -> list[DocumentChunk]:
-    chunk_objs = [
-        DocumentChunk(document=document, content=tag, order=order)
-        for order, tag in enumerate(chunks, start=1)
-    ]
-    DocumentChunk.objects.bulk_create(chunk_objs)
-    return chunk_objs
-
-
-def run_pipeline(doi: str) -> tuple[Document, list[DocumentChunk]]:
-    local_file_path, tags_pubmed = fetch_file_and_metadata(doi)
-    document = save_to_s3_and_postgres(local_file_path, tags_pubmed, doi=doi)
-    document_parts = parse_file(document)
-    chunks = save_chunks(document, document_parts)
-    add_embeddings(chunks)
-    return document, chunks
