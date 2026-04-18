@@ -23,8 +23,10 @@ ENV HF_HOME=/hf_cache
 # Copy only the dependency definitions first to leverage Docker's layer caching
 COPY pyproject.toml uv.lock ./
 
-# Install all Python dependencies including dev group (needed for tests)
-RUN uv sync --group dev
+# Install runtime dependencies only. Dev group (pytest, jupyter, ruff, etc.) is
+# installed locally, not in the production image — keeps the image and build
+# time reasonable on low-spec deploy hosts.
+RUN uv sync
 
 # Copy the rest of the application code into the container
 COPY . .
