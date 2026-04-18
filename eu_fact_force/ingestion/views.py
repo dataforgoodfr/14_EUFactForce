@@ -1,8 +1,13 @@
-import json
+import os
 from pathlib import Path
 
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+
+import json
+
+from eu_fact_force.ingestion.data_collection.parsers.base import doi_to_id
 
 from eu_fact_force.app.settings import FLAG_RETRIEVE_DEFAULT_JSON
 from eu_fact_force.ingestion.search import (
@@ -12,7 +17,6 @@ from eu_fact_force.ingestion.search import (
     search_narrative,
 )
 
-from .forms import IngestForm
 from .services import DuplicateDOIError, ingest_by_doi
 
 _DEFAULT_SEARCH_PATH = (
@@ -20,29 +24,41 @@ _DEFAULT_SEARCH_PATH = (
 )
 
 
-def ingest(request):
-    """Accept a DOI via form, run the pipeline, display success and count."""
-    context = {"form": IngestForm()}
-    if request.method == "POST":
-        form = IngestForm(request.POST)
-        if form.is_valid():
-            doi = form.cleaned_data["doi"]
-            try:
-                run = ingest_by_doi(doi)
-                context.update(
-                    {
-                        "success": True,
-                        "doi": doi,
-                        "run": run,
-                    }
-                )
-            except DuplicateDOIError as e:
-                context.update({"success": False, "error": str(e)})
-            except Exception as e:
-                context.update({"success": False, "error": str(e)})
-        else:
-            context["form"] = form
-    return render(request, "ingestion/ingest.html", context)
+@csrf_exempt
+@require_POST
+def ingest_doi(request):
+    """Multipart API: POST doi + optional pdf_file → trigger ingest_by_doi."""
+    doi = (request.POST.get("doi") or "").strip()
+    if not doi:
+        return JsonResponse({"error": "Missing required field: doi."}, status=400)
+
+    pdf_url = (request.POST.get("pdf_url") or "").strip() or None
+
+    pdf_path = None
+    pdf_file = request.FILES.get("pdf_file")
+    if pdf_file:
+        pdf_dir = Path(__file__).parents[2] / "data" / "data_collection" / "pdf"
+        os.makedirs(pdf_dir, exist_ok=True)
+        pdf_path = pdf_dir / f"{doi_to_id(doi)}.pdf"
+        with open(pdf_path, "wb") as fh:
+            for chunk in pdf_file.chunks():
+                fh.write(chunk)
+
+    try:
+        run = ingest_by_doi(doi, pdf_url=pdf_url, pdf_path=pdf_path)
+    except DuplicateDOIError as exc:
+        return JsonResponse({"error": str(exc)}, status=409)
+    except Exception as exc:
+        return JsonResponse({"error": str(exc)}, status=500)
+
+    return JsonResponse(
+        {
+            "status": "success",
+            "run_id": run.pk,
+            "doi": doi,
+            "success_kind": run.success_kind,
+        }
+    )
 
 
 def search(request, keyword: str):

@@ -68,6 +68,11 @@ def chunks_context(top_chunks: list[tuple[DocumentChunk, float]]) -> dict:
         documents[doc.id] = {
             "id": doc.id,
             "doi": doc.doi,
+            "title": doc.title,
+            "keywords": doc.keywords or [],
+            "authors": [a.full_name for a in doc.authors.all()],
+            "journal": "",
+            "date": "",
         }
     return {
         "chunks": chunks,

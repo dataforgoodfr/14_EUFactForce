@@ -125,11 +125,11 @@ def make_layout():
                             'borderColor': EUPHAColors.dark_blue,
                             'textAlign': 'center',
                             'borderRadius': '10px',
-                            'marginBottom': '20px',
                             'backgroundColor': EUPHAColors.white,
                             'cursor': 'pointer'
                         }
                     ),
+                    html.Div(id='upload-status', className="mb-3"),
                     html.H5("General informations", className="mt-4 font-weight-bold"),
                     dbc.Row([
                         dbc.Col([
@@ -236,7 +236,19 @@ def make_layout():
                 }
             ),
 
-            html.Div(id='final-output', className="mt-4 pb-5")
+            dcc.Loading(
+                id="loading-ingest",
+                type="circle",
+                children=html.Div(id='final-output', className="mt-4 pb-5"),
+                overlay_style={"visibility": "visible"},
+                custom_spinner=html.Div([
+                    dbc.Spinner(color="primary", size="lg"),
+                    html.P(
+                        "Ingesting… storing, parsing and embedding your PDF. This may take a minute.",
+                        className="mt-3 text-muted text-center",
+                    ),
+                ], className="text-center py-4"),
+            )
         ],
         style={
             "marginLeft": "16%",

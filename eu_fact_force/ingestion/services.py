@@ -28,7 +28,11 @@ def hash_doi(doi: str) -> str:
     return hashlib.sha256(doi.encode()).hexdigest()
 
 
-def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
+def ingest_by_doi(
+    doi: str,
+    pdf_url: str | None = None,
+    pdf_path: Path | None = None,
+) -> IngestionRun:
     """
     Single canonical pipeline entry point for DOI-based ingestion.
 
@@ -38,10 +42,18 @@ def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
     Raises DuplicateDOIError if the DOI already exists (no records created).
     Re-raises any other exception after recording the failure on IngestionRun.
     """
-    if Document.objects.filter(doi=doi).exists():
-        raise DuplicateDOIError(f"DOI '{doi}' is already ingested.")
+    existing = Document.objects.filter(doi=doi).first()
+    if existing and existing.source_file_id:
+        raise DuplicateDOIError(f"DOI '{doi}' is already fully ingested.")
 
-    document = Document.objects.create(doi=doi, title="")
+    # Resume a metadata-only document if one exists, otherwise create fresh.
+    if existing:
+        document = existing
+        metadata = None
+    else:
+        document = Document.objects.create(doi=doi, title="")
+        metadata = None
+
     run = IngestionRun.start(
         document=document,
         input_type=IngestionRun.InputType.DOI,
@@ -50,19 +62,20 @@ def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
     )
 
     try:
-        # Acquire: fetch metadata
-        metadata = fetch_all(doi)
-        title = metadata.get("title") or ""
-        keywords = metadata.get("keywords", [])
-        document.title = title
-        document.keywords = keywords if isinstance(keywords, list) else []
-        document.save(update_fields=["title", "keywords"])
-        document.authors.set(Author.from_list(metadata.get("authors", [])))
+        if not existing:
+            # Acquire: fetch metadata (skipped when resuming metadata-only)
+            metadata = fetch_all(doi)
+            title = metadata.get("title") or ""
+            keywords = metadata.get("keywords", [])
+            document.title = title
+            document.keywords = keywords if isinstance(keywords, list) else []
+            document.save(update_fields=["title", "keywords"])
+            document.authors.set(Author.from_list(metadata.get("authors", [])))
+            run.raw_provider_payload = metadata
+            run.save(update_fields=["raw_provider_payload"])
 
-        run.raw_provider_payload = metadata
-        run.save(update_fields=["raw_provider_payload"])
-
-        pdf_path = _download_pdf(doi, pdf_url)
+        if pdf_path is None:
+            pdf_path = _download_pdf(doi, pdf_url)
 
         if pdf_path is None:
             run.status = IngestionRun.Status.SUCCESS
@@ -86,11 +99,16 @@ def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
         run.save(update_fields=["stage"])
 
         parse_result = parse_source_file(source_file)
+        if existing:
+            prev_run = IngestionRun.objects.filter(document=document).exclude(pk=run.pk).order_by("-created_at").first()
+            existing_metadata = (prev_run.raw_provider_payload or {}) if prev_run else {}
+        else:
+            existing_metadata = metadata or {}
         ParsedArtifact.objects.create(
             document=document,
             docling_output=parse_result["docling_output"],
             postprocessed_text=parse_result["postprocessed_text"],
-            metadata_extracted=metadata,
+            metadata_extracted=existing_metadata,
             parser_config=parse_result["parser_config"],
         )
 
