@@ -177,6 +177,18 @@ AWS_S3_REGION_NAME=eu-west-1
 
 Sans ces variables, l’application utilise le stockage fichier local par défaut.
 
+**7. Lancer l'application Frontend (Dash)**
+
+```bash
+uv run python eu_fact_force/dash-app/app.py
+```
+Puis ouvrir dans le navigateur :
+http://127.0.0.1:8050/graph
+
+Configuration (JSON par défaut)
+Pour utiliser le JSON par défaut (`default_search.json`) côté backend, définir la variable suivante à 1 dans le fichier `.env`:
+FLAG_RETRIEVE_DEFAULT_JSON=1
+
 ## Test de performance
 
 Le projet propose un ensemble de documents relatifs aux liens entre les vaccins et l'autisme.

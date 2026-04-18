@@ -28,8 +28,8 @@ class HALMetadataParser(MetadataParser):
         doc = docs[0]
         return {
             "found": True,
-            "article name": doc.get("title_s"),
-            "authors": doc.get("authFullName_s"),
+            "title": doc.get("title_s"),
+            "authors": [{"name": n, "orcid": None} for n in (doc.get("authFullName_s") or [])],
             "journal": doc.get("journalTitle_s"),
             "publish date": doc.get("publicationDate_s"),
             "link": doc.get("uri_s"),
