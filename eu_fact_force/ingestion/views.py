@@ -12,8 +12,10 @@ from eu_fact_force.ingestion.search import (
     search_narrative,
 )
 
+from eu_fact_force.ingestion.models import DocumentChunk
+
 from .forms import IngestForm
-from .services import run_pipeline
+from .services import DuplicateDOIError, ingest_by_doi
 
 _DEFAULT_SEARCH_PATH = (
     Path(__file__).resolve().parent / "data_collection" / "default_search.json"
@@ -28,22 +30,19 @@ def ingest(request):
         if form.is_valid():
             doi = form.cleaned_data["doi"]
             try:
-                source_file, elements = run_pipeline(doi)
+                run = ingest_by_doi(doi)
                 context.update(
                     {
                         "success": True,
                         "doi": doi,
-                        "source_file": source_file,
-                        "elements_count": len(elements),
+                        "source_file": run.document.source_file,
+                        "elements_count": DocumentChunk.objects.filter(document=run.document).count(),
                     }
                 )
+            except DuplicateDOIError as e:
+                context.update({"success": False, "error": str(e)})
             except Exception as e:
-                context.update(
-                    {
-                        "success": False,
-                        "error": str(e),
-                    }
-                )
+                context.update({"success": False, "error": str(e)})
         else:
             context["form"] = form
     return render(request, "ingestion/ingest.html", context)
