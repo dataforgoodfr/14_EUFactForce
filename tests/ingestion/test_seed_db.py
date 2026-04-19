@@ -9,7 +9,7 @@ import pytest
 from django.core.management import call_command
 from django.core.management.base import CommandError
 
-from eu_fact_force.ingestion.models import Document, IngestionRun
+from eu_fact_force.ingestion.models import Document, IngestionRun, SourceFile
 
 _FAKE_METADATA = {
     "found": True,
@@ -110,7 +110,8 @@ def test_seed_db_skips_duplicate_in_csv(mock_download, mock_fetch, tmp_path):
 @patch("eu_fact_force.ingestion.services.fetch_all", return_value=_FAKE_METADATA)
 @patch("eu_fact_force.ingestion.services._download_pdf", return_value=None)
 def test_seed_db_skips_doi_already_in_db(mock_download, mock_fetch, tmp_path):
-    Document.objects.create(doi="10.1234/existing", title="Pre-existing")
+    source_file = SourceFile.objects.create(doi="10.1234/existing", s3_key="key", status=SourceFile.Status.STORED)
+    Document.objects.create(doi="10.1234/existing", title="Pre-existing", source_file=source_file)
 
     csv_file = tmp_path / "dois.csv"
     _write_csv(
