@@ -96,6 +96,7 @@ services:
   # Create default S3 bucket on first run (depends on MinIO).
   minio-init:
     image: amazon/aws-cli:latest
+    restart: "no"
     depends_on:
       minio:
         condition: service_healthy
