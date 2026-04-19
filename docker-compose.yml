@@ -1,6 +1,6 @@
 services:
   app:
-    build:
+    build: &django_build
       context: .
       dockerfile: Dockerfile
       args:
@@ -33,6 +33,26 @@ services:
       - traefik.http.routers.eu-fact-force.tls=true
       - traefik.docker.network=d4g-internal
       - traefik.http.services.eu-fact-force.loadbalancer.server.port=8000
+
+  # Dash visualization UI. Reuses the same image as `app` (dash, dash-bootstrap-components,
+  # dash-cytoscape are already in the runtime deps). Overrides entrypoint so it doesn't run
+  # Django migrations.
+  dash:
+    build: *django_build
+    ports:
+      - 8050
+    environment:
+      BACKEND_URL: http://app:8000
+      DASH_HOST: 0.0.0.0
+      DASH_PORT: 8050
+      SERVICE_FQDN_DASH_8050:
+    volumes:
+      - .:/app
+    working_dir: /app/eu_fact_force/dash-app
+    entrypoint: []
+    command: ["uv", "run", "--no-sync", "python", "app.py"]
+    depends_on:
+      - app
 
   # PostgreSQL 18+ : monter sur /var/lib/postgresql (l’image gère le sous-dossier de version).
   postgres:
