@@ -49,7 +49,7 @@ services:
     volumes:
       - .:/app
     working_dir: /app/eu_fact_force/dash-app
-    entrypoint: []
+    entrypoint: null
     command: ["uv", "run", "--no-sync", "python", "app.py"]
     depends_on:
       - app
