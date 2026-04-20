@@ -1,0 +1,94 @@
+/* Colors */
+:root {
+    /* Principal Colors */
+    --color-dark-blue: #2d61a4;
+    --color-light-blue: #7fa7d3;
+    --color-white: #ffffff;
+    --color-green: #a0c063;
+    --color-orange: #f29f05;
+    --color-black: #161616;
+    --color-gray: #797979;
+}
+
+
+/* Body and text style */
+body {
+    font-family: "Helvetica", sans-serif;
+    background-color: var(--color-light-blue);
+    font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-black);
+}
+
+hr {
+    color: var(--color-black);
+}
+
+/* Button (primary) */
+.btn-primary {
+    border-color: var(--color-dark-blue) !important;
+    color: var(--color-white) !important;
+    background-color: var(--color-dark-blue) !important;
+}
+
+.btn-primary:hover {
+    border-color: var(--color-light-blue) !important;
+    color: var(--color-white) !important;
+    background-color: var(--color-light-blue) !important;
+}
+
+.btn-primary:active {
+    border-color: var(--color-dark-blue) !important;
+    color: var(--color-white) !important;
+    background-color: var(--color-dark-blue) !important;
+}
+
+.btn-primary.active {
+    border-color: var(--color-dark-blue) !important;
+    color: var(--color-white) !important;
+    background-color: var(--color-dark-blue) !important;
+}
+
+.btn-primary:disabled {
+    border-color: var(--color-gray) !important;
+    color: var(--color-white) !important;
+    background-color: var(--color-gray) !important;
+}
+
+
+/* Offcanevas */
+.offcanvas-header {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white)
+}
+
+/* Navigation */
+.nav-pills .nav-link.active {
+    background-color: var(--color-white);
+    color: var(--color-black) !important;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: var(--color-light-blue);
+    color: var(--color-black) !important;
+}
+
+/* Tabs */
+.card {
+    --bs-card-border-color: none !important;
+}
+
+.nav-tabs .nav-link {
+    color: var(--color-black) !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--color-black) !important;
+}
