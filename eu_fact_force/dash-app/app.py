@@ -1,6 +1,7 @@
 import base64
 import io
 import json
+import os
 import uuid
 from pathlib import Path
 
@@ -645,4 +646,8 @@ def finalize_and_display_json(
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        debug=True,
+        host=os.getenv("DASH_HOST", "127.0.0.1"),
+        port=int(os.getenv("DASH_PORT", "8050")),
+    )

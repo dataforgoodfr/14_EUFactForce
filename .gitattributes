@@ -1,0 +1,4 @@
+# Force LF line endings for shell scripts regardless of core.autocrlf.
+# Windows checkouts of .sh files otherwise get CRLF, which breaks them in
+# Linux containers (shebang becomes "#!/bin/bash\r" -> "no such file").
+*.sh text eol=lf
