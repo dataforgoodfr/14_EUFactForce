@@ -218,16 +218,16 @@ def get_search_data(n_clicks, search_text):
             list(set(filters["documents"])),
             list(set(filters["journal"])),
             list(set(filters["authors"])),
-            min(filters["date"]) if filters["date"] else None,
-            max(filters["date"]) if filters["date"] else None,
+            min(filters["date"]),
+            max(filters["date"]),
             list(set(filters["node_types"])),
             list(set(filters["chunk_types"])),
             list(set(filters["keywords"])),
             list(set(filters["documents"])),
             list(set(filters["journal"])),
             list(set(filters["authors"])),
-            min(filters["date"]) if filters["date"] else None,
-            max(filters["date"]) if filters["date"] else None,
+            min(filters["date"]),
+            max(filters["date"]),
         ]
     else:
         raise PreventUpdate
@@ -370,14 +370,14 @@ def update_graph_and_list(
                 nodes[n]["data"]["type"] == "chunk"
                 and any(
                     item in filter_authors
-                    for item in nodes[n]["data"]["document_metadata"]["authors"]
+                    for item in nodes[n]["data"]["document_metadata"].get("author_names", [])
                 )
             )
             or (
                 nodes[n]["data"]["type"] == "document"
                 and any(
                     item in filter_authors
-                    for item in nodes[n]["data"]["metadata"]["authors"]
+                    for item in nodes[n]["data"]["metadata"].get("author_names", [])
                 )
             )
             or (

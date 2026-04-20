@@ -1,165 +1,197 @@
 {
-    "status": "success",
-    "narrative": {
-        "theme": "vaccine_autism"
+  "status": "success",
+  "narrative": {
+    "theme": "vaccine_autism"
+  },
+  "chunks": [
+    {
+      "type": "text",
+      "content": "There has been enormous debate regarding the possibility of a link between childhood vaccinations and the subsequent development of autism. This has in recent times become a major public health issue with vaccine preventable diseases increasing in the community due to the fear of a 'link' between vaccinations and autism. We performed a meta-analysis to summarise available evidence from case-control and cohort studies on this topic (MEDLINE, PubMed, EMBASE, Google Scholar up to April, 2014). Eligible studies assessed the relationship between vaccine administration and the subsequent development of autism or autism spectrum disorders (ASD). Two reviewers extracted data on study characteristics, methods, and outcomes. Disagreement was resolved by consensus with another author. Five cohort studies involving 1,256,407 children, and five case-control studies involving 9,920 children were included in this analysis. The cohort data revealed no relationship between vaccination and autism (OR: 0.99; 95% CI: 0.92 to 1.06) or ASD (OR: 0.91; 95% CI: 0.68 to 1.20), nor was there a relationship between autism and MMR (OR: 0.84; 95% CI: 0.70 to 1.01), or thimerosal (OR: 1.00; 95% CI: 0.77 to 1.31)",
+      "score": 0.1126598648631637,
+      "metadata": {
+        "document_id": 5,
+        "page": 5
+      }
     },
-    "chunks": [
-        {
-            "type": "text",
-            "content": "There has been enormous debate regarding the possibility of a link between childhood vaccinations and the subsequent development of autism. This has in recent times become a major public health issue with vaccine preventable diseases increasing in the community due to the fear of a 'link' between vaccinations and autism. We performed a meta-analysis to summarise available evidence from case-control and cohort studies on this topic (MEDLINE, PubMed, EMBASE, Google Scholar up to April, 2014). Eligible studies assessed the relationship between vaccine administration and the subsequent development of autism or autism spectrum disorders (ASD). Two reviewers extracted data on study characteristics, methods, and outcomes. Disagreement was resolved by consensus with another author. Five cohort studies involving 1,256,407 children, and five case-control studies involving 9,920 children were included in this analysis. The cohort data revealed no relationship between vaccination and autism (OR: 0.99; 95% CI: 0.92 to 1.06) or ASD (OR: 0.91; 95% CI: 0.68 to 1.20), nor was there a relationship between autism and MMR (OR: 0.84; 95% CI: 0.70 to 1.01), or thimerosal (OR: 1.00; 95% CI: 0.77 to 1.31)",
-            "score": 0.1126598648631637,
-            "metadata": {
-                "document_id": 5,
-                "page": 5
-            }
-        },
-        {
-            "type": "text",
-            "content": "- [27] Kimmel SR, Burns IT, Wolfe RM, Zimmerman RK. Addressing immunization barriers, benefits, and risks. J Fam Pract 2007;56(Suppl. 2 vaccines): S61-9.\n\n- [28] [Klein KC, Diehl EB. Relationship between MMR vaccine and autism. Ann Pharmacother 2004;38(7-8):1297-300.](http://refhub.elsevier.com/S0264-410X(14)00636-7/sbref0155)\n\n- [29] Mutter J, Naumann J, Schneider R, Walach H, Haley B. Mercury and autism: accelerating evidence? Neuro Endocrinol Lett 2005;26(5):439-46.\n\n- [30] \u00d6rtqvist \u00c5, Blennow M, Carlsson R-M, et al. Vaccination of children-a systematic review. Acta Paediatr 2010;99(461):1-192.\n\n- [31] Parker SK, Schwartz B, Todd J, Pickering LK. Thimerosal-containing vaccines and autistic spectrum disorder: a critical review of published original data. Pediatrics 2004;114(3):793-804.\n\n- [32] Ratajczak HV. Theoretical aspects of autism: causes-a review. J Immunotoxicol 2011;8(1):68-79.\n\n- [33] Rutter M. Aetiology of autism: findings and questions. J Intellect Disabil Res 2005;49(4):231-8.",
-            "score": 0.11575097535556256,
-            "metadata": {
-                "document_id": 5,
-                "page": 15
-            }
-        },
-        {
-            "type": "text",
-            "content": "\u00a9 2014 Elsevier Ltd. All rights reserved.\n\nmodern day society and the decision to opt out of MMR or other childhood vaccination schedules because of concerns regarding the development of autism should be properly evaluated with available evidence. To date there have been no quantitative data analysis pooling cohort and case-control studies that have assessed the relationship between autism, autistic spectrum disorder and childhood vaccinations.\n\nThis meta-analysis aims to quantitatively assess the available data from studies undertaken in various countries regarding autism rates and childhood vaccination so that the relationship between these two, whatever its significance, can be adequately substantiated.\n\n# 2. Methods\n\n# 2.1. Study protocol\n\nWe followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines to conduct our review and analysis [3,4]. The PRISMA guidelines have been\n\n<!-- image -->\n\n<!-- image -->",
-            "score": 0.11582404375076294,
-            "metadata": {
-                "document_id": 5,
-                "page": 25
-            }
-        },
-        {
-            "type": "text",
-            "content": "The current meta-analysis is the only quantitative analysis of pooled data on the topic. In the process of searching the literature 12 systematic reviews were identified and reference lists searched for additional data [24-35]. Eleven of the 12 identified reviews shared the current conclusion that there was no evidence for a link between vaccination and autistic spectrum disorder, advocating continuation of current immunisation practices. The only review to suggest that a link could not be excluded was that by Ratajczak [32] looking into the aetiology of autism and concluded that it is\n\nFig. 3. Pooled estimate for vaccines and autism and ASD.",
-            "score": 0.11594438552856445,
-            "metadata": {
-                "document_id": 5,
-                "page": 10
-            }
-        },
-        {
-            "type": "text",
-            "content": "This review included retrospective and prospective cohort studies and case-control studies published in any language looking at the relationship between vaccination and disorders on the autistic spectrum. No limits were placed on publication date, publication status, or participant characteristics. Studies were included that looked at either MMR vaccination, cumulative mercury (Hg) or cumulative thimerosal dosage from vaccinations to ensure all proposed causes of ASD or regression were investigated. Outcome measures included development of any condition on the autistic spectrum as well as those specifically looking at regressive phenotype. Papers that recruited their cohort of participants solely from the Vaccine Adverse Event Reporting System (VAERS) in the United States were not included due to its many limitations and high risk of bias including unverified reports, underreporting, inconsistent data quality, absence of an unvaccinated control group and many reports being filed in connection with litigation [5,6]. We excluded studies that did not meet the inclusion criteria.\n\n# 2.3. Study selection",
-            "score": 0.11841118335723877,
-            "metadata": {
-                "document_id": 5,
-                "page": 16
-            }
-        },
-        {
-            "type": "text",
-            "content": "This project was funded under Contract No. HHSA290201600010I from the Agency for Healthcare Research and Quality (AHRQ), U.S. Department of Health and Human Services (HHS). The funder had no role in the design, interpretation of results, nor the decision to submit this manuscript. The authors of this manuscript are responsible for its content. Statements in the manuscript do not necessarily represent the official views of or imply endorsement by AHRQ or HHS.\n\n# Author contributions\n\nAll authors attest that they meet the ICMJE criteria for authorship.\n\n# Appendix A. Supplementary material\n\nSupplementary data to this article can be found online at https://doi.org/10.1016/j.vaccine.2021.03.079.\n\n# References\n\n- [1] [Centers for Disease Control Prevention. Ten great public health achievements-United States, 1900-1999. MMWR Morb Mortal Wkly Rep 1999;48:241-3.](http://refhub.elsevier.com/S0264-410X(21)00385-6/h0005)\n\n- [2] [Gidengil C, Chen C, Parker AM, Nowak S, Matthews L. Beliefs around childhood vaccines in the United States: A systematic review. Vaccine 2019;37:6793-802.](http://refhub.elsevier.com/S0264-410X(21)00385-6/h0010)",
-            "score": 0.11901568657066153,
-            "metadata": {
-                "document_id": 12,
-                "page": 32
-            }
-        },
-        {
-            "type": "text",
-            "content": "# 4. Discussion\n\nThis meta-analysis of five case-control and five cohort studies has found no evidence for the link between vaccination and the subsequent risk of developing autism or autistic spectrum disorder. Subgroup analyses looking specifically at MMR vaccinations, cumulative mercury dosage, and thimerosal exposure individually were similarly negative, as were subgroup analyses looking specifically at development of autistic disorder versus other autistic spectrum disorder.\n\nFour of the five cohort studies included in this review investigated very large populations and were of sound methodology, which is of great importance as our review question has implications at the population level, and thus required such data for optimal applicability.",
-            "score": 0.11924803256988525,
-            "metadata": {
-                "document_id": 5,
-                "page": 12
-            }
-        },
-        {
-            "type": "text",
-            "content": "<!-- image -->\n\nContents lists available at ScienceDirect\n\nVaccine\n\nj our na l ho me page: www.elsevier.com/locate/vaccine\n\n# Vaccines are not associated with autism: An evidence-based meta-analysis of case-control and cohort studies\n\nLuke E. Taylor, Amy L. Swerdfeger, Guy D. Eslick \u2217\n\nThe Whiteley-Martin Research Centre, Discipline of Surgery, The University of Sydney, Nepean Hospital, Level 3, Clinical Building, PO Box 63, Penrith 2751, NSW, Australia\n\nArticle history: Received 29 November 2013 Received in revised form 16 April 2014 Accepted 23 April 2014 Available online 9 May 2014\n\nKeywords: Vaccine Vaccination Immunisation Autism Autism spectrum disorder Thimerosal\n\nMercury\n\n# 1. Introduction",
-            "score": 0.12024319171905518,
-            "metadata": {
-                "document_id": 5,
-                "page": 19
-            }
-        },
-        {
-            "type": "text",
-            "content": "based on exposure type did not support a link between measles vaccination (OR: 1.00, 95% CI: 0.59 to 1.67; I 2 = 30.50, p = 0.23), MMR vaccination (OR: 0.69, 95% CI: 0.53 to 0.90; I 2 = 66.85, p &lt; 0.001), or thimerosal exposure (OR: 0.89, 95% CI: 0.78 to 1.00; I 2 = 58.40, p = 0.02) and ASD.\n\n# 3.5. Publication bias",
-            "score": 0.12264394760131836,
-            "metadata": {
-                "document_id": 5,
-                "page": 21
-            }
-        },
-        {
-            "type": "text",
-            "content": "ate SoE across 6 studies). The risk estimate was imprecise because it was based on one small study with no deaths (0/99 vs 0/107). There was no evidence of increased risk of anaphylaxis or systemic allergic reaction, asthma, autoimmune disease, cardiovascular events, febrile seizures, or seizures (low SoE).\n\nQuadrivalent live attenuated influenza vaccine (LAIV) was compared to placebo or no vaccine in some studies, or another influenza vaccine (trivalent LAIV or IIV) in other studies. There was no evidence of increased risk of death (when compared to trivalent LAIV) or seizures (when compared to placebo or no vaccine) (low SoE).\n\nMeasles, mumps, and rubella vaccine . There was no evidence of an association with autism (RR 0.60; CI 0.09, 4.12; based on 2 studies; high SoE across prior 2014 report and update). There was a causal relationship with anaphylaxis in children with allergies (based on mechanistic evidence from the IOM report [24]; high SoE), as well as an increased risk of febrile seizures (high\n\nSoE), and idiopathic thrombocytopenic purpura (moderate SoE) (effect estimates N/A). There was no evidence of increased risk of asthma (low SoE).",
-            "score": 0.12270026667712375,
-            "metadata": {
-                "document_id": 12,
-                "page": 6
-            }
-        }
-    ],
-    "documents": {
-        "5": {
-            "link": "https://linkinghub.elsevier.com/retrieve/pii/S0264410X14006367",
-            "title": "Vaccines are not associated with autism: An evidence-based meta-analysis of case-control and cohort studies",
-            "date": "2014-06-17",
-            "journal": "Elsevier BV",
-            "authors": [
-                    "Luke E. Taylor",
-                    "Amy L. Swerdfeger",
-                    "Guy D. Eslick"
-                ],
-            "doi": "10.1016/j.vaccine.2014.04.085",
-            "abstract": "There has been enormous debate regarding the possibility of a link between childhood vaccinations and the subsequent development of autism. This has in recent times become a major public health issue with vaccine preventable diseases increasing in the community due to the fear of a ‘link’ between vaccinations and autism. We performed a meta-analysis to summarise available evidence from case-control and cohort studies on this topic (MEDLINE, PubMed, EMBASE, Google Scholar up to April, 2014). Eligible studies assessed the relationship between vaccine administration and the subsequent development of autism or autism spectrum disorders (ASD). Two reviewers extracted data on study characteristics, methods, and outcomes. Disagreement was resolved by consensus with another author. Five cohort studies involving 1,256,407 children, and five case-control studies involving 9,920 children were included in this analysis. The cohort data revealed no relationship between vaccination and autism (OR: 0.99; 95% CI: 0.92 to 1.06) or ASD (OR: 0.91; 95% CI: 0.68 to 1.20), nor was there a relationship between autism and MMR (OR: 0.84; 95% CI: 0.70 to 1.01), or thimerosal (OR: 1.00; 95% CI: 0.77 to 1.31), or mercury (Hg) (OR: 1.00; 95% CI: 0.93 to 1.07). Similarly the case-control data found no evidence for increased risk of developing autism or ASD following MMR, Hg, or thimerosal exposure when grouped by condition (OR: 0.90, 95% CI: 0.83 to 0.98; p = 0.02) or grouped by exposure type (OR: 0.85, 95% CI: 0.76 to 0.95; p = 0.01). Findings of this meta-analysis suggest that vaccinations are not associated with the development of autism or autism spectrum disorder. Furthermore, the components of the vaccines (thimerosal or mercury) or multiple vaccines (MMR) are not associated with the development of autism or autism spectrum disorder.",
-            "keywords": [
-                    "Autistic Disorder",
-                    "Child Development Disorders, Pervasive",
-                    "Humans",
-                    "Mercury",
-                    "Preservatives, Pharmaceutical",
-                    "Thimerosal",
-                    "Vaccination",
-                    "Publication Bias",
-                    "Measles-Mumps-Rubella Vaccine"
-                ],
-            "evidence": {
-                "name": "meta-analysis",
-                "rank": 1
-            }
-        },
-        "12": {
-            "link": "https://linkinghub.elsevier.com/retrieve/pii/S0264410X21003856",
-            "title": "Safety of vaccines used for routine immunization in the United States: An updated systematic review and meta-analysis",
-            "date": "2021-06-23",
-            "journal": "Elsevier BV",
-            "authors": [
-                    "Courtney Gidengil",
-                    "Matthew Bidwell Goetz",
-                    "Sydne Newberry",
-                    "Margaret Maglione",
-                    "Owen Hall",
-                    "Jody Larkin",
-                    "Aneesa Motala",
-                    "Susanne Hempel"
-                ],
-            "doi": "10.1016/j.vaccine.2021.03.079",
-            "abstract": "Background Understanding the safety of vaccines is critical to inform decisions about vaccination. Our objective was to conduct a systematic review of the safety of vaccines recommended for children, adults, and pregnant women in the United States. Methods We searched the literature in November 2020 to update a 2014 Agency for Healthcare Research and Quality review by integrating newly available data. Studies of vaccines that used a comparator and reported the presence or absence of key adverse events were eligible. Adhering to Evidence-based Practice Center methodology, we assessed the strength of evidence (SoE) for all evidence statements. The systematic review is registered in PROSPERO (CRD42020180089). Results Of 56,603 reviewed citations, 338 studies reported in 518 publications met inclusion criteria. For children, SoE was high for no increased risk of autism following measles, mumps, and rubella (MMR) vaccine. SoE was high for increased risk of febrile seizures with MMR. There was no evidence of increased risk of  intussusception with rotavirus vaccine at the latest follow-up (moderate SoE), nor of diabetes (high SoE). There was no evidence of increased risk or insufficient evidence for key adverse events for newer vaccines such as 9-valent human papillomavirus and meningococcal B vaccines. For adults, there was no evidence of increased risk (varied SoE) or insufficient evidence for key adverse events for the new adjuvanted inactivated influenza vaccine and recombinant adjuvanted zoster vaccine. We found no evidence of increased risk (varied SoE) for key adverse events among pregnant women following tetanus, diphtheria, and acellular pertussis vaccine, including stillbirth (moderate SoE). Conclusions Across a large body of research we found few associations of vaccines and serious key adverse events; however, rare events are challenging to study. Any adverse events should be weighed against the protective benefits that vaccines provide.",
-            "keywords": [
-                    "Adult",
-                    "Child",
-                    "Diphtheria",
-                    "Female",
-                    "Humans",
-                    "Infant",
-                    "Measles",
-                    "Mumps",
-                    "Pregnancy",
-                    "United States",
-                    "Vaccination",
-                    "Measles-Mumps-Rubella Vaccine"
-                ],
-            "evidence": {
-                "name": "systematic-review",
-                "rank": 2
-            }
-
-        }
+    {
+      "type": "text",
+      "content": "- [27] Kimmel SR, Burns IT, Wolfe RM, Zimmerman RK. Addressing immunization barriers, benefits, and risks. J Fam Pract 2007;56(Suppl. 2 vaccines): S61-9.\n\n- [28] [Klein KC, Diehl EB. Relationship between MMR vaccine and autism. Ann Pharmacother 2004;38(7-8):1297-300.](http://refhub.elsevier.com/S0264-410X(14)00636-7/sbref0155)\n\n- [29] Mutter J, Naumann J, Schneider R, Walach H, Haley B. Mercury and autism: accelerating evidence? Neuro Endocrinol Lett 2005;26(5):439-46.\n\n- [30] \u00d6rtqvist \u00c5, Blennow M, Carlsson R-M, et al. Vaccination of children-a systematic review. Acta Paediatr 2010;99(461):1-192.\n\n- [31] Parker SK, Schwartz B, Todd J, Pickering LK. Thimerosal-containing vaccines and autistic spectrum disorder: a critical review of published original data. Pediatrics 2004;114(3):793-804.\n\n- [32] Ratajczak HV. Theoretical aspects of autism: causes-a review. J Immunotoxicol 2011;8(1):68-79.\n\n- [33] Rutter M. Aetiology of autism: findings and questions. J Intellect Disabil Res 2005;49(4):231-8.",
+      "score": 0.11575097535556256,
+      "metadata": {
+        "document_id": 5,
+        "page": 15
+      }
+    },
+    {
+      "type": "text",
+      "content": "\u00a9 2014 Elsevier Ltd. All rights reserved.\n\nmodern day society and the decision to opt out of MMR or other childhood vaccination schedules because of concerns regarding the development of autism should be properly evaluated with available evidence. To date there have been no quantitative data analysis pooling cohort and case-control studies that have assessed the relationship between autism, autistic spectrum disorder and childhood vaccinations.\n\nThis meta-analysis aims to quantitatively assess the available data from studies undertaken in various countries regarding autism rates and childhood vaccination so that the relationship between these two, whatever its significance, can be adequately substantiated.\n\n# 2. Methods\n\n# 2.1. Study protocol\n\nWe followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines to conduct our review and analysis [3,4]. The PRISMA guidelines have been\n\n<!-- image -->\n\n<!-- image -->",
+      "score": 0.11582404375076294,
+      "metadata": {
+        "document_id": 5,
+        "page": 25
+      }
+    },
+    {
+      "type": "text",
+      "content": "The current meta-analysis is the only quantitative analysis of pooled data on the topic. In the process of searching the literature 12 systematic reviews were identified and reference lists searched for additional data [24-35]. Eleven of the 12 identified reviews shared the current conclusion that there was no evidence for a link between vaccination and autistic spectrum disorder, advocating continuation of current immunisation practices. The only review to suggest that a link could not be excluded was that by Ratajczak [32] looking into the aetiology of autism and concluded that it is\n\nFig. 3. Pooled estimate for vaccines and autism and ASD.",
+      "score": 0.11594438552856445,
+      "metadata": {
+        "document_id": 5,
+        "page": 10
+      }
+    },
+    {
+      "type": "text",
+      "content": "This review included retrospective and prospective cohort studies and case-control studies published in any language looking at the relationship between vaccination and disorders on the autistic spectrum. No limits were placed on publication date, publication status, or participant characteristics. Studies were included that looked at either MMR vaccination, cumulative mercury (Hg) or cumulative thimerosal dosage from vaccinations to ensure all proposed causes of ASD or regression were investigated. Outcome measures included development of any condition on the autistic spectrum as well as those specifically looking at regressive phenotype. Papers that recruited their cohort of participants solely from the Vaccine Adverse Event Reporting System (VAERS) in the United States were not included due to its many limitations and high risk of bias including unverified reports, underreporting, inconsistent data quality, absence of an unvaccinated control group and many reports being filed in connection with litigation [5,6]. We excluded studies that did not meet the inclusion criteria.\n\n# 2.3. Study selection",
+      "score": 0.11841118335723877,
+      "metadata": {
+        "document_id": 5,
+        "page": 16
+      }
+    },
+    {
+      "type": "text",
+      "content": "This project was funded under Contract No. HHSA290201600010I from the Agency for Healthcare Research and Quality (AHRQ), U.S. Department of Health and Human Services (HHS). The funder had no role in the design, interpretation of results, nor the decision to submit this manuscript. The authors of this manuscript are responsible for its content. Statements in the manuscript do not necessarily represent the official views of or imply endorsement by AHRQ or HHS.\n\n# Author contributions\n\nAll authors attest that they meet the ICMJE criteria for authorship.\n\n# Appendix A. Supplementary material\n\nSupplementary data to this article can be found online at https://doi.org/10.1016/j.vaccine.2021.03.079.\n\n# References\n\n- [1] [Centers for Disease Control Prevention. Ten great public health achievements-United States, 1900-1999. MMWR Morb Mortal Wkly Rep 1999;48:241-3.](http://refhub.elsevier.com/S0264-410X(21)00385-6/h0005)\n\n- [2] [Gidengil C, Chen C, Parker AM, Nowak S, Matthews L. Beliefs around childhood vaccines in the United States: A systematic review. Vaccine 2019;37:6793-802.](http://refhub.elsevier.com/S0264-410X(21)00385-6/h0010)",
+      "score": 0.11901568657066153,
+      "metadata": {
+        "document_id": 12,
+        "page": 32
+      }
+    },
+    {
+      "type": "text",
+      "content": "# 4. Discussion\n\nThis meta-analysis of five case-control and five cohort studies has found no evidence for the link between vaccination and the subsequent risk of developing autism or autistic spectrum disorder. Subgroup analyses looking specifically at MMR vaccinations, cumulative mercury dosage, and thimerosal exposure individually were similarly negative, as were subgroup analyses looking specifically at development of autistic disorder versus other autistic spectrum disorder.\n\nFour of the five cohort studies included in this review investigated very large populations and were of sound methodology, which is of great importance as our review question has implications at the population level, and thus required such data for optimal applicability.",
+      "score": 0.11924803256988525,
+      "metadata": {
+        "document_id": 5,
+        "page": 12
+      }
+    },
+    {
+      "type": "text",
+      "content": "<!-- image -->\n\nContents lists available at ScienceDirect\n\nVaccine\n\nj our na l ho me page: www.elsevier.com/locate/vaccine\n\n# Vaccines are not associated with autism: An evidence-based meta-analysis of case-control and cohort studies\n\nLuke E. Taylor, Amy L. Swerdfeger, Guy D. Eslick \u2217\n\nThe Whiteley-Martin Research Centre, Discipline of Surgery, The University of Sydney, Nepean Hospital, Level 3, Clinical Building, PO Box 63, Penrith 2751, NSW, Australia\n\nArticle history: Received 29 November 2013 Received in revised form 16 April 2014 Accepted 23 April 2014 Available online 9 May 2014\n\nKeywords: Vaccine Vaccination Immunisation Autism Autism spectrum disorder Thimerosal\n\nMercury\n\n# 1. Introduction",
+      "score": 0.12024319171905518,
+      "metadata": {
+        "document_id": 5,
+        "page": 19
+      }
+    },
+    {
+      "type": "text",
+      "content": "based on exposure type did not support a link between measles vaccination (OR: 1.00, 95% CI: 0.59 to 1.67; I 2 = 30.50, p = 0.23), MMR vaccination (OR: 0.69, 95% CI: 0.53 to 0.90; I 2 = 66.85, p &lt; 0.001), or thimerosal exposure (OR: 0.89, 95% CI: 0.78 to 1.00; I 2 = 58.40, p = 0.02) and ASD.\n\n# 3.5. Publication bias",
+      "score": 0.12264394760131836,
+      "metadata": {
+        "document_id": 5,
+        "page": 21
+      }
+    },
+    {
+      "type": "text",
+      "content": "ate SoE across 6 studies). The risk estimate was imprecise because it was based on one small study with no deaths (0/99 vs 0/107). There was no evidence of increased risk of anaphylaxis or systemic allergic reaction, asthma, autoimmune disease, cardiovascular events, febrile seizures, or seizures (low SoE).\n\nQuadrivalent live attenuated influenza vaccine (LAIV) was compared to placebo or no vaccine in some studies, or another influenza vaccine (trivalent LAIV or IIV) in other studies. There was no evidence of increased risk of death (when compared to trivalent LAIV) or seizures (when compared to placebo or no vaccine) (low SoE).\n\nMeasles, mumps, and rubella vaccine . There was no evidence of an association with autism (RR 0.60; CI 0.09, 4.12; based on 2 studies; high SoE across prior 2014 report and update). There was a causal relationship with anaphylaxis in children with allergies (based on mechanistic evidence from the IOM report [24]; high SoE), as well as an increased risk of febrile seizures (high\n\nSoE), and idiopathic thrombocytopenic purpura (moderate SoE) (effect estimates N/A). There was no evidence of increased risk of asthma (low SoE).",
+      "score": 0.12270026667712375,
+      "metadata": {
+        "document_id": 12,
+        "page": 6
+      }
     }
+  ],
+  "documents": {
+    "5": {
+      "link": "https://linkinghub.elsevier.com/retrieve/pii/S0264410X14006367",
+      "title": "Vaccines are not associated with autism: An evidence-based meta-analysis of case-control and cohort studies",
+      "date": "2014-06-17",
+      "journal": "Elsevier BV",
+      "author_ids": [1, 2, 3],
+      "doi": "10.1016/j.vaccine.2014.04.085",
+      "abstract": "There has been enormous debate regarding the possibility of a link between childhood vaccinations and the subsequent development of autism. This has in recent times become a major public health issue with vaccine preventable diseases increasing in the community due to the fear of a ‘link’ between vaccinations and autism. We performed a meta-analysis to summarise available evidence from case-control and cohort studies on this topic (MEDLINE, PubMed, EMBASE, Google Scholar up to April, 2014). Eligible studies assessed the relationship between vaccine administration and the subsequent development of autism or autism spectrum disorders (ASD). Two reviewers extracted data on study characteristics, methods, and outcomes. Disagreement was resolved by consensus with another author. Five cohort studies involving 1,256,407 children, and five case-control studies involving 9,920 children were included in this analysis. The cohort data revealed no relationship between vaccination and autism (OR: 0.99; 95% CI: 0.92 to 1.06) or ASD (OR: 0.91; 95% CI: 0.68 to 1.20), nor was there a relationship between autism and MMR (OR: 0.84; 95% CI: 0.70 to 1.01), or thimerosal (OR: 1.00; 95% CI: 0.77 to 1.31), or mercury (Hg) (OR: 1.00; 95% CI: 0.93 to 1.07). Similarly the case-control data found no evidence for increased risk of developing autism or ASD following MMR, Hg, or thimerosal exposure when grouped by condition (OR: 0.90, 95% CI: 0.83 to 0.98; p = 0.02) or grouped by exposure type (OR: 0.85, 95% CI: 0.76 to 0.95; p = 0.01). Findings of this meta-analysis suggest that vaccinations are not associated with the development of autism or autism spectrum disorder. Furthermore, the components of the vaccines (thimerosal or mercury) or multiple vaccines (MMR) are not associated with the development of autism or autism spectrum disorder.",
+      "keywords": [
+        "Autistic Disorder",
+        "Child Development Disorders, Pervasive",
+        "Humans",
+        "Mercury",
+        "Preservatives, Pharmaceutical",
+        "Thimerosal",
+        "Vaccination",
+        "Publication Bias",
+        "Measles-Mumps-Rubella Vaccine"
+      ],
+      "evidence": {
+        "name": "meta-analysis",
+        "rank": 1
+      }
+    },
+    "12": {
+      "link": "https://linkinghub.elsevier.com/retrieve/pii/S0264410X21003856",
+      "title": "Safety of vaccines used for routine immunization in the United States: An updated systematic review and meta-analysis",
+      "date": "2021-06-23",
+      "journal": "Elsevier BV",
+      "author_ids": [4, 5, 6, 7, 8, 9, 10, 11],
+      "doi": "10.1016/j.vaccine.2021.03.079",
+      "abstract": "Background Understanding the safety of vaccines is critical to inform decisions about vaccination. Our objective was to conduct a systematic review of the safety of vaccines recommended for children, adults, and pregnant women in the United States. Methods We searched the literature in November 2020 to update a 2014 Agency for Healthcare Research and Quality review by integrating newly available data. Studies of vaccines that used a comparator and reported the presence or absence of key adverse events were eligible. Adhering to Evidence-based Practice Center methodology, we assessed the strength of evidence (SoE) for all evidence statements. The systematic review is registered in PROSPERO (CRD42020180089). Results Of 56,603 reviewed citations, 338 studies reported in 518 publications met inclusion criteria. For children, SoE was high for no increased risk of autism following measles, mumps, and rubella (MMR) vaccine. SoE was high for increased risk of febrile seizures with MMR. There was no evidence of increased risk of  intussusception with rotavirus vaccine at the latest follow-up (moderate SoE), nor of diabetes (high SoE). There was no evidence of increased risk or insufficient evidence for key adverse events for newer vaccines such as 9-valent human papillomavirus and meningococcal B vaccines. For adults, there was no evidence of increased risk (varied SoE) or insufficient evidence for key adverse events for the new adjuvanted inactivated influenza vaccine and recombinant adjuvanted zoster vaccine. We found no evidence of increased risk (varied SoE) for key adverse events among pregnant women following tetanus, diphtheria, and acellular pertussis vaccine, including stillbirth (moderate SoE). Conclusions Across a large body of research we found few associations of vaccines and serious key adverse events; however, rare events are challenging to study. Any adverse events should be weighed against the protective benefits that vaccines provide.",
+      "keywords": [
+        "Adult",
+        "Child",
+        "Diphtheria",
+        "Female",
+        "Humans",
+        "Infant",
+        "Measles",
+        "Mumps",
+        "Pregnancy",
+        "United States",
+        "Vaccination",
+        "Measles-Mumps-Rubella Vaccine"
+      ],
+      "evidence": {
+        "name": "systematic-review",
+        "rank": 2
+      }
+    }
+  },
+  "authors": {
+    "1": {
+      "name": "Luke E. Taylor",
+      "orcid": null
+    },
+    "2": {
+      "name": "Amy L. Swerdfeger",
+      "orcid": null
+    },
+    "3": {
+      "name": "Guy D. Eslick",
+      "orcid": null
+    },
+    "4": {
+      "name": "Courtney Gidengil",
+      "orcid": null
+    },
+    "5": {
+      "name": "Matthew Bidwell Goetz",
+      "orcid": null
+    },
+    "6": {
+      "name": "Sydne Newberry",
+      "orcid": null
+    },
+    "7": {
+      "name": "Margaret Maglione",
+      "orcid": null
+    },
+    "8": {
+      "name": "Owen Hall",
+      "orcid": null
+    },
+    "9": {
+      "name": "Jody Larkin",
+      "orcid": null
+    },
+    "10": {
+      "name": "Aneesa Motala",
+      "orcid": null
+    },
+    "11": {
+      "name": "Susanne Hempel",
+      "orcid": null
+    }
+  }
 }

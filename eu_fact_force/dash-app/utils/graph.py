@@ -76,6 +76,7 @@ class BackendGraph:
         """Parse JSON and create nodes (dict), edges (list) and filters (dict)."""
         nodes = {}
         edges = []
+        authors_dict = self.search_results.get("authors", {})
         filters = {
             "node_types": [
                 x["selector"].split('type="')[1].split('"')[0]
@@ -94,12 +95,17 @@ class BackendGraph:
         for i, chunk in enumerate(self.search_results["chunks"]):
             chunk_id = f"chunk_{i}"
             document_id = str(chunk["metadata"]["document_id"])
-            document_metadata = self.search_results["documents"][document_id]
+            document_metadata = self.search_results["documents"][str(document_id)]
             filters["chunk_types"].append(chunk["type"])
             filters["documents"].append(document_id)
 
             if document_metadata.get("date"):
                 filters["date"].append(document_metadata["date"])
+                author_names = [
+                    authors_dict.get(str(a_id), {}).get("name")
+                    for a_id in document_metadata.get("author_ids", [])
+                    ]
+            document_metadata["author_names"] = [name for name in author_names if name]
 
             nodes[chunk_id] = {
                 "data": {
@@ -111,10 +117,10 @@ class BackendGraph:
                 }
             }
 
-            if document_id not in nodes:
-                nodes[document_id] = {
+            if str(document_id) not in nodes:
+                nodes[str(document_id)] = {
                     "data": {
-                        "id": document_id,
+                        "id": str(document_id),
                         "label": document_metadata.get("title", document_id),
                         "type": "document",
                         "metadata": document_metadata,
@@ -125,7 +131,7 @@ class BackendGraph:
                 {
                     "data": {
                         "source": chunk_id,
-                        "target": document_id,
+                        "target": str(document_id),
                     }
                 }
             )
@@ -147,27 +153,37 @@ class BackendGraph:
                 edges.append(
                     {
                         "data": {
-                            "source": document_id,
+                            "source": str(document_id),
                             "target": journal_id,
                         }
                     }
                 )
 
             # authors
-            for author in document_metadata.get("authors", []):
-                author_id = f"author_{author}"
-                filters["authors"].append(author)
+            for author_id in document_metadata.get("author_ids", []):
+                author_id_str = str(author_id)
+                author_data = authors_dict.get(author_id_str, {})
 
-                if author_id not in nodes:
-                    nodes[author_id] = {
-                        "data": {"id": author_id, "label": author, "type": "author"}
+                author_name = author_data.get("name", f"author_{author_id}")
+                node_id = f"author_{author_id}"
+
+                filters["authors"].append(author_name)
+
+                if node_id not in nodes:
+                    nodes[node_id] = {
+                        "data": {
+                            "id": node_id,
+                            "label": author_name,
+                            "type": "author",
+                            "metadata": author_data,
+                        }
                     }
 
                 edges.append(
                     {
                         "data": {
-                            "source": document_id,
-                            "target": author_id,
+                            "source": str(document_id),
+                            "target": node_id,
                         }
                     }
                 )
@@ -185,7 +201,7 @@ class BackendGraph:
                 edges.append(
                     {
                         "data": {
-                            "source": document_id,
+                            "source": str(document_id),
                             "target": keyword_id,
                         }
                     }
