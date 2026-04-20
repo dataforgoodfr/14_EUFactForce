@@ -15,6 +15,7 @@ from eu_fact_force.ingestion.data_collection.parsers.base import doi_to_id
 from eu_fact_force.ingestion.embedding import add_embeddings
 from eu_fact_force.ingestion.models import Author, Document, DocumentChunk, IngestionRun, ParsedArtifact, SourceFile
 from eu_fact_force.ingestion.parsing import parse_source_file
+from eu_fact_force.ingestion.pdf_utils import extract_doi_from_pdf, extract_text_by_blocks
 
 PIPELINE_VERSION = "0.1.0"
 
@@ -23,19 +24,20 @@ class DuplicateDOIError(Exception):
     pass
 
 
+class NoDOIFoundError(Exception):
+    pass
+
+
 def hash_doi(doi: str) -> str:
     return hashlib.sha256(doi.encode()).hexdigest()
 
 
-def ingest_by_doi(doi: str, pdf_url: str | None = None, pdf_path: Path | None = None) -> IngestionRun:
+def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
     """
-    Single canonical pipeline entry point for DOI-based ingestion.
+    Ingest a document by DOI. Fetches metadata and attempts to download the PDF.
+    Falls back to metadata-only if no PDF can be retrieved.
 
-    Creates IngestionRun and Document, fetches metadata, optionally downloads
-    and parses a PDF, creates ParsedArtifact and DocumentChunks with embeddings.
-
-    Raises DuplicateDOIError if the DOI already exists (no records created).
-    Re-raises any other exception after recording the failure on IngestionRun.
+    Raises DuplicateDOIError if the DOI already exists.
     """
     if Document.objects.filter(doi=doi).exists():
         raise DuplicateDOIError(f"DOI '{doi}' is already ingested.")
@@ -49,31 +51,70 @@ def ingest_by_doi(doi: str, pdf_url: str | None = None, pdf_path: Path | None = 
     )
 
     try:
-        metadata = _acquire_metadata(doi, document, run)
-        source_file = _store_source_file(doi, pdf_url, document, run, pdf_path=pdf_path)
+        pdf_path = _download_pdf(doi, pdf_url)
+        return _run_pipeline(doi, pdf_path, document, run)
+    except Exception as exc:
+        _record_failure(run, exc)
+        raise
 
-        if source_file is None:
-            run.status = IngestionRun.Status.SUCCESS
-            run.success_kind = IngestionRun.SuccessKind.METADATA_ONLY
-            run.stage = IngestionRun.Stage.DONE
-            run.save(update_fields=["status", "success_kind", "stage"])
-            return run
 
-        parse_result = _parse_artifact(document, source_file, metadata, run)
-        _chunk_and_embed(document, parse_result["chunks"], run)
+def ingest_by_pdf(pdf_path: Path) -> IngestionRun:
+    """
+    Ingest a document from a local PDF file. Extracts the DOI from the PDF text,
+    then fetches metadata and stores/parses the file directly without downloading.
 
+    Raises NoDOIFoundError if no DOI can be extracted from the PDF.
+    Raises DuplicateDOIError if the extracted DOI already exists.
+    """
+    doi = extract_doi_from_pdf(extract_text_by_blocks(pdf_path.read_bytes()))
+    if doi is None:
+        raise NoDOIFoundError(f"Could not extract a DOI from '{pdf_path.name}'.")
+
+    if Document.objects.filter(doi=doi).exists():
+        raise DuplicateDOIError(f"DOI '{doi}' is already ingested.")
+
+    document = Document.objects.create(doi=doi, title="")
+    run = IngestionRun.start(
+        document=document,
+        input_type=IngestionRun.InputType.PDF_UPLOAD,
+        input_identifier=str(pdf_path),
+        pipeline_version=PIPELINE_VERSION,
+    )
+
+    try:
+        return _run_pipeline(doi, pdf_path, document, run)
+    except Exception as exc:
+        _record_failure(run, exc)
+        raise
+
+
+def _run_pipeline(doi: str, pdf_path: Path | None, document: Document, run: IngestionRun) -> IngestionRun:
+    metadata = _acquire_metadata(doi, document, run)
+
+    if pdf_path is None:
         run.status = IngestionRun.Status.SUCCESS
-        run.success_kind = IngestionRun.SuccessKind.FULL
+        run.success_kind = IngestionRun.SuccessKind.METADATA_ONLY
         run.stage = IngestionRun.Stage.DONE
         run.save(update_fields=["status", "success_kind", "stage"])
         return run
 
-    except Exception as exc:
-        run.status = IngestionRun.Status.FAILED
-        run.error_stage = run.stage
-        run.error_message = str(exc)
-        run.save(update_fields=["status", "error_stage", "error_message"])
-        raise
+    source_file = _store_source_file(doi, pdf_path, document, run)
+    parse_result = _parse_artifact(document, source_file, metadata, run)
+    _chunk_and_embed(document, parse_result["chunks"], run)
+
+    run.status = IngestionRun.Status.SUCCESS
+    run.success_kind = IngestionRun.SuccessKind.FULL
+    run.stage = IngestionRun.Stage.DONE
+    run.save(update_fields=["status", "success_kind", "stage"])
+    return run
+
+
+def _record_failure(run: IngestionRun, exc: Exception) -> None:
+    run.status = IngestionRun.Status.FAILED
+    run.error_stage = run.stage
+    run.error_message = str(exc)
+    run.save(update_fields=["status", "error_stage", "error_message"])
+
 
 
 def _acquire_metadata(doi: str, document: Document, run: IngestionRun) -> dict:
@@ -88,14 +129,7 @@ def _acquire_metadata(doi: str, document: Document, run: IngestionRun) -> dict:
     return metadata
 
 
-def _store_source_file(
-    doi: str, pdf_url: str | None, document: Document, run: IngestionRun, pdf_path: Path | None = None
-) -> SourceFile | None:
-    if pdf_path is None:
-        pdf_path = _download_pdf(doi, pdf_url)
-    if pdf_path is None:
-        return None
-
+def _store_source_file(doi: str, pdf_path: Path, document: Document, run: IngestionRun) -> SourceFile:
     run.stage = IngestionRun.Stage.STORE
     run.save(update_fields=["stage"])
 
