@@ -14,7 +14,7 @@ from dash.exceptions import PreventUpdate
 from pages import graph, ingest, readme
 from utils.colors import EUPHAColors
 from utils.graph import BackendGraph, format_node_metadata
-from utils.parsing import extract_pdf_metadata
+from utils.parsing import extract_pdf_metadata, clean_doi
 
 plotly_template = Path(__file__).parent / "assets/template.json"
 with plotly_template.open() as f:
@@ -449,16 +449,86 @@ def toggle_offcanvas(node_data, is_open):
 
 ### Create here callbacks for ingestions
 
+@app.callback(
+    Output("div-doi-search-status", "children"),
+    Output("div-metadata-section", "style"),
+    Output("input-title", "value", allow_duplicate=True),
+    Output("input-journal", "value", allow_duplicate=True),
+    Output("input-date", "value", allow_duplicate=True),
+    Output("input-abstract", "value", allow_duplicate=True),
+    Output("input-doi", "value", allow_duplicate=True),
+    Output("session-store", "data", allow_duplicate=True),
+    Output("pdf-path-store", "data"),
+    Output("div-upload-pdf-container", "style"),
+    Input("btn-doi-search", "n_clicks"),
+    State("input-doi-search", "value"),
+    prevent_initial_call=True
+)
+def handle_doi_search(n_clicks, doi_query):
+    """ 
+    Triggers the API call to fetch the metadata for the given DOI.
+    """
+    if not n_clicks or not doi_query:
+        raise PreventUpdate
+
+    doi_query = clean_doi(doi_query)
+
+    django_base_url = os.environ.get("DJANGO_URL", "http://127.0.0.1:8000")
+    api_url = f"{django_base_url.rstrip('/')}/ingestion/api/check_and_fetch_doi/"
+    
+    try:
+        response = requests.post(api_url, json={"doi": doi_query}, timeout=300)
+        data = response.json()
+    except Exception as e:
+        return dbc.Alert(f"Connection Error: {str(e)}", color="danger"), {"display": "none"}, no_update, no_update, no_update, no_update, no_update, no_update, no_update, no_update
+
+    status = data.get("status")
+    if status == "exists":
+        return dbc.Alert("This DOI is already in the database. Please enter another.", color="warning"), {"display": "none"}, no_update, no_update, no_update, no_update, no_update, no_update, no_update, no_update
+    elif status == "not_found":
+        return dbc.Alert("Metadata not found in external APIs. Please upload the PDF manually below to extract it.", color="info"), {"display": "block"}, no_update, no_update, no_update, no_update, doi_query, no_update, None, {"display": "block"}
+    elif status == "fetched":
+        metadata = data.get("metadata", {})
+        pdf_found = data.get("pdf_found", False)
+        pdf_path = data.get("pdf_path")
+        
+        status_msg = []
+        upload_style = {"display": "block"}
+        
+        if pdf_found:
+            status_msg.append(dbc.Alert("Metadata and PDF successfully fetched! Please verify the details and click Upload.", color="success"))
+            upload_style = {"display": "none"}
+        else:
+            status_msg.append(dbc.Alert("Metadata fetched successfully, but PDF was not found. Please upload the PDF file.", color="info"))
+        
+        return (
+            html.Div(status_msg),
+            {"display": "block"},
+            metadata.get("title", ""),
+            metadata.get("journal", ""),
+            metadata.get("publication_year", metadata.get("publication_date", "")),
+            metadata.get("abstract", ""),
+            data.get("doi", doi_query),
+            metadata,
+            pdf_path,
+            upload_style
+        )
+    else:
+        error = data.get("error", "Unknown error")
+        return dbc.Alert(f"Error: {error}", color="danger"), {"display": "none"}, no_update, no_update, no_update, no_update, no_update, no_update, no_update, no_update
+
+
 
 @app.callback(
-    Output("input-doi", "value"),
-    Output("input-abstract", "value"),
-    Output("input-journal", "value"),
-    Output("input-date", "value"),
-    Output("input-link", "value"),
-    Output("input-title", "value"),
-    Output("session-store", "data"),
+    Output("input-doi", "value", allow_duplicate=True),
+    Output("input-abstract", "value", allow_duplicate=True),
+    Output("input-journal", "value", allow_duplicate=True),
+    Output("input-date", "value", allow_duplicate=True),
+    Output("input-link", "value", allow_duplicate=True),
+    Output("input-title", "value", allow_duplicate=True),
+    Output("session-store", "data", allow_duplicate=True),
     Input("upload-pdf", "contents"),
+    prevent_initial_call=True,
 )
 def handle_pdf_upload(contents):
 
@@ -584,6 +654,7 @@ def lock_authors(is_correct, ids):
     Output("final-output", "children"),
     Input("btn-final-upload", "n_clicks"),
     State("upload-pdf", "contents"),
+    State("pdf-path-store", "data"),
     State("input-doi", "value"),
     State("input-abstract", "value"),
     State("input-journal", "value"),
@@ -600,6 +671,7 @@ def lock_authors(is_correct, ids):
 def finalize_and_display_json(
     n_clicks,
     pdf_contents,
+    pdf_path,
     doi,
     abstract,
     journal,
@@ -631,15 +703,21 @@ def finalize_and_display_json(
         "authors": authors_list,
     }
 
-    if not pdf_contents:
-        return html.Div([dbc.Alert("Missing PDF file. Please upload a file first.", color="danger")])
+    if pdf_path:
+        metadata_json["pdf_path"] = pdf_path
 
-    content_type, content_string = pdf_contents.split(",")
-    decoded = base64.b64decode(content_string)
+    if not pdf_contents and not pdf_path:
+        return html.Div([dbc.Alert("Missing PDF file. Please upload a file first.", color="danger")])
 
     django_base_url = os.environ.get("DJANGO_URL", "http://127.0.0.1:8000")
     api_url = f"{django_base_url.rstrip('/')}/ingestion/api/dash_upload/"
-    files = {"pdf": ("uploaded_article.pdf", io.BytesIO(decoded), "application/pdf")}
+    
+    files = None
+    if pdf_contents:
+        content_type, content_string = pdf_contents.split(",")
+        decoded = base64.b64decode(content_string)
+        files = {"pdf": ("uploaded_article.pdf", io.BytesIO(decoded), "application/pdf")}
+
     data = {"metadata": json.dumps(metadata_json)}
 
     try:
@@ -649,7 +727,8 @@ def finalize_and_display_json(
             return html.Div(
                 [
                     html.H4("Upload successful"),
-                    dbc.Alert("The article will be processed, thank you for your contribution!", color="success"),
+                    dbc.Alert(f"The article {metadata_json.get('title')} will be processed, \
+                                thank you for your contribution!", color="success"),
                 ]
             )
         else:

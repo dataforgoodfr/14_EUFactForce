@@ -23,6 +23,7 @@ from .services import (
     run_parse_and_embed_async,
     run_pipeline,
     save_uploaded_file_to_document,
+    fetch_file_and_metadata,
 )
 
 _DEFAULT_SEARCH_PATH = (
@@ -139,8 +140,9 @@ def api_dash_upload(request):
         metadata = json.loads(metadata_raw)
 
         uploaded_file = request.FILES.get('pdf')
-        if not uploaded_file:
-            return JsonResponse({"error": "pdf file is required"}, status=400)
+        pdf_path = metadata.get('pdf_path')
+        if not uploaded_file and not pdf_path:
+            return JsonResponse({"error": "pdf file or pdf_path is required"}, status=400)
 
         doi = (metadata.get('doi') or "").strip()
 
@@ -161,7 +163,22 @@ def api_dash_upload(request):
         if "authors" in metadata and isinstance(metadata["authors"], list):
             document.authors.set(Author.from_list(metadata["authors"]))
 
-        save_uploaded_file_to_document(document, uploaded_file)
+        if uploaded_file:
+            save_uploaded_file_to_document(document, uploaded_file)
+        elif pdf_path:
+            import os
+            from .models import SourceFile
+            
+            if not os.path.exists(pdf_path):
+                return JsonResponse({"error": "Provided pdf_path does not exist on server"}, status=400)
+                
+            if document.source_file_id is None:
+                source_file = SourceFile.create_from_file(file_path=Path(pdf_path), doi=document.doi or None)
+                document.source_file = source_file
+                document.save(update_fields=["source_file"])
+            else:
+                raise ValueError("Document already has a PDF attached.")
+
         run_parse_and_embed_async(document.pk)
 
         return JsonResponse(
@@ -174,6 +191,37 @@ def api_dash_upload(request):
     except Exception as e:
         return JsonResponse({"success": False, "error": str(e)}, status=500)
 
+
+@csrf_exempt
+@require_POST
+def api_check_and_fetch_doi(request):
+    """Check if a DOI exists, if not, fetch metadata and optionally PDF."""
+    try:
+        request_payload = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON body"}, status=400)
+
+    doi = (request_payload.get("doi") or "").strip()
+    if not doi:
+        return JsonResponse({"error": "doi is required"}, status=400)
+
+    if Document.objects.filter(doi=doi).exists():
+        return JsonResponse({"status": "exists", "doi": doi})
+
+    try:
+        pdf_path, metadata = fetch_file_and_metadata(doi)
+        if not metadata.get("found"):
+            return JsonResponse({"status": "not_found", "doi": doi})
+            
+        return JsonResponse({
+            "status": "fetched",
+            "doi": doi,
+            "metadata": metadata,
+            "pdf_found": bool(pdf_path),
+            "pdf_path": str(pdf_path) if pdf_path else None
+        })
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
 
 def search(request, keyword: str):
     """Semantic search over indexed chunks using a narrative keyword.

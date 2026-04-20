@@ -12,6 +12,18 @@ def load_png_as_data_uri(png_path: str) -> Optional[str]:
     except FileNotFoundError:
         return None
 
+def clean_doi(doi: str) -> str:
+    """Extract just the DOI string (10.xxxx/xxxxx) from a URL or raw string."""
+    if not doi:
+        return ""
+    doi = doi.strip()
+    # Search for the standard DOI format
+    match = re.search(r'(10\.\d{4,}/\S+)', doi)
+    if match:
+        # Return the matched DOI, removing any trailing punctuation that might have been caught
+        return match.group(1).rstrip('.,;:)]}')
+    return doi
+
 def extract_doi_from_pdf(text: str) -> Optional[str]:
     """Extract DOI from PDF text using regex pattern."""
     # Pattern for DOI: 10.xxxx/xxxxx
