@@ -126,6 +126,9 @@ celerybeat.pid
 .env
 .env.test
 .venv
+
+# Local-only docker compose overrides (port bindings, etc.)
+docker-compose.override.yml
 env/
 venv/
 ENV/
