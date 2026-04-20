@@ -6,9 +6,12 @@ import hashlib
 import logging
 import os
 import tempfile
+import threading
 from pathlib import Path
 
 import requests
+
+from django.db import connection
 
 from eu_fact_force.ingestion.data_collection.collector import fetch_all
 from eu_fact_force.ingestion.data_collection.parsers import PARSERS
