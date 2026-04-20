@@ -9,7 +9,6 @@ class ArxivMetadataParser(MetadataParser):
 
     def __init__(self):
         super().__init__()
-        self.api_name = "arxiv"
         self.client = arxiv.Client()
         self._cache = {}
 
@@ -29,10 +28,10 @@ class ArxivMetadataParser(MetadataParser):
             return {"found": False}
         return {
             "found": True,
-            "article name": article.title,
+            "title": article.title,
             "authors": [{"name": str(a), "orcid": None} for a in article.authors],
             "journal": {"name": article.journal_ref, "issn": None},
-            "publish date": str(article.published)[:10],
+            "publication date": str(article.published)[:10],
             "status": f"updated on {str(article.updated)[:10]}"
             if article.updated != article.published
             else "published",
@@ -51,11 +50,3 @@ class ArxivMetadataParser(MetadataParser):
     def get_pdf_url(self, doi: str) -> list[str]:
         article = self._search(doi)
         return [article.pdf_url] if article else []
-
-
-if __name__ == "__main__":
-    import json
-
-    parser = ArxivMetadataParser()
-    metadata = parser.get_metadata("10.48550/arXiv.2603.06740")
-    print(json.dumps(metadata, indent=2, ensure_ascii=False))

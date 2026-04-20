@@ -7,7 +7,6 @@ class CrossrefMetadataParser(MetadataParser):
 
     def __init__(self):
         super().__init__()
-        self.api_name = "crossref"
         self.url = "https://api.crossref.org/works/{doi}"
         self.session = requests.Session()
         self._cache = {}
@@ -71,7 +70,7 @@ class CrossrefMetadataParser(MetadataParser):
             "title": (doc.get("title") or [None])[0],
             "authors": self._get_authors(doc),
             "journal": {"name": doc.get("publisher"), "issn": (doc.get("ISSN") or [None])[0]},
-            "publish date": self._get_publish_date(doc),
+            "publication date": self._get_publish_date(doc),
             "status": self._get_status(doc),
             "doi": doc.get("DOI"),
             "link": self._get_link(doc),
@@ -97,11 +96,3 @@ class CrossrefMetadataParser(MetadataParser):
         except Exception as e:
             self.logger.error(f"CrossRef error: {e}")
             return []
-
-
-if __name__ == "__main__":
-    import json
-
-    parser = CrossrefMetadataParser()
-    metadata = parser.get_metadata("10.7326/M18-2101")
-    print(json.dumps(metadata, indent=2, ensure_ascii=False))

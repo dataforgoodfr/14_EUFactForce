@@ -7,7 +7,6 @@ class HALMetadataParser(MetadataParser):
 
     def __init__(self):
         super().__init__()
-        self.api_name = "hal"
         self.url = "https://api.archives-ouvertes.fr/search/?q=doiId_s:{doi}&fl=*"
         self.session = requests.Session()
         self._cache = {}
@@ -36,12 +35,12 @@ class HALMetadataParser(MetadataParser):
         orcids = doc.get("authORCIDIdExt_s") or []
         return {
             "found": True,
-            "article name": (doc.get("title_s") or [None])[0],
+            "title": (doc.get("title_s") or [None])[0],
             "authors": [
                 {"name": name, "orcid": orcids[i] if i < len(orcids) else None} for i, name in enumerate(names)
             ],
             "journal": {"name": doc.get("journalTitle_s"), "issn": doc.get("journalIssn_s")},
-            "publish date": doc.get("publicationDate_s"),
+            "publication date": doc.get("publicationDate_s"),
             "status": None,
             "doi": doc.get("doiId_s"),
             "link": doc.get("uri_s"),
@@ -67,11 +66,3 @@ class HALMetadataParser(MetadataParser):
         except Exception as e:
             self.logger.error(f"HAL error: {e}")
             return []
-
-
-if __name__ == "__main__":
-    import json
-
-    parser = HALMetadataParser()
-    metadata = parser.get_metadata("10.26855/ijcemr.2021.01.001")
-    print(json.dumps(metadata, indent=2, ensure_ascii=False))

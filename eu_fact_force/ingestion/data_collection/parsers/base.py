@@ -21,7 +21,6 @@ class MetadataParser(ABC):
     """Base class for all metadata parsers."""
 
     def __init__(self):
-        self.api_name = None
         self.logger = logging.getLogger(self.__class__.__name__)
 
     @abstractmethod
@@ -59,6 +58,7 @@ class MetadataParser(ABC):
 
     def download_pdf(self, doi: str, output_dir: str = "pdf") -> bool:
         """Download the first valid PDF found and save it to output_dir. Returns True on success."""
+        os.makedirs(output_dir, exist_ok=True)
         output_path = os.path.join(output_dir, f"{doi_to_id(doi)}.pdf")
         for url in self.get_pdf_url(doi):
             try:

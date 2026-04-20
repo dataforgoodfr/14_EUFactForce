@@ -5,10 +5,10 @@ from eu_fact_force.ingestion.data_collection.parsers import PARSERS
 FIELD_ORDER = [
     "found",
     "sources",
-    "article name",
+    "title",
     "authors",
     "journal",
-    "publish date",
+    "publication date",
     "status",
     "doi",
     "link",

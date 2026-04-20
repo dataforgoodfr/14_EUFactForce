@@ -9,7 +9,6 @@ class PubMedMetadataParser(MetadataParser):
 
     def __init__(self):
         super().__init__()
-        self.api_name = "pubmed"
         self.search_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
         self.fetch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
         self.session = requests.Session()
@@ -140,13 +139,13 @@ class PubMedMetadataParser(MetadataParser):
 
         return {
             "found": True,
-            "article name": article_name,
+            "title": article_name,
             "authors": self._get_authors(article),
             "journal": {
                 "name": article.findtext(".//Journal/Title"),
                 "issn": article.findtext(".//Journal/ISSN"),
             },
-            "publish date": self._get_pubdate(article),
+            "publication date": self._get_pubdate(article),
             "status": self._get_status(root),
             "doi": doi_val,
             "link": f"https://www.ncbi.nlm.nih.gov/pmc/articles/{self.pmcid}/" if self.pmcid else None,
@@ -165,13 +164,3 @@ class PubMedMetadataParser(MetadataParser):
         pdf_url = f"https://pmc.ncbi.nlm.nih.gov/articles/{self.pmcid}/pdf/{doi_str}.pdf"
 
         return [pdf_url] if self.pmcid else []
-
-
-if __name__ == "__main__":
-    import json
-
-    doi = "10.1177/2515690X20967323"
-    parser = PubMedMetadataParser()
-    metadata = parser.get_metadata(doi)
-    print(json.dumps(metadata, indent=2, ensure_ascii=False))
-    parser.download_pdf(doi)

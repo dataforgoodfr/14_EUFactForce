@@ -7,7 +7,6 @@ class OpenAlexMetadataParser(MetadataParser):
 
     def __init__(self):
         super().__init__()
-        self.api_name = "openalex"
         self.url = "https://api.openalex.org/works/doi:{doi}"
         self.cited_articles_url = "https://api.openalex.org/works?filter=ids.openalex:{ids}&select=id,doi&per-page=200"
         self.session = requests.Session()
@@ -81,7 +80,7 @@ class OpenAlexMetadataParser(MetadataParser):
             "title": doc.get("title"),
             "authors": self._get_authors(doc),
             "journal": self._get_journal(doc),
-            "publish date": doc.get("publication_date"),
+            "publication date": doc.get("publication_date"),
             "status": "retracted" if doc.get("is_retracted") else "published",
             "doi": self._get_doi(doc),
             "link": self._get_link(doc),
@@ -112,11 +111,3 @@ class OpenAlexMetadataParser(MetadataParser):
         except Exception as e:
             self.logger.error(f"OpenAlex error: {e}")
             return []
-
-
-if __name__ == "__main__":
-    import json
-
-    parser = OpenAlexMetadataParser()
-    metadata = parser.get_metadata("10.7326/M18-2101")
-    print(json.dumps(metadata, indent=2, ensure_ascii=False))

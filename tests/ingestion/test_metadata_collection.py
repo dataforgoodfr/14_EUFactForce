@@ -1,5 +1,7 @@
-"""Integration tests for metadata parsers against real APIs."""
+"""Integration tests for metadata parsers and PDF download."""
+import json
 import os
+from pathlib import Path
 
 import pytest
 
@@ -12,16 +14,31 @@ from eu_fact_force.ingestion.data_collection.parsers.unpaywall import UnpaywallM
 
 pytestmark = pytest.mark.integration
 
+FIXTURES = Path(__file__).parent / "fixtures"
+
+TARGET_DOI = {
+    "crossref": {
+        "metadata": "10.1128/mbio.01735-25",
+        "pdf": "10.1007/s00431-021-04343-1"
+    },
+    "openalex": "10.1371/journal.pone.0003140",
+    "pubmed": "10.1177/2515690X20967323",
+    "hal": "10.2196/39220",
+    "arxiv": "10.48550/arXiv.2104.10635",
+    "unpaywall": "10.31234/osf.io/tg7xr",
+    "fake": "10.0000/does.not.exist",
+}
+
 # ---------------------------------------------------------------------------
 # Schema
 # ---------------------------------------------------------------------------
 
 METADATA_SCHEMA = {
     "found":             bool,
-    "article name":      str,
+    "title":             str,
     "authors":           list,
     "journal":           dict,
-    "publish date":      str,
+    "publication date":      str,
     "status":            (str, list),
     "doi":               str,
     "link":              str,
@@ -73,161 +90,123 @@ def assert_valid_metadata(result):
             assert isinstance(sub, str), f"document subtype should be str, got {type(sub)}"
 
 
+def _expected(name):
+    with open(FIXTURES / name) as f:
+        return json.load(f)
+
+
 # ---------------------------------------------------------------------------
 # Crossref
 # ---------------------------------------------------------------------------
-
-CROSSREF_DOI = "10.1371/journal.pone.0003140"
-CROSSREF_EXPECTED = {
-    "doi": "10.1371/journal.pone.0003140",
-    "article name contains": "measles",
-    "journal issn": "1932-6203",
-    "min authors": 1,
-    "min cited articles": 1,
-}
-
 
 class TestCrossrefMetadataParser:
     def setup_method(self):
         self.parser = CrossrefMetadataParser()
 
     def test_known_doi(self):
-        result = self.parser.get_metadata(CROSSREF_DOI)
+        result = self.parser.get_metadata(TARGET_DOI["crossref"]["metadata"])
         assert_valid_metadata(result)
-        assert result["doi"] == CROSSREF_EXPECTED["doi"]
-        assert CROSSREF_EXPECTED["article name contains"] in result["article name"].lower()
-        assert result["journal"]["issn"] == CROSSREF_EXPECTED["journal issn"]
-        assert len(result["authors"]) >= CROSSREF_EXPECTED["min authors"]
-        assert len(result["cited articles"]) >= CROSSREF_EXPECTED["min cited articles"]
+        assert result == _expected("crossref_expected.json")
 
     def test_unknown_doi(self):
-        assert self.parser.get_metadata("10.0000/does.not.exist")["found"] is False
+        assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
+
+    def test_download_pdf(self, tmp_path):
+        success = self.parser.download_pdf(TARGET_DOI["crossref"]["pdf"], output_dir=str(tmp_path))
+        assert success
+        pdfs = list(tmp_path.glob("*.pdf"))
+        assert pdfs and pdfs[0].stat().st_size > 0
 
 
 # ---------------------------------------------------------------------------
 # OpenAlex
 # ---------------------------------------------------------------------------
 
-OPENALEX_DOI = "10.1371/journal.pone.0003140"
-OPENALEX_EXPECTED = {
-    "doi": "10.1371/journal.pone.0003140",
-    "article name contains": "measles",
-    "min cited by count": 1,
-    "min authors": 1,
-}
-
-
 class TestOpenAlexMetadataParser:
     def setup_method(self):
         self.parser = OpenAlexMetadataParser()
 
     def test_known_doi(self):
-        result = self.parser.get_metadata(OPENALEX_DOI)
+        result = self.parser.get_metadata(TARGET_DOI["openalex"])
         assert_valid_metadata(result)
-        assert result["doi"] == OPENALEX_EXPECTED["doi"]
-        assert OPENALEX_EXPECTED["article name contains"] in result["article name"].lower()
-        assert result["cited by count"] >= OPENALEX_EXPECTED["min cited by count"]
-        assert len(result["authors"]) >= OPENALEX_EXPECTED["min authors"]
+        assert result == _expected("openalex_expected.json")
 
     def test_unknown_doi(self):
-        assert self.parser.get_metadata("10.0000/does.not.exist")["found"] is False
+        assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
+
+    def test_download_pdf(self, tmp_path):
+        success = self.parser.download_pdf(TARGET_DOI["openalex"], output_dir=str(tmp_path))
+        assert success
+        pdfs = list(tmp_path.glob("*.pdf"))
+        assert pdfs and pdfs[0].stat().st_size > 0
 
 
 # ---------------------------------------------------------------------------
 # PubMed
 # ---------------------------------------------------------------------------
 
-PUBMED_DOI = "10.1371/journal.pone.0003140"
-PUBMED_EXPECTED = {
-    "article name contains": "measles",
-    "journal issn": "1932-6203",
-    "language": "eng",
-    "min authors": 1,
-    "min keywords": 1,
-}
-
-
 class TestPubMedMetadataParser:
     def setup_method(self):
         self.parser = PubMedMetadataParser()
 
     def test_known_doi(self):
-        result = self.parser.get_metadata(PUBMED_DOI)
+        result = self.parser.get_metadata(TARGET_DOI["pubmed"])
         assert_valid_metadata(result)
-        assert PUBMED_EXPECTED["article name contains"] in result["article name"].lower()
-        assert result["journal"]["issn"] == PUBMED_EXPECTED["journal issn"]
-        assert result["language"] == PUBMED_EXPECTED["language"]
-        assert result["abstract"] is not None and len(result["abstract"]) > 0
-        assert len(result["authors"]) >= PUBMED_EXPECTED["min authors"]
-        assert len(result["keywords"]) >= PUBMED_EXPECTED["min keywords"]
+        assert result == _expected("pubmed_expected.json")
 
     def test_unknown_doi(self):
-        assert self.parser.get_metadata("10.0000/does.not.exist")["found"] is False
+        assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
 
 
 # ---------------------------------------------------------------------------
 # HAL
 # ---------------------------------------------------------------------------
 
-HAL_DOI = "10.26855/ijcemr.2021.01.001"
-HAL_EXPECTED = {
-    "doi": "10.26855/ijcemr.2021.01.001",
-    "min authors": 1,
-}
-
-
 class TestHALMetadataParser:
     def setup_method(self):
         self.parser = HALMetadataParser()
 
     def test_known_doi(self):
-        result = self.parser.get_metadata(HAL_DOI)
+        result = self.parser.get_metadata(TARGET_DOI["hal"])
         assert_valid_metadata(result)
-        assert result["doi"] == HAL_EXPECTED["doi"]
-        assert len(result["authors"]) >= HAL_EXPECTED["min authors"]
+        assert result == _expected("hal_expected.json")
 
     def test_unknown_doi(self):
-        assert self.parser.get_metadata("10.0000/does.not.exist")["found"] is False
+        assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
+
+    def test_download_pdf(self, tmp_path):
+        success = self.parser.download_pdf(TARGET_DOI["hal"], output_dir=str(tmp_path))
+        assert success
+        pdfs = list(tmp_path.glob("*.pdf"))
+        assert pdfs and pdfs[0].stat().st_size > 0
 
 
 # ---------------------------------------------------------------------------
 # ArXiv
 # ---------------------------------------------------------------------------
 
-ARXIV_DOI = "10.48550/arXiv.2603.06740"
-ARXIV_EXPECTED = {
-    "doi": "10.48550/arXiv.2603.06740",
-    "open access": True,
-    "min authors": 1,
-}
-
-
 class TestArxivMetadataParser:
     def setup_method(self):
         self.parser = ArxivMetadataParser()
 
     def test_known_doi(self):
-        result = self.parser.get_metadata(ARXIV_DOI)
+        result = self.parser.get_metadata(TARGET_DOI["arxiv"])
         assert_valid_metadata(result)
-        assert result["doi"] == ARXIV_EXPECTED["doi"]
-        assert result["open access"] is ARXIV_EXPECTED["open access"]
-        assert result["abstract"] is not None and len(result["abstract"]) > 0
-        assert len(result["authors"]) >= ARXIV_EXPECTED["min authors"]
+        assert result == _expected("arxiv_expected.json")
 
     def test_unknown_doi(self):
-        assert self.parser.get_metadata("10.0000/does.not.exist")["found"] is False
+        assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
+
+    def test_download_pdf(self, tmp_path):
+        success = self.parser.download_pdf(TARGET_DOI["arxiv"], output_dir=str(tmp_path))
+        assert success
+        pdfs = list(tmp_path.glob("*.pdf"))
+        assert pdfs and pdfs[0].stat().st_size > 0
 
 
 # ---------------------------------------------------------------------------
 # Unpaywall
 # ---------------------------------------------------------------------------
-
-UNPAYWALL_DOI = "10.1371/journal.pone.0003140"
-UNPAYWALL_EXPECTED = {
-    "article name contains": "measles",
-    "journal issn": "1932-6203",
-}
-
 
 class TestUnpaywallMetadataParser:
     def setup_method(self):
@@ -236,12 +215,19 @@ class TestUnpaywallMetadataParser:
     def test_known_doi(self):
         if not os.environ.get("UNPAYWALL_EMAIL"):
             pytest.skip("UNPAYWALL_EMAIL not set")
-        result = self.parser.get_metadata(UNPAYWALL_DOI)
+        result = self.parser.get_metadata(TARGET_DOI["unpaywall"])
         assert_valid_metadata(result)
-        assert UNPAYWALL_EXPECTED["article name contains"] in result["article name"].lower()
-        assert result["journal"]["issn"] == UNPAYWALL_EXPECTED["journal issn"]
+        assert result == _expected("unpaywall_expected.json")
 
     def test_unknown_doi(self):
         if not os.environ.get("UNPAYWALL_EMAIL"):
             pytest.skip("UNPAYWALL_EMAIL not set")
-        assert self.parser.get_metadata("10.0000/does.not.exist")["found"] is False
+        assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
+
+    def test_download_pdf(self, tmp_path):
+        if not os.environ.get("UNPAYWALL_EMAIL"):
+            pytest.skip("UNPAYWALL_EMAIL not set")
+        success = self.parser.download_pdf(TARGET_DOI["unpaywall"], output_dir=str(tmp_path))
+        assert success
+        pdfs = list(tmp_path.glob("*.pdf"))
+        assert pdfs and pdfs[0].stat().st_size > 0
