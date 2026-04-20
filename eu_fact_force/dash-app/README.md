@@ -19,8 +19,12 @@ The app is structured in 3 pages:
 Readme:
 - App readme page for the user, to be completed
 
-Ingestion
-- Interface to upload PDF docs, to be completed
+Ingestion:
+- Implements a DOI-first automated ingestion workflow.
+- Users input a DOI (or DOI URL) which is sanitized.
+- The app checks the backend to prevent duplicate entries.
+- If the document is new, it queries external APIs (like Crossref and PubMed) to automatically fetch metadata and attempt to download open-access PDFs.
+- Users review the pre-filled metadata and can manually upload a PDF if an open-access version wasn't automatically found, before submitting the article to the database.
 
 Graph:
 - This app contains a search bar with an "Search" button to simulate search.
