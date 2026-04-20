@@ -35,10 +35,10 @@ def make_layout():
 
                     html.Ol(
                         [
-                            html.Li("1. Enter a DOI & hit Check & Fetch"),
-                            html.Li("2. If the article is not in the database, you will be asked to upload the PDF"),
-                            html.Li("3. Make sure details are correct"),
-                            html.Li("4. Click Upload file")
+                            html.Li("Enter a DOI & hit Check & Fetch"),
+                            html.Li("If the article is not in the database, you will be asked to upload the PDF"),
+                            html.Li("Check that the metadata are correct"),
+                            html.Li("Upload file")
                         ],
                         style={
                             "paddingLeft": "1.2rem",
