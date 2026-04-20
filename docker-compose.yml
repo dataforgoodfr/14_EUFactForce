@@ -62,7 +62,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-eu_fact_force}
       POSTGRES_DB: ${POSTGRES_DB:-eu_fact_force}
     ports:
-      - "5432:5432"
+      - 5432
     volumes:
       - postgres_data:/var/lib/postgresql
       - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
@@ -78,8 +78,8 @@ services:
     image: minio/minio:latest
     restart: unless-stopped
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - 9000
+      - 9001
     environment:
       MINIO_ROOT_USER: ${AWS_ACCESS_KEY_ID:-minioadmin}
       MINIO_ROOT_PASSWORD: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
