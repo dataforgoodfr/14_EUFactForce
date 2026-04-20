@@ -18,7 +18,12 @@ from eu_fact_force.ingestion.search import (
 
 from .forms import IngestForm
 from .models import Author, Document
-from .services import attach_pdf_to_document, run_pipeline
+from .services import (
+    attach_pdf_to_document,
+    run_parse_and_embed_async,
+    run_pipeline,
+    save_uploaded_file_to_document,
+)
 
 _DEFAULT_SEARCH_PATH = (
     Path(__file__).resolve().parent / "data_collection" / "default_search.json"
@@ -156,10 +161,11 @@ def api_dash_upload(request):
         if "authors" in metadata and isinstance(metadata["authors"], list):
             document.authors.set(Author.from_list(metadata["authors"]))
 
-        chunks = attach_pdf_to_document(document, uploaded_file)
+        save_uploaded_file_to_document(document, uploaded_file)
+        run_parse_and_embed_async(document.pk)
 
         return JsonResponse(
-            {"success": True, "document_pk": document.pk, "chunks_count": len(chunks)}
+            {"success": True, "document_pk": document.pk, "status": "processing"}
         )
     except json.JSONDecodeError:
         return JsonResponse({"error": "Invalid JSON in metadata"}, status=400)

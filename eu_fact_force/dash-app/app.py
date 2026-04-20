@@ -3,6 +3,7 @@ import io
 import json
 import uuid
 import requests
+import os
 from pathlib import Path
 
 import dash_bootstrap_components as dbc
@@ -636,7 +637,8 @@ def finalize_and_display_json(
     content_type, content_string = pdf_contents.split(",")
     decoded = base64.b64decode(content_string)
 
-    api_url = "http://127.0.0.1:8000/ingestion/api/dash_upload/"
+    django_base_url = os.environ.get("DJANGO_URL", "http://127.0.0.1:8000")
+    api_url = f"{django_base_url.rstrip('/')}/ingestion/api/dash_upload/"
     files = {"pdf": ("uploaded_article.pdf", io.BytesIO(decoded), "application/pdf")}
     data = {"metadata": json.dumps(metadata_json)}
 
@@ -646,9 +648,8 @@ def finalize_and_display_json(
         if response.status_code == 200 and response_data.get("success"):
             return html.Div(
                 [
-                    dbc.Alert("Successfully contributed, thank you!", color="success"),
-                    html.H4("Ingestion Successful"),
-                    html.P(f"Document ID: {response_data.get('document_pk')} | Elements Extracted: {response_data.get('chunks_count')}"),
+                    html.H4("Upload successful"),
+                    dbc.Alert("The article will be processed, thank you for your contribution!", color="success"),
                 ]
             )
         else:

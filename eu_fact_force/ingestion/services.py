@@ -8,8 +8,11 @@ import hashlib
 import logging
 import os
 import tempfile
+import threading
 from pathlib import Path
 from typing import Any
+
+from django.db import connection
 
 from eu_fact_force.ingestion.data_collection.collector import fetch_all
 from eu_fact_force.ingestion.data_collection.parsers import PARSERS
@@ -125,6 +128,23 @@ def attach_pdf_to_document(document: Document, uploaded_file) -> list[DocumentCh
     """
     save_uploaded_file_to_document(document, uploaded_file)
     return parse_and_embed_document(document)
+
+
+def _parse_and_embed_task(document_id: int):
+    """Background task to parse and embed a document."""
+    try:
+        document = Document.objects.get(pk=document_id)
+        parse_and_embed_document(document)
+    except Exception as e:
+        logging.error(f"Error processing document {document_id} in background: {e}")
+    finally:
+        connection.close()
+
+
+def run_parse_and_embed_async(document_id: int) -> None:
+    """Start a background thread to parse and embed the document."""
+    thread = threading.Thread(target=_parse_and_embed_task, args=(document_id,))
+    thread.start()
 
 
 def run_pipeline(doi: str) -> tuple[SourceFile, list[DocumentChunk]]:
