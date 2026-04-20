@@ -179,6 +179,37 @@ def api_dash_upload(request):
         return JsonResponse({"success": False, "error": str(e)}, status=500)
 
 
+@csrf_exempt
+@require_POST
+def api_check_and_fetch_doi(request):
+    """Check if a DOI exists, if not, fetch metadata and optionally PDF."""
+    try:
+        request_payload = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON body"}, status=400)
+
+    doi = (request_payload.get("doi") or "").strip()
+    if not doi:
+        return JsonResponse({"error": "doi is required"}, status=400)
+
+    if Document.objects.filter(doi=doi).exists():
+        return JsonResponse({"status": "exists", "doi": doi})
+
+    try:
+        pdf_path, metadata = fetch_file_and_metadata(doi)
+        if not metadata.get("found"):
+            return JsonResponse({"status": "not_found", "doi": doi})
+            
+        return JsonResponse({
+            "status": "fetched",
+            "doi": doi,
+            "metadata": metadata,
+            "pdf_found": bool(pdf_path),
+            "pdf_path": str(pdf_path) if pdf_path else None
+        })
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
 def search(request, keyword: str):
     """Semantic search over indexed chunks using a narrative keyword.
 

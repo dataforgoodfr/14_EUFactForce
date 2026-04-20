@@ -35,10 +35,10 @@ def make_layout():
 
                     html.Ol(
                         [
-                            html.Li("Upload a PDF"),
-                            html.Li("Validate DOI + abstract"),
-                            html.Li("Validate authors"),
-                            html.Li("Click Upload file")
+                            html.Li("1. Enter a DOI & hit Check & Fetch"),
+                            html.Li("2. If the article is not in the database, you will be asked to upload the PDF"),
+                            html.Li("3. Make sure details are correct"),
+                            html.Li("4. Click Upload file")
                         ],
                         style={
                             "paddingLeft": "1.2rem",
@@ -109,134 +109,150 @@ def make_layout():
 
             dbc.Card([
                 dbc.CardBody([
-                    html.H4(
-                        "Upload & Metadatas",
-                        className="card-title font-weight-bold mb-4"
-                    ),
-                    dcc.Upload(
-                        id='upload-pdf',
-                        children=html.Div(['Drop your article here or ', html.A('Select a PDF', className="font-weight-bold")]),
-                        style={
-                            'width': '100%',
-                            'height': '80px',
-                            'lineHeight': '80px',
-                            'borderWidth': '2px',
-                            'borderStyle': 'dashed',
-                            'borderColor': EUPHAColors.dark_blue,
-                            'textAlign': 'center',
-                            'borderRadius': '10px',
-                            'marginBottom': '20px',
-                            'backgroundColor': EUPHAColors.white,
-                            'cursor': 'pointer'
-                        }
-                    ),
-                    html.H5("General informations", className="mt-4 font-weight-bold"),
+                    html.H4("Step 1: Enter DOI", className="card-title font-weight-bold mb-4"),
+                    html.P("Enter a valid DOI to check if the article is already in our database and to automatically fetch metadata.", className="text-muted"),
                     dbc.Row([
-                        dbc.Col([
-                            dbc.Label("Article Title"),
-                            dbc.Input(id='input-title', type='text', placeholder="Title of the article", className="mb-3"),
-
-                            dbc.Row([
-                                dbc.Col([
-                                    dbc.Label("Category"),
-                                    dcc.Dropdown(
-                                        id='input-category',
-                                        options=[
-                                            {'label': 'Scientific Article', 'value': 'scientific_article'},
-                                            {'label': 'Report', 'value': 'report'},
-                                            {'label': 'Thesis', 'value': 'thesis'},
-                                            {'label': 'Working Paper', 'value': 'working_paper'},
-                                            {'label': 'Book Chapter', 'value': 'book_chapter'},
-                                            {'label': 'Other', 'value': 'other'}
-                                        ],
-                                        value='scientific_article',
-                                        className="mb-3"
-                                    ),
-                                ], width=6),
-                                dbc.Col([
-                                    dbc.Label("Study Type"),
-                                    dcc.Dropdown(
-                                        id='input-type',
-                                        options=[
-                                            {'label': 'Meta-analysis', 'value': 'meta_analysis'},
-                                            {'label': 'Systematic review', 'value': 'systematic_review'},
-                                            {'label': 'Evidence review', 'value': 'evidence_review'},
-                                            {'label': 'Cohort study', 'value': 'cohort_study'},
-                                            {'label': 'Case-control study', 'value': 'case_control_study'},
-                                            {'label': 'Cross-sectional study', 'value': 'cross_sectional_study'},
-                                            {'label': 'Randomized controlled trial', 'value': 'rct'},
-                                            {'label': 'Other', 'value': 'other'}
-                                        ],
-                                        className="mb-3"
-                                    ),
-                                ], width=6),
-                            ]),
-                            dbc.Label("Journal / Source"),
-                            dbc.Input(id='input-journal', type='text', placeholder="ex: The Lancet Public Health", className="mb-3"),
-
-                            dbc.Row([
-                                dbc.Col([
-                                    dbc.Label("Publication Year"),
-                                    dbc.Input(id='input-date', type='text', placeholder="ex: 2023"),
-                                ], width=6),
-                                dbc.Col([
-                                    dbc.Label("DOI"),
-                                    dbc.Input(id='input-doi', type='text', placeholder="ex: 10.1038/s41586-021-00000-x"),
-                                ], width=6),
-                            ], className="mb-3"),
-
-                            dbc.Label("Publication URL"),
-                            dbc.Input(id='input-link', type='text', placeholder="https://pubmed.ncbi.nlm.nih.gov/...", className="mb-3"),
-
-                            dbc.Label("Abstract"),
-                            dbc.Textarea(id='input-abstract', style={'height': 150}, placeholder="Lorem ipsum dolor sit amet"),
-
-                            dbc.Checkbox(id='chk-meta-correct', label="This information is correct", className="mt-3 font-weight-bold text-success"),
-                        ], width=12)
+                        dbc.Col(dbc.Input(id='input-doi-search', type='text', placeholder="ex: 10.1038/s41586-021-00000-x"), width=9),
+                        dbc.Col(dbc.Button("Check & Fetch", id='btn-doi-search', color="primary", className="w-100"), width=3)
                     ]),
+                    html.Div(id="div-doi-search-status", className="mt-3")
                 ])
             ], className="mb-4 shadow-sm", style={"borderRadius": "16px"}),
 
-            dbc.Card([
-                dbc.CardBody([
-                    html.H4(
-                        "Authors",
-                        className="card-title font-weight-bold mb-4"
-                    ),
-                    html.Div(id='authors-container'),
-                    dbc.Button(
-                        "➕ Add an author",
-                        id='btn-add-author',
-                        n_clicks=0,
-                        outline=True,
-                        className="mt-3",
-                        style={
-                            "color": "#3B6096",
-                            "borderColor": "#3B6096",
-                            "borderRadius": "10px",
-                            "fontWeight": "500"
-                        }
-                    ),
-                    html.Br(),
-                    dbc.Checkbox(id='chk-authors-correct', label="Authors information is correct", className="mt-3 font-weight-bold text-success"),
-                ])
-            ], className="mb-4 shadow-sm", style={"borderRadius": "16px"}),
+            html.Div(id="div-metadata-section", style={"display": "none"}, children=[
+                dbc.Card([
+                    dbc.CardBody([
+                        html.H4(
+                            "Upload & Metadatas",
+                            className="card-title font-weight-bold mb-4"
+                        ),
+                        html.Div(id="div-upload-pdf-container", children=[
+                            dcc.Upload(
+                                id='upload-pdf',
+                                children=html.Div(['Drop your article here or ', html.A('Select a PDF', className="font-weight-bold")]),
+                                style={
+                                    'width': '100%',
+                                    'height': '80px',
+                                    'lineHeight': '80px',
+                                    'borderWidth': '2px',
+                                    'borderStyle': 'dashed',
+                                    'borderColor': EUPHAColors.dark_blue,
+                                    'textAlign': 'center',
+                                    'borderRadius': '10px',
+                                    'marginBottom': '20px',
+                                    'backgroundColor': EUPHAColors.white,
+                                    'cursor': 'pointer'
+                                }
+                            )
+                        ]),
+                        html.H5("General informations", className="mt-4 font-weight-bold"),
+                        dbc.Row([
+                            dbc.Col([
+                                dbc.Label("Article Title"),
+                                dbc.Input(id='input-title', type='text', placeholder="Title of the article", className="mb-3"),
 
-            dbc.Button(
-                "Upload file",
-                id='btn-final-upload',
-                size="lg",
-                className="w-100 mb-4",
-                style={
-                    "backgroundColor": EUPHAColors.dark_blue,
-                    "borderColor": EUPHAColors.dark_blue,
-                    "color": "white",
-                    "fontWeight": "600",
-                    "borderRadius": "10px"
-                }
-            ),
+                                dbc.Row([
+                                    dbc.Col([
+                                        dbc.Label("Category"),
+                                        dcc.Dropdown(
+                                            id='input-category',
+                                            options=[
+                                                {'label': 'Scientific Article', 'value': 'scientific_article'},
+                                                {'label': 'Report', 'value': 'report'},
+                                                {'label': 'Thesis', 'value': 'thesis'},
+                                                {'label': 'Working Paper', 'value': 'working_paper'},
+                                                {'label': 'Book Chapter', 'value': 'book_chapter'},
+                                                {'label': 'Other', 'value': 'other'}
+                                            ],
+                                            value='scientific_article',
+                                            className="mb-3"
+                                        ),
+                                    ], width=6),
+                                    dbc.Col([
+                                        dbc.Label("Study Type"),
+                                        dcc.Dropdown(
+                                            id='input-type',
+                                            options=[
+                                                {'label': 'Meta-analysis', 'value': 'meta_analysis'},
+                                                {'label': 'Systematic review', 'value': 'systematic_review'},
+                                                {'label': 'Evidence review', 'value': 'evidence_review'},
+                                                {'label': 'Cohort study', 'value': 'cohort_study'},
+                                                {'label': 'Case-control study', 'value': 'case_control_study'},
+                                                {'label': 'Cross-sectional study', 'value': 'cross_sectional_study'},
+                                                {'label': 'Randomized controlled trial', 'value': 'rct'},
+                                                {'label': 'Other', 'value': 'other'}
+                                            ],
+                                            className="mb-3"
+                                        ),
+                                    ], width=6),
+                                ]),
+                                dbc.Label("Journal / Source"),
+                                dbc.Input(id='input-journal', type='text', placeholder="ex: The Lancet Public Health", className="mb-3"),
 
-            html.Div(id='final-output', className="mt-4 pb-5")
+                                dbc.Row([
+                                    dbc.Col([
+                                        dbc.Label("Publication Year"),
+                                        dbc.Input(id='input-date', type='text', placeholder="ex: 2023"),
+                                    ], width=6),
+                                    dbc.Col([
+                                        dbc.Label("DOI"),
+                                        dbc.Input(id='input-doi', type='text', placeholder="ex: 10.1038/s41586-021-00000-x"),
+                                    ], width=6),
+                                ], className="mb-3"),
+
+                                dbc.Label("Publication URL"),
+                                dbc.Input(id='input-link', type='text', placeholder="https://pubmed.ncbi.nlm.nih.gov/...", className="mb-3"),
+
+                                dbc.Label("Abstract"),
+                                dbc.Textarea(id='input-abstract', style={'height': 150}, placeholder="Lorem ipsum dolor sit amet"),
+
+                                dbc.Checkbox(id='chk-meta-correct', label="This information is correct", className="mt-3 font-weight-bold text-success"),
+                            ], width=12)
+                        ]),
+                    ])
+                ], className="mb-4 shadow-sm", style={"borderRadius": "16px"}),
+
+                dbc.Card([
+                    dbc.CardBody([
+                        html.H4(
+                            "Authors",
+                            className="card-title font-weight-bold mb-4"
+                        ),
+                        html.Div(id='authors-container'),
+                        dbc.Button(
+                            "➕ Add an author",
+                            id='btn-add-author',
+                            n_clicks=0,
+                            outline=True,
+                            className="mt-3",
+                            style={
+                                "color": "#3B6096",
+                                "borderColor": "#3B6096",
+                                "borderRadius": "10px",
+                                "fontWeight": "500"
+                            }
+                        ),
+                        html.Br(),
+                        dbc.Checkbox(id='chk-authors-correct', label="Authors information is correct", className="mt-3 font-weight-bold text-success"),
+                    ])
+                ], className="mb-4 shadow-sm", style={"borderRadius": "16px"}),
+
+                dbc.Button(
+                    "Upload file",
+                    id='btn-final-upload',
+                    size="lg",
+                    className="w-100 mb-4",
+                    style={
+                        "backgroundColor": EUPHAColors.dark_blue,
+                        "borderColor": EUPHAColors.dark_blue,
+                        "color": "white",
+                        "fontWeight": "600",
+                        "borderRadius": "10px"
+                    }
+                ),
+
+                html.Div(id='final-output', className="mt-4 pb-5")
+            ])
         ],
         style={
             "marginLeft": "16%",
@@ -248,6 +264,7 @@ def make_layout():
 
     return html.Div([
         dcc.Store(id='session-store', data={}),
+        dcc.Store(id='pdf-path-store', data=None),
         sidebar, main_content],
         style={"fontFamily": "system-ui, -apple-system, sans-serif",
             "backgroundColor": "#f5f7fa"})

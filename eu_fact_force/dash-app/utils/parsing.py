@@ -1,4 +1,5 @@
 import base64
+import re
 from typing import Optional
 
 from eu_fact_force.ingestion.pdf_utils import (
@@ -22,6 +23,16 @@ def load_png_as_data_uri(png_path: str) -> Optional[str]:
     except FileNotFoundError:
         return None
 
+
+def clean_doi(doi: str) -> str:
+    """Extract just the DOI string (10.xxxx/xxxxx) from a URL or raw string."""
+    if not doi:
+        return ""
+    doi = doi.strip()
+    match = re.search(r'(10\.\d{4,}/\S+)', doi)
+    if match:
+        return match.group(1).rstrip('.,;:)]}'  )
+    return doi
 
 def extract_pdf_metadata(uploaded_file) -> dict:
     """Extract metadata from an uploaded PDF file object."""
