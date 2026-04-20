@@ -3,6 +3,7 @@ from pathlib import Path
 
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
 from eu_fact_force.app.settings import FLAG_RETRIEVE_DEFAULT_JSON
@@ -13,7 +14,7 @@ from eu_fact_force.ingestion.search import (
     search_narrative,
 )
 
-from eu_fact_force.ingestion.models import Document, DocumentChunk
+from eu_fact_force.ingestion.models import Author, Document, DocumentChunk
 
 from .forms import IngestForm
 from .services import DuplicateDOIError, attach_pdf_to_document, ingest_by_doi
@@ -49,6 +50,7 @@ def ingest(request):
     return render(request, "ingestion/ingest.html", context)
 
 
+@csrf_exempt
 @require_POST
 def api_ingest(request):
     """Ingest a document by DOI: fetch metadata, upload PDF to S3, parse and embed chunks.
@@ -91,6 +93,7 @@ def api_ingest(request):
         return JsonResponse({"success": False, "error": str(e)}, status=500)
 
 
+@csrf_exempt
 @require_POST
 def api_attach_pdf(request, pk):
     """Attach a PDF to an existing document (metadata-only) and trigger parsing and embedding.
@@ -122,6 +125,54 @@ def api_attach_pdf(request, pk):
         return JsonResponse(
             {"success": True, "document_pk": pk, "chunks_count": chunks_count}
         )
+    except ValueError as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=400)
+    except Exception as e:
+        return JsonResponse({"success": False, "error": str(e)}, status=500)
+
+
+@csrf_exempt
+@require_POST
+def api_dash_upload(request):
+    """Receive a PDF and metadata from the Dash app, create document and run pipeline."""
+    try:
+        metadata_raw = request.POST.get("metadata")
+        if not metadata_raw:
+            return JsonResponse({"error": "metadata field is required"}, status=400)
+
+        metadata = json.loads(metadata_raw)
+
+        uploaded_file = request.FILES.get("pdf")
+        if not uploaded_file:
+            return JsonResponse({"error": "pdf file is required"}, status=400)
+
+        doi = (metadata.get("doi") or "").strip()
+
+        if doi:
+            document, _ = Document.objects.update_or_create(
+                doi=doi,
+                defaults={
+                    "title": metadata.get("title", ""),
+                    "keywords": [metadata.get("category")] if metadata.get("category") else [],
+                },
+            )
+        else:
+            document = Document.objects.create(
+                title=metadata.get("title", ""),
+                keywords=[metadata.get("category")] if metadata.get("category") else [],
+            )
+
+        if "authors" in metadata and isinstance(metadata["authors"], list):
+            document.authors.set(Author.from_list(metadata["authors"]))
+
+        run = attach_pdf_to_document(document, uploaded_file)
+        chunks_count = DocumentChunk.objects.filter(document=run.document).count()
+
+        return JsonResponse(
+            {"success": True, "document_pk": document.pk, "chunks_count": chunks_count}
+        )
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON in metadata"}, status=400)
     except ValueError as e:
         return JsonResponse({"success": False, "error": str(e)}, status=400)
     except Exception as e:
