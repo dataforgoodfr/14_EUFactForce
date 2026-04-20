@@ -40,12 +40,12 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-eu_fact_force}
       POSTGRES_DB: ${POSTGRES_DB:-eu_fact_force}
     ports:
-      - 5432
+      - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql
       - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-eu_fact_force} -d ${POSTGRES_DB:-eu_fact_force}"]
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-eu_fact_force} -d ${POSTGRES_DB:-eu_fact_force}" ]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -56,17 +56,17 @@ services:
     image: rustfs/rustfs:latest
     restart: unless-stopped
     ports:
-      - 9000
-      - 9001
+      - "9000:9000"
+      - "9001:9001"
     environment:
       RUSTFS_ACCESS_KEY: ${AWS_ACCESS_KEY_ID:-minioadmin}
       RUSTFS_SECRET_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
       RUSTFS_CONSOLE_ENABLE: "true"
-    command: ["--console-enable", "/data"]
+    command: [ "--console-enable", "/data" ]
     volumes:
       - ./rustfs_data:/data
     healthcheck:
-      test: ["CMD-SHELL", "wget --server-response -qO /dev/null http://localhost:9000/minio/health/live 2>&1 | grep -qE 'HTTP/1\\.[01] (200|403)'"]
+      test: [ "CMD-SHELL", "wget --server-response -qO /dev/null http://localhost:9000/minio/health/live 2>&1 | grep -qE 'HTTP/1\\.[01] (200|403)'" ]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -78,7 +78,7 @@ services:
     depends_on:
       rustfs:
         condition: service_healthy
-    entrypoint: ["/bin/sh", "-c"]
+    entrypoint: [ "/bin/sh", "-c" ]
     command:
       - |
         aws s3 mb s3://$${AWS_STORAGE_BUCKET_NAME} --endpoint-url http://rustfs:9000 2>/dev/null || true

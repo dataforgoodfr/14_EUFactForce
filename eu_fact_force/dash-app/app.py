@@ -2,6 +2,7 @@ import base64
 import io
 import json
 import uuid
+import requests
 from pathlib import Path
 
 import dash_bootstrap_components as dbc
@@ -581,6 +582,7 @@ def lock_authors(is_correct, ids):
 @app.callback(
     Output("final-output", "children"),
     Input("btn-final-upload", "n_clicks"),
+    State("upload-pdf", "contents"),
     State("input-doi", "value"),
     State("input-abstract", "value"),
     State("input-journal", "value"),
@@ -596,6 +598,7 @@ def lock_authors(is_correct, ids):
 )
 def finalize_and_display_json(
     n_clicks,
+    pdf_contents,
     doi,
     abstract,
     journal,
@@ -627,21 +630,31 @@ def finalize_and_display_json(
         "authors": authors_list,
     }
 
-    return html.Div(
-        [
-            dbc.Alert("Successfully contributed, thank you!", color="success"),
-            html.H4("Metadata JSON"),
-            html.Pre(
-                json.dumps(metadata_json, indent=4),
-                style={
-                    "backgroundColor": "#f8f9fa",
-                    "padding": "15px",
-                    "borderRadius": "8px",
-                    "border": "1px solid #dee2e6",
-                },
-            ),
-        ]
-    )
+    if not pdf_contents:
+        return html.Div([dbc.Alert("Missing PDF file. Please upload a file first.", color="danger")])
+
+    content_type, content_string = pdf_contents.split(",")
+    decoded = base64.b64decode(content_string)
+
+    api_url = "http://127.0.0.1:8000/ingestion/api/dash_upload/"
+    files = {"pdf": ("uploaded_article.pdf", io.BytesIO(decoded), "application/pdf")}
+    data = {"metadata": json.dumps(metadata_json)}
+
+    try:
+        response = requests.post(api_url, files=files, data=data, timeout=300)
+        response_data = response.json()
+        if response.status_code == 200 and response_data.get("success"):
+            return html.Div(
+                [
+                    dbc.Alert("Successfully contributed, thank you!", color="success"),
+                    html.H4("Ingestion Successful"),
+                    html.P(f"Document ID: {response_data.get('document_pk')} | Elements Extracted: {response_data.get('chunks_count')}"),
+                ]
+            )
+        else:
+            return html.Div([dbc.Alert(f"Server Error: {response_data.get('error', 'Unknown error')}", color="danger")])
+    except Exception as e:
+        return html.Div([dbc.Alert(f"Connection Error: {str(e)}", color="danger")])
 
 
 if __name__ == "__main__":
