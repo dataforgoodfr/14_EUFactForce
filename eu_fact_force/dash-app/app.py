@@ -218,16 +218,16 @@ def get_search_data(n_clicks, search_text):
             list(set(filters["documents"])),
             list(set(filters["journal"])),
             list(set(filters["authors"])),
-            min(filters["date"]),
-            max(filters["date"]),
+            min(filters["date"]) if filters["date"] else None,
+            max(filters["date"]) if filters["date"] else None,
             list(set(filters["node_types"])),
             list(set(filters["chunk_types"])),
             list(set(filters["keywords"])),
             list(set(filters["documents"])),
             list(set(filters["journal"])),
             list(set(filters["authors"])),
-            min(filters["date"]),
-            max(filters["date"]),
+            min(filters["date"]) if filters["date"] else None,
+            max(filters["date"]) if filters["date"] else None,
         ]
     else:
         raise PreventUpdate
