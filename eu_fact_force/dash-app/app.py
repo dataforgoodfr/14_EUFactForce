@@ -655,6 +655,7 @@ def lock_authors(is_correct, ids):
     Input("btn-final-upload", "n_clicks"),
     State("upload-pdf", "contents"),
     State("pdf-path-store", "data"),
+    State("session-store", "data"),
     State("input-doi", "value"),
     State("input-abstract", "value"),
     State("input-journal", "value"),
@@ -672,6 +673,7 @@ def finalize_and_display_json(
     n_clicks,
     pdf_contents,
     pdf_path,
+    session_data,
     doi,
     abstract,
     journal,
@@ -691,7 +693,11 @@ def finalize_and_display_json(
         if n or s
     ]
 
-    metadata_json = {
+    # Start with the background metadata fetched from external APIs
+    metadata_json = session_data or {}
+    
+    # Override with the user-reviewed/essential fields from the UI
+    metadata_json.update({
         "title": title,
         "category": category,
         "study_type": study_type,
@@ -701,7 +707,7 @@ def finalize_and_display_json(
         "article_link": link,
         "abstract": abstract,
         "authors": authors_list,
-    }
+    })
 
     if pdf_path:
         metadata_json["pdf_path"] = pdf_path
