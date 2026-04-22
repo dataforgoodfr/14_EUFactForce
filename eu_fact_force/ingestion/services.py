@@ -13,9 +13,10 @@ from eu_fact_force.ingestion.data_collection.collector import fetch_all
 from eu_fact_force.ingestion.data_collection.parsers import PARSERS
 from eu_fact_force.ingestion.data_collection.parsers.base import doi_to_id
 from eu_fact_force.ingestion.embedding import add_embeddings
-from eu_fact_force.ingestion.models import Author, Document, DocumentChunk, IngestionRun, ParsedArtifact, SourceFile
 from eu_fact_force.ingestion.parsing import parse_source_file
 from eu_fact_force.ingestion.pdf_utils import extract_doi_from_pdf, extract_text_by_blocks
+
+from .models import Author, Document, DocumentChunk, IngestionRun, ParsedArtifact, SourceFile
 
 PIPELINE_VERSION = "0.1.0"
 
@@ -32,17 +33,29 @@ def hash_doi(doi: str) -> str:
     return hashlib.sha256(doi.encode()).hexdigest()
 
 
-def ingest_by_doi(doi: str, pdf_url: str | None = None) -> IngestionRun:
+def ingest_by_doi(
+    doi: str,
+    pdf_url: str | None = None,
+    pdf_path: Path | None = None,
+) -> IngestionRun:
     """
     Ingest a document by DOI. Fetches metadata and attempts to download the PDF.
     Falls back to metadata-only if no PDF can be retrieved.
 
     Raises DuplicateDOIError if the DOI already exists.
     """
-    if Document.objects.filter(doi=doi).exists():
-        raise DuplicateDOIError(f"DOI '{doi}' is already ingested.")
+    existing = Document.objects.filter(doi=doi).first()
+    if existing and existing.source_file_id:
+        raise DuplicateDOIError(f"DOI '{doi}' is already fully ingested.")
 
-    document = Document.objects.create(doi=doi, title="")
+    # Resume a metadata-only document if one exists, otherwise create fresh.
+    if existing:
+        document = existing
+        metadata = None
+    else:
+        document = Document.objects.create(doi=doi, title="")
+        metadata = None
+
     run = IngestionRun.start(
         document=document,
         input_type=IngestionRun.InputType.DOI,
@@ -196,3 +209,4 @@ def _download_pdf(doi: str, pdf_url: str | None) -> Path | None:
         except Exception as exc:
             logging.warning("%s PDF error: %s", parser.__class__.__name__, exc)
     return None
+

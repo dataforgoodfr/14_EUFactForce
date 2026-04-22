@@ -103,7 +103,8 @@ def test_metadata_only_path(mock_download, mock_fetch):
 @pytest.mark.django_db
 def test_duplicate_doi_returns_early():
     doi = "10.1234/duplicate"
-    Document.objects.create(title="Existing Paper", doi=doi)
+    source_file = SourceFile.objects.create(doi=doi, s3_key="key", status=SourceFile.Status.STORED)
+    Document.objects.create(title="Existing Paper", doi=doi, source_file=source_file)
 
     doc_count_before = Document.objects.count()
     run_count_before = IngestionRun.objects.count()

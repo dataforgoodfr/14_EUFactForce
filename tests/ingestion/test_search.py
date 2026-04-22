@@ -174,6 +174,11 @@ class TestChunksContext:
             doc.id: {
                 "id": doc.id,
                 "doi": "doi/single",
+                "title": doc.title,
+                "keywords": [],
+                "authors": [],
+                "journal": "",
+                "date": "",
             }
         }
 
@@ -188,6 +193,6 @@ class TestChunksContext:
 
         assert [x["content"] for x in result["chunks"]] == ["alpha", "beta"]
         assert result["documents"] == {
-            doc1.id: {"id": doc1.id, "doi": "doi/one"},
-            doc2.id: {"id": doc2.id, "doi": "doi/two"},
+            doc1.id: {"id": doc1.id, "doi": "doi/one", "title": doc1.title, "keywords": [], "authors": [], "journal": "", "date": ""},
+            doc2.id: {"id": doc2.id, "doi": "doi/two", "title": doc2.title, "keywords": [], "authors": [], "journal": "", "date": ""},
         }

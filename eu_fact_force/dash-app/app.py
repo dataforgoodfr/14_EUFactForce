@@ -8,6 +8,7 @@ from pathlib import Path
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 import plotly.io as pio
+import requests
 from dash import ALL, Dash, Input, Output, State, ctx, dcc, html, no_update
 from dash.exceptions import PreventUpdate
 from pages import graph, ingest, readme
@@ -285,35 +286,37 @@ def update_graph_and_list(
         }
 
         # Filter keywords
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document", "keyword")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and any(
-                    item in filter_keywords
-                    for item in nodes[n]["data"]["document_metadata"].get("keywords", [])
+        if filter_keywords:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "keyword")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and any(
+                        item in filter_keywords
+                        for item in nodes[n]["data"]["document_metadata"].get("keywords", [])
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and any(
-                    item in filter_keywords
-                    for item in nodes[n]["data"]["metadata"].get("keywords", [])
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and any(
+                        item in filter_keywords
+                        for item in nodes[n]["data"]["metadata"].get("keywords", [])
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "keyword"
-                and nodes[n]["data"]["label"] in filter_keywords
-            )
-        }
+                or (
+                    nodes[n]["data"]["type"] == "keyword"
+                    and nodes[n]["data"]["label"] in filter_keywords
+                )
+            }
 
         # Filter dates
         nodes = {
             n: nodes[n]
             for n in nodes
             if nodes[n]["data"]["type"] not in ("chunk", "document")
+            or start_date is None or end_date is None
             or (
                 nodes[n]["data"]["type"] == "chunk"
                 and nodes[n]["data"]["document_metadata"]["date"] >= start_date
@@ -343,48 +346,50 @@ def update_graph_and_list(
         }
 
         # Filter journals
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document", "journal")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and nodes[n]["data"]["document_metadata"]["journal"] in filter_journals
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and nodes[n]["data"]["metadata"]["journal"] in filter_journals
-            )
-            or (
-                nodes[n]["data"]["type"] == "journal"
-                and nodes[n]["data"]["label"] in filter_journals
-            )
-        }
+        if filter_journals:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "journal")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and nodes[n]["data"]["document_metadata"]["journal"] in filter_journals
+                )
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and nodes[n]["data"]["metadata"]["journal"] in filter_journals
+                )
+                or (
+                    nodes[n]["data"]["type"] == "journal"
+                    and nodes[n]["data"]["label"] in filter_journals
+                )
+            }
 
         # Filter authors
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document", "author")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and any(
-                    item in filter_authors
-                    for item in nodes[n]["data"]["document_metadata"]["authors"]
+        if filter_authors:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "author")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and any(
+                        item in filter_authors
+                        for item in nodes[n]["data"]["document_metadata"]["authors"]
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and any(
-                    item in filter_authors
-                    for item in nodes[n]["data"]["metadata"]["authors"]
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and any(
+                        item in filter_authors
+                        for item in nodes[n]["data"]["metadata"]["authors"]
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "author"
-                and nodes[n]["data"]["label"] in filter_authors
-            )
-        }
+                or (
+                    nodes[n]["data"]["type"] == "author"
+                    and nodes[n]["data"]["label"] in filter_authors
+                )
+            }
 
         # Update edges
         edges = [
@@ -457,12 +462,14 @@ def toggle_offcanvas(node_data, is_open):
     Output("input-link", "value"),
     Output("input-title", "value"),
     Output("session-store", "data"),
+    Output("upload-status", "children"),
     Input("upload-pdf", "contents"),
+    State("upload-pdf", "filename"),
 )
-def handle_pdf_upload(contents):
+def handle_pdf_upload(contents, filename):
 
     if contents is None:
-        return no_update, no_update, no_update, no_update, no_update, no_update, {}
+        return no_update, no_update, no_update, no_update, no_update, no_update, {}, no_update
 
     # decoding of passed PDFs
     content_type, content_string = contents.split(",")
@@ -470,6 +477,13 @@ def handle_pdf_upload(contents):
 
     # extract_pdf_metadata call
     metadata = extract_pdf_metadata(io.BytesIO(decoded))
+    metadata["pdf_content"] = content_string  # base64 payload for backend
+
+    status = dbc.Alert(
+        [html.I(className="me-2"), f"PDF loaded: {filename}"],
+        color="info",
+        style={"padding": "0.5rem 1rem", "marginTop": "8px"},
+    )
 
     return (
         metadata.get("doi", ""),
@@ -479,6 +493,7 @@ def handle_pdf_upload(contents):
         metadata.get("article_link", ""),
         metadata.get("title", ""),
         metadata,
+        status,
     )
 
 
@@ -581,6 +596,7 @@ def lock_authors(is_correct, ids):
 
 @app.callback(
     Output("final-output", "children"),
+    Output("btn-final-upload", "disabled"),
     Input("btn-final-upload", "n_clicks"),
     State("input-doi", "value"),
     State("input-abstract", "value"),
@@ -593,6 +609,7 @@ def lock_authors(is_correct, ids):
     State({"type": "auth-name", "index": ALL}, "value"),
     State({"type": "auth-surname", "index": ALL}, "value"),
     State({"type": "auth-email", "index": ALL}, "value"),
+    State("session-store", "data"),
     prevent_initial_call=True,
 )
 def finalize_and_display_json(
@@ -608,41 +625,50 @@ def finalize_and_display_json(
     names,
     surnames,
     emails,
+    session,
 ):
 
-    authors_list = [
-        {"name": n, "surname": s, "email": e}
-        for n, s, e in zip(names, surnames, emails)
-        if n or s
-    ]
+    if not doi:
+        return dbc.Alert("Please enter a DOI before uploading.", color="warning"), False
 
-    metadata_json = {
-        "title": title,
-        "category": category,
-        "study_type": study_type,
-        "journal": journal,
-        "publication_year": date,
-        "doi": doi,
-        "article_link": link,
-        "abstract": abstract,
-        "authors": authors_list,
-    }
+    base_url = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
+    pdf_b64 = (session or {}).get("pdf_content")
 
-    return html.Div(
-        [
-            dbc.Alert("Successfully contributed, thank you!", color="success"),
-            html.H4("Metadata JSON"),
-            html.Pre(
-                json.dumps(metadata_json, indent=4),
-                style={
-                    "backgroundColor": "#f8f9fa",
-                    "padding": "15px",
-                    "borderRadius": "8px",
-                    "border": "1px solid #dee2e6",
-                },
-            ),
-        ]
-    )
+    data_fields = {"doi": doi.strip()}
+    if link:
+        data_fields["pdf_url"] = link
+    files = None
+    if pdf_b64:
+        files = {"pdf_file": ("upload.pdf", base64.b64decode(pdf_b64), "application/pdf")}
+
+    response = None
+    try:
+        response = requests.post(
+            f"{base_url}/ingestion/ingest/doi/",
+            data=data_fields,
+            files=files,
+            timeout=300,
+        )
+        data = response.json()
+    except requests.exceptions.ConnectionError:
+        return dbc.Alert("Cannot reach backend — is Django running on port 8000?", color="danger"), False
+    except Exception as exc:
+        status = response.status_code if response is not None else "N/A"
+        body = (response.text[:300] if response is not None else "") or str(exc)
+        return dbc.Alert(f"Backend returned HTTP {status}: {body}", color="danger"), False
+
+    if response.status_code == 409:
+        return dbc.Alert(data.get("error", "Duplicate DOI."), color="warning"), False
+
+    if not response.ok:
+        return dbc.Alert(
+            f"Ingestion failed: {data.get('error', response.text)}", color="danger"
+        ), False
+
+    return dbc.Alert(
+        f"Successfully ingested DOI {doi} (run #{data['run_id']}, {data['success_kind']}).",
+        color="success",
+    ), False
 
 
 if __name__ == "__main__":
