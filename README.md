@@ -8,6 +8,7 @@
 - [Key Features](#key-features)
 - [Architecture](#architecture)
 - [Contributing](#contributing)
+- [Seeding the database](#seeding-the-database)
 
 ## About
 
@@ -189,37 +190,31 @@ Configuration (JSON par défaut)
 Pour utiliser le JSON par défaut (`default_search.json`) côté backend, définir la variable suivante à 1 dans le fichier `.env`:
 FLAG_RETRIEVE_DEFAULT_JSON=1
 
-## Test de performance
+## Seeding the database
 
-Le projet propose un ensemble de documents relatifs aux liens entre les vaccins et l'autisme.
-Ces documents vont permettre de tester de bout en bout la pipeline : 
-- parsing des pdf,
-- extraction des chunks,
-- vectorisation des chuncks,
-- mécanisme de recherche.
+The `seed_db` management command populates the database with scientific articles. It supports two input modes.
 
-Puisque tous les documents ne sont pas nécessairement facilement accessible via les API, les documents et les metadata sont réunis dans un archive (puis un S3 dans un second temps).
-L'archive contient : 
-- la liste des paragraphes les plus pertinents à extraire dans le json `vaccins_annotated.json`,
-- les fichiers pdf,
-- un fichier json par pdf contenant les métadonnées.
+**From a CSV of DOIs** (fetches PDFs from the internet):
 
-Le fichier json contient la structure suivante :
-
-```json
-{
-    "tags_pubmed": [
-        "tag1",
-        "tag2",
-        "tag3"
-    ],
-    "title" : "Title",
-    "category" : "category",
-    "type" : "type",
-    "journal": "journal",
-    "authors" : ["first author", "seocond author"],
-    "year": 2022,
-    "url" : "http",
-    "doi" : "test_doi"
-}
+```bash
+uv run python manage.py seed_db --csv data/seed/vaccine_autism_evidence_curated.csv
 ```
+
+The CSV must have a `doi` column. An optional `pdf_url` column can provide a direct download link. A curated list of vaccine/autism articles is included at `data/seed/vaccine_autism_evidence_curated.csv`.
+
+**From a zip archive of pre-downloaded PDFs** (skips the download step):
+
+```bash
+uv run python manage.py seed_db --zip archive.zip
+```
+
+The DOI is extracted automatically from the text of each PDF (first 3 pages). PDFs where no DOI can be found are skipped and reported. Metadata is still fetched from the API using the extracted DOI.
+
+**Dry run** (preview without writing to the database):
+
+```bash
+uv run python manage.py seed_db --csv data/seed/vaccine_autism_evidence_curated.csv --dry-run
+uv run python manage.py seed_db --zip archive.zip --dry-run
+```
+
+Duplicate DOIs (already in the database or repeated in the input) are skipped and reported without causing the command to fail.
