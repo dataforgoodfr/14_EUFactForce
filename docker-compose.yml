@@ -1,6 +1,6 @@
 services:
   app:
-    build:
+    build: &django_build
       context: .
       dockerfile: Dockerfile
       args:
@@ -12,17 +12,19 @@ services:
       DEBUG: ${DEBUG:-0}
       SECRET_KEY: ${SECRET_KEY:-dev-secret-key-change-in-production}
       DATABASE_URL: ${DATABASE_URL:-postgresql://eu_fact_force:eu_fact_force@postgres:5432/eu_fact_force}
-      AWS_S3_ENDPOINT_URL: ${AWS_S3_ENDPOINT_URL:-http://rustfs:9000}
+      AWS_S3_ENDPOINT_URL: ${AWS_S3_ENDPOINT_URL:-http://minio:9000}
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-minioadmin}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
       AWS_S3_REGION_NAME: ${AWS_S3_REGION_NAME:-eu-west-1}
       AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-eu-fact-force-files}
+      SERVICE_FQDN_APP_8000:
     volumes:
       - .:/app
+      - hf_cache:/hf_cache
     depends_on:
       postgres:
         condition: service_healthy
-      rustfs-init:
+      minio-init:
         condition: service_completed_successfully
     labels:
       - traefik.enable=true
@@ -32,6 +34,26 @@ services:
       - traefik.docker.network=d4g-internal
       - traefik.http.services.eu-fact-force.loadbalancer.server.port=8000
 
+  # Dash visualization UI. Reuses the same image as `app` (dash, dash-bootstrap-components,
+  # dash-cytoscape are already in the runtime deps). Overrides entrypoint so it doesn't run
+  # Django migrations.
+  dash:
+    build: *django_build
+    ports:
+      - 8050
+    environment:
+      BACKEND_URL: http://app:8000
+      DASH_HOST: 0.0.0.0
+      DASH_PORT: 8050
+      SERVICE_FQDN_DASH_8050:
+    volumes:
+      - .:/app
+    working_dir: /app/eu_fact_force/dash-app
+    entrypoint: null
+    command: ["uv", "run", "--no-sync", "python", "app.py"]
+    depends_on:
+      - app
+
   # PostgreSQL 18+ : monter sur /var/lib/postgresql (l’image gère le sous-dossier de version).
   postgres:
     image: pgvector/pgvector:pg18-trixie
@@ -40,9 +62,9 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-eu_fact_force}
       POSTGRES_DB: ${POSTGRES_DB:-eu_fact_force}
     ports:
-      - "5432:5432"
+      - 5432
     volumes:
-      - ./postgres_data:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql
       - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-eu_fact_force} -d ${POSTGRES_DB:-eu_fact_force}"]
@@ -50,40 +72,45 @@ services:
       timeout: 5s
       retries: 5
 
-  # RustFS: S3-compatible object storage with web console (Apache 2.0).
+  # MinIO: S3-compatible object storage with web console.
   # Console UI: http://localhost:9001 | S3 API: http://localhost:9000
-  rustfs:
-    image: rustfs/rustfs:latest
+  minio:
+    image: minio/minio:latest
     restart: unless-stopped
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - 9000
+      - 9001
     environment:
-      RUSTFS_ACCESS_KEY: ${AWS_ACCESS_KEY_ID:-minioadmin}
-      RUSTFS_SECRET_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
-      RUSTFS_CONSOLE_ENABLE: "true"
-    command: ["--console-enable", "/data"]
+      MINIO_ROOT_USER: ${AWS_ACCESS_KEY_ID:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
+    command: server /data --console-address ":9001"
     volumes:
-      - ./rustfs_data:/data
+      - minio_data:/data
     healthcheck:
-      test: ["CMD-SHELL", "wget --server-response -qO /dev/null http://localhost:9000/minio/health/live 2>&1 | grep -qE 'HTTP/1\\.[01] (200|403)'"]
+      test: ["CMD-SHELL", "mc ready local || curl -f http://localhost:9000/minio/health/live || exit 1"]
       interval: 5s
       timeout: 5s
       retries: 10
-      start_period: 10s
+      start_period: 15s
 
-  # Create default S3 bucket on first run (depends on RustFS).
-  rustfs-init:
+  # Create default S3 bucket on first run (depends on MinIO).
+  minio-init:
     image: amazon/aws-cli:latest
+    restart: "no"
     depends_on:
-      rustfs:
+      minio:
         condition: service_healthy
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        aws s3 mb s3://$${AWS_STORAGE_BUCKET_NAME} --endpoint-url http://rustfs:9000 2>/dev/null || true
+        aws s3 mb s3://$${AWS_STORAGE_BUCKET_NAME} --endpoint-url http://minio:9000 2>/dev/null || true
         echo "Bucket ready."
     environment:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-minioadmin}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-minioadmin}
       AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME:-eu-fact-force-files}
+
+volumes:
+  postgres_data:
+  minio_data:
+  hf_cache:
