@@ -161,9 +161,7 @@ class BackendGraph:
 
             # authors
             for author_id in document_metadata.get("author_ids", []):
-                author_id_str = str(author_id)
-                author_data = authors_dict.get(author_id_str, {})
-
+                author_data = authors_dict.get(author_id, {})
                 author_name = author_data.get("name", f"author_{author_id}")
                 node_id = f"author_{author_id}"
 
