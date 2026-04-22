@@ -370,14 +370,14 @@ def update_graph_and_list(
                 nodes[n]["data"]["type"] == "chunk"
                 and any(
                     item in filter_authors
-                    for item in nodes[n]["data"]["document_metadata"]["authors"]
+                    for item in nodes[n]["data"]["document_metadata"].get("author_names", [])
                 )
             )
             or (
                 nodes[n]["data"]["type"] == "document"
                 and any(
                     item in filter_authors
-                    for item in nodes[n]["data"]["metadata"]["authors"]
+                    for item in nodes[n]["data"]["metadata"].get("author_names", [])
                 )
             )
             or (
