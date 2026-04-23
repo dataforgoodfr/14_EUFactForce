@@ -48,10 +48,9 @@ services:
       SERVICE_FQDN_DASH_8050:
     volumes:
       - .:/app
-    # Explicit shell entrypoint bypasses the Dockerfile's /entrypoint.sh,
-    # which runs Django migrations and would fail from the dash-app cwd.
-    entrypoint: ["/bin/sh", "-c"]
-    command: ["cd /app/eu_fact_force/dash-app && exec uv run --no-sync python app.py"]
+    entrypoint: []
+    working_dir: /app/eu_fact_force/dash-app
+    command: ["uv", "run", "--no-sync", "python", "app.py"]
     depends_on:
       - app
 
