@@ -48,8 +48,8 @@ services:
       SERVICE_FQDN_DASH_8050:
     volumes:
       - .:/app
+    entrypoint: ["/bin/sh", "-c"]
     working_dir: /app/eu_fact_force/dash-app
-    entrypoint: []
     command: ["uv", "run", "--no-sync", "python", "app.py"]
     depends_on:
       - app
