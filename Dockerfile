@@ -13,6 +13,9 @@ ARG SECRET_KEY
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
+    libxcb1 \
+    libgl1 \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Put the venv outside /app so the .:/app bind mount never shadows it
