@@ -4,11 +4,54 @@
 
 ## Table of Contents
 
+- [Quick Start](#quick-start)
 - [About](#about)
 - [Key Features](#key-features)
 - [Architecture](#architecture)
 - [Contributing](#contributing)
 - [Seeding the database](#seeding-the-database)
+
+## Quick Start
+
+The fastest way to run the full stack locally is via Docker Compose. The only prerequisite is [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+
+**1. Start all services**
+
+```bash
+docker compose up --build -d
+```
+
+This builds the app image, starts PostgreSQL, MinIO (S3-compatible storage), the Django backend, and the Dash frontend. Database migrations run automatically on first start.
+
+**2. Seed the database**
+
+```bash
+docker compose exec app uv run --no-sync python manage.py seed_db --csv data/seed/vaccine_autism_evidence_curated.csv
+```
+
+This ingests a curated set of vaccine/autism research articles (fetches PDFs and metadata from the internet). See [Seeding the database](#seeding-the-database) for other input options.
+
+**3. Create an admin user**
+
+```bash
+docker compose exec app uv run --no-sync python manage.py createsuperuser
+```
+
+**4. Open in your browser**
+
+| Service | URL |
+|---|---|
+| Dash frontend | http://localhost:8050 |
+| Django admin | http://localhost:8000/admin/ |
+| MinIO console | http://localhost:9001 (user: `minioadmin` / pass: `minioadmin`) |
+
+**Stopping**
+
+```bash
+docker compose down
+```
+
+---
 
 ## About
 
@@ -111,35 +154,43 @@ uv run pre-commit run --all-files
 uv run pytest
 ```
 
-### Déploiement de l'application
+### Déploiement de l’application
 
-L'application se compose d'un serveur Django, d'une base PostgreSQL (avec pgvector) et de **RustFS** pour le stockage S3 (compatible AWS), avec une interface web pour déposer des fichiers manuellement.
-Pour déployer et utiliser l'application en local :
+L’application se compose d’un serveur Django, d’une base PostgreSQL (avec pgvector), de **MinIO** pour le stockage S3 (compatible AWS), et d’un frontend **Dash**.
+
+Pour un démarrage rapide, voir la section [Quick Start](#quick-start) en haut de ce document.
+
+**Développement hors Docker (Django au host)**
+
+Si vous souhaitez lancer Django directement sur votre machine (sans le conteneur `app`) :
 
 **1. Prérequis**
 
 - [Python 3.12+](https://www.python.org/) et [uv](https://docs.astral.sh/uv/)
-- [Docker](https://www.docker.com/) et Docker Compose (pour Postgres et RustFS)
+- [Docker](https://www.docker.com/) et Docker Compose (pour Postgres et MinIO)
 
-**2. Variables d'environnement**
+**2. Démarrer uniquement les services d’infrastructure**
 
-Copiez le fichier d'exemple et adaptez les valeurs si besoin :
+```bash
+docker compose up -d postgres minio minio-init
+```
+
+**3. Variables d’environnement**
 
 ```bash
 cp .env.template .env
 ```
 
-Pour un usage local avec les services Docker, les valeurs par défaut de `.env.template` (notamment `DATABASE_URL=postgresql://eu_fact_force:eu_fact_force@localhost:5432/eu_fact_force`) conviennent.
-
-**3. Lancer les services (Postgres et RustFS)**
-
-À la racine du projet :
+Pour pointer Django vers MinIO local, définissez dans `.env` :
 
 ```bash
-docker compose up -d
+DATABASE_URL=postgresql://eu_fact_force:eu_fact_force@localhost:5432/eu_fact_force
+AWS_S3_ENDPOINT_URL=http://localhost:9000
+AWS_ACCESS_KEY_ID=minioadmin
+AWS_SECRET_ACCESS_KEY=minioadmin
+AWS_STORAGE_BUCKET_NAME=eu-fact-force-files
+AWS_S3_REGION_NAME=eu-west-1
 ```
-
-Cela démarre PostgreSQL (port 5432) et RustFS (API S3 sur le port 9000). Le bucket configuré est créé automatiquement au premier démarrage. **Interface web RustFS** : [http://localhost:9001](http://localhost:9001) — identifiants S3 (Access Key / Secret Key) : ceux définis dans `.env` (par défaut `minioadmin`). Vous pouvez y créer des buckets, des dossiers et déposer des fichiers manuellement.
 
 **4. Installer les dépendances et appliquer les migrations**
 
@@ -149,8 +200,6 @@ uv run python manage.py migrate
 ```
 
 **5. (Optionnel) Créer un superutilisateur**
-
-Pour accéder à l'interface d'administration Django :
 
 ```bash
 uv run python manage.py createsuperuser
@@ -162,33 +211,18 @@ uv run python manage.py createsuperuser
 uv run python manage.py runserver
 ```
 
-L'application est alors disponible sur [http://127.0.0.1:8000/](http://127.0.0.1:8000/). L'admin Django est accessible à [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) si un superutilisateur a été créé.
-
-**Utilisation du stockage S3 en local**
-
-Avec `docker compose`, l’app est configurée pour utiliser RustFS. Pour lancer Django au host (sans conteneur app) et pointer vers RustFS, décommentez dans `.env` les variables S3 (voir `.env.template`) et définissez par exemple :
-
-```bash
-AWS_S3_ENDPOINT_URL=http://localhost:9000
-AWS_ACCESS_KEY_ID=minioadmin
-AWS_SECRET_ACCESS_KEY=minioadmin
-AWS_STORAGE_BUCKET_NAME=eu-fact-force-files
-AWS_S3_REGION_NAME=eu-west-1
-```
-
-Sans ces variables, l’application utilise le stockage fichier local par défaut.
-
-**7. Lancer l'application Frontend (Dash)**
+**7. Lancer le frontend Dash**
 
 ```bash
 uv run python eu_fact_force/dash-app/app.py
 ```
-Puis ouvrir dans le navigateur :
-http://127.0.0.1:8050/graph
 
-Configuration (JSON par défaut)
-Pour utiliser le JSON par défaut (`default_search.json`) côté backend, définir la variable suivante à 1 dans le fichier `.env`:
+Puis ouvrir : http://127.0.0.1:8050/
+
+Pour utiliser le JSON par défaut (`default_search.json`) côté backend, définir dans `.env` :
+```
 FLAG_RETRIEVE_DEFAULT_JSON=1
+```
 
 ## Seeding the database
 
