@@ -128,7 +128,6 @@ def _record_failure(run: IngestionRun, exc: Exception) -> None:
     run.save(update_fields=["status", "error_stage", "error_message"])
 
 
-
 def _acquire_metadata(doi: str, document: Document, run: IngestionRun) -> dict:
     metadata = fetch_all(doi)
     keywords = metadata.get("keywords", [])

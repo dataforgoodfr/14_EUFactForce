@@ -22,11 +22,12 @@ docker compose up --build -d
 ```
 
 This builds the app image, starts PostgreSQL, MinIO (S3-compatible storage), the Django backend, and the Dash frontend. Database migrations run automatically on first start.
+Avoid having `DATABASE_URL` set in your `.env` for this step, to avoid a connection timeout when the app tries to reach the DB.
 
 **2. Seed the database**
 
 ```bash
-docker compose exec app uv run --no-sync python manage.py seed_db --csv data/seed/vaccine_autism_evidence_curated.csv
+docker compose exec app uv run --no-sync python manage.py seed_db --csv data/seed/vaccine_autism_evidence_curated.csv -e DATABASE_URL=postgresql://eu_fact_force:eu_fact_force@localhost:5432/eu_fact_force
 ```
 
 This ingests a curated set of vaccine/autism research articles (fetches PDFs and metadata from the internet). See [Seeding the database](#seeding-the-database) for other input options.
