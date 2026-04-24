@@ -185,39 +185,12 @@ def _chunk_and_embed(document: Document, chunks: list[str], run: IngestionRun) -
 
 
 def _download_pdf_from_url(pdf_url: str, output_path: Path) -> bool:
-    """Try to download a PDF from a direct URL using browser-like headers. Returns True on success.
-
-    Some open-access PDFs are protected by CAPTCHA or bot-detection when accessed without
-    browser headers. To get accurate headers from your browser:
-
-    Chrome / Edge:
-      1. Open DevTools (F12) → Network tab
-      2. Navigate to the PDF URL
-      3. Right-click the request → "Copy" → "Copy as cURL"
-      4. Extract the -H headers from the cURL command
-
-    Firefox:
-      1. Open DevTools (F12) → Network tab
-      2. Navigate to the PDF URL
-      3. Right-click the request → "Copy Value" → "Copy as cURL"
-      4. Extract the -H headers from the cURL command
-
-    Paste the relevant values (User-Agent, Accept, etc.) into BROWSER_HEADERS below.
     """
-    BROWSER_HEADERS = {
-        "User-Agent": (
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/124.0.0.0 Safari/537.36"
-        ),
-        "Accept": "application/pdf,application/octet-stream,*/*;q=0.9",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Referer": "https://www.google.com/",
-    }
+    Try to download a PDF from a direct URL using browser-like headers. Returns True on success.
+    """
     try:
-        response = requests.get(pdf_url, headers=BROWSER_HEADERS, timeout=30)
+        response = requests.get(pdf_url, timeout=30)
         response.raise_for_status()
-        print(response.content[:200])
         if response.content.startswith(b"%PDF"):
             with open(output_path, "wb") as fh:
                 fh.write(response.content)
