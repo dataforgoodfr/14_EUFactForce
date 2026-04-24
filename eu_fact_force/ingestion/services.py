@@ -13,9 +13,19 @@ from eu_fact_force.ingestion.data_collection.collector import fetch_all
 from eu_fact_force.ingestion.data_collection.parsers import PARSERS
 from eu_fact_force.ingestion.data_collection.parsers.base import doi_to_id
 from eu_fact_force.ingestion.embedding import add_embeddings
-from eu_fact_force.ingestion.models import Author, Document, DocumentChunk, IngestionRun, ParsedArtifact, SourceFile
+from eu_fact_force.ingestion.models import (
+    Author,
+    Document,
+    DocumentChunk,
+    IngestionRun,
+    ParsedArtifact,
+    SourceFile,
+)
 from eu_fact_force.ingestion.parsing import parse_source_file
-from eu_fact_force.ingestion.pdf_utils import extract_doi_from_pdf, extract_text_by_blocks
+from eu_fact_force.ingestion.pdf_utils import (
+    extract_doi_from_pdf,
+    extract_text_by_blocks,
+)
 
 PIPELINE_VERSION = "0.1.0"
 
@@ -88,7 +98,9 @@ def ingest_by_pdf(pdf_path: Path) -> IngestionRun:
         raise
 
 
-def _run_pipeline(doi: str, pdf_path: Path | None, document: Document, run: IngestionRun) -> IngestionRun:
+def _run_pipeline(
+    doi: str, pdf_path: Path | None, document: Document, run: IngestionRun
+) -> IngestionRun:
     metadata = _acquire_metadata(doi, document, run)
 
     if pdf_path is None:
@@ -129,7 +141,9 @@ def _acquire_metadata(doi: str, document: Document, run: IngestionRun) -> dict:
     return metadata
 
 
-def _store_source_file(doi: str, pdf_path: Path, document: Document, run: IngestionRun) -> SourceFile:
+def _store_source_file(
+    doi: str, pdf_path: Path, document: Document, run: IngestionRun
+) -> SourceFile:
     run.stage = IngestionRun.Stage.STORE
     run.save(update_fields=["stage"])
 
@@ -171,23 +185,62 @@ def _chunk_and_embed(document: Document, chunks: list[str], run: IngestionRun) -
     add_embeddings(chunk_objs)
 
 
+def _download_pdf_from_url(pdf_url: str, output_path: Path) -> bool:
+    """Try to download a PDF from a direct URL using browser-like headers. Returns True on success.
+
+    Some open-access PDFs are protected by CAPTCHA or bot-detection when accessed without
+    browser headers. To get accurate headers from your browser:
+
+    Chrome / Edge:
+      1. Open DevTools (F12) → Network tab
+      2. Navigate to the PDF URL
+      3. Right-click the request → "Copy" → "Copy as cURL"
+      4. Extract the -H headers from the cURL command
+
+    Firefox:
+      1. Open DevTools (F12) → Network tab
+      2. Navigate to the PDF URL
+      3. Right-click the request → "Copy Value" → "Copy as cURL"
+      4. Extract the -H headers from the cURL command
+
+    Paste the relevant values (User-Agent, Accept, etc.) into BROWSER_HEADERS below.
+    """
+    BROWSER_HEADERS = {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/124.0.0.0 Safari/537.36"
+        ),
+        "Accept": "application/pdf,application/octet-stream,*/*;q=0.9",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Referer": "https://www.google.com/",
+    }
+    try:
+        response = requests.get(pdf_url, headers=BROWSER_HEADERS, timeout=30)
+        response.raise_for_status()
+        print(response.content[:200])
+        if response.content.startswith(b"%PDF"):
+            with open(output_path, "wb") as fh:
+                fh.write(response.content)
+            return True
+        logging.warning(
+            "Content at %s is not a valid PDF (possibly a paywall page).", pdf_url
+        )
+    except Exception as exc:
+        logging.warning("Failed to download PDF from %s: %s", pdf_url, exc)
+    return False
+
+
 def _download_pdf(doi: str, pdf_url: str | None) -> Path | None:
     """Download PDF from a direct URL or by trying each parser. Returns local path or None."""
     pdf_dir = Path(__file__).parents[2] / "data" / "data_collection" / "pdf"
     os.makedirs(pdf_dir, exist_ok=True)
     output_path = pdf_dir / f"{doi_to_id(doi)}.pdf"
 
-    if pdf_url:
-        try:
-            response = requests.get(pdf_url, timeout=30)
-            response.raise_for_status()
-            if response.content.startswith(b"%PDF"):
-                with open(output_path, "wb") as fh:
-                    fh.write(response.content)
-                return output_path
-        except Exception as exc:
-            logging.warning("Failed to download PDF from %s: %s", pdf_url, exc)
-        return None
+    if pdf_url and _download_pdf_from_url(pdf_url, output_path):
+        print("pdf url true")
+        return output_path
+    print("start parsers")
 
     for parser in PARSERS:
         try:
