@@ -272,119 +272,126 @@ def update_graph_and_list(
         edges = store_search["edges"]
 
         # Filter node type
-        nodes = {
-            n: nodes[n] for n in nodes if nodes[n]["data"]["type"] in filter_node_types
-        }
+        if filter_node_types:
+            nodes = {
+                n: nodes[n] for n in nodes if nodes[n]["data"]["type"] in filter_node_types
+            }
 
         # Filter chunk type
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] != "chunk"
-            or nodes[n]["data"]["metadata"]["type"] in filter_chunk_types
-        }
+        if filter_chunk_types:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] != "chunk"
+                or nodes[n]["data"]["metadata"]["type"] in filter_chunk_types
+            }
 
         # Filter keywords
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document", "keyword")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and any(
-                    item in filter_keywords
-                    for item in nodes[n]["data"]["document_metadata"].get("keywords", [])
+        if filter_keywords:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "keyword")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and any(
+                        item in filter_keywords
+                        for item in nodes[n]["data"]["document_metadata"].get("keywords", [])
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and any(
-                    item in filter_keywords
-                    for item in nodes[n]["data"]["metadata"].get("keywords", [])
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and any(
+                        item in filter_keywords
+                        for item in nodes[n]["data"]["metadata"].get("keywords", [])
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "keyword"
-                and nodes[n]["data"]["label"] in filter_keywords
-            )
-        }
+                or (
+                    nodes[n]["data"]["type"] == "keyword"
+                    and nodes[n]["data"]["label"] in filter_keywords
+                )
+            }
 
         # Filter dates
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and nodes[n]["data"]["document_metadata"]["date"] >= start_date
-                and nodes[n]["data"]["document_metadata"]["date"] <= end_date
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and nodes[n]["data"]["metadata"]["date"] >= start_date
-                and nodes[n]["data"]["metadata"]["date"] <= end_date
-            )
-        }
+        if start_date or end_date:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and nodes[n]["data"]["document_metadata"]["date"] >= start_date
+                    and nodes[n]["data"]["document_metadata"]["date"] <= end_date
+                )
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and nodes[n]["data"]["metadata"]["date"] >= start_date
+                    and nodes[n]["data"]["metadata"]["date"] <= end_date
+                )
+            }
 
         # Filter documents
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and str(nodes[n]["data"]["metadata"].get("metadata", {}).get("document_id"))
-                in filter_documents
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and nodes[n]["data"]["id"] in filter_documents
-            )
-        }
+        if filter_documents:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and str(nodes[n]["data"]["metadata"].get("metadata", {}).get("document_id"))
+                    in filter_documents
+                )
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and nodes[n]["data"]["id"] in filter_documents
+                )
+            }
 
         # Filter journals
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document", "journal")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and nodes[n]["data"]["document_metadata"]["journal"] in filter_journals
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and nodes[n]["data"]["metadata"]["journal"] in filter_journals
-            )
-            or (
-                nodes[n]["data"]["type"] == "journal"
-                and nodes[n]["data"]["label"] in filter_journals
-            )
-        }
+        if filter_journals:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "journal")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and nodes[n]["data"]["document_metadata"]["journal"] in filter_journals
+                )
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and nodes[n]["data"]["metadata"]["journal"] in filter_journals
+                )
+                or (
+                    nodes[n]["data"]["type"] == "journal"
+                    and nodes[n]["data"]["label"] in filter_journals
+                )
+            }
 
         # Filter authors
-        nodes = {
-            n: nodes[n]
-            for n in nodes
-            if nodes[n]["data"]["type"] not in ("chunk", "document", "author")
-            or (
-                nodes[n]["data"]["type"] == "chunk"
-                and any(
-                    item in filter_authors
-                    for item in nodes[n]["data"]["document_metadata"].get("author_names", [])
+        if filter_authors:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document", "author")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and any(
+                        item in filter_authors
+                        for item in nodes[n]["data"]["document_metadata"].get("author_names", [])
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "document"
-                and any(
-                    item in filter_authors
-                    for item in nodes[n]["data"]["metadata"].get("author_names", [])
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and any(
+                        item in filter_authors
+                        for item in nodes[n]["data"]["metadata"].get("author_names", [])
+                    )
                 )
-            )
-            or (
-                nodes[n]["data"]["type"] == "author"
-                and nodes[n]["data"]["label"] in filter_authors
-            )
-        }
+                or (
+                    nodes[n]["data"]["type"] == "author"
+                    and nodes[n]["data"]["label"] in filter_authors
+                )
+            }
 
         # Update edges
         edges = [
