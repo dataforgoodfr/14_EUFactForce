@@ -210,9 +210,7 @@ def _download_pdf(doi: str, pdf_url: str | None) -> Path | None:
     output_path = pdf_dir / f"{doi_to_id(doi)}.pdf"
 
     if pdf_url and _download_pdf_from_url(pdf_url, output_path):
-        print("pdf url true")
         return output_path
-    print("start parsers")
 
     for parser in PARSERS:
         try:
