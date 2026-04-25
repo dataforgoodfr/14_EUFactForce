@@ -101,10 +101,10 @@ class BackendGraph:
 
             if document_metadata.get("date"):
                 filters["date"].append(document_metadata["date"])
-                author_names = [
-                    authors_dict.get(str(a_id), {}).get("name")
-                    for a_id in document_metadata.get("author_ids", [])
-                    ]
+            author_names = [
+                authors_dict.get(str(a_id), {}).get("name")
+                for a_id in document_metadata.get("author_ids", [])
+                ]
             document_metadata["author_names"] = [name for name in author_names if name]
 
             nodes[chunk_id] = {

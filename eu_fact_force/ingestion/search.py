@@ -35,7 +35,7 @@ def search_chunks(query: str, k: int = 10) -> list[tuple[DocumentChunk, float]]:
     query_vector = embed_query(query)
     qs = (
         DocumentChunk.objects.filter(embedding__isnull=False)
-        .select_related("document")
+        .select_related("document").prefetch_related("document__authors")
         .annotate(distance=CosineDistance("embedding", query_vector))
         .order_by("distance")[:k]
     )
@@ -61,15 +61,28 @@ def chunks_context(top_chunks: list[tuple[DocumentChunk, float]]) -> dict:
     ]
 
     documents = {}
+    authors = {}
     for chunk, _ in top_chunks:
         doc = chunk.document
         if doc.id in documents:
             continue
+        author_ids = []
+        for author in doc.authors.all():
+            author_ids.append(str(author.id))
+            if author.id not in authors:
+                authors[str(author.id)] = {
+                    "name": author.full_name,
+                    "orcid": author.orcid,
+                }
         documents[doc.id] = {
             "id": doc.id,
             "doi": doc.doi,
+            "title": doc.title,
+            "keywords": doc.keywords,
+            "author_ids": author_ids,
         }
     return {
         "chunks": chunks,
         "documents": documents,
+        "authors": authors,
     }
