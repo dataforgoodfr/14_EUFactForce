@@ -7,6 +7,7 @@ from factory.django import DjangoModelFactory
 
 from eu_fact_force.ingestion.models import (
     EMBEDDING_DIMENSIONS,
+    Author,
     Document,
     DocumentChunk,
     IngestionRun,
@@ -22,6 +23,14 @@ class SourceFileFactory(DjangoModelFactory):
     doi = ""
     s3_key = ""
     status = SourceFile.Status.STORED
+
+
+class AuthorFactory(DjangoModelFactory):
+    class Meta:
+        model = Author
+
+    full_name = factory.Sequence(lambda n: f"Author {n}")
+    orcid = None
 
 
 class DocumentFactory(DjangoModelFactory):

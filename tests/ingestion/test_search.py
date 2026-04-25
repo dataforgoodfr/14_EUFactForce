@@ -13,7 +13,7 @@ from eu_fact_force.ingestion.models import (
     DocumentChunk,
 )
 from eu_fact_force.ingestion.search import chunks_context
-from tests.factories import DocumentChunkFactory, DocumentFactory
+from tests.factories import AuthorFactory, DocumentChunkFactory, DocumentFactory
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -147,7 +147,7 @@ class TestSearchChunks:
 @pytest.mark.django_db
 class TestChunksContext:
     def test_empty_top_chunks(self):
-        assert chunks_context([]) == {"chunks": [], "documents": {}}
+        assert chunks_context([]) == {"chunks": [], "documents": {}, "authors": {}}
 
     def test_two_chunks_single_document(self):
         doc = DocumentFactory(doi="doi/single")
@@ -174,6 +174,9 @@ class TestChunksContext:
             doc.id: {
                 "id": doc.id,
                 "doi": "doi/single",
+                "title": doc.title,
+                "keywords": [],
+                "author_ids": [],
             }
         }
 
@@ -188,6 +191,32 @@ class TestChunksContext:
 
         assert [x["content"] for x in result["chunks"]] == ["alpha", "beta"]
         assert result["documents"] == {
-            doc1.id: {"id": doc1.id, "doi": "doi/one"},
-            doc2.id: {"id": doc2.id, "doi": "doi/two"},
+            doc1.id: {
+                "id": doc1.id,
+                "doi": "doi/one",
+                "title": doc1.title,
+                "keywords": [],
+                "author_ids": [],
+            },
+            doc2.id: {
+                "id": doc2.id,
+                "doi": "doi/two",
+                "title": doc2.title,
+                "keywords": [],
+                "author_ids": [],
+            },
+        }
+
+    def test_chunks_with_authors_and_keywords(self):
+        author = AuthorFactory(full_name="Emmy Noether", orcid="0000-0001-5000-0007")
+        doc = DocumentFactory(doi="doi/test", keywords=["vaccine", "autism"])
+        doc.authors.add(author)
+        chunk = DocumentChunkFactory(document=doc, content="text")
+
+        result = chunks_context([(chunk, 0.9)])
+
+        assert result["documents"][doc.id]["keywords"] == ["vaccine", "autism"]
+        assert result["documents"][doc.id]["author_ids"] == [str(author.id)]
+        assert result["authors"] == {
+            str(author.id): {"name": "Emmy Noether", "orcid": "0000-0001-5000-0007"}
         }
