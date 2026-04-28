@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 import plotly.io as pio
 from dash import ALL, Dash, Input, Output, State, ctx, dcc, html, no_update
 from dash.exceptions import PreventUpdate
-from pages import graph, ingest, readme
+from pages import graph, ingest, readme, pgp
 from utils.colors import EUPHAColors
 from utils.graph import BackendGraph, format_node_metadata
 from utils.parsing import extract_pdf_metadata
@@ -40,6 +40,7 @@ pages = {
     "Readme": {"href": "/", "content": readme},
     "Ingestion": {"href": "/ingest", "content": ingest},
     "Graph": {"href": "/graph", "content": graph},
+    "PGP Dashboard": {"href": "/pgp", "content": pgp},
 }
 
 # Header and navigation
