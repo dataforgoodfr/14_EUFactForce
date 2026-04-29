@@ -1,0 +1,50 @@
+{
+  "found": true,
+  "title": "Online misinformation is linked to early COVID-19 vaccination hesitancy and refusal",
+  "authors": [
+    {
+      "name": "Francesco Pierri",
+      "orcid": null
+    },
+    {
+      "name": "Brea Perry",
+      "orcid": null
+    },
+    {
+      "name": "Matthew R. DeVerna",
+      "orcid": null
+    },
+    {
+      "name": "Kai-Cheng Yang",
+      "orcid": null
+    },
+    {
+      "name": "Alessandro Flammini",
+      "orcid": null
+    },
+    {
+      "name": "Filippo Menczer",
+      "orcid": null
+    },
+    {
+      "name": "John Bryden",
+      "orcid": null
+    }
+  ],
+  "journal": {
+    "name": "Nature Scientific Reports 2022",
+    "issn": null
+  },
+  "publication date": "2021-04-21",
+  "status": "updated on 2022-07-12",
+  "doi": "10.48550/arXiv.2104.10635",
+  "link": "https://arxiv.org/abs/2104.10635v5",
+  "document type": null,
+  "document subtypes": null,
+  "open access": true,
+  "language": null,
+  "cited by count": null,
+  "abstract": "Widespread uptake of vaccines is necessary to achieve herd immunity. However, uptake rates have varied across U.S. states during the first six months of the COVID-19 vaccination program. Misbeliefs may play an important role in vaccine hesitancy, and there is a need to understand relationships between misinformation, beliefs, behaviors, and health outcomes. Here we investigate the extent to which COVID-19 vaccination rates and vaccine hesitancy are associated with levels of online misinformation about vaccines. We also look for evidence of directionality from online misinformation to vaccine hesitancy. We find a negative relationship between misinformation and vaccination uptake rates. Online misinformation is also correlated with vaccine hesitancy rates taken from survey data. Associations between vaccine outcomes and misinformation remain significant when accounting for political as well as demographic and socioeconomic factors. While vaccine hesitancy is strongly associated with Republican vote share, we observe that the effect of online misinformation on hesitancy is strongest across Democratic rather than Republican counties. Granger causality analysis shows evidence for a directional relationship from online misinformation to vaccine hesitancy. Our results support a need for interventions that address misbeliefs, allowing individuals to make better-informed health decisions.",
+  "keywords": null,
+  "cited articles": null
+}
