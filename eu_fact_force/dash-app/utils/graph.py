@@ -1,9 +1,18 @@
 import os
 
 import requests
-from dash import dcc
+from dash import dcc, html
+import dash_bootstrap_components as dbc
 
 from .colors import EUPHAColors
+
+dict_node_type_colors = {
+    "chunk": EUPHAColors.light_green,
+    "document": EUPHAColors.orange,
+    "author": EUPHAColors.light_blue,
+    "journal": EUPHAColors.dark_blue,
+    "keyword": EUPHAColors.dark_green,
+}
 
 stylesheet = [
     {
@@ -18,31 +27,43 @@ stylesheet = [
     {
         "selector": 'node[type="chunk"]',
         "style": {
-            "background-color": EUPHAColors.light_green,
+            "background-color": dict_node_type_colors["chunk"],
+            "width": "60px",
+            "height": "60px",
+            "font-size": "20px",
         },
     },
     {
         "selector": 'node[type="document"]',
         "style": {
-            "background-color": EUPHAColors.orange,
+            "background-color": dict_node_type_colors["document"],
+            "width": "80px",
+            "height": "80px",
+            "font-size": "25px",
         },
     },
     {
         "selector": 'node[type="author"]',
         "style": {
-            "background-color": EUPHAColors.light_blue,
+            "background-color": dict_node_type_colors["author"],
+            "width": "30px",
+            "height": "30px",
         },
     },
     {
         "selector": 'node[type="journal"]',
         "style": {
-            "background-color": EUPHAColors.dark_blue,
+            "background-color": dict_node_type_colors["journal"],
+            "width": "30px",
+            "height": "30px",
         },
     },
     {
         "selector": 'node[type="keyword"]',
         "style": {
-            "background-color": EUPHAColors.dark_green,
+            "background-color": dict_node_type_colors["keyword"],
+            "width": "30px",
+            "height": "30px",
         },
     },
     {
@@ -110,7 +131,7 @@ class BackendGraph:
             nodes[chunk_id] = {
                 "data": {
                     "id": chunk_id,
-                    "label": chunk_id,
+                    "label": chunk_id.replace("_", " ").capitalize(),
                     "type": "chunk",
                     "metadata": chunk,
                     "document_metadata": document_metadata,
@@ -118,10 +139,14 @@ class BackendGraph:
             }
 
             if str(document_id) not in nodes:
+                document_label = document_metadata.get("title", document_id)
+                max_label_size = 25
+                if len(document_label) > max_label_size:
+                    document_label = document_label[:max_label_size] + "..."
                 nodes[str(document_id)] = {
                     "data": {
                         "id": str(document_id),
-                        "label": document_metadata.get("title", document_id),
+                        "label": document_label,
                         "type": "document",
                         "metadata": document_metadata,
                     }
@@ -210,12 +235,130 @@ class BackendGraph:
 
 def format_node_metadata(node_data):
     """Format node metadata into card content"""
-    return dcc.Markdown(
-        "\n".join(
+
+    # Document nodes
+    if node_data["type"] == "document":
+        return html.Div(
             [
-                f"- {key.capitalize()} : __{node_data[key]}__"
-                for key in node_data
-                if key != "timeStamp"
+                dbc.Row(
+                    dcc.Markdown(f"__{node_data['metadata']['title']}__"),
+                    style={"font-size": "20px"},
+                ),
+                dbc.Row(
+                    dcc.Markdown(
+                        ", ".join(
+                            [f"_{x}_" for x in node_data["metadata"]["author_names"]]
+                        )
+                    )
+                ),
+                dbc.Row(
+                    html.Span(
+                        [
+                            dbc.Badge(x, color="secondary", className="me-1")
+                            for x in node_data["metadata"]["keywords"]
+                        ]
+                    )
+                ),
+                html.Br(),
+                dbc.Button(
+                    "Access document ↗️",
+                    href=f"http://doi.org/{node_data['metadata']['doi']}",
+                    target="_blank",
+                    color="primary",
+                    className="me-1",
+                ),
             ]
         )
-    )
+
+    # Chunk nodes
+    elif node_data["type"] == "chunk":
+        return html.Div(
+            [
+                dbc.Row(
+                    dcc.Markdown(
+                        f"__{node_data['label']}__ (score: {round(node_data['metadata']['score'], 2)})"
+                    ),
+                    style={"font-size": "20px"},
+                ),
+                dbc.Row(
+                    node_data["metadata"]["content"],
+                    style={
+                        "font-style": "italic",
+                        "border-radius": "15px",
+                        "padding": "20px",
+                        "background-color": EUPHAColors.light_green,
+                    },
+                ),
+                html.Hr(),
+                dbc.Row(
+                    dcc.Markdown(f"__{node_data['document_metadata']['title']}__"),
+                    style={"font-size": "20px"},
+                ),
+                dbc.Row(
+                    dcc.Markdown(
+                        ", ".join(
+                            [
+                                f"_{x}_"
+                                for x in node_data["document_metadata"]["author_names"]
+                            ]
+                        )
+                    )
+                ),
+                dbc.Row(
+                    html.Span(
+                        [
+                            dbc.Badge(x, color="secondary", className="me-1")
+                            for x in node_data["document_metadata"]["keywords"]
+                        ]
+                    )
+                ),
+                html.Br(),
+                # dbc.Row(
+                #     dcc.Markdown(f"Page: {node_data['metadata']['metadata']['page']}"),
+                #     style={"font-size": "16px"},
+                # ), # TODO: Use this when real page numbers available
+                dbc.Button(
+                    "Access document ↗️",
+                    href=f"http://doi.org/{node_data['document_metadata']['doi']}",
+                    target="_blank",
+                    color="primary",
+                    className="me-1",
+                ),
+            ]
+        )
+
+    # Author nodes
+    elif node_data["type"] == "author":
+        return html.Div(
+            [
+                dbc.Row(
+                    dcc.Markdown(f"__{node_data['metadata']['name']}__"),
+                    style={"font-size": "20px"},
+                ),
+                dbc.Row(
+                    dcc.Markdown(f"ORCID: {node_data['metadata']['orcid']}"),
+                    style={"font-size": "16px"},
+                ),
+            ]
+        )
+
+    # Keyword nodes
+    elif node_data["type"] == "keyword":
+        return html.Div(
+            [
+                dbc.Row(
+                    dcc.Markdown(f"__{node_data['label']}__"),
+                    style={"font-size": "20px"},
+                ),
+            ]
+        )
+    else:
+        return dcc.Markdown(
+            "\n".join(
+                [
+                    f"- {key.capitalize()} : __{node_data[key]}__"
+                    for key in node_data
+                    if key != "timeStamp"
+                ]
+            )
+        )

@@ -3,7 +3,7 @@ import dash_bootstrap_components as dbc
 import dash_cytoscape as cyto
 
 from utils.colors import EUPHAColors
-from utils.graph import stylesheet
+from utils.graph import stylesheet, dict_node_type_colors
 
 
 def make_layout():
@@ -55,9 +55,10 @@ def make_layout():
                 id="graph-cytoscape",
                 stylesheet=stylesheet,
                 layout={"name": "cose"},
-                style={"width": "100%", "height": "500px"},
+                style={"width": "100%", "height": "450px"},
                 zoomingEnabled=True,
-                userZoomingEnabled=False,
+                userZoomingEnabled=True,
+                wheelSensitivity=0.1,
             ),
         ],
         style={
@@ -68,13 +69,43 @@ def make_layout():
         },
     )
 
+    # Graph legend
+    graph_legend = html.Div(
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        dbc.Row(
+                            html.Div(
+                                style={
+                                    "width": "20px",
+                                    "height": "20px",
+                                    "borderRadius": "50%",
+                                    "backgroundColor": dict_node_type_colors[x],
+                                    "padding": "0",
+                                    "border": "none",
+                                    "boxSizing": "border-box",
+                                    "display": "block",
+                                    "flex": "0 0 20px",
+                                },
+                            ),
+                            align="center",
+                            justify="center",
+                        ),
+                        dbc.Row(x, align="center", justify="center"),
+                    ]
+                )
+                for x in dict_node_type_colors
+            ]
+        )
+    )
+
     # Graph offcanevas
     offcanevas = dbc.Offcanvas(
         id="offcanvas",
         title="Focus",
         is_open=False,
-        placement="end",
-        style={"width": "50%"},
+        placement="end"
     )
 
     # List
@@ -142,7 +173,7 @@ def make_layout():
     )
 
     # Tabs
-    tab_graph = dbc.Card(dbc.CardBody([graph_results, offcanevas]))
+    tab_graph = dbc.Card(dbc.CardBody([graph_results, graph_legend, offcanevas]))
 
     tab_list = dbc.Card(
         dbc.CardBody([list_results]),
