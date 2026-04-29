@@ -412,7 +412,7 @@ def update_graph_and_list(
         graph_elements = [nodes[x] for x in nodes] + edges
 
         # List elements
-        list_elements = [x["data"] for x in graph_elements if "id" in x["data"]]
+        list_elements = [x["data"] for x in graph_elements if "id" in x["data"] and "type" in x["data"] and x["data"]["type"] in ['document', 'chunk']]
         list_elements = sorted(list_elements, key=lambda x: x["id"])
         return [
             graph_elements,
@@ -420,7 +420,7 @@ def update_graph_and_list(
                 [
                     dbc.AccordionItem(
                         format_node_metadata(x),
-                        title=x["label"].replace("_", " ").title(),
+                        title=f"{x['label'].replace('_', ' ').title()} - {x['document_metadata']['title']}" if x['type'] == 'chunk' else f"{x['type'].capitalize()} - {x['metadata']['title'].replace('_', ' ').title()}",
                     )
                     for x in list_elements
                 ],
