@@ -5,6 +5,14 @@ from dash import dcc
 
 from .colors import EUPHAColors
 
+dict_node_type_colors = {
+    "chunk": EUPHAColors.light_green,
+    "document": EUPHAColors.orange,
+    "author": EUPHAColors.light_blue,
+    "journal": EUPHAColors.dark_blue,
+    "keyword": EUPHAColors.dark_green,
+}
+
 stylesheet = [
     {
         "selector": "node",
@@ -18,31 +26,43 @@ stylesheet = [
     {
         "selector": 'node[type="chunk"]',
         "style": {
-            "background-color": EUPHAColors.light_green,
+            "background-color": dict_node_type_colors["chunk"],
+            "width": "60px",
+            "height": "60px",
+            "font-size": "20px",
         },
     },
     {
         "selector": 'node[type="document"]',
         "style": {
-            "background-color": EUPHAColors.orange,
+            "background-color": dict_node_type_colors["document"],
+            "width": "60px",
+            "height": "60px",
+            "font-size": "20px",
         },
     },
     {
         "selector": 'node[type="author"]',
         "style": {
-            "background-color": EUPHAColors.light_blue,
+            "background-color": dict_node_type_colors["author"],
+            "width": "30px",
+            "height": "30px",
         },
     },
     {
         "selector": 'node[type="journal"]',
         "style": {
-            "background-color": EUPHAColors.dark_blue,
+            "background-color": dict_node_type_colors["journal"],
+            "width": "30px",
+            "height": "30px",
         },
     },
     {
         "selector": 'node[type="keyword"]',
         "style": {
-            "background-color": EUPHAColors.dark_green,
+            "background-color": dict_node_type_colors["keyword"],
+            "width": "30px",
+            "height": "30px",
         },
     },
     {
@@ -110,7 +130,7 @@ class BackendGraph:
             nodes[chunk_id] = {
                 "data": {
                     "id": chunk_id,
-                    "label": chunk_id,
+                    "label": chunk_id.replace("_", " ").capitalize(),
                     "type": "chunk",
                     "metadata": chunk,
                     "document_metadata": document_metadata,
@@ -118,10 +138,14 @@ class BackendGraph:
             }
 
             if str(document_id) not in nodes:
+                document_label = document_metadata.get("title", document_id)
+                max_label_size = 25
+                if len(document_label) > max_label_size:
+                    document_label = document_label[:max_label_size] + "..."
                 nodes[str(document_id)] = {
                     "data": {
                         "id": str(document_id),
-                        "label": document_metadata.get("title", document_id),
+                        "label": document_label,
                         "type": "document",
                         "metadata": document_metadata,
                     }
