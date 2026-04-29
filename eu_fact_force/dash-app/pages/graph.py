@@ -57,7 +57,7 @@ def make_layout():
                 layout={"name": "cose"},
                 style={"width": "100%", "height": "500px"},
                 zoomingEnabled=True,
-                userZoomingEnabled=False,
+                userZoomingEnabled=True,
             ),
         ],
         style={
