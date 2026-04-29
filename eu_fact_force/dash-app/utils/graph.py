@@ -37,9 +37,9 @@ stylesheet = [
         "selector": 'node[type="document"]',
         "style": {
             "background-color": dict_node_type_colors["document"],
-            "width": "60px",
-            "height": "60px",
-            "font-size": "20px",
+            "width": "80px",
+            "height": "80px",
+            "font-size": "25px",
         },
     },
     {
