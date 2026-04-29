@@ -1,7 +1,8 @@
 import os
 
 import requests
-from dash import dcc
+from dash import dcc, html
+import dash_bootstrap_components as dbc
 
 from .colors import EUPHAColors
 
@@ -234,12 +235,130 @@ class BackendGraph:
 
 def format_node_metadata(node_data):
     """Format node metadata into card content"""
-    return dcc.Markdown(
-        "\n".join(
+
+    # Document nodes
+    if node_data["type"] == "document":
+        return html.Div(
             [
-                f"- {key.capitalize()} : __{node_data[key]}__"
-                for key in node_data
-                if key != "timeStamp"
+                dbc.Row(
+                    dcc.Markdown(f"__{node_data['metadata']['title']}__"),
+                    style={"font-size": "20px"},
+                ),
+                dbc.Row(
+                    dcc.Markdown(
+                        ", ".join(
+                            [f"_{x}_" for x in node_data["metadata"]["author_names"]]
+                        )
+                    )
+                ),
+                dbc.Row(
+                    html.Span(
+                        [
+                            dbc.Badge(x, color="secondary", className="me-1")
+                            for x in node_data["metadata"]["keywords"]
+                        ]
+                    )
+                ),
+                html.Br(),
+                dbc.Button(
+                    "Access document ↗️",
+                    href=f"http://doi.org/{node_data['metadata']['doi']}",
+                    target="_blank",
+                    color="primary",
+                    className="me-1",
+                ),
             ]
         )
-    )
+
+    # Chunk nodes
+    elif node_data["type"] == "chunk":
+        return html.Div(
+            [
+                dbc.Row(
+                    dcc.Markdown(
+                        f"__{node_data['label']}__ (score: {round(node_data['metadata']['score'], 2)})"
+                    ),
+                    style={"font-size": "20px"},
+                ),
+                dbc.Row(
+                    node_data["metadata"]["content"],
+                    style={
+                        "font-style": "italic",
+                        "border-radius": "15px",
+                        "padding": "20px",
+                        "background-color": EUPHAColors.light_green,
+                    },
+                ),
+                html.Hr(),
+                dbc.Row(
+                    dcc.Markdown(f"__{node_data['document_metadata']['title']}__"),
+                    style={"font-size": "20px"},
+                ),
+                dbc.Row(
+                    dcc.Markdown(
+                        ", ".join(
+                            [
+                                f"_{x}_"
+                                for x in node_data["document_metadata"]["author_names"]
+                            ]
+                        )
+                    )
+                ),
+                dbc.Row(
+                    html.Span(
+                        [
+                            dbc.Badge(x, color="secondary", className="me-1")
+                            for x in node_data["document_metadata"]["keywords"]
+                        ]
+                    )
+                ),
+                html.Br(),
+                # dbc.Row(
+                #     dcc.Markdown(f"Page: {node_data['metadata']['metadata']['page']}"),
+                #     style={"font-size": "16px"},
+                # ), # TODO: Use this when real page numbers available
+                dbc.Button(
+                    "Access document ↗️",
+                    href=f"http://doi.org/{node_data['document_metadata']['doi']}",
+                    target="_blank",
+                    color="primary",
+                    className="me-1",
+                ),
+            ]
+        )
+
+    # Author nodes
+    elif node_data["type"] == "author":
+        return html.Div(
+            [
+                dbc.Row(
+                    dcc.Markdown(f"__{node_data['metadata']['name']}__"),
+                    style={"font-size": "20px"},
+                ),
+                dbc.Row(
+                    dcc.Markdown(f"ORCID: {node_data['metadata']['orcid']}"),
+                    style={"font-size": "16px"},
+                ),
+            ]
+        )
+
+    # Keyword nodes
+    elif node_data["type"] == "keyword":
+        return html.Div(
+            [
+                dbc.Row(
+                    dcc.Markdown(f"__{node_data['label']}__"),
+                    style={"font-size": "20px"},
+                ),
+            ]
+        )
+    else:
+        return dcc.Markdown(
+            "\n".join(
+                [
+                    f"- {key.capitalize()} : __{node_data[key]}__"
+                    for key in node_data
+                    if key != "timeStamp"
+                ]
+            )
+        )

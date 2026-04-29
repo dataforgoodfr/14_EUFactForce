@@ -105,8 +105,7 @@ def make_layout():
         id="offcanvas",
         title="Focus",
         is_open=False,
-        placement="end",
-        style={"width": "50%"},
+        placement="end"
     )
 
     # List

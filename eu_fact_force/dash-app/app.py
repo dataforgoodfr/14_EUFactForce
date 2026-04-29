@@ -12,7 +12,7 @@ from dash import ALL, Dash, Input, Output, State, ctx, dcc, html, no_update
 from dash.exceptions import PreventUpdate
 from pages import graph, ingest, readme, pgp
 from utils.colors import EUPHAColors
-from utils.graph import BackendGraph, format_node_metadata
+from utils.graph import BackendGraph, format_node_metadata, dict_node_type_colors
 from utils.parsing import extract_pdf_metadata
 
 plotly_template = Path(__file__).parent / "assets/template.json"
@@ -439,15 +439,23 @@ def update_graph_and_list(
 @app.callback(
     [
         Output("offcanvas", "is_open"),
+        Output("offcanvas", "title"),
         Output("offcanvas", "children"),
+        Output("offcanvas", "style"),
     ],
-    inputs=[Input("graph-cytoscape", "tapNodeData")],
-    state=[State("offcanvas", "is_open")],
+    Input("graph-cytoscape", "tapNodeData"),
+    State("offcanvas", "is_open"),
     prevent_initial_call=True,
 )
 def toggle_offcanvas(node_data, is_open):
     if node_data:
-        return [not is_open, format_node_metadata(node_data)]
+        node_type = node_data["type"]
+        return [
+            not is_open,
+            node_type.capitalize(),
+            format_node_metadata(node_data),
+            {"--header-bg": dict_node_type_colors[node_type], "width": "50%"},
+        ]
 
 
 # --------------------

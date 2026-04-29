@@ -65,7 +65,7 @@ hr {
 
 /* Offcanevas */
 .offcanvas-header {
-    background-color: var(--color-dark-blue);
+    background-color: var(--header-bg, var(--color-dark-blue));
     color: var(--color-white)
 }
 
