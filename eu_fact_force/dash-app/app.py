@@ -252,6 +252,9 @@ def get_search_data(n_clicks, search_text):
         Input("filter_dates", "start_date"),
         Input("filter_dates", "end_date"),
     ],
+    state=[
+        State("filter_keywords", "options"),
+    ],
     prevent_updates=True,
 )
 def update_graph_and_list(
@@ -264,6 +267,7 @@ def update_graph_and_list(
     filter_authors,
     start_date,
     end_date,
+    filter_keyword_options
 ):
     if store_search is None:
         raise PreventUpdate
@@ -288,7 +292,7 @@ def update_graph_and_list(
             }
 
         # Filter keywords
-        if filter_keywords:
+        if filter_keywords and filter_keyword_options and set(filter_keyword_options) != set(filter_keywords):
             nodes = {
                 n: nodes[n]
                 for n in nodes
@@ -314,20 +318,59 @@ def update_graph_and_list(
             }
 
         # Filter dates
-        if start_date or end_date:
+        if start_date:
             nodes = {
                 n: nodes[n]
                 for n in nodes
                 if nodes[n]["data"]["type"] not in ("chunk", "document")
                 or (
                     nodes[n]["data"]["type"] == "chunk"
-                    and nodes[n]["data"]["document_metadata"]["date"] >= start_date
-                    and nodes[n]["data"]["document_metadata"]["date"] <= end_date
+                    and (
+                        (
+                            "date" in nodes[n]["data"]["document_metadata"]
+                            and nodes[n]["data"]["document_metadata"]["date"]
+                            >= start_date
+                        )
+                        or "date" not in nodes[n]["data"]["document_metadata"]
+                    )
                 )
                 or (
                     nodes[n]["data"]["type"] == "document"
-                    and nodes[n]["data"]["metadata"]["date"] >= start_date
-                    and nodes[n]["data"]["metadata"]["date"] <= end_date
+                    and (
+                        (
+                            "date" in nodes[n]["data"]["metadata"]
+                            and nodes[n]["data"]["metadata"]["date"] >= start_date
+                        )
+                        or "date" not in nodes[n]["data"]["metadata"]
+                    )
+                )
+            }
+
+        if end_date:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and (
+                        (
+                            "date" in nodes[n]["data"]["document_metadata"]
+                            and nodes[n]["data"]["document_metadata"]["date"]
+                            <= end_date
+                        )
+                        or "date" not in nodes[n]["data"]["document_metadata"]
+                    )
+                )
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and (
+                        (
+                            "date" in nodes[n]["data"]["metadata"]
+                            and nodes[n]["data"]["metadata"]["date"] <= end_date
+                        )
+                        or "date" not in nodes[n]["data"]["metadata"]
+                    )
                 )
             }
 
