@@ -252,6 +252,9 @@ def get_search_data(n_clicks, search_text):
         Input("filter_dates", "start_date"),
         Input("filter_dates", "end_date"),
     ],
+    state=[
+        State("filter_keywords", "options"),
+    ],
     prevent_updates=True,
 )
 def update_graph_and_list(
@@ -264,6 +267,7 @@ def update_graph_and_list(
     filter_authors,
     start_date,
     end_date,
+    filter_keyword_options
 ):
     if store_search is None:
         raise PreventUpdate
@@ -288,7 +292,7 @@ def update_graph_and_list(
             }
 
         # Filter keywords
-        if filter_keywords:
+        if filter_keywords and filter_keyword_options and set(filter_keyword_options) != set(filter_keywords):
             nodes = {
                 n: nodes[n]
                 for n in nodes
