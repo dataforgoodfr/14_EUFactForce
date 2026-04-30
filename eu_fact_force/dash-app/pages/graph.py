@@ -116,7 +116,7 @@ def make_layout():
         [
             html.H6("Documents"),
             html.P("Date", style={"margin-bottom": 0, "margin-top": "5px"}),
-            dcc.DatePickerRange(id="filter_dates"),
+            dcc.DatePickerRange(id="filter_dates", updatemode="singledate", clearable=True),
             html.P("Journal", style={"margin-bottom": 0, "margin-top": "5px"}),
             dcc.Dropdown(id="filter_journals", multi=True),
             html.P("Authors", style={"margin-bottom": 0, "margin-top": "5px"}),
