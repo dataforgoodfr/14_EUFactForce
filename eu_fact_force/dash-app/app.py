@@ -318,20 +318,59 @@ def update_graph_and_list(
             }
 
         # Filter dates
-        if start_date or end_date:
+        if start_date:
             nodes = {
                 n: nodes[n]
                 for n in nodes
                 if nodes[n]["data"]["type"] not in ("chunk", "document")
                 or (
                     nodes[n]["data"]["type"] == "chunk"
-                    and nodes[n]["data"]["document_metadata"]["date"] >= start_date
-                    and nodes[n]["data"]["document_metadata"]["date"] <= end_date
+                    and (
+                        (
+                            "date" in nodes[n]["data"]["document_metadata"]
+                            and nodes[n]["data"]["document_metadata"]["date"]
+                            >= start_date
+                        )
+                        or "date" not in nodes[n]["data"]["document_metadata"]
+                    )
                 )
                 or (
                     nodes[n]["data"]["type"] == "document"
-                    and nodes[n]["data"]["metadata"]["date"] >= start_date
-                    and nodes[n]["data"]["metadata"]["date"] <= end_date
+                    and (
+                        (
+                            "date" in nodes[n]["data"]["metadata"]
+                            and nodes[n]["data"]["metadata"]["date"] >= start_date
+                        )
+                        or "date" not in nodes[n]["data"]["metadata"]
+                    )
+                )
+            }
+
+        if end_date:
+            nodes = {
+                n: nodes[n]
+                for n in nodes
+                if nodes[n]["data"]["type"] not in ("chunk", "document")
+                or (
+                    nodes[n]["data"]["type"] == "chunk"
+                    and (
+                        (
+                            "date" in nodes[n]["data"]["document_metadata"]
+                            and nodes[n]["data"]["document_metadata"]["date"]
+                            <= end_date
+                        )
+                        or "date" not in nodes[n]["data"]["document_metadata"]
+                    )
+                )
+                or (
+                    nodes[n]["data"]["type"] == "document"
+                    and (
+                        (
+                            "date" in nodes[n]["data"]["metadata"]
+                            and nodes[n]["data"]["metadata"]["date"] <= end_date
+                        )
+                        or "date" not in nodes[n]["data"]["metadata"]
+                    )
                 )
             }
 
