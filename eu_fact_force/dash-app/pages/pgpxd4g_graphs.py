@@ -1,6 +1,5 @@
 import pandas as pd
 import plotly.graph_objects as go
-from pathlib import Path
 
 DATA_PATH = "data/PGP x D4G- Exported Vaccine Data.xlsx" # Correct to the actual Excel file
 
