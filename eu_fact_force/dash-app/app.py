@@ -4,7 +4,6 @@ import json
 import os
 import uuid
 import requests
-import os
 from pathlib import Path
 
 import dash_bootstrap_components as dbc
@@ -517,7 +516,7 @@ def toggle_offcanvas(node_data, is_open):
     prevent_initial_call=True
 )
 def handle_doi_search(n_clicks, doi_query):
-    """ 
+    """
     Triggers the API call to fetch the metadata for the given DOI.
     """
     if not n_clicks or not doi_query:
@@ -527,7 +526,7 @@ def handle_doi_search(n_clicks, doi_query):
 
     django_base_url = os.environ.get("DJANGO_URL", "http://127.0.0.1:8000")
     api_url = f"{django_base_url.rstrip('/')}/ingestion/api/check_and_fetch_doi/"
-    
+
     try:
         response = requests.post(api_url, json={"doi": doi_query}, timeout=300)
         data = response.json()
@@ -543,16 +542,16 @@ def handle_doi_search(n_clicks, doi_query):
         metadata = data.get("metadata", {})
         pdf_found = data.get("pdf_found", False)
         pdf_path = data.get("pdf_path")
-        
+
         status_msg = []
         upload_style = {"display": "block"}
-        
+
         if pdf_found:
             status_msg.append(dbc.Alert("Metadata and PDF successfully fetched! Please verify the details and click Upload.", color="success"))
             upload_style = {"display": "none"}
         else:
             status_msg.append(dbc.Alert("Metadata fetched successfully, but PDF was not found. Please upload the PDF file.", color="info"))
-        
+
         return (
             html.Div(status_msg),
             {"display": "block"},
@@ -747,7 +746,7 @@ def finalize_and_display_json(
 
     # Start with the background metadata fetched from external APIs
     metadata_json = session_data or {}
-    
+
     # Override with the user-reviewed/essential fields from the UI
     metadata_json.update({
         "title": title,
@@ -769,7 +768,7 @@ def finalize_and_display_json(
 
     django_base_url = os.environ.get("DJANGO_URL", "http://127.0.0.1:8000")
     api_url = f"{django_base_url.rstrip('/')}/ingestion/api/dash_upload/"
-    
+
     files = None
     if pdf_contents:
         content_type, content_string = pdf_contents.split(",")
