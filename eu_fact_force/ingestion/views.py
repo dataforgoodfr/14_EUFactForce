@@ -16,8 +16,10 @@ from eu_fact_force.ingestion.search import (
 
 from eu_fact_force.ingestion.models import Author, Document, DocumentChunk
 
+from eu_fact_force.ingestion.data_collection.collector import fetch_all
+
 from .forms import IngestForm
-from .services import DuplicateDOIError, attach_pdf_to_document, ingest_by_doi
+from .services import DuplicateDOIError, attach_pdf_to_document, ingest_by_doi, _download_pdf
 
 _DEFAULT_SEARCH_PATH = (
     Path(__file__).resolve().parent / "data_collection" / "default_search.json"
@@ -165,7 +167,7 @@ def api_dash_upload(request):
         if "authors" in metadata and isinstance(metadata["authors"], list):
             document.authors.set(Author.from_list(metadata["authors"]))
 
-        run = attach_pdf_to_document(document, uploaded_file)
+        run = attach_pdf_to_document(document, uploaded_file, provider_payload=metadata)
         chunks_count = DocumentChunk.objects.filter(document=run.document).count()
 
         return JsonResponse(
@@ -196,9 +198,11 @@ def api_check_and_fetch_doi(request):
         return JsonResponse({"status": "exists", "doi": doi})
 
     try:
-        pdf_path, metadata = fetch_file_and_metadata(doi)
+        metadata = fetch_all(doi)
         if not metadata.get("found"):
             return JsonResponse({"status": "not_found", "doi": doi})
+            
+        pdf_path = _download_pdf(doi, pdf_url=None)
             
         return JsonResponse({
             "status": "fetched",

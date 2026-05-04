@@ -6,12 +6,10 @@ import hashlib
 import logging
 import os
 import tempfile
-import threading
 from pathlib import Path
 
 import requests
 
-from django.db import connection
 
 from eu_fact_force.ingestion.data_collection.collector import fetch_all
 from eu_fact_force.ingestion.data_collection.parsers import PARSERS
@@ -100,7 +98,9 @@ def ingest_by_pdf(pdf_path: Path) -> IngestionRun:
         raise
 
 
-def attach_pdf_to_document(document: Document, uploaded_file) -> IngestionRun:
+def attach_pdf_to_document(
+    document: Document, uploaded_file, provider_payload: dict | None = None
+) -> IngestionRun:
     """
     Attach a PDF to an existing document (metadata-only) and trigger parsing
     and embedding.
@@ -110,12 +110,18 @@ def attach_pdf_to_document(document: Document, uploaded_file) -> IngestionRun:
     if document.source_file_id is not None:
         raise ValueError("Document already has a PDF attached.")
 
+    name = getattr(uploaded_file, "name", "upload.pdf") or "upload.pdf"
+
     run = IngestionRun.start(
         document=document,
         input_type=IngestionRun.InputType.PDF_UPLOAD,
-        input_identifier=uploaded_file.name or "upload",
+        input_identifier=name,
         pipeline_version=PIPELINE_VERSION,
     )
+
+    if provider_payload:
+        run.raw_provider_payload = provider_payload
+        run.save(update_fields=["raw_provider_payload"])
 
     try:
         pdf_path = _save_uploaded_file_to_temp(uploaded_file)
@@ -228,7 +234,8 @@ def _chunk_and_embed(document: Document, chunks: list[str], run: IngestionRun) -
 
 def _save_uploaded_file_to_temp(uploaded_file) -> Path:
     """Write a Django UploadedFile to a temp file and return its path."""
-    suffix = Path(uploaded_file.name).suffix or ".pdf"
+    name = getattr(uploaded_file, "name", "upload.pdf") or "upload.pdf"
+    suffix = Path(name).suffix or ".pdf"
     with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
         for chunk in uploaded_file.chunks():
             tmp.write(chunk)
