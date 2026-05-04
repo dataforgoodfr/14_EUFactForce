@@ -1,5 +1,6 @@
 import pandas as pd
 import plotly.graph_objects as go
+from pathlib import Path
 
 DATA_PATH = "data/PGP x D4G- Exported Vaccine Data.xlsx" # Correct to the actual Excel file
 
@@ -114,18 +115,12 @@ fig_themes = go.Figure(go.Treemap(
 fig_themes.update_layout(**base_layout("Anti-vaccine Themes — All Vaccines"))
 fig_themes.update_layout(margin=dict(l=10, r=10, t=60, b=10))
 
-# ── Preview all figures ────────────────────────────────
-if __name__ == "__main__":
-    for name, fig in [
-        ("Trendline", fig_trend),
-        ("Language", fig_lang),
-        ("Source", fig_source),
-        ("Themes Treemap", fig_themes)
-    ]:
-        print(f"Attempting to display: {name}")
-        try:
-            fig.show()
-            print(f"Opened: {name}")
-        except Exception as e:
-            print(f"Error opening {name}: {e}")
-            print(f"Skipping {name} due to error.")
+__all__ = ["get_figures"]
+
+def get_figures():
+    return (
+        fig_trend,
+        fig_lang,
+        fig_source,
+        fig_themes
+    )
