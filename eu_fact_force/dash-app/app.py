@@ -13,7 +13,7 @@ from dash.exceptions import PreventUpdate
 from pages import graph, ingest, readme, pgp
 from utils.colors import EUPHAColors
 from utils.graph import BackendGraph, format_node_metadata
-#from utils.parsing import extract_pdf_metadata
+from utils.parsing import extract_pdf_metadata
 
 plotly_template = Path(__file__).parent / "assets/template.json"
 with plotly_template.open() as f:
