@@ -1,0 +1,755 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&term=10.1177%2F2515690X20967323%5BDOI%5D
+  response:
+    body:
+      string: '{"header":{"type":"esearch","version":"0.3"},"esearchresult":{"count":"1","retmax":"1","retstart":"0","idlist":["33086877"],"translationset":[],"querytranslation":"\"10
+        1177 2515690x20967323\"[Publisher ID]"}}
+
+        '
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - X-RateLimit-Limit,X-RateLimit-Remaining
+      Alt-Svc:
+      - clear
+      Cache-Control:
+      - private
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - upgrade-insecure-requests
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 05 May 2026 08:31:37 GMT
+      Ncbi-Phid:
+      - 1D32F27E49356B7500005E4AE2FFF10A.1.1.m_1
+      Ncbi-Sid:
+      - 2560120C7A45F4B2_C912SID
+      Referrer-Policy:
+      - origin-when-cross-origin
+      Server:
+      - Finatra
+      Set-Cookie:
+      - ncbi_sid=2560120C7A45F4B2_C912SID; domain=.nih.gov; path=/; expires=Wed, 05
+        May 2027 08:31:37 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 google
+      X-Ratelimit-Limit:
+      - '3'
+      X-Ratelimit-Remaining:
+      - '2'
+      X-Ua-Compatible:
+      - IE=Edge
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Cookie:
+      - ncbi_sid=2560120C7A45F4B2_C912SID
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33086877&retmode=xml&rettype=abstract
+  response:
+    body:
+      string: '<?xml version="1.0" ?>
+
+        <!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January
+        2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+
+        <PubmedArticleSet>
+
+        <PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Manual"><PMID
+        Version="1">33086877</PMID><DateCompleted><Year>2021</Year><Month>09</Month><Day>08</Day></DateCompleted><DateRevised><Year>2021</Year><Month>09</Month><Day>08</Day></DateRevised><Article
+        PubModel="Print"><Journal><ISSN IssnType="Electronic">2515-690X</ISSN><JournalIssue
+        CitedMedium="Internet"><Volume>25</Volume><PubDate><Year>2020</Year><Season>Jan-Dec</Season></PubDate></JournalIssue><Title>Journal
+        of evidence-based integrative medicine</Title><ISOAbbreviation>J Evid Based
+        Integr Med</ISOAbbreviation></Journal><ArticleTitle>Valerian Root in Treating
+        Sleep Problems and Associated Disorders-A Systematic Review and Meta-Analysis.</ArticleTitle><Pagination><StartPage>2515690X20967323</StartPage><MedlinePgn>2515690X20967323</MedlinePgn></Pagination><ELocationID
+        EIdType="pii" ValidYN="Y">2515690X20967323</ELocationID><ELocationID EIdType="doi"
+        ValidYN="Y">10.1177/2515690X20967323</ELocationID><Abstract><AbstractText>Sleep
+        problems are widely prevalent and associated with various comorbidities including
+        anxiety. Valerian (<i>Valeriana officinalis</i> L.) is a popular herbal medicine
+        used as a sleep aid, however the outcomes of previous clinical studies are
+        inconsistent. This study was conducted to update and re-evaluate the available
+        data in order to understand the reason behind the inconsistent outcomes and
+        to provide a broader view of the use of valerian for associated disorders.
+        PubMed, ScienceDirect, and Cochrane Library were searched to retrieve publications
+        relevant to the effectiveness of valerian as a treatment of sleep problems
+        and associated disorders. A total of 60 studies (n=6,894) were included in
+        this review, and meta-analyses were performed to evaluate the effectiveness
+        to improve subjective sleep quality (10 studies, n=1,065) and to reduce anxiety
+        (8 studies, n=535). Results suggested that inconsistent outcomes were possibly
+        due to the variable quality of herbal extracts and that more reliable effects
+        could be expected from the whole root/rhizome. In addition, therapeutic benefits
+        could be optimized when it was combined with appropriate herbal partners.
+        There were no severe adverse events associated with valerian intake in subjects
+        aged between 7 and 80 years. In conclusion, valerian could be a safe and effective
+        herb to promote sleep and prevent associated disorders. However, due to the
+        presence of multiple active constituents and relatively unstable nature of
+        some of the active constituents, it may be necessary to revise the quality
+        control processes, including standardization methods and shelf life.</AbstractText></Abstract><AuthorList
+        CompleteYN="Y"><Author ValidYN="Y"><LastName>Shinjyo</LastName><ForeName>Noriko</ForeName><Initials>N</Initials><Identifier
+        Source="ORCID">0000-0003-4501-4513</Identifier><AffiliationInfo><Affiliation>Department
+        of Infection and Host Defence, Graduate School of Medicine, 12737Chiba University,
+        Chuo-ku, Chiba, Japan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>School
+        of Tropical Medicine and Global Health, Nagasaki University, Nagasaki, Japan.</Affiliation></AffiliationInfo></Author><Author
+        ValidYN="Y"><LastName>Waddell</LastName><ForeName>Guy</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Heartwood
+        Education, Sussex, UK.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Green</LastName><ForeName>Julia</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Faculty
+        of Science and Technology, Department of Life Sciences, 4921University of
+        Westminster, London, UK.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType
+        UI="D016428">Journal Article</PublicationType><PublicationType UI="D017418">Meta-Analysis</PublicationType><PublicationType
+        UI="D000078182">Systematic Review</PublicationType></PublicationTypeList></Article><MedlineJournalInfo><Country>United
+        States</Country><MedlineTA>J Evid Based Integr Med</MedlineTA><NlmUniqueID>101719675</NlmUniqueID><ISSNLinking>2515-690X</ISSNLinking></MedlineJournalInfo><ChemicalList><Chemical><RegistryNumber>0</RegistryNumber><NameOfSubstance
+        UI="D006993">Hypnotics and Sedatives</NameOfSubstance></Chemical><Chemical><RegistryNumber>0</RegistryNumber><NameOfSubstance
+        UI="D010936">Plant Extracts</NameOfSubstance></Chemical></ChemicalList><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName
+        UI="D000293" MajorTopicYN="N">Adolescent</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D000328" MajorTopicYN="N">Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D000368" MajorTopicYN="N">Aged</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D000369" MajorTopicYN="N">Aged, 80 and over</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D001007" MajorTopicYN="N">Anxiety</DescriptorName><QualifierName UI="Q000209"
+        MajorTopicYN="N">etiology</QualifierName><QualifierName UI="Q000517" MajorTopicYN="Y">prevention
+        &amp; control</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D001008"
+        MajorTopicYN="N">Anxiety Disorders</DescriptorName><QualifierName UI="Q000209"
+        MajorTopicYN="N">etiology</QualifierName><QualifierName UI="Q000517" MajorTopicYN="Y">prevention
+        &amp; control</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D002648"
+        MajorTopicYN="N">Child</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D006993" MajorTopicYN="N">Hypnotics and Sedatives</DescriptorName><QualifierName
+        UI="Q000494" MajorTopicYN="N">pharmacology</QualifierName><QualifierName UI="Q000627"
+        MajorTopicYN="Y">therapeutic use</QualifierName></MeshHeading><MeshHeading><DescriptorName
+        UI="D008297" MajorTopicYN="N">Male</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D008875" MajorTopicYN="N">Middle Aged</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D008517" MajorTopicYN="Y">Phytotherapy</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D010936" MajorTopicYN="N">Plant Extracts</DescriptorName><QualifierName
+        UI="Q000494" MajorTopicYN="N">pharmacology</QualifierName><QualifierName UI="Q000627"
+        MajorTopicYN="N">therapeutic use</QualifierName></MeshHeading><MeshHeading><DescriptorName
+        UI="D018517" MajorTopicYN="N">Plant Roots</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D027343" MajorTopicYN="N">Rhizome</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D012890" MajorTopicYN="N">Sleep</DescriptorName><QualifierName UI="Q000187"
+        MajorTopicYN="Y">drug effects</QualifierName></MeshHeading><MeshHeading><DescriptorName
+        UI="D007319" MajorTopicYN="N">Sleep Initiation and Maintenance Disorders</DescriptorName><QualifierName
+        UI="Q000150" MajorTopicYN="N">complications</QualifierName><QualifierName
+        UI="Q000188" MajorTopicYN="Y">drug therapy</QualifierName></MeshHeading><MeshHeading><DescriptorName
+        UI="D014632" MajorTopicYN="Y">Valerian</DescriptorName></MeshHeading><MeshHeading><DescriptorName
+        UI="D055815" MajorTopicYN="N">Young Adult</DescriptorName></MeshHeading></MeshHeadingList><KeywordList
+        Owner="NOTNLM"><Keyword MajorTopicYN="N">anxiety</Keyword><Keyword MajorTopicYN="N">herbal
+        medicine</Keyword><Keyword MajorTopicYN="N">insomnia</Keyword><Keyword MajorTopicYN="N">sleep</Keyword><Keyword
+        MajorTopicYN="N">systematic review</Keyword><Keyword MajorTopicYN="N">valeriana
+        officinalis</Keyword></KeywordList><CoiStatement><b>Declaration of Conflicting
+        Interests:</b> The author(s) declared no potential conflicts of interest with
+        respect to the research, authorship, and/or publication of this article.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate
+        PubStatus="entrez"><Year>2020</Year><Month>10</Month><Day>22</Day><Hour>5</Hour><Minute>25</Minute></PubMedPubDate><PubMedPubDate
+        PubStatus="pubmed"><Year>2020</Year><Month>10</Month><Day>23</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate
+        PubStatus="medline"><Year>2021</Year><Month>9</Month><Day>9</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate
+        PubStatus="pmc-release"><Year>2020</Year><Month>10</Month><Day>21</Day></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId
+        IdType="pubmed">33086877</ArticleId><ArticleId IdType="pmc">PMC7585905</ArticleId><ArticleId
+        IdType="doi">10.1177/2515690X20967323</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Olesen
+        J, Gustavsson A, Svensson M, et al. The economic cost of brain disorders in
+        Europe. Eur J Neurol. 2012;19(1):155&#x2013;162.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">22175760</ArticleId></ArticleIdList></Reference><Reference><Citation>Watson
+        N, Badr M, Belenky G, et al. Joint consensus statement of the American academy
+        of sleep medicine and sleep research society on the recommended amount of
+        sleep for a healthy adult: methodology and discussion. Sleep. 2015;38(8):1161&#x2013;1183.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC4507722</ArticleId><ArticleId IdType="pubmed">26194576</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhou
+        E, Gardiner P, Bertisch S. Integrative medicine for insomnia. Med Clin North
+        Am. 2017;101(5):865&#x2013;879. doi:10.1016/j.mcna.2017.04.005</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">28802468</ArticleId></ArticleIdList></Reference><Reference><Citation>Medic
+        G, Wille M, Hemels M. Short- and long-term health consequences of sleep disruption.
+        Nat Sci Sleep. 2017;9:151&#x2013;161.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC5449130</ArticleId><ArticleId IdType="pubmed">28579842</ArticleId></ArticleIdList></Reference><Reference><Citation>Cipriani
+        G, Lucetti C, Danti S, Nuti A. Sleep disturbances and dementia. Psychogeriatrics.
+        2015;15(1):65&#x2013;74. doi:10.1111/psyg.12069</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">25515641</ArticleId></ArticleIdList></Reference><Reference><Citation>de
+        Almondes K, Costa M, Malloy-Diniz L, Diniz B. Insomnia and risk of dementia
+        in older adults: systematic review and meta-analysis. J Psychiatr Res. 2016;77:109&#x2013;115.
+        doi:10.1016/j.jpsychires.2016.02.021</Citation><ArticleIdList><ArticleId IdType="pubmed">27017287</ArticleId></ArticleIdList></Reference><Reference><Citation>Chaiard
+        J, Weaver T. Update on research and practices in major sleep disorders: part
+        I. Obstructive sleep apnea syndrome. J Nurs Sch. 2019;51(5):500&#x2013;508.
+        doi:10.1111/jnu.12489</Citation><ArticleIdList><ArticleId IdType="pubmed">31512821</ArticleId></ArticleIdList></Reference><Reference><Citation>Kalmbach
+        D, Anderson J, Drake C. The impact of stress on sleep: pathogenic sleep reactivity
+        as a vulnerability to insomnia and circadian disorders. J Sleep Res. 2018;27(6):e12710
+        doi:10.1111/jsr.12710</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7045300</ArticleId><ArticleId
+        IdType="pubmed">29797753</ArticleId></ArticleIdList></Reference><Reference><Citation>Koo
+        B. Restless leg syndrome across the globe: epidemiology of the restless legs
+        syndrome/Willis-Ekbom disease. Sleep Med Clin. 2015;10(3):189&#x2013;205.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">26329429</ArticleId></ArticleIdList></Reference><Reference><Citation>Chaiard
+        J, Weaver T. Update on research and practices in major sleep disorders: Part
+        II-insomnia, Willis-Ekbom disease (Restless Leg Syndrome), and narcolepsy.
+        J Nurs Sch. 2019;51(6):624&#x2013;633.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">31524329</ArticleId></ArticleIdList></Reference><Reference><Citation>Ohayon
+        M, Priest R, Zulley J, Smirne S, Paiva T. Prevalence of narcolepsy symptomatology
+        and diagnosis in the European general population. Neurology. 2002;58(12):1826&#x2013;1833.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">12084885</ArticleId></ArticleIdList></Reference><Reference><Citation>Burman
+        D. Sleep disorders: insomnia. FP Essent. 2017;460:22&#x2013;28.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">28845958</ArticleId></ArticleIdList></Reference><Reference><Citation>Borja
+        N, Daniel K. Ramelteon for the treatment of insomnia. Clin Ther. 2006;28(10):1540&#x2013;1555.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">17157111</ArticleId></ArticleIdList></Reference><Reference><Citation>Roth
+        T, Drake C. Evolution of insomnia: current status and future direction. Sleep
+        Med. 2004;5(Suppl 1):S23&#x2013;30.</Citation><ArticleIdList><ArticleId IdType="pubmed">15301994</ArticleId></ArticleIdList></Reference><Reference><Citation>Brandt
+        J, Leong C. Benzodiazepines and Z-Drugs: an updated review of major adverse
+        outcomes reported on in epidemiologic research. Drugs R D. 2017;17(4):493&#x2013;507.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC5694420</ArticleId><ArticleId IdType="pubmed">28865038</ArticleId></ArticleIdList></Reference><Reference><Citation>Bone
+        K, Mills S. Principles and Practice of Phytotherapy: Modern Herbal Medicine.
+        2nd ed Churchill Livingstone; 2013.</Citation></Reference><Reference><Citation>Klein
+        S, Rister R. The Complete German Commission E Monographs: Therapeutic Guide
+        to Herbal Medicine (English Translation). (Blumenthal M, ed.). American Botanical
+        Council; 1998.</Citation></Reference><Reference><Citation>EMA. European Union
+        Herbal Monograph on Valeriana Officinalis L. Radix; 2016.</Citation></Reference><Reference><Citation>Stevinson
+        C, Ernst E. Valerian for insomnia: a systematic review of randomized clinical
+        trials. Sleep Med. 2000;1(2):91&#x2013;99.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">10767649</ArticleId></ArticleIdList></Reference><Reference><Citation>Bent
+        S, Padula A, Moore D, Patterson M, Mehling W. Valerian for sleep: a systematic
+        review and meta-analysis. Am J Med. 2006;119(12):1005&#x2013;1012.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC4394901</ArticleId><ArticleId IdType="pubmed">17145239</ArticleId></ArticleIdList></Reference><Reference><Citation>Taibi
+        D, Landis C, Petry H, Vitiello M. A systematic review of valerian as a sleep
+        aid: safe but not effective. Sleep Med Rev. 2007;11(3):209&#x2013;230.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">17517355</ArticleId></ArticleIdList></Reference><Reference><Citation>Fern&#xe1;ndez-San-Mart&#xed;n
+        MI, Masa-Font R, Palacios-Soler L, Sancho-G&#xf3;mez P, Calb&#xf3;-Caldentey
+        C, Flores-Mateo G. Effectiveness of Valerian on insomnia: a meta-analysis
+        of randomized placebo-controlled trials. Sleep Med. 2010;11(6):505&#x2013;511.
+        doi:10.1016/j.sleep.2009.12.009</Citation><ArticleIdList><ArticleId IdType="pubmed">20347389</ArticleId></ArticleIdList></Reference><Reference><Citation>Moher
+        D, Liberati A, Tetzlaff J, Altman D. Preferred reporting items for systematic
+        reviews and meta-analyses: the PRISMA statement. PLoS Med [Internet]. 2009;6(7):e1000097
+        doi:10.1371/journal.pmed.1000097</Citation><ArticleIdList><ArticleId IdType="pmc">PMC2707599</ArticleId><ArticleId
+        IdType="pubmed">19621072</ArticleId></ArticleIdList></Reference><Reference><Citation>Jadad
+        A, Moore R, Carroll D, et al. Assessing the quality of reports of randomized
+        clinical trials: is blinding necessary? Control Clin Trials. 1996;17(1):1&#x2013;12.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">8721797</ArticleId></ArticleIdList></Reference><Reference><Citation>Borenstein
+        M, Hedges L, Higgins J, Rothstein H. Converting among effect sizes In: Borenstein
+        M, Hedges LV, Higgins JPT, Rothstein HR, eds. Introduction to Meta-Analysis.
+        John Wiley &amp; Sons; 2009.</Citation></Reference><Reference><Citation>Hedges
+        L, Olkin I. Statistical Methods for Meta-Analysis. Academic Press; 1985.</Citation></Reference><Reference><Citation>Durlak
+        J. How to select, calculate, and interpret effect sizes. J Pediatr Psychol.
+        2009;34(9):917&#x2013;928.</Citation><ArticleIdList><ArticleId IdType="pubmed">19223279</ArticleId></ArticleIdList></Reference><Reference><Citation>Suurmond
+        R, van Rhee H, Hak T. Introduction, comparison and validation of Meta-Essentials:
+        a free and simple tool for meta-analysis. Res Synth Methods. 2017;8(4):537&#x2013;553.
+        doi:10.1002/jrsm.1260</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5725669</ArticleId><ArticleId
+        IdType="pubmed">28801932</ArticleId></ArticleIdList></Reference><Reference><Citation>Egger
+        M, Davey Smith G, Schneider M, Minder C. Bias in meta-analysis detected by
+        a simple, graphical test. BMJ. 1997;315(7109):629&#x2013;634.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC2127453</ArticleId><ArticleId IdType="pubmed">9310563</ArticleId></ArticleIdList></Reference><Reference><Citation>Cuellar
+        N, Ratcliffe S. Does valerian improve sleepiness and symptom severity in people
+        with restless legs syndrome? Altern Ther Heal Med. 2009;15(2):22&#x2013;28.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">19284179</ArticleId></ArticleIdList></Reference><Reference><Citation>Mineo
+        L, Concerto C, Patel D, et al. Valeriana officinalis root extract modulates
+        cortical excitatory circuits in humans. Neuropsychobiology. 2017;75(1):46&#x2013;51.
+        doi:10.1159/000480053</Citation><ArticleIdList><ArticleId IdType="pubmed">29035887</ArticleId></ArticleIdList></Reference><Reference><Citation>Samaei
+        A, Nobahar M, Hydarinia-Naieni Z, et al. Effect of valerian on cognitive disorders
+        and electroencephalography in hemodialysis patients: a randomized, cross over,
+        double-blind clinical trial. BMC Nephrol. 2018;19(1):379.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC6309073</ArticleId><ArticleId IdType="pubmed">30591031</ArticleId></ArticleIdList></Reference><Reference><Citation>Farah
+        G, Ferreira G, Danieletto-Zanna C, Luppi C, Jacomacci W. Assessment of Valeriana
+        officinalis l. (Valerian) for conscious sedation of patients during the extraction
+        of impacted mandibular third molars: a randomized, split-mouth, double-blind,
+        crossover study. J Oral Maxillofac Surg. 2019;77(9):1796.e1&#x2013;1796.e8.
+        doi:10.1016/j.joms.2019.05.003</Citation><ArticleIdList><ArticleId IdType="pubmed">31158346</ArticleId></ArticleIdList></Reference><Reference><Citation>Roh
+        D, Jung J, Yoon K, et al. Valerian extract alters functional brain connectivity:
+        a randomized double-blind placebo-controlled trial. Phytother Res. 2019;33(4):939&#x2013;948.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">30632220</ArticleId></ArticleIdList></Reference><Reference><Citation>Ahmadi
+        M, Khalili H, Abbasian L, Ghaeli P. Effect of Valerian in preventing neuropsychiatric
+        adverse effects of efavirenz in HIV-positive patients: a pilot randomized,
+        placebo-controlled clinical trial. Ann Pharmacother. 2017;51(6):457&#x2013;464.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">28478716</ArticleId></ArticleIdList></Reference><Reference><Citation>Donath
+        F, Quispe S, Diefenbach K, Maurer A, Fietze I, Roots I. Critical evaluation
+        of the effect of valerian extract on sleep structure and sleep quality. Pharmacopsychiatry.
+        2000;33(2):47&#x2013;53.</Citation><ArticleIdList><ArticleId IdType="pubmed">10761819</ArticleId></ArticleIdList></Reference><Reference><Citation>Kuhlmann
+        J, Berger W, Podzuweit H, Schmidt U. The influence of valerian treatment on
+        &#x201c;reaction time, alertness and concentration&#x201d; in volunteers.
+        Pharmacopsychiatry. 1999;32(6):235&#x2013;241.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">10599933</ArticleId></ArticleIdList></Reference><Reference><Citation>Schulz
+        H, Stolz C, M&#xfc;ller J. The effect of valerian extract on sleep polygraphy
+        in poor sleepers: a pilot study. Pharmacopsychiatry. 1994;27(4):147&#x2013;151.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">7972346</ArticleId></ArticleIdList></Reference><Reference><Citation>Kohnen
+        R, Oswald W. The effects of valerian, propranolol, and their combination on
+        activation, performance, and mood of healthy volunteers under social stress
+        conditions. Pharmacopsychiatry. 1988;21(6):447&#x2013;448.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">3244789</ArticleId></ArticleIdList></Reference><Reference><Citation>Balderer
+        G, Borb&#xe9;ly A. Effect of valerian on human sleep. Psychopharmacol. 1985;87(4):406&#x2013;409.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">3936097</ArticleId></ArticleIdList></Reference><Reference><Citation>Leathwood
+        P, Chauffard F, Heck E, Munoz-Box R. Aqueous extract of valerian root (Valeriana
+        officinalis L.) improves sleep quality in man. Pharmacol Biochem Behav. 1982;17(1):65&#x2013;71.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">7122669</ArticleId></ArticleIdList></Reference><Reference><Citation>Herrera-Arellano
+        A, Luna-Villegas G, Cuevas-Uriostegui M, et al. Polysomnographic evaluation
+        of the hypnotic effect of Valeriana edulis standardized extract in patients
+        suffering from insomnia. Planta Med. 2001;67(8):695&#x2013;699.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">11731907</ArticleId></ArticleIdList></Reference><Reference><Citation>Cropley
+        M, Cave Z, Ellis J, Middleton R. Effect of kava and valerian on human physiological
+        and psychological responses to mental stress assessed under laboratory conditions.
+        Phytother Res. 2002;16(1):23&#x2013;27.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">11807960</ArticleId></ArticleIdList></Reference><Reference><Citation>Ziegler
+        G, Ploch M, Miettinen-Baumann A, Collet W. Efficacy and tolerability of valerian
+        extract LI 156 compared with oxazepam in the treatment of non-organic insomnia&#x2014;a
+        randomized, double-blind, comparative clinical study. Eur J Med Res. 2002;7(11):480&#x2013;486.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">12568976</ArticleId></ArticleIdList></Reference><Reference><Citation>Glass
+        J, Sproule B, Herrmann N, Streiner D, Busto U. Acute pharmacological effects
+        of temazepam, diphenhydramine, and valerian in healthy elderly subjects. J
+        Clin Psychopharmacol. 2003;23(3):260&#x2013;268.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">12826988</ArticleId></ArticleIdList></Reference><Reference><Citation>Francis
+        A, Dempster R. Effect of valerian, Valeriana edulis, on sleep difficulties
+        in children with intellectual deficits: randomised trial. Phytomedicine. 2002;9(4):273&#x2013;279.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">12120807</ArticleId></ArticleIdList></Reference><Reference><Citation>Hallam
+        K, Olver J, McGrath C, Norman T. Comparative cognitive and psychomotor effects
+        of single doses of Valeriana officianalis and triazolam in healthy volunteers.
+        Hum Psychopharmacol. 2003;18(8):619&#x2013;625.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">14696021</ArticleId></ArticleIdList></Reference><Reference><Citation>Coxeter
+        P, Schluter P, Eastwood H, Nikles C, Glasziou P. Valerian does not appear
+        to reduce symptoms for patients with chronic insomnia in general practice
+        using a series of randomised n-of-1 trials. Complement Ther Med. 2003;11(4):215&#x2013;222.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">15022653</ArticleId></ArticleIdList></Reference><Reference><Citation>Gutierrez
+        S, Ang-Lee M, Walker D, Zacny J. Assessing subjective and psychomotor effects
+        of the herbal medication valerian in healthy volunteers. Pharmacol Biochem
+        Behav. 2004;78(1):57&#x2013;64.</Citation><ArticleIdList><ArticleId IdType="pubmed">15159134</ArticleId></ArticleIdList></Reference><Reference><Citation>Diaper
+        A, Hindmarch I. A double-blind, placebo-controlled investigation of the effects
+        of two doses of a valerian preparation on the sleep, cognitive and psychomotor
+        function of sleep-disturbed older adults. Phytother Res. 2004;18(10):831&#x2013;836.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">15551388</ArticleId></ArticleIdList></Reference><Reference><Citation>Jacobs
+        B, Bent S, Tice J, Blackwell T, Cummings S. An internet-based randomized,
+        placebo-controlled trial of kava and valerian for anxiety and insomnia. Med.
+        2005;84(4):197&#x2013;207.</Citation><ArticleIdList><ArticleId IdType="pubmed">16010204</ArticleId></ArticleIdList></Reference><Reference><Citation>Oxman
+        A, Flottorp S, H&#xe5;velsrud K, et al. A televised, web-based randomised
+        trial of an herbal remedy (valerian) for insomnia. PLoS One. 2007;2(10):e1040.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC2002515</ArticleId><ArticleId IdType="pubmed">17940604</ArticleId></ArticleIdList></Reference><Reference><Citation>Taibi
+        D, Vitiello M, Barsness S, Elmer G, Anderson G, Landis C. A randomized clinical
+        trial of valerian fails to improve self-reported, polysomnographic, and actigraphic
+        sleep in older women with insomnia. Sleep Med. 2009;10(3):319&#x2013;328.
+        doi:10.1016/j.sleep.2008.02.001</Citation><ArticleIdList><ArticleId IdType="pmc">PMC2709274</ArticleId><ArticleId
+        IdType="pubmed">18482867</ArticleId></ArticleIdList></Reference><Reference><Citation>Taibi
+        D, Bourguignon C, Gill Taylor A. A feasibility study of valerian extract for
+        sleep disturbance in person with arthritis. Biol Res Nurs. 2009;10(4):409&#x2013;417.
+        doi:10.1177/1099800408324252</Citation><ArticleIdList><ArticleId IdType="pubmed">19114414</ArticleId></ArticleIdList></Reference><Reference><Citation>Pakseresht
+        S, Boostani H, Sayyah M. Extract of valerian root (Valeriana officinalis L.)
+        vs. placebo in treatment of obsessive-compulsive disorder: a randomized double-blind
+        study. J Complement Integr Med. 2011;8:pii: /j/jcim.2011.8.issue-1/1553-3840.1465/1553-38
+        doi:10.2202/1553-3840.1465</Citation><ArticleIdList><ArticleId IdType="pubmed">22718671</ArticleId></ArticleIdList></Reference><Reference><Citation>Barton
+        DL, Atherton PJ, Bauer BA, et al. The use of Valeriana officinalis (Valerian)
+        in improving sleep in patients who are undergoing treatment for cancer: a
+        phase III randomized, placebo-controlled, double-blind study (NCCTG Trial,
+        N01C5). J Support Oncol. 2011;9(1):24&#x2013;31. doi:10.1016/j.suponc.2010.12.008</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC3052692</ArticleId><ArticleId IdType="pubmed">21399726</ArticleId></ArticleIdList></Reference><Reference><Citation>Taavoni
+        S, Ekbatani N, Kashaniyan M, Haghani H. Effect of valerian on sleep quality
+        in postmenopausal women: a randomized placebo-controlled clinical trial. Menopause.
+        2011;18(9):951&#x2013;955. doi:10.1097/gme.0b013e31820e9acf</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">21775910</ArticleId></ArticleIdList></Reference><Reference><Citation>Mirabi
+        P, Dolatian M, Mojab F, Majd H. Effects of valerian on the severity and systemic
+        manifestations of dysmenorrhea. Int J Gynaecol Obs. 2011;115(3):285&#x2013;288.
+        doi:10.1016/j.ijgo.2011.06.022</Citation><ArticleIdList><ArticleId IdType="pubmed">21959068</ArticleId></ArticleIdList></Reference><Reference><Citation>Mirabi
+        P, Mojab F. The effects of valerian root on hot flashes in menopausal women.
+        Iran J Pharm Res. 2013;12(1):217&#x2013;222.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC3813196</ArticleId><ArticleId IdType="pubmed">24250592</ArticleId></ArticleIdList></Reference><Reference><Citation>Pinheiro
+        M, Alc&#xe2;ntara C, de Moraes M, de Andrade E. Valeriana officinalis L. for
+        conscious sedation of patients submitted to impacted lower third molar surgery:
+        a randomized, double-blind, placebo-controlled split-mouth study. J Pharm
+        Bioallied Sci. 2014;6(2):109&#x2013;114. doi:10.4103/0975-7406.129176</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC3983740</ArticleId><ArticleId IdType="pubmed">24741279</ArticleId></ArticleIdList></Reference><Reference><Citation>Hassani
+        S, Alipour A, Darvishi Khezri H, et al. Can Valeriana officinalis root extract
+        prevent early postoperative cognitive dysfunction after CABG surgery? A randomized,
+        double-blind, placebo-controlled trial. Psychopharmacol. 2015;232(5):843&#x2013;850.
+        doi:10.1007/s00213-014-3716-x</Citation><ArticleIdList><ArticleId IdType="pubmed">25173770</ArticleId></ArticleIdList></Reference><Reference><Citation>Thomas
+        K, Canedo J, Perry P, et al. Effects of valerian on subjective sedation, field
+        sobriety testing and driving simulator performance. Accid Anal Prev. 2016;92:240&#x2013;244.
+        doi:10.1016/j.aap.2016.01.019</Citation><ArticleIdList><ArticleId IdType="pubmed">27110643</ArticleId></ArticleIdList></Reference><Reference><Citation>Behboodi
+        Moghadam Z, Rezaei E, Shirood Gholami R, Kheirkhah M, Haghani H. The effect
+        of Valerian root extract on the severity of pre menstrual syndrome symptoms.
+        J Tradit Complement Med. 2016;6(3):309&#x2013;315. doi:10.1016/j.jtcme.2015.09.001</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC4936757</ArticleId><ArticleId IdType="pubmed">27419099</ArticleId></ArticleIdList></Reference><Reference><Citation>Jenabi
+        E, Shobeiri F, Hazavehei S, Roshanaei G. The effect of Valerian on the severity
+        and frequency of hot flashes: a triple-blind randomized clinical trial. Women
+        Heal. 2017;58(3):297&#x2013;304. doi:10.1080/03630242.2017</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">28278010</ArticleId></ArticleIdList></Reference><Reference><Citation>Koetter
+        U, Schrader E, K&#xe4;ufeler R, Brattstr&#xf6;m A. A randomized, double blind,
+        placebo-controlled, prospective clinical study to demonstrate clinical efficacy
+        of a fixed valerian hops extract combination (Ze 91019) in patients suffering
+        from non-organic sleep disorder. Phytother Res. 2007;21(9):847&#x2013;851.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">17486686</ArticleId></ArticleIdList></Reference><Reference><Citation>Wheatley
+        D. Kava and valerian in the treatment of stress-induced insomnia. Phytother
+        Res. 2001;15(6):549&#x2013;551.</Citation><ArticleIdList><ArticleId IdType="pubmed">11536390</ArticleId></ArticleIdList></Reference><Reference><Citation>Dominguez
+        R, Bravo-Valverde R, Kaplowitz B, Cott JM. Valerian as a hypnotic for Hispanic
+        patients. Cult Divers Ethn Minor Psychol. 2000;6(1):84&#x2013;92.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">10975170</ArticleId></ArticleIdList></Reference><Reference><Citation>Gurley
+        B, Gardner S, Hubbard M, et al. In vivo effects of goldenseal, kava kava,
+        black cohosh, and valerian on human cytochrome P450 1A2, 2D6, 2E1, and 3A4/5
+        phenotypes. Clin Pharmacol Ther. 2005;77(5):415&#x2013;426.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC1894911</ArticleId><ArticleId IdType="pubmed">15900287</ArticleId></ArticleIdList></Reference><Reference><Citation>Donovan
+        J, DeVane C, Chavin K, et al. Multiple night-time doses of valerian (Valeriana
+        officinalis) had minimal effects on CYP3A4 activity and no effect on CYP2D6
+        activity in healthy volunteers. Drug Metab Dispos. 2004;32(12):1333&#x2013;1336.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">15328251</ArticleId></ArticleIdList></Reference><Reference><Citation>Poyares
+        D, Guilleminault C, Ohayon M, Tufik S. Can valerian improve the sleep of insomniacs
+        after benzodiazepine withdrawal? Prog Neuropsychopharmacol Biol Psychiatry.
+        2002;26(3):539&#x2013;545.</Citation><ArticleIdList><ArticleId IdType="pubmed">11999905</ArticleId></ArticleIdList></Reference><Reference><Citation>Andreatini
+        R, Sartori V, Seabra M, Leite J. Effect of valepotriates (valerian extract)
+        in generalized anxiety disorder: a randomized placebo-controlled pilot study.
+        Phytother Res. 2002;16(7):650&#x2013;654.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">12410546</ArticleId></ArticleIdList></Reference><Reference><Citation>Dimpfel
+        W, Suter A. Sleep improving effects of a single dose administration of a valerian/hops
+        fluid extract&#x2014;a double blind, randomized, placebo-controlled sleep-EEG
+        study in a parallel design using electrohypnograms. Eur J Med Res. 2008;13(5):200&#x2013;204.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">18559301</ArticleId></ArticleIdList></Reference><Reference><Citation>Melzer
+        J, Schrader E, Brattstr&#xf6;m A, Schellenberg R, Saller R. Fixed herbal drug
+        combination with and without butterbur (Ze 185) for the treatment of patients
+        with somatoform disorders: randomized, placebo-controlled pharmaco-clinical
+        trial. Phytother Res. 2009;23(9):1303&#x2013;1308. doi:10.1002/ptr.2771</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">19274698</ArticleId></ArticleIdList></Reference><Reference><Citation>Chen
+        J, Chao Y, Lu S, Shiung T, Chao Y. The effectiveness of valerian acupressure
+        on the sleep of ICU patients: a randomized clinical trial. Int J Nurs Stud.
+        2012;49(8):913&#x2013;920. doi:10.1016/j.ijnurstu.2012.02.012</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">22391336</ArticleId></ArticleIdList></Reference><Reference><Citation>Maroo
+        N, Hazra A, Das T. Efficacy and safety of a polyherbal sedative-hypnotic formulation
+        NSF-3 in primary insomnia in comparison to zolpidem: a randomized controlled
+        trial. Indian J Pharmacol. 2013;45(1):34&#x2013;39. doi:10.4103/0253-7613.106432</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC3608291</ArticleId><ArticleId IdType="pubmed">23543804</ArticleId></ArticleIdList></Reference><Reference><Citation>Taavoni
+        S, Nazem Ekbatani N, Haghani H. Valerian/lemon balm use for sleep disorders
+        during menopause. Complement Ther Clin Pr. 2013;19(4):193&#x2013;196. doi:10.1016/j.ctcp.2013.07.002</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">24199972</ArticleId></ArticleIdList></Reference><Reference><Citation>Meier
+        S, Haschke M, Zahner C, et al. Effects of a fixed herbal drug combination
+        (Ze 185) to an experimental acute stress setting in healthy men&#x2014;an
+        explorative randomized placebo-controlled double-blind study. Phytomedicine.
+        2018;39:85&#x2013;92. doi:10.1016/j.phymed.2017.12.005</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">29433687</ArticleId></ArticleIdList></Reference><Reference><Citation>Kennedy
+        D, Little W, Haskell C, Scholey A. Anxiolytic effects of a combination of
+        Melissa officinalis and Valeriana officinalis during laboratory induced stress.
+        Phytother Res. 2006;20(2):96&#x2013;102.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">16444660</ArticleId></ArticleIdList></Reference><Reference><Citation>Morin
+        C, Koetter U, Bastien C, Ware J, Wooten V. Valerian-hops combination and diphenhydramine
+        for treating insomnia: a randomized placebo-controlled clinical trial. Sleep.
+        2005;28(11):1465&#x2013;1471.</Citation><ArticleIdList><ArticleId IdType="pubmed">16335333</ArticleId></ArticleIdList></Reference><Reference><Citation>Schellenberg
+        R, Sauer S, Abourashed E, Koetter U, Brattstr&#xf6;m A. The fixed combination
+        of valerian and hops (Ze91019) acts via a central adenosine mechanism. Planta
+        Med. 2004;70(7):594&#x2013;597.</Citation><ArticleIdList><ArticleId IdType="pubmed">15254851</ArticleId></ArticleIdList></Reference><Reference><Citation>Farag
+        N, Mills P. A randomized-controlled trial of the effects of a traditional
+        herbal supplement on sleep onset insomnia. Complement Ther Med. 2003;11(4):223&#x2013;225.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">15022654</ArticleId></ArticleIdList></Reference><Reference><Citation>Vonderheid-Guth
+        B, Todorova A, Brattstr&#xf6;m A, Dimpfel W. Pharmacodynamic effects of valerian
+        and hops extract combination (Ze 91019) on the quantitative-topographical
+        EEG in healthy volunteers. Eur J Med Res. 2000;5(4):139&#x2013;144.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">10799347</ArticleId></ArticleIdList></Reference><Reference><Citation>Lindahl
+        O, Lindwall L. Double blind study of a valerian preparation. Pharmacol Biochem
+        Behav. 1989;32(4):1065&#x2013;1066.</Citation><ArticleIdList><ArticleId IdType="pubmed">2678162</ArticleId></ArticleIdList></Reference><Reference><Citation>Gromball
+        J, Beschorner F, Wantzen C, Paulsen U, Burkart M. Hyperactivity, concentration
+        difficulties and impulsiveness improve during seven weeks&#x2019; treatment
+        with valerian root and lemon balm extracts in primary school children. Phytomedicine.
+        2014;21(8-9):1098&#x2013;1103. doi:10.1016/j.phymed.2014.04.004</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">24837472</ArticleId></ArticleIdList></Reference><Reference><Citation>M&#xfc;ller
+        D, Pfeil T, von den Driesch V. Treating depression comorbid with anxiety&#x2014;results
+        of an open, practice-oriented study with St John&#x2019;s wort WS 5572 and
+        valerian extract in high doses. Phytomedicine. 2003;10(Suppl 4):25&#x2013;30.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">12807339</ArticleId></ArticleIdList></Reference><Reference><Citation>Trompetter
+        I, Krick B, Weiss G. Herbal triplet in treatment of nervous agitation in children.
+        Wien Med Wochenschr. 2013;163(3-4):52&#x2013;57. doi:s10.1007/s10354-012-0165
+        -1</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3580146</ArticleId><ArticleId
+        IdType="pubmed">23179673</ArticleId></ArticleIdList></Reference><Reference><Citation>Toolika
+        E, Bhat N, Shetty S. A comparative clinical study on the effect of Tagara
+        (Valeriana wallichii DC.) and Jatamansi (Nardostachys jatamansi DC.) in the
+        management of Anidra (primary insomnia). Ayu. 2015;36(1):46&#x2013;49. doi:10.4103/0974-8520.169008</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC4687238</ArticleId><ArticleId IdType="pubmed">26730138</ArticleId></ArticleIdList></Reference><Reference><Citation>Abdellah
+        S, Berlin A, Blondeau C, et al. A combination of Eschscholtzia californica
+        Cham. and Valeriana officinalis L. extracts for adjustment insomnia: a prospective
+        observational study. J Tradit Complement Med. 2019;10(2):116&#x2013;123.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC7109475</ArticleId><ArticleId IdType="pubmed">32257874</ArticleId></ArticleIdList></Reference><Reference><Citation>M&#xfc;ller
+        S, Klement S. A combination of valerian and lemon balm is effective in the
+        treatment of restlessness and dyssomnia in children. Phytomedicine. 2006;13(6):383&#x2013;387.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">16487692</ArticleId></ArticleIdList></Reference><Reference><Citation>Buysse
+        D, Reynolds C, Monk T, Berman S, Kupfer D. The Pittsburgh sleep quality index:
+        a new instrument for psychiatric practice and research. Psychiatry Res. 1989;28:193&#x2013;213.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">2748771</ArticleId></ArticleIdList></Reference><Reference><Citation>Morin
+        C, Belleville G, B&#xe9;langer L, Ivers H. The Insomnia Severity Index: psychometric
+        indicators to detect insomnia cases and evaluate treatment response. Sleep.
+        2011;34(5):601&#x2013;608.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3079939</ArticleId><ArticleId
+        IdType="pubmed">21532953</ArticleId></ArticleIdList></Reference><Reference><Citation>Ib&#xe1;&#xf1;ez
+        V, Silva J, Cauli O. A survey on sleep assessment methods. PeerJ. 2018;6:e4849
+        doi:10.7717/peerj.4849</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5971842</ArticleId><ArticleId
+        IdType="pubmed">29844990</ArticleId></ArticleIdList></Reference><Reference><Citation>Hamilton
+        M. The assessment of anxiety states by rating. Br J Med Psychol. 1959;32:50&#x2013;55.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">13638508</ArticleId></ArticleIdList></Reference><Reference><Citation>Bech
+        P, Kastrup M, Rafaelsen O. Mini-compendium of rating scales for states of
+        anxiety depression mania schizophrenia with corresponding DSM-III syndromes.
+        Acta Psychiatr Scand Suppl. 1986;326:1&#x2013;37.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">3458353</ArticleId></ArticleIdList></Reference><Reference><Citation>Spielberger
+        C. Manual for the State-Trait Anxiety Inventory. Consulting Psychologists
+        Press; 1970.</Citation></Reference><Reference><Citation>Julian L. Measures
+        of anxiety: State-Trait Anxiety Inventory (STAI), Beck Anxiety Inventory (BAI),
+        and Hospital Anxiety and Depression Scale-Anxiety (HADS-A). Arthritis Care
+        Res. 2011;63(suppl 11):S467&#x2013;472.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC3879951</ArticleId><ArticleId IdType="pubmed">22588767</ArticleId></ArticleIdList></Reference><Reference><Citation>Steptoe
+        A, Cropley M, Joekes K. Job strain, blood pressure and response to uncontrollable
+        stress. J Hypertens. 1999;17(2):193&#x2013;200.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">10067788</ArticleId></ArticleIdList></Reference><Reference><Citation>Bos
+        R, Hendriks H, Scheffer J, Woerdenbag H. Cytotoxic potential of valerian constituents
+        and valerian tinctures. Phytomedicine. 1998;5(3):219&#x2013;225. doi:10.1016/S0944-7113(98)80032-9</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">23195845</ArticleId></ArticleIdList></Reference><Reference><Citation>Felter
+        H, Lloyd J. King&#x2019;s American Dispensatory. 19th ed Franklin Classics;
+        1905.</Citation></Reference><Reference><Citation>Glidewell R, McPherson Botts
+        E, Orr W. Insomnia and anxiety: diagnostic and management implications of
+        complex interactions. Sleep Med Clin. 2015;10(1):93&#x2013;99. doi:10.1016/j.jsmc.2014.11.008</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">26055677</ArticleId></ArticleIdList></Reference><Reference><Citation>Sarris
+        J, Panossian A, Schweitzer I, Stough C, Scholey A. Herbal medicine for depression,
+        anxiety and insomnia: a review of psychopharmacology and clinical evidence.
+        Eur Neuropsychopharmacol. 2011;21(12):841&#x2013;860. doi:10.1016/j.euroneuro.2011.04.002</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">21601431</ArticleId></ArticleIdList></Reference><Reference><Citation>Gebara
+        M, Siripong N, DiNapoli E, et al. Effect of insomnia treatments on depression:
+        A systematic review and meta-analysis. Depress Anxiety. 2018;35(8): 717&#x2013;731.
+        doi:10.1002/da.22776</Citation><ArticleIdList><ArticleId IdType="pubmed">29782076</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu
+        L, Liu C, Wang Y, Wang P, Li Y, Li B. Herbal medicine for anxiety, depression
+        and insomnia. Curr Neuropharmacol. 2015;13(4):481&#x2013;493.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC4790408</ArticleId><ArticleId IdType="pubmed">26412068</ArticleId></ArticleIdList></Reference><Reference><Citation>Cox
+        R, Parmar A, Olatunji B. Sleep in obsessive-compulsive and related disorders:
+        a selective review and synthesis. Curr Opin Psychol. 2019;34:23&#x2013;26.
+        doi:10.1016/j.copsyc.2019.08.018</Citation><ArticleIdList><ArticleId IdType="pubmed">31539831</ArticleId></ArticleIdList></Reference><Reference><Citation>Freeman
+        E, Sammel M. Anxiety as a risk factor for menopausal hot flashes: evidence
+        from the Penn Ovarian Aging cohort. Menopause. 2016;23(9):942&#x2013;949.
+        doi:10.1097/GME.0000000000000662</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4993654</ArticleId><ArticleId
+        IdType="pubmed">27433864</ArticleId></ArticleIdList></Reference><Reference><Citation>Ohayon
+        M. Severe hot flashes are associated with chronic insomnia. Arch Intern Med.
+        2006;166(12):1262&#x2013;1268.</Citation><ArticleIdList><ArticleId IdType="pubmed">16801508</ArticleId></ArticleIdList></Reference><Reference><Citation>Bonanni
+        E, Schirru A, Di Perri M, Bonuccelli U, Maestri M. Insomnia and hot flashes.
+        Maturitas. 2019;126:51&#x2013;54. doi:10.1016/j.maturitas.2019.05.001</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">31239118</ArticleId></ArticleIdList></Reference><Reference><Citation>Fern&#xe1;ndez
+        S, Wasowski C, Paladini AC, Marder M. Sedative and sleep-enhancing properties
+        of linarin, a flavonoid-isolated from Valeriana officinalis. Pharmacol Biochem
+        Behav. 2004;77(2):399&#x2013;404.</Citation><ArticleIdList><ArticleId IdType="pubmed">14751470</ArticleId></ArticleIdList></Reference><Reference><Citation>Houghton
+        P. The scientific basis for the reputed activity of Valerian. J Pharm Pharmacol.
+        1999;51(5):505&#x2013;512.</Citation><ArticleIdList><ArticleId IdType="pubmed">10411208</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang
+        P, Hu J, Ran X, et al. Iridoids and sesquiterpenoids from the roots of Valeriana
+        officinalis. J Nat Prod. 2009;72(9):1682&#x2013;1685. doi:10.1021/np9003382</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">19691292</ArticleId></ArticleIdList></Reference><Reference><Citation>Samaneh
+        E, Tayebeh R, Hassan E, Vahid N. Composition of essential oils in subterranean
+        organs of three species of Valeriana L. Nat Prod Res. 2010;24(19):1834&#x2013;1842.
+        doi:10.1080/14786419.2010.482051</Citation><ArticleIdList><ArticleId IdType="pubmed">21104529</ArticleId></ArticleIdList></Reference><Reference><Citation>Schumacher
+        B, Scholle S, H&#xf6;lzl J, Khudeir N, Hess S, M&#xfc;ller C. Lignans isolated
+        from valerian: identification and characterization of a new olivil derivative
+        with partial agonistic activity at A1 adenosine receptors. J Nat Prod. 2002;65(10):1479&#x2013;1485.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">12398547</ArticleId></ArticleIdList></Reference><Reference><Citation>Marder
+        M, Viola H, Wasowski C, Fern&#xe1;ndez S, Medina JH, Paladini AC. 6-methylapigenin
+        and hesperidin: new valeriana flavonoids with activity on the CNS. Pharmacol
+        Biochem Behav. 2003;75(3):537&#x2013;545.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">12895671</ArticleId></ArticleIdList></Reference><Reference><Citation>Murphy
+        K, Kubin Z, Shepherd J, Ettinger R. Valeriana officinalis root extracts have
+        potent anxiolytic effects in laboratory rats. Phytomedicine. 2010;17(8-9):674&#x2013;678.
+        doi:10.1016/j.phymed.2009.10.020</Citation><ArticleIdList><ArticleId IdType="pubmed">20042323</ArticleId></ArticleIdList></Reference><Reference><Citation>Savage
+        K, Firth J, Stough C, Sarris J. GABA-modulating phytomedicines for anxiety:
+        a systematic review of preclinical and clinical evidence. Phytother Res. 2018;32(1):3&#x2013;18.
+        doi:10.1002/ptr.5940</Citation><ArticleIdList><ArticleId IdType="pubmed">29168225</ArticleId></ArticleIdList></Reference><Reference><Citation>Solomon
+        V, Tallapragada V, Chebib M, Johnston G, Hanrahan J. GABA allosteric modulators:
+        an overview of recent developments in non-benzodiazepine modulators. Eur J
+        Med Chem. 2019;171:434&#x2013;461. doi:10.1016/j.ejmech.2019.03.043</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">30928713</ArticleId></ArticleIdList></Reference><Reference><Citation>Benke
+        D, Barberis A, Kopp S, et al. GABA A receptors as in vivo substrate for the
+        anxiolytic action of valerenic acid, a major constituent of valerian root
+        extracts. Neuropharmacology. 2009;56(1):174&#x2013;181. doi:10.1016/j.neuropharm.2008.06.013</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">18602406</ArticleId></ArticleIdList></Reference><Reference><Citation>Khom
+        S, Baburin I, Timin E, et al. Valerenic acid potentiates and inhibits GABA(A)
+        receptors: molecular mechanism and subunit specificity. Neuropharmacology.
+        2007;53(1):178&#x2013;187.</Citation><ArticleIdList><ArticleId IdType="pubmed">17585957</ArticleId></ArticleIdList></Reference><Reference><Citation>Trauner
+        G, Khom S, Baburin I, Benedek B, Hering S, Kopp B. Modulation of GABAA receptors
+        by valerian extracts is related to the content of valerenic acid. Planta Med.
+        2008;74(1):19&#x2013;24.</Citation><ArticleIdList><ArticleId IdType="pubmed">18095218</ArticleId></ArticleIdList></Reference><Reference><Citation>Felgentreff
+        F, Becker A, Meier B, Brattstr&#xf6;m A. Valerian extract characterized by
+        high valerenic acid and low acetoxy valerenic acid contents demonstrates anxiolytic
+        activity. Phytomedicine. 2012;19(13):1216&#x2013;1222. doi:10.1016/j.phymed.2012.08.003</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">22944521</ArticleId></ArticleIdList></Reference><Reference><Citation>Santos
+        M, Ferreira F, Cunha A, Carvalho A, Macedo T. An aqueous extract of valerian
+        influences the transport of GABA in synaptosomes. Planta Med. 1994;60(3):278&#x2013;279.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">8073095</ArticleId></ArticleIdList></Reference><Reference><Citation>Pandya
+        M, Palpagama T, Turner C, Waldvogel H, Faull R, Kwakowsky A. Sex- and age-related
+        changes in GABA signaling components in the human cortex. Biol Sex Differ.
+        2019;10(1):5 doi:10.1186/s13293-018-0214-6</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC6332906</ArticleId><ArticleId IdType="pubmed">30642393</ArticleId></ArticleIdList></Reference><Reference><Citation>Blake
+        M, Trinder J, Allen N. Mechanisms underlying the association between insomnia,
+        anxiety, and depression in adolescence: implications for behavioral sleep
+        interventions. Clin Psychol Rev. 2018;63:25&#x2013;40. doi:10.1016/j.cpr.2018.05.006</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">29879564</ArticleId></ArticleIdList></Reference><Reference><Citation>&#x17b;mudzka
+        E, Sa&#x142;aciak K, Sapa J, Pytka K. Serotonin receptors in depression and
+        anxiety: insights from animal studies. Life Sci. 2018;210:106&#x2013;124.
+        doi:10.1016/j.lfs.2018.08.050</Citation><ArticleIdList><ArticleId IdType="pubmed">30144453</ArticleId></ArticleIdList></Reference><Reference><Citation>Venner
+        A, Broadhurst R, Sohn L, Todd W, Fuller P. Selective activation of serotoninergic
+        dorsal raphe neurons facilitates sleep through anxiolysis. Sleep. 2019. doi:10.1093/sleep/zsz231</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC7315407</ArticleId><ArticleId IdType="pubmed">31553451</ArticleId></ArticleIdList></Reference><Reference><Citation>Volk
+        B, Nagy B, Vas S, Kostyalik D, Simig G, Bagdy G. Medicinal chemistry of 5-HT5A
+        receptor ligands: a receptor subtype with unique therapeutical potential.
+        Curr Top Med Chem. 2010;10(5):554&#x2013;578.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">20166946</ArticleId></ArticleIdList></Reference><Reference><Citation>Dietz
+        B, Mahady G, Pauli G, Farnsworth N. Valerian extract and valerenic acid are
+        partial agonists of the 5-HT5a receptor in vitro. Brain Res Mol Brain Res.
+        2005;138(2):191&#x2013;197.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5805132</ArticleId><ArticleId
+        IdType="pubmed">15921820</ArticleId></ArticleIdList></Reference><Reference><Citation>Duncan
+        M, Jennes L, Jefferson J, Brownfield M. Localization of serotonin(5A) receptors
+        in discrete regions of the circadian timing system in the Syrian hamster.
+        Brain Res. 2000;869(1-2):178&#x2013;185.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">10865072</ArticleId></ArticleIdList></Reference><Reference><Citation>Oliver
+        K, Kinsey A, Wainwright A, Sirinathsinghji D. Localization of 5-ht(5A) receptor-like
+        immunoreactivity in the rat brain. Brain Res. 2000;867(1-2):131&#x2013;142.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">10837806</ArticleId></ArticleIdList></Reference><Reference><Citation>Kassai
+        F, Schlumberger C, Kedves R, et al. Effect of 5-HT5A antagonists in animal
+        models of schizophrenia, anxiety and depression. Behav Pharmacol. 2012;23(4):397&#x2013;406.
+        doi:10.1097/FBP.0b013e3283565248</Citation><ArticleIdList><ArticleId IdType="pubmed">22785385</ArticleId></ArticleIdList></Reference><Reference><Citation>van
+        Calker D, Biber K, Domschke K, Serchov T. The role of adenosine receptors
+        in mood and anxiety disorders. J Neurochem. 2019;151(1):11&#x2013;27.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">31361031</ArticleId></ArticleIdList></Reference><Reference><Citation>Prediger
+        R, da Silva G, Batista L, Bittencourt A, Takahashi R. Activation of adenosine
+        A1 receptors reduces anxiety-like behavior during acute ethanol withdrawal
+        (hangover) in mice. Neuropsychopharmacology. 2006;31(10):2210&#x2013;2220.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">16407902</ArticleId></ArticleIdList></Reference><Reference><Citation>Vincenzi
+        F, Borea P, Varani K. Anxiolytic properties of A1 adenosine receptor PAMs.
+        Oncotarget. 2017;8(5):7216&#x2013;7217.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC5352310</ArticleId><ArticleId IdType="pubmed">28055953</ArticleId></ArticleIdList></Reference><Reference><Citation>Romagnoli
+        R, Baraldi P, Tabrizi M, Gessi S, Borea P, Merighi S. Allosteric enhancers
+        of A1 adenosine receptors: state of the art and new horizons for drug development.
+        Curr Med Chem. 2010;17(30):3488&#x2013;3502.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">20738250</ArticleId></ArticleIdList></Reference><Reference><Citation>Basheer
+        R, Halldner L, Alanko L, McCarley R, Fredholm B, Porkka-Heiskanen T. Opposite
+        changes in adenosine A1 and A2A receptor mRNA in the rat following sleep deprivation.
+        Neuroreport. 2001;12(8):1577&#x2013;1580.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">11409719</ArticleId></ArticleIdList></Reference><Reference><Citation>Strecker
+        R, Morairty S, Thakkar M, et al. Adenosinergic modulation of basal forebrain
+        and preoptic/anterior hypothalamic neuronal activity in the control of behavioral
+        state. Behav Brain Res. 2000;115(2):183&#x2013;204.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">11000420</ArticleId></ArticleIdList></Reference><Reference><Citation>Basheer
+        R, Porkka-Heiskanen T, Strecker R, Thakkar M, McCarley R. Adenosine as a biological
+        signal mediating sleepiness following prolonged wakefulness. Biol Sig Recept.
+        2000;9(6):319&#x2013;327.</Citation><ArticleIdList><ArticleId IdType="pubmed">11025338</ArticleId></ArticleIdList></Reference><Reference><Citation>Institute
+        of Medicine (US) Committee on Sleep Medicine and Research. Sleep Disorders
+        and Sleep Deprivation: An Unmet Public Health Problem. US: National Academies
+        Press; 2006.</Citation><ArticleIdList><ArticleId IdType="pubmed">20669438</ArticleId></ArticleIdList></Reference><Reference><Citation>Lazarus
+        M, Oishi Y, Bjorness T, Greene R. Gating and the need for sleep: dissociable
+        effects of adenosine A1 and A2A receptors. Front Neurosci. 2019;13:740 doi:10.3389/fnins.2019.00740</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC6650574</ArticleId><ArticleId IdType="pubmed">31379490</ArticleId></ArticleIdList></Reference><Reference><Citation>Lacher
+        S, Mayer R, Sichardt K, Nieber K, M&#xfc;ller C. Interaction of valerian extracts
+        of different polarity with adenosine receptors: identification of isovaltrate
+        as an inverse agonist at A1 receptors. Biochem Pharmacol. 2007;73(2):248&#x2013;258.
+        doi:10.1016/j.bcp.2006.09.029</Citation><ArticleIdList><ArticleId IdType="pubmed">17097622</ArticleId></ArticleIdList></Reference><Reference><Citation>M&#xfc;ller
+        C, Schumacher B, Brattstr&#xf6;m A, Abourashed E, Koetter U. Interactions
+        of valerian extracts and a fixed valerian&#x2013;hop extract combination with
+        adenosine receptors. Life Sci. 2002;71(16):1939&#x2013;1949. doi:10.1016/s0024-3205(02)01964
+        -1</Citation><ArticleIdList><ArticleId IdType="pubmed">12175708</ArticleId></ArticleIdList></Reference><Reference><Citation>M&#xfc;ller
+        L, de Andrade Salles L, Sakamoto S, et al. Effect of storage time and conditions
+        on the diene valepotriates content of the extract of Valeriana glechomifolia
+        obtained by supercritical carbon dioxide. Phytochem Anal. 2012;23(3):222&#x2013;227.
+        doi:10.1002/pca.1346</Citation><ArticleIdList><ArticleId IdType="pubmed">21953720</ArticleId></ArticleIdList></Reference><Reference><Citation>Maurmann
+        N, Reolon G, Rech S, Fett-Neto A, Roesler R. A Valepotriate fraction of valeriana
+        glechomifolia shows sedative and anxiolytic properties and impairs recognition
+        but not aversive memory in mice. Evid Based Complement Altern Med. 2011;2011:720853
+        doi:10.1093/ecam/nep232</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3137258</ArticleId><ArticleId
+        IdType="pubmed">20047889</ArticleId></ArticleIdList></Reference><Reference><Citation>Sah
+        S, Mathela C, Chopra K. Antidepressant effect of Valeriana wallichii patchouli
+        alcohol chemotype in mice: behavioural and biochemical evidence. J Ethnopharmacol.
+        2011;135(1):197&#x2013;200.</Citation><ArticleIdList><ArticleId IdType="pubmed">21354297</ArticleId></ArticleIdList></Reference><Reference><Citation>M&#xfc;ller
+        L, Salles L, Stein A, et al. Antidepressant-like effect of Valeriana glechomifolia
+        Meyer (Valerianaceae) in mice. Prog Neuropsychopharmacol Biol Psychiatry.
+        2012;36(1):101&#x2013;109. doi:10.1016/j.pnpbp.2011.08.015</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">21889562</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu
+        Y, Zhao J, Guo W. Emotional roles of mono-aminergic neurotransmitters in major
+        depressive disorder and anxiety disorders. Front Psychol. 2018;9:2201 doi:10.3389/fpsyg.2018.02201</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC6262356</ArticleId><ArticleId IdType="pubmed">30524332</ArticleId></ArticleIdList></Reference><Reference><Citation>Holst
+        S, Landolt H. Sleep-wake neurochemistry. Sleep Med Clin. 2018;13(2):137&#x2013;146.
+        doi:10.1016/j.jsmc.2018.03.002</Citation><ArticleIdList><ArticleId IdType="pubmed">29759265</ArticleId></ArticleIdList></Reference><Reference><Citation>Shi
+        S, Shi J, Liu Y, et al. The anxiolytic effects of valtrate in rats involves
+        changes of corticosterone levels. Evid Based Complement Altern Med. 2014;2014:325948
+        doi:10.1155/2014/325948</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3978903</ArticleId><ArticleId
+        IdType="pubmed">24782906</ArticleId></ArticleIdList></Reference><Reference><Citation>M&#xe9;nard
+        C, Pfau M, Hodes G, Russo S. Immune and neuroendocrine mechanisms of stress
+        vulnerability and resilience. Neuropsychopharmacology. 2017;42(1):62&#x2013;80.
+        doi:10.1038/npp.2016.90</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5143517</ArticleId><ArticleId
+        IdType="pubmed">27291462</ArticleId></ArticleIdList></Reference><Reference><Citation>Drake
+        C, Pillai V, Roth T. Stress and sleep reactivity: a prospective investigation
+        of the stress-diathesis model of insomnia. Sleep. 2013;37:1295&#x2013;1304.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC4096198</ArticleId><ArticleId IdType="pubmed">25083009</ArticleId></ArticleIdList></Reference><Reference><Citation>Green
+        K, Billings L, Roozendaal B, McGaugh J, LaFerla F. Glucocorticoids increase
+        amyloid-beta and tau pathology in a mouse model of Alzheimer&#x2019;s disease.
+        J Neurosci. 2006;26(35):9047&#x2013;9056.</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC6675335</ArticleId><ArticleId IdType="pubmed">16943563</ArticleId></ArticleIdList></Reference><Reference><Citation>Vyas
+        S, Rodrigues A, Silva J, et al. Chronic stress and glucocorticoids: from neuronal
+        plasticity to neurodegeneration. Neural Plast. 2016;2016:6391686 doi:10.1155/2016/6391686</Citation><ArticleIdList><ArticleId
+        IdType="pmc">PMC4806285</ArticleId><ArticleId IdType="pubmed">27034847</ArticleId></ArticleIdList></Reference><Reference><Citation>Hertenstein
+        E, Feige B, Gmeiner T, et al. Insomnia as a predictor of mental disorders:
+        a systematic review and meta-analysis. Sleep Med Rev. 2019;43:96&#x2013;105.
+        doi:10.1016/j.smrv.2018.10.006</Citation><ArticleIdList><ArticleId IdType="pubmed">30537570</ArticleId></ArticleIdList></Reference><Reference><Citation>Gregory
+        A, Sadeh A. Annual research review: sleep problems in childhood psychiatric
+        disorders&#x2014;a review of the latest science. J Child Psychol Psychiatry.
+        2016;57(3):296&#x2013;317. doi:10.1111/jcpp.12469</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">26412255</ArticleId></ArticleIdList></Reference><Reference><Citation>Vitiello
+        M. Sleep disorders and aging: understanding the causes. J Gerontol A Biol
+        Sci Med Sci. 1997;52(4):M189&#x2013;191.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">9224429</ArticleId></ArticleIdList></Reference><Reference><Citation>Ohayon
+        M, Carskadon M, Guilleminault C, Vitiello M. Meta-analysis of quantitative
+        sleep parameters from childhood to old age in healthy individuals: developing
+        normative sleep values across the human lifespa. Sleep. 2004;27(7):1255&#x2013;1273.
+        doi:10.1093/sleep/27.7.1255</Citation><ArticleIdList><ArticleId IdType="pubmed">15586779</ArticleId></ArticleIdList></Reference><Reference><Citation>Foley
+        D, Monjan A, Brown S, Simonsick E, Wallace R, Blazer D. Sleep complaints among
+        elderly persons: an epidemiologic study of three communities. Sleep. 1995;18(6):425&#x2013;432.</Citation><ArticleIdList><ArticleId
+        IdType="pubmed">7481413</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - X-RateLimit-Limit,X-RateLimit-Remaining
+      Alt-Svc:
+      - clear
+      Cache-Control:
+      - private
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - upgrade-insecure-requests
+      Content-Type:
+      - text/xml; charset=UTF-8
+      Date:
+      - Tue, 05 May 2026 08:31:37 GMT
+      Ncbi-Phid:
+      - 1D32F27E49356B7500003E4AE3E50200.1.1.m_4
+      Ncbi-Sid:
+      - 2560120C7A45F4B2_C912SID
+      Referrer-Policy:
+      - origin-when-cross-origin
+      Server:
+      - Finatra
+      Set-Cookie:
+      - ncbi_sid=2560120C7A45F4B2_C912SID; domain=.nih.gov; path=/; expires=Wed, 05
+        May 2027 08:31:37 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 google
+      X-Ratelimit-Limit:
+      - '3'
+      X-Ratelimit-Remaining:
+      - '1'
+      X-Ua-Compatible:
+      - IE=Edge
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

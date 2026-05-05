@@ -18,6 +18,15 @@ body {
     font-size: 14px;
 }
 
+/* Hide general scrollbar */
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
 h1,
 h2,
 h3,
@@ -65,7 +74,7 @@ hr {
 
 /* Offcanevas */
 .offcanvas-header {
-    background-color: var(--color-dark-blue);
+    background-color: var(--header-bg, var(--color-dark-blue));
     color: var(--color-white)
 }
 

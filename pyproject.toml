@@ -53,6 +53,7 @@ dev = [
     "pytest>=9.0.2",
     "pytest-django>=4.8",
     "pytest-factoryboy>=2.6.0",
+    "pytest-recording>=0.13.2",
     "ruff>=0.15.0",
     "seaborn>=0.13.2",
 ]

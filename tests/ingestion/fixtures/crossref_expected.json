@@ -1,0 +1,122 @@
+{
+  "found": true,
+  "title": "ACE-2-like enzymatic activity in COVID-19 convalescents with persistent pulmonary symptoms associated with immunoglobulin",
+  "authors": [
+    {
+      "name": "Yufeng Song",
+      "orcid": "0009-0001-6788-1717"
+    },
+    {
+      "name": "Frances Mehl",
+      "orcid": "0009-0005-9929-3185"
+    },
+    {
+      "name": "Lyndsey M. Muehling",
+      "orcid": null
+    },
+    {
+      "name": "Glenda Canderan",
+      "orcid": null
+    },
+    {
+      "name": "Kyle Enfield",
+      "orcid": null
+    },
+    {
+      "name": "Jie Sun",
+      "orcid": null
+    },
+    {
+      "name": "Michael T. Yin",
+      "orcid": null
+    },
+    {
+      "name": "Sarah J. Ratcliffe",
+      "orcid": null
+    },
+    {
+      "name": "Jeffrey M. Wilson",
+      "orcid": null
+    },
+    {
+      "name": "Alexandra Kadl",
+      "orcid": null
+    },
+    {
+      "name": "Judith A. Woodfolk",
+      "orcid": null
+    },
+    {
+      "name": "Steven L. Zeichner",
+      "orcid": "0000-0002-8922-9260"
+    }
+  ],
+  "journal": {
+    "name": "American Society for Microbiology",
+    "issn": "2150-7511"
+  },
+  "publication date": "2025-8-13",
+  "status": "published",
+  "doi": "10.1128/mbio.01735-25",
+  "link": "https://journals.asm.org/doi/10.1128/mbio.01735-25",
+  "document type": "journal-article",
+  "document subtypes": null,
+  "open access": null,
+  "language": "en",
+  "cited by count": null,
+  "abstract": null,
+  "keywords": null,
+  "cited articles": [
+    "World Health Organization. 2024. WHO COVID-19 dashboard. World Health Organization. Available from: https://data.who.int/dashboards/covid19/deaths",
+    "10.1038/s41577-023-00904-7",
+    "10.3389/fimmu.2023.1117464",
+    "10.1038/s41579-022-00846-2",
+    "Adjaye-Gbewonyo D, Vahratian A, Perrine CG, Bertolli J. 2023. Long COVID in adults: United States, 2022. NCHS Data Brief, no. 480:1–8.",
+    "10.1080/07853890.2022.2076901",
+    "10.3389/fpsyt.2023.1138389",
+    "10.1001/jama.2023.8823",
+    "10.1016/S1473-3099(21)00703-9",
+    "10.1038/s41586-023-06651-y",
+    "10.1126/science.adg7942",
+    "10.1016/S0140-6736(20)30183-5",
+    "10.1016/S2352-3026(20)30217-9",
+    "10.1038/s41591-020-1051-9",
+    "10.1016/S2352-4642(22)00028-1",
+    "10.3390/v14040750",
+    "10.1016/j.cell.2023.01.039",
+    "10.1126/science.abb2762",
+    "10.1007/s11033-022-08193-4",
+    "10.1016/j.sbi.2023.102619",
+    "10.1038/s41586-020-2180-5",
+    "10.1016/j.cell.2020.03.045",
+    "10.1016/j.cca.2021.10.029",
+    "10.1016/j.peptides.2022.170766",
+    "10.1126/science.3787261",
+    "10.1126/science.3787262",
+    "10.1111/j.1749-6632.1996.tb33195.x",
+    "10.1007/BF02787937",
+    "10.1073/pnas.90.19.8876",
+    "10.1111/j.1749-6632.1995.tb19963.x",
+    "10.1021/bi7013954",
+    "10.1146/annurev.biochem.69.1.751",
+    "10.1021/bi2002289",
+    "10.1161/01.res.87.5.e1",
+    "10.1126/science.1585181",
+    "10.1074/jbc.270.25.15257",
+    "10.1126/science.2727702",
+    "10.1073/pnas.0509849103",
+    "10.1021/bi992588w",
+    "10.4049/jimmunol.180.11.7714",
+    "10.1038/12483",
+    "10.1021/bi050675k",
+    "10.1128/mbio.00541-24",
+    "10.1038/s41590-025-02110-0",
+    "10.1159/000514203",
+    "10.1038/s43856-024-00477-z",
+    "10.1152/physrev.00036.2005",
+    "10.1038/nrcardio.2014.59",
+    "10.1161/HYPERTENSIONAHA.117.10406",
+    "10.1042/CS20130436",
+    "10.3390/ph15091157"
+  ]
+}
