@@ -7,17 +7,17 @@ def make_layout():
             html.Div(
                 [
                     html.H1(
-                        "Welcome to the FactForce Hub", 
+                        "Welcome to EU Health Fact Force", 
                         style={"color": EUPHAColors.text_main, "fontWeight": "800", "marginBottom": "10px", "fontSize": "36px"}
                     ),
                     html.H3(
-                        "Stand up for science. Reclaiming trust in public health.",
+                        "Stand up for science. A Hub for reclaiming trust in public health.",
                         style={"color": EUPHAColors.primary, "fontStyle": "normal", "fontWeight": "500", "marginTop": "0px", "fontSize": "22px"}
                     ),
                     html.P(
-                        "A long-term collaborative project led by EUPHA in collaboration with WHO/Europe, "
-                        "technical partners, researchers, and civil society actors to detect, analyze, and "
-                        "respond collectively to health misinformation.",
+                        "A long-term collaborative project led by EUPHA in collaboration with Data for Good and The Public Good Projects"
+                        "to bring together technical experts, researchers, and civil society actors"
+                        "to detect, analyze, and respond collectively to health misinformation.",
                         style={
                             "fontSize": "17px", 
                             "color": EUPHAColors.text_main, 
@@ -52,11 +52,12 @@ def make_layout():
                         [
                             html.H4("The Infodemic Context", style={"color": EUPHAColors.primary, "fontSize": "22px", "marginBottom": "15px", "fontWeight": "600"}),
                             html.P(
-                                "Health misinformation has reached an unprecedented scale, driven by political "
-                                "polarization, commercial interests, and geopolitical strategies. Traditional "
-                                "public health systems are struggling to monitor and respond to these false narratives "
-                                "in a timely, coordinated way. The FactForce transforms fragmented reactions into "
-                                "proactive, unified public-health communication.",
+                                "Health misinformation has reached an unprecedented scale"
+                                "driven by political polarization, commercial interests, and geopolitical strategies."
+                                "Traditional public health systems are struggling to monitor"
+                                "and respond to these false narratives in a timely, coordinated way."
+                                "The EU Health Fact Force hub transforms fragmented reactions"
+                                "into proactive, unified public-health communication.",
                                 style={"lineHeight": "1.7", "color": EUPHAColors.text_main}
                             )
                         ],
@@ -67,9 +68,9 @@ def make_layout():
                         [
                             html.H4("Beyond Automated Fact-Checking", style={"color": EUPHAColors.primary, "fontSize": "22px", "marginBottom": "15px", "fontWeight": "600"}),
                             html.P(
-                                "Rather than relying solely on automated counter-messaging, the FactForce prioritizes "
-                                "human coordination, collective intelligence, and solidarity. We focus on bridging "
-                                "science, lived experience, and community insight to meet people where they are, "
+                                "Rather than relying solely on automated counter-messaging,"
+                                "the EUHFF Hub prioritizes human coordination, collective intelligence, and solidarity."
+                                "We focus on bridging science, lived experience, and community insight to meet people where they are,"
                                 "equipping trusted local messengers with evidence-based content.",
                                 style={"lineHeight": "1.7", "color": EUPHAColors.text_main}
                             )
