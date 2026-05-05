@@ -1,0 +1,394 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: https://api.openalex.org/works/doi:10.1371/journal.pone.0003140
+  response:
+    body:
+      string: '{"id":"https://openalex.org/W2153492790","doi":"https://doi.org/10.1371/journal.pone.0003140","title":"Lack
+        of Association between Measles Virus Vaccine and Autism with Enteropathy:
+        A Case-Control Study","display_name":"Lack of Association between Measles
+        Virus Vaccine and Autism with Enteropathy: A Case-Control Study","publication_year":2008,"publication_date":"2008-09-03","ids":{"openalex":"https://openalex.org/W2153492790","doi":"https://doi.org/10.1371/journal.pone.0003140","mag":"2153492790","pmid":"https://pubmed.ncbi.nlm.nih.gov/18769550"},"language":"en","primary_location":{"id":"doi:10.1371/journal.pone.0003140","is_oa":true,"landing_page_url":"https://doi.org/10.1371/journal.pone.0003140","pdf_url":"https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0003140&type=printable","source":{"id":"https://openalex.org/S202381698","display_name":"PLoS
+        ONE","issn_l":"1932-6203","issn":["1932-6203"],"is_oa":true,"is_in_doaj":true,"is_core":true,"host_organization":"https://openalex.org/P4310315706","host_organization_name":"Public
+        Library of Science","host_organization_lineage":["https://openalex.org/P4310315706"],"host_organization_lineage_names":["Public
+        Library of Science"],"type":"journal"},"license":"cc-by","license_id":"https://openalex.org/licenses/cc-by","version":"publishedVersion","is_accepted":true,"is_published":true,"raw_source_name":"PLoS
+        ONE","raw_type":"journal-article"},"type":"article","indexed_in":["crossref","datacite","doaj","pubmed"],"open_access":{"is_oa":true,"oa_status":"gold","oa_url":"https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0003140&type=printable","any_repository_has_fulltext":true},"authorships":[{"author_position":"first","author":{"id":"https://openalex.org/A5058548310","display_name":"Mady
+        Hornig","orcid":"https://orcid.org/0000-0001-7572-3092"},"institutions":[{"id":"https://openalex.org/I78577930","display_name":"Columbia
+        University","ror":"https://ror.org/00hj8s172","country_code":"US","type":"education","lineage":["https://openalex.org/I78577930"]}],"countries":["US"],"is_corresponding":true,"raw_author_name":"Mady
+        Hornig","raw_affiliation_strings":["Center for Infection and Immunity, Mailman
+        School of Public Health, Columbia University, New York, New York, United States
+        of America. mady.hornig@columbia.edu","Center for Infection and Immunity,
+        Mailman School of Public Health, Columbia University, New York, New York,
+        United States of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Center
+        for Infection and Immunity, Mailman School of Public Health, Columbia University,
+        New York, New York, United States of America. mady.hornig@columbia.edu","institution_ids":["https://openalex.org/I78577930"]},{"raw_affiliation_string":"Center
+        for Infection and Immunity, Mailman School of Public Health, Columbia University,
+        New York, New York, United States of America","institution_ids":["https://openalex.org/I78577930"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5012112885","display_name":"Thomas
+        Briese","orcid":"https://orcid.org/0000-0002-4819-8963"},"institutions":[{"id":"https://openalex.org/I78577930","display_name":"Columbia
+        University","ror":"https://ror.org/00hj8s172","country_code":"US","type":"education","lineage":["https://openalex.org/I78577930"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Thomas
+        Briese","raw_affiliation_strings":["Center for Infection and Immunity, Mailman
+        School of Public Health, Columbia University, New York, New York, United States
+        of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Center
+        for Infection and Immunity, Mailman School of Public Health, Columbia University,
+        New York, New York, United States of America","institution_ids":["https://openalex.org/I78577930"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5109580420","display_name":"Timothy
+        Buie","orcid":null},"institutions":[{"id":"https://openalex.org/I4210087915","display_name":"Massachusetts
+        General Hospital","ror":"https://ror.org/002pd6e78","country_code":"US","type":"healthcare","lineage":["https://openalex.org/I4210087915","https://openalex.org/I48633490"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Timothy
+        Buie","raw_affiliation_strings":["Division of Pediatric Gastroenterology and
+        Nutrition, Massachusetts General Hospital, Boston, Massachusetts, United States
+        of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Division
+        of Pediatric Gastroenterology and Nutrition, Massachusetts General Hospital,
+        Boston, Massachusetts, United States of America","institution_ids":["https://openalex.org/I4210087915"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5077811509","display_name":"Margaret
+        L. Bauman","orcid":null},"institutions":[{"id":"https://openalex.org/I4210087915","display_name":"Massachusetts
+        General Hospital","ror":"https://ror.org/002pd6e78","country_code":"US","type":"healthcare","lineage":["https://openalex.org/I4210087915","https://openalex.org/I48633490"]},{"id":"https://openalex.org/I136199984","display_name":"Harvard
+        University","ror":"https://ror.org/03vek6s52","country_code":"US","type":"education","lineage":["https://openalex.org/I136199984"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Margaret
+        L. Bauman","raw_affiliation_strings":["Department of Neurology, Harvard Medical
+        School and Departments of Neurology and Pediatrics and Learning and Developmental
+        Disabilities Evaluation and Rehabilitation Services (LADDERS), Massachusetts
+        General Hospital, Boston, Massachusetts, United States of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Department
+        of Neurology, Harvard Medical School and Departments of Neurology and Pediatrics
+        and Learning and Developmental Disabilities Evaluation and Rehabilitation
+        Services (LADDERS), Massachusetts General Hospital, Boston, Massachusetts,
+        United States of America","institution_ids":["https://openalex.org/I4210087915","https://openalex.org/I136199984"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5035763230","display_name":"Gregory
+        Y. Lauwers","orcid":"https://orcid.org/0000-0002-0897-5385"},"institutions":[{"id":"https://openalex.org/I136199984","display_name":"Harvard
+        University","ror":"https://ror.org/03vek6s52","country_code":"US","type":"education","lineage":["https://openalex.org/I136199984"]},{"id":"https://openalex.org/I4210087915","display_name":"Massachusetts
+        General Hospital","ror":"https://ror.org/002pd6e78","country_code":"US","type":"healthcare","lineage":["https://openalex.org/I4210087915","https://openalex.org/I48633490"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Gregory
+        Lauwers","raw_affiliation_strings":["Department of Pathology of Harvard Medical
+        School and Massachusetts General Hospital, Boston, Massachusetts, United States
+        of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Department
+        of Pathology of Harvard Medical School and Massachusetts General Hospital,
+        Boston, Massachusetts, United States of America","institution_ids":["https://openalex.org/I4210087915","https://openalex.org/I136199984"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5106132109","display_name":"Ulrike
+        Siemetzki","orcid":null},"institutions":[{"id":"https://openalex.org/I78577930","display_name":"Columbia
+        University","ror":"https://ror.org/00hj8s172","country_code":"US","type":"education","lineage":["https://openalex.org/I78577930"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Ulrike
+        Siemetzki","raw_affiliation_strings":["Center for Infection and Immunity,
+        Mailman School of Public Health, Columbia University, New York, New York,
+        United States of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Center
+        for Infection and Immunity, Mailman School of Public Health, Columbia University,
+        New York, New York, United States of America","institution_ids":["https://openalex.org/I78577930"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5053542677","display_name":"Kimberly
+        Hummel","orcid":null},"institutions":[{"id":"https://openalex.org/I1289490764","display_name":"Centers
+        for Disease Control and Prevention","ror":"https://ror.org/042twtr12","country_code":"US","type":"funder","lineage":["https://openalex.org/I1289490764","https://openalex.org/I1299022934"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Kimberly
+        Hummel","raw_affiliation_strings":["Measles, Mumps, Rubella, and Herpesvirus
+        Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, Georgia,
+        United States of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Measles,
+        Mumps, Rubella, and Herpesvirus Laboratory Branch, Centers for Disease Control
+        and Prevention, Atlanta, Georgia, United States of America","institution_ids":["https://openalex.org/I1289490764"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5080931087","display_name":"Paul
+        A. Rota","orcid":"https://orcid.org/0000-0002-8595-4094"},"institutions":[{"id":"https://openalex.org/I1289490764","display_name":"Centers
+        for Disease Control and Prevention","ror":"https://ror.org/042twtr12","country_code":"US","type":"funder","lineage":["https://openalex.org/I1289490764","https://openalex.org/I1299022934"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Paul
+        A. Rota","raw_affiliation_strings":["Measles, Mumps, Rubella, and Herpesvirus
+        Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, Georgia,
+        United States of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Measles,
+        Mumps, Rubella, and Herpesvirus Laboratory Branch, Centers for Disease Control
+        and Prevention, Atlanta, Georgia, United States of America","institution_ids":["https://openalex.org/I1289490764"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5108521121","display_name":"William
+        J. Bellini","orcid":null},"institutions":[{"id":"https://openalex.org/I1289490764","display_name":"Centers
+        for Disease Control and Prevention","ror":"https://ror.org/042twtr12","country_code":"US","type":"funder","lineage":["https://openalex.org/I1289490764","https://openalex.org/I1299022934"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"William
+        J. Bellini","raw_affiliation_strings":["Measles, Mumps, Rubella, and Herpesvirus
+        Laboratory Branch, Centers for Disease Control and Prevention, Atlanta, Georgia,
+        United States of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Measles,
+        Mumps, Rubella, and Herpesvirus Laboratory Branch, Centers for Disease Control
+        and Prevention, Atlanta, Georgia, United States of America","institution_ids":["https://openalex.org/I1289490764"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5043621658","display_name":"John
+        O\u2019Leary","orcid":"https://orcid.org/0000-0001-7311-9326"},"institutions":[{"id":"https://openalex.org/I205274468","display_name":"Trinity
+        College Dublin","ror":"https://ror.org/02tyrky19","country_code":"IE","type":"education","lineage":["https://openalex.org/I205274468"]}],"countries":["IE"],"is_corresponding":false,"raw_author_name":"John
+        J. O''Leary","raw_affiliation_strings":["Department of Histopathology, Trinity
+        College Dublin, Dublin, Ireland"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Department
+        of Histopathology, Trinity College Dublin, Dublin, Ireland","institution_ids":["https://openalex.org/I205274468"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5009176963","display_name":"Orla
+        Sheils","orcid":"https://orcid.org/0000-0002-4493-9496"},"institutions":[{"id":"https://openalex.org/I205274468","display_name":"Trinity
+        College Dublin","ror":"https://ror.org/02tyrky19","country_code":"IE","type":"education","lineage":["https://openalex.org/I205274468"]}],"countries":["IE"],"is_corresponding":false,"raw_author_name":"Orla
+        Sheils","raw_affiliation_strings":["Department of Histopathology, Trinity
+        College Dublin, Dublin, Ireland"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Department
+        of Histopathology, Trinity College Dublin, Dublin, Ireland","institution_ids":["https://openalex.org/I205274468"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5043090017","display_name":"Errol
+        R. Alden","orcid":null},"institutions":[{"id":"https://openalex.org/I1302094580","display_name":"American
+        Academy of Pediatrics","ror":"https://ror.org/0512xad50","country_code":"US","type":"nonprofit","lineage":["https://openalex.org/I1302094580"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Errol
+        Alden","raw_affiliation_strings":["American Academy of Pediatrics, Elk Grove
+        Village, Illinois, United States of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"American
+        Academy of Pediatrics, Elk Grove Village, Illinois, United States of America","institution_ids":["https://openalex.org/I1302094580"]}]},{"author_position":"middle","author":{"id":"https://openalex.org/A5024534803","display_name":"Larry
+        K. Pickering","orcid":null},"institutions":[{"id":"https://openalex.org/I19085752","display_name":"National
+        Center for Immunization and Respiratory Diseases","ror":"https://ror.org/05je2tx78","country_code":"US","type":"facility","lineage":["https://openalex.org/I1289490764","https://openalex.org/I1289490764","https://openalex.org/I1299022934","https://openalex.org/I1299022934","https://openalex.org/I19085752","https://openalex.org/I4210109567"]},{"id":"https://openalex.org/I1289490764","display_name":"Centers
+        for Disease Control and Prevention","ror":"https://ror.org/042twtr12","country_code":"US","type":"funder","lineage":["https://openalex.org/I1289490764","https://openalex.org/I1299022934"]}],"countries":["US"],"is_corresponding":false,"raw_author_name":"Larry
+        Pickering","raw_affiliation_strings":["National Center for Immunization and
+        Respiratory Diseases, Centers for Disease Control and Prevention, Atlanta,
+        Georgia, United States of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"National
+        Center for Immunization and Respiratory Diseases, Centers for Disease Control
+        and Prevention, Atlanta, Georgia, United States of America","institution_ids":["https://openalex.org/I19085752","https://openalex.org/I1289490764"]}]},{"author_position":"last","author":{"id":"https://openalex.org/A5090343848","display_name":"W.
+        Ian Lipkin","orcid":"https://orcid.org/0000-0002-8768-9386"},"institutions":[{"id":"https://openalex.org/I78577930","display_name":"Columbia
+        University","ror":"https://ror.org/00hj8s172","country_code":"US","type":"education","lineage":["https://openalex.org/I78577930"]}],"countries":["US"],"is_corresponding":true,"raw_author_name":"W.
+        Ian Lipkin","raw_affiliation_strings":["Center for Infection and Immunity,
+        Mailman School of Public Health, Columbia University, New York, New York,
+        United States of America"],"raw_orcid":null,"affiliations":[{"raw_affiliation_string":"Center
+        for Infection and Immunity, Mailman School of Public Health, Columbia University,
+        New York, New York, United States of America","institution_ids":["https://openalex.org/I78577930"]}]}],"institutions":[],"countries_distinct_count":2,"institutions_distinct_count":14,"corresponding_author_ids":["https://openalex.org/A5058548310","https://openalex.org/A5090343848"],"corresponding_institution_ids":["https://openalex.org/I78577930"],"apc_list":{"value":1805,"currency":"USD","value_usd":1805},"apc_paid":{"value":1805,"currency":"USD","value_usd":1805},"fwci":11.5599,"has_fulltext":true,"cited_by_count":146,"citation_normalized_percentile":{"value":0.98916357,"is_in_top_1_percent":false,"is_in_top_10_percent":true},"cited_by_percentile_year":{"min":90,"max":100},"biblio":{"volume":"3","issue":"9","first_page":"e3140","last_page":"e3140"},"is_retracted":false,"is_paratext":false,"is_xpac":false,"primary_topic":{"id":"https://openalex.org/T11135","display_name":"Virology
+        and Viral Diseases","score":0.5921000242233276,"subfield":{"id":"https://openalex.org/subfields/2713","display_name":"Epidemiology"},"field":{"id":"https://openalex.org/fields/27","display_name":"Medicine"},"domain":{"id":"https://openalex.org/domains/4","display_name":"Health
+        Sciences"}},"topics":[{"id":"https://openalex.org/T11135","display_name":"Virology
+        and Viral Diseases","score":0.5921000242233276,"subfield":{"id":"https://openalex.org/subfields/2713","display_name":"Epidemiology"},"field":{"id":"https://openalex.org/fields/27","display_name":"Medicine"},"domain":{"id":"https://openalex.org/domains/4","display_name":"Health
+        Sciences"}},{"id":"https://openalex.org/T13410","display_name":"Immune responses
+        and vaccinations","score":0.2847000062465668,"subfield":{"id":"https://openalex.org/subfields/2403","display_name":"Immunology"},"field":{"id":"https://openalex.org/fields/24","display_name":"Immunology
+        and Microbiology"},"domain":{"id":"https://openalex.org/domains/1","display_name":"Life
+        Sciences"}},{"id":"https://openalex.org/T11725","display_name":"Immunodeficiency
+        and Autoimmune Disorders","score":0.019899999722838402,"subfield":{"id":"https://openalex.org/subfields/2403","display_name":"Immunology"},"field":{"id":"https://openalex.org/fields/24","display_name":"Immunology
+        and Microbiology"},"domain":{"id":"https://openalex.org/domains/1","display_name":"Life
+        Sciences"}}],"keywords":[{"id":"https://openalex.org/keywords/autism","display_name":"Autism","score":0.8920600414276123},{"id":"https://openalex.org/keywords/mmr-vaccine","display_name":"MMR
+        vaccine","score":0.8118153810501099},{"id":"https://openalex.org/keywords/medicine","display_name":"Medicine","score":0.6435565948486328},{"id":"https://openalex.org/keywords/measles","display_name":"Measles","score":0.6077602505683899},{"id":"https://openalex.org/keywords/autism-spectrum-disorder","display_name":"Autism
+        spectrum disorder","score":0.5037004351615906},{"id":"https://openalex.org/keywords/case-control-study","display_name":"Case-control
+        study","score":0.4731280207633972},{"id":"https://openalex.org/keywords/measles-virus","display_name":"Measles
+        virus","score":0.4729456901550293},{"id":"https://openalex.org/keywords/measles-mumps-rubella-vaccine","display_name":"Measles-Mumps-Rubella
+        Vaccine","score":0.4276611804962158},{"id":"https://openalex.org/keywords/pediatrics","display_name":"Pediatrics","score":0.4001210927963257},{"id":"https://openalex.org/keywords/internal-medicine","display_name":"Internal
+        medicine","score":0.3789841830730438},{"id":"https://openalex.org/keywords/immunology","display_name":"Immunology","score":0.36939817667007446},{"id":"https://openalex.org/keywords/vaccination","display_name":"Vaccination","score":0.31949180364608765},{"id":"https://openalex.org/keywords/rubella","display_name":"Rubella","score":0.2841865122318268},{"id":"https://openalex.org/keywords/psychiatry","display_name":"Psychiatry","score":0.2331242859363556}],"concepts":[{"id":"https://openalex.org/C205778803","wikidata":"https://www.wikidata.org/wiki/Q38404","display_name":"Autism","level":2,"score":0.8920600414276123},{"id":"https://openalex.org/C2776646718","wikidata":"https://www.wikidata.org/wiki/Q908104","display_name":"MMR
+        vaccine","level":5,"score":0.8118153810501099},{"id":"https://openalex.org/C71924100","wikidata":"https://www.wikidata.org/wiki/Q11190","display_name":"Medicine","level":0,"score":0.6435565948486328},{"id":"https://openalex.org/C2776438120","wikidata":"https://www.wikidata.org/wiki/Q79793","display_name":"Measles","level":3,"score":0.6077602505683899},{"id":"https://openalex.org/C2778538070","wikidata":"https://www.wikidata.org/wiki/Q1436063","display_name":"Autism
+        spectrum disorder","level":3,"score":0.5037004351615906},{"id":"https://openalex.org/C146304588","wikidata":"https://www.wikidata.org/wiki/Q961652","display_name":"Case-control
+        study","level":2,"score":0.4731280207633972},{"id":"https://openalex.org/C2778199166","wikidata":"https://www.wikidata.org/wiki/Q573943","display_name":"Measles
+        virus","level":4,"score":0.4729456901550293},{"id":"https://openalex.org/C2909545207","wikidata":"https://www.wikidata.org/wiki/Q908104","display_name":"Measles-Mumps-Rubella
+        Vaccine","level":5,"score":0.4276611804962158},{"id":"https://openalex.org/C187212893","wikidata":"https://www.wikidata.org/wiki/Q123028","display_name":"Pediatrics","level":1,"score":0.4001210927963257},{"id":"https://openalex.org/C126322002","wikidata":"https://www.wikidata.org/wiki/Q11180","display_name":"Internal
+        medicine","level":1,"score":0.3789841830730438},{"id":"https://openalex.org/C203014093","wikidata":"https://www.wikidata.org/wiki/Q101929","display_name":"Immunology","level":1,"score":0.36939817667007446},{"id":"https://openalex.org/C22070199","wikidata":"https://www.wikidata.org/wiki/Q192995","display_name":"Vaccination","level":2,"score":0.31949180364608765},{"id":"https://openalex.org/C2778814567","wikidata":"https://www.wikidata.org/wiki/Q155857","display_name":"Rubella","level":4,"score":0.2841865122318268},{"id":"https://openalex.org/C118552586","wikidata":"https://www.wikidata.org/wiki/Q7867","display_name":"Psychiatry","level":1,"score":0.2331242859363556}],"mesh":[{"descriptor_ui":"D001321","descriptor_name":"Autistic
+        Disorder","qualifier_ui":"Q000150","qualifier_name":"complications","is_major_topic":false},{"descriptor_ui":"D001321","descriptor_name":"Autistic
+        Disorder","qualifier_ui":"Q000150","qualifier_name":"complications","is_major_topic":false},{"descriptor_ui":"D001321","descriptor_name":"Autistic
+        Disorder","qualifier_ui":"Q000150","qualifier_name":"complications","is_major_topic":false},{"descriptor_ui":"D001321","descriptor_name":"Autistic
+        Disorder","qualifier_ui":"Q000209","qualifier_name":"etiology","is_major_topic":false},{"descriptor_ui":"D001321","descriptor_name":"Autistic
+        Disorder","qualifier_ui":"Q000209","qualifier_name":"etiology","is_major_topic":false},{"descriptor_ui":"D001321","descriptor_name":"Autistic
+        Disorder","qualifier_ui":"Q000209","qualifier_name":"etiology","is_major_topic":false},{"descriptor_ui":"D001519","descriptor_name":"Behavior","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D001519","descriptor_name":"Behavior","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D001519","descriptor_name":"Behavior","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D002648","descriptor_name":"Child","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D002648","descriptor_name":"Child","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D002648","descriptor_name":"Child","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D002675","descriptor_name":"Child,
+        Preschool","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D002675","descriptor_name":"Child,
+        Preschool","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D002675","descriptor_name":"Child,
+        Preschool","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D005192","descriptor_name":"Family
+        Health","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D005192","descriptor_name":"Family
+        Health","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D005192","descriptor_name":"Family
+        Health","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D005260","descriptor_name":"Female","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D005260","descriptor_name":"Female","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D005260","descriptor_name":"Female","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D005767","descriptor_name":"Gastrointestinal
+        Diseases","qualifier_ui":"Q000150","qualifier_name":"complications","is_major_topic":false},{"descriptor_ui":"D005767","descriptor_name":"Gastrointestinal
+        Diseases","qualifier_ui":"Q000150","qualifier_name":"complications","is_major_topic":false},{"descriptor_ui":"D005767","descriptor_name":"Gastrointestinal
+        Diseases","qualifier_ui":"Q000150","qualifier_name":"complications","is_major_topic":false},{"descriptor_ui":"D005767","descriptor_name":"Gastrointestinal
+        Diseases","qualifier_ui":"Q000209","qualifier_name":"etiology","is_major_topic":false},{"descriptor_ui":"D005767","descriptor_name":"Gastrointestinal
+        Diseases","qualifier_ui":"Q000209","qualifier_name":"etiology","is_major_topic":false},{"descriptor_ui":"D005767","descriptor_name":"Gastrointestinal
+        Diseases","qualifier_ui":"Q000209","qualifier_name":"etiology","is_major_topic":false},{"descriptor_ui":"D006801","descriptor_name":"Humans","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D006801","descriptor_name":"Humans","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D006801","descriptor_name":"Humans","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D007422","descriptor_name":"Intestines","qualifier_ui":"Q000821","qualifier_name":"virology","is_major_topic":false},{"descriptor_ui":"D007422","descriptor_name":"Intestines","qualifier_ui":"Q000821","qualifier_name":"virology","is_major_topic":false},{"descriptor_ui":"D007422","descriptor_name":"Intestines","qualifier_ui":"Q000821","qualifier_name":"virology","is_major_topic":false},{"descriptor_ui":"D008297","descriptor_name":"Male","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D008297","descriptor_name":"Male","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D008297","descriptor_name":"Male","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D008458","descriptor_name":"Measles
+        Vaccine","qualifier_ui":"Q000009","qualifier_name":"adverse effects","is_major_topic":false},{"descriptor_ui":"D008458","descriptor_name":"Measles
+        Vaccine","qualifier_ui":"Q000009","qualifier_name":"adverse effects","is_major_topic":false},{"descriptor_ui":"D008458","descriptor_name":"Measles
+        Vaccine","qualifier_ui":"Q000009","qualifier_name":"adverse effects","is_major_topic":false},{"descriptor_ui":"D009483","descriptor_name":"Neuropsychological
+        Tests","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D009483","descriptor_name":"Neuropsychological
+        Tests","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D009483","descriptor_name":"Neuropsychological
+        Tests","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D012367","descriptor_name":"RNA,
+        Viral","qualifier_ui":"Q000378","qualifier_name":"metabolism","is_major_topic":false},{"descriptor_ui":"D012367","descriptor_name":"RNA,
+        Viral","qualifier_ui":"Q000378","qualifier_name":"metabolism","is_major_topic":false},{"descriptor_ui":"D012367","descriptor_name":"RNA,
+        Viral","qualifier_ui":"Q000378","qualifier_name":"metabolism","is_major_topic":false},{"descriptor_ui":"D016022","descriptor_name":"Case-Control
+        Studies","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D016022","descriptor_name":"Case-Control
+        Studies","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D016022","descriptor_name":"Case-Control
+        Studies","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D020133","descriptor_name":"Reverse
+        Transcriptase Polymerase Chain Reaction","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D020133","descriptor_name":"Reverse
+        Transcriptase Polymerase Chain Reaction","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false},{"descriptor_ui":"D020133","descriptor_name":"Reverse
+        Transcriptase Polymerase Chain Reaction","qualifier_ui":null,"qualifier_name":null,"is_major_topic":false}],"locations_count":8,"locations":[{"id":"doi:10.1371/journal.pone.0003140","is_oa":true,"landing_page_url":"https://doi.org/10.1371/journal.pone.0003140","pdf_url":"https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0003140&type=printable","source":{"id":"https://openalex.org/S202381698","display_name":"PLoS
+        ONE","issn_l":"1932-6203","issn":["1932-6203"],"is_oa":true,"is_in_doaj":true,"is_core":true,"host_organization":"https://openalex.org/P4310315706","host_organization_name":"Public
+        Library of Science","host_organization_lineage":["https://openalex.org/P4310315706"],"host_organization_lineage_names":["Public
+        Library of Science"],"type":"journal"},"license":"cc-by","license_id":"https://openalex.org/licenses/cc-by","version":"publishedVersion","is_accepted":true,"is_published":true,"raw_source_name":"PLoS
+        ONE","raw_type":"journal-article"},{"id":"pmid:18769550","is_oa":false,"landing_page_url":"https://pubmed.ncbi.nlm.nih.gov/18769550","pdf_url":null,"source":{"id":"https://openalex.org/S4306525036","display_name":"PubMed","issn_l":null,"issn":null,"is_oa":false,"is_in_doaj":false,"is_core":false,"host_organization":"https://openalex.org/I1299303238","host_organization_name":"National
+        Institutes of Health","host_organization_lineage":["https://openalex.org/I1299303238"],"host_organization_lineage_names":[],"type":"repository"},"license":null,"license_id":null,"version":"publishedVersion","is_accepted":true,"is_published":true,"raw_source_name":"PloS
+        one","raw_type":null},{"id":"pmh:oai:dash.harvard.edu:1/4882819","is_oa":true,"landing_page_url":"http://nrs.harvard.edu/urn-3:HUL.InstRepos:4882819","pdf_url":null,"source":{"id":"https://openalex.org/S4306401540","display_name":"Digital
+        Access to Scholarship at Harvard (DASH) (Harvard University)","issn_l":null,"issn":null,"is_oa":false,"is_in_doaj":false,"is_core":false,"host_organization":"https://openalex.org/I136199984","host_organization_name":"Harvard
+        University","host_organization_lineage":["https://openalex.org/I136199984"],"host_organization_lineage_names":[],"type":"repository"},"license":"cc-by","license_id":"https://openalex.org/licenses/cc-by","version":"submittedVersion","is_accepted":false,"is_published":false,"raw_source_name":"","raw_type":"Journal
+        Article"},{"id":"pmh:oai:academiccommons.columbia.edu:10.7916/D8N58S5F","is_oa":false,"landing_page_url":"https://doi.org/10.7916/D8N58S5F","pdf_url":null,"source":{"id":"https://openalex.org/S4306402601","display_name":"Columbia
+        Academic Commons (Columbia University)","issn_l":null,"issn":null,"is_oa":false,"is_in_doaj":false,"is_core":false,"host_organization":"https://openalex.org/I78577930","host_organization_name":"Columbia
+        University","host_organization_lineage":["https://openalex.org/I78577930"],"host_organization_lineage_names":[],"type":"repository"},"license":null,"license_id":null,"version":"submittedVersion","is_accepted":false,"is_published":false,"raw_source_name":"","raw_type":"Articles"},{"id":"pmh:oai:doaj.org/article:57cb2d08fee04b489fc9ea1fde3dffa8","is_oa":true,"landing_page_url":"https://doaj.org/article/57cb2d08fee04b489fc9ea1fde3dffa8","pdf_url":null,"source":{"id":"https://openalex.org/S112646816","display_name":"SHILAP
+        Revista de lepidopterolog\u00eda","issn_l":"0300-5267","issn":["0300-5267","2340-4078"],"is_oa":true,"is_in_doaj":true,"is_core":false,"host_organization":null,"host_organization_name":null,"host_organization_lineage":[],"host_organization_lineage_names":[],"type":"journal"},"license":null,"license_id":null,"version":"submittedVersion","is_accepted":false,"is_published":false,"raw_source_name":"PLoS
+        ONE, Vol 3, Iss 9, p e3140 (2008)","raw_type":"article"},{"id":"pmh:oai:figshare.com:article/149615","is_oa":true,"landing_page_url":"https://figshare.com/articles/dataset/Lack_of_Association_between_Measles_Virus_Vaccine_and_Autism_with_Enteropathy_A_Case_Control_Study/149615","pdf_url":null,"source":{"id":"https://openalex.org/S4377196282","display_name":"Figshare","issn_l":null,"issn":null,"is_oa":false,"is_in_doaj":false,"is_core":false,"host_organization":"https://openalex.org/I4210132348","host_organization_name":"Figshare
+        (United Kingdom)","host_organization_lineage":["https://openalex.org/I4210132348"],"host_organization_lineage_names":[],"type":"repository"},"license":"cc-by","license_id":"https://openalex.org/licenses/cc-by","version":"submittedVersion","is_accepted":false,"is_published":false,"raw_source_name":"","raw_type":"Dataset"},{"id":"pmh:oai:pubmedcentral.nih.gov:2526159","is_oa":true,"landing_page_url":"https://www.ncbi.nlm.nih.gov/pmc/articles/2526159","pdf_url":null,"source":{"id":"https://openalex.org/S2764455111","display_name":"PubMed
+        Central","issn_l":null,"issn":null,"is_oa":true,"is_in_doaj":false,"is_core":false,"host_organization":"https://openalex.org/I1299303238","host_organization_name":"National
+        Institutes of Health","host_organization_lineage":["https://openalex.org/I1299303238"],"host_organization_lineage_names":[],"type":"repository"},"license":"public-domain","license_id":"https://openalex.org/licenses/public-domain","version":"submittedVersion","is_accepted":false,"is_published":false,"raw_source_name":"PLoS
+        One","raw_type":"Text"},{"id":"doi:10.7916/d8n58s5f","is_oa":true,"landing_page_url":"https://doi.org/10.7916/d8n58s5f","pdf_url":null,"source":{"id":"https://openalex.org/S4306402601","display_name":"Columbia
+        Academic Commons (Columbia University)","issn_l":null,"issn":null,"is_oa":false,"is_in_doaj":false,"is_core":false,"host_organization":"https://openalex.org/I78577930","host_organization_name":"Columbia
+        University","host_organization_lineage":["https://openalex.org/I78577930"],"host_organization_lineage_names":[],"type":"repository"},"license":null,"license_id":null,"version":null,"is_accepted":false,"is_published":null,"raw_source_name":null,"raw_type":"article-journal"}],"best_oa_location":{"id":"doi:10.1371/journal.pone.0003140","is_oa":true,"landing_page_url":"https://doi.org/10.1371/journal.pone.0003140","pdf_url":"https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0003140&type=printable","source":{"id":"https://openalex.org/S202381698","display_name":"PLoS
+        ONE","issn_l":"1932-6203","issn":["1932-6203"],"is_oa":true,"is_in_doaj":true,"is_core":true,"host_organization":"https://openalex.org/P4310315706","host_organization_name":"Public
+        Library of Science","host_organization_lineage":["https://openalex.org/P4310315706"],"host_organization_lineage_names":["Public
+        Library of Science"],"type":"journal"},"license":"cc-by","license_id":"https://openalex.org/licenses/cc-by","version":"publishedVersion","is_accepted":true,"is_published":true,"raw_source_name":"PLoS
+        ONE","raw_type":"journal-article"},"sustainable_development_goals":[{"score":0.5799999833106995,"display_name":"Good
+        health and well-being","id":"https://metadata.un.org/sdg/3"}],"awards":[{"id":"https://openalex.org/G4105231518","display_name":null,"funder_award_id":"NS47537","funder_id":"https://openalex.org/F4320332161","funder_display_name":"National
+        Institutes of Health"},{"id":"https://openalex.org/G4154156422","display_name":null,"funder_award_id":"AI57158","funder_id":"https://openalex.org/F4320332161","funder_display_name":"National
+        Institutes of Health"}],"funders":[{"id":"https://openalex.org/F4320320864","display_name":"Trinity
+        College Dublin","ror":"https://ror.org/02tyrky19"},{"id":"https://openalex.org/F4320332161","display_name":"National
+        Institutes of Health","ror":"https://ror.org/01cwqze88"},{"id":"https://openalex.org/F4320332162","display_name":"Centers
+        for Disease Control and Prevention","ror":"https://ror.org/042twtr12"}],"has_content":{"grobid_xml":true,"pdf":true},"content_urls":{"pdf":"https://content.openalex.org/works/W2153492790.pdf","grobid_xml":"https://content.openalex.org/works/W2153492790.grobid-xml"},"referenced_works_count":51,"referenced_works":["https://openalex.org/W148762150","https://openalex.org/W1965476953","https://openalex.org/W1973088910","https://openalex.org/W1975331319","https://openalex.org/W1980309199","https://openalex.org/W1981989135","https://openalex.org/W1988377546","https://openalex.org/W1991698391","https://openalex.org/W2000764724","https://openalex.org/W2014563507","https://openalex.org/W2018553787","https://openalex.org/W2023422638","https://openalex.org/W2027412542","https://openalex.org/W2033012158","https://openalex.org/W2036955930","https://openalex.org/W2043943811","https://openalex.org/W2053397400","https://openalex.org/W2055607877","https://openalex.org/W2056339438","https://openalex.org/W2062944040","https://openalex.org/W2063995473","https://openalex.org/W2064726557","https://openalex.org/W2072979656","https://openalex.org/W2073545687","https://openalex.org/W2086569882","https://openalex.org/W2087636597","https://openalex.org/W2088180052","https://openalex.org/W2107557001","https://openalex.org/W2117847125","https://openalex.org/W2120400073","https://openalex.org/W2122056698","https://openalex.org/W2135119740","https://openalex.org/W2136419435","https://openalex.org/W2140996251","https://openalex.org/W2142608882","https://openalex.org/W2148194409","https://openalex.org/W2149225338","https://openalex.org/W2151271761","https://openalex.org/W2151324155","https://openalex.org/W2155925158","https://openalex.org/W2159604534","https://openalex.org/W2163223893","https://openalex.org/W2164671692","https://openalex.org/W2165196939","https://openalex.org/W2169567320","https://openalex.org/W2172023446","https://openalex.org/W2314790983","https://openalex.org/W2917017648","https://openalex.org/W3150264905","https://openalex.org/W3150857863","https://openalex.org/W4240163445"],"related_works":["https://openalex.org/W1591089170","https://openalex.org/W2351315178","https://openalex.org/W2891417088","https://openalex.org/W2142620342","https://openalex.org/W2097197935","https://openalex.org/W2762380804","https://openalex.org/W2110166769","https://openalex.org/W4213185300","https://openalex.org/W2075088218","https://openalex.org/W2410313010"],"abstract_inverted_index":{"BACKGROUND:":[0],"The":[1,85,132,197],"presence":[2,42,172,226],"of":[3,43,75,87,130,138,173,200,202,210,227,254,268,290],"measles":[4],"virus":[5],"(MV)":[6],"RNA":[7,45,113,175,229,273],"in":[8,24,46,116,176,224,230,274,292],"bowel":[9,47,117],"tissue":[10],"from":[11,148,303],"children":[12,51,95,105,140,150,158],"with":[13,52,70,96,106,151,159,270,282,287],"autism":[14,100,121,152,206,245,269],"spectrum":[15],"disorders":[16],"(ASD)":[17],"and":[18,34,54,79,99,119,145,153,156,193,205,221,232,244,297],"gastrointestinal":[19],"(GI)":[20],"disturbances":[21,98,108,155,161,284],"was":[22,91,134,213],"reported":[23],"1998.":[25],"Subsequent":[26],"investigations":[27],"found":[28,216],"no":[29,217],"associations":[30],"between":[31,191,219],"MV":[32,44,112,174,192,228,272],"exposure":[33],"ASD":[35,53,194,255],"but":[36],"did":[37],"not":[38],"test":[39],"for":[40,171],"the":[41,60,73,76,185,225,238,275],"or":[48,278,294],"focus":[49],"on":[50],"GI":[55,97,107,123,154,160,203,242,276,283],"disturbances.":[56],"Failure":[57],"to":[58,66,72,92,110,128,180,208,249],"replicate":[59],"original":[61,186],"study":[62,90,262],"design":[63],"may":[64,298],"contribute":[65],"continued":[67],"public":[68],"concern":[69],"respect":[71],"safety":[74],"measles,":[77],"mumps,":[78],"rubella":[80],"(MMR)":[81],"vaccine.":[82],"METHODOLOGY/PRINCIPAL":[83],"FINDINGS:":[84],"objective":[86],"this":[88],"case-control":[89],"determine":[93],"whether":[94],"are":[101],"more":[102],"likely":[103],"than":[104],"alone":[109,162],"have":[111],"and/or":[114,122],"inflammation":[115],"tissues":[118,147],"if":[120],"episode":[124],"onset":[125,201,246],"relate":[126],"temporally":[127],"receipt":[129],"MMR.":[131],"sample":[133],"an":[135,300],"age-matched":[136],"group":[137],"US":[139],"undergoing":[141],"clinically-indicated":[142],"ileocolonoscopy.":[143],"Ileal":[144],"cecal":[146],"25":[149],"13":[157],"(controls)":[163],"were":[164,195,235,247],"evaluated":[165],"by":[166],"real-time":[167],"reverse":[168],"transcription":[169],"(RT)-PCR":[170],"three":[177,239],"laboratories":[178],"blinded":[179],"diagnosis,":[181],"including":[182],"one":[183],"wherein":[184],"findings":[187],"suggesting":[188],"a":[189],"link":[190],"reported.":[196],"temporal":[198],"order":[199],"episodes":[204],"relative":[207],"timing":[209],"MMR":[211,250,279],"administration":[212],"examined.":[214],"We":[215],"differences":[218],"case":[220],"control":[222],"groups":[223],"ileum":[231],"cecum.":[233],"Results":[234],"consistent":[236],"across":[237],"laboratory":[240],"sites.":[241],"symptom":[243],"unrelated":[248],"timing.":[251],"Eighty-eight":[252],"percent":[253],"cases":[256],"had":[257],"behavioral":[258],"regression.":[259],"CONCLUSIONS/SIGNIFICANCE:":[260],"This":[261],"provides":[263],"strong":[264],"evidence":[265],"against":[266],"association":[267],"persistent":[271],"tract":[277],"exposure.":[280],"Autism":[281],"is":[285],"associated":[286],"elevated":[288],"rates":[289],"regression":[291],"language":[293],"other":[295,304],"skills":[296],"represent":[299],"endophenotype":[301],"distinct":[302],"ASD.":[305]},"counts_by_year":[{"year":2025,"cited_by_count":3},{"year":2024,"cited_by_count":2},{"year":2023,"cited_by_count":2},{"year":2022,"cited_by_count":1},{"year":2021,"cited_by_count":7},{"year":2020,"cited_by_count":7},{"year":2019,"cited_by_count":4},{"year":2018,"cited_by_count":3},{"year":2017,"cited_by_count":7},{"year":2016,"cited_by_count":8},{"year":2015,"cited_by_count":5},{"year":2014,"cited_by_count":11},{"year":2013,"cited_by_count":9},{"year":2012,"cited_by_count":18}],"updated_date":"2026-04-29T09:16:38.111599","created_date":"2025-10-10T00:00:00"}
+
+        '
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 9f6e63c58b061fd5-CDG
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 May 2026 08:31:35 GMT
+      Nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      Report-To:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=CBx%2Bd%2BIpUPRpkRR1R4qgraBJRTjZrjGDl%2BBt%2BHX6HVg%3D\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\u0026ts=1777969895"}],"max_age":3600}'
+      Reporting-Endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=CBx%2Bd%2BIpUPRpkRR1R4qgraBJRTjZrjGDl%2BBt%2BHX6HVg%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1777969895"
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 heroku-router
+      X-RateLimit-Cost-USD:
+      - '0'
+      X-RateLimit-Credits-Used:
+      - '0'
+      X-RateLimit-Limit:
+      - '10000'
+      X-RateLimit-Limit-USD:
+      - '1'
+      X-RateLimit-Onetime-Remaining:
+      - '0'
+      X-RateLimit-Prepaid-Remaining-USD:
+      - '0'
+      X-RateLimit-Remaining:
+      - '10000'
+      X-RateLimit-Remaining-USD:
+      - '1'
+      X-RateLimit-Reset:
+      - '55705'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: https://api.openalex.org/works?filter=ids.openalex%3AW148762150%7CW1965476953%7CW1973088910%7CW1975331319%7CW1980309199%7CW1981989135%7CW1988377546%7CW1991698391%7CW2000764724%7CW2014563507%7CW2018553787%7CW2023422638%7CW2027412542%7CW2033012158%7CW2036955930%7CW2043943811%7CW2053397400%7CW2055607877%7CW2056339438%7CW2062944040%7CW2063995473%7CW2064726557%7CW2072979656%7CW2073545687%7CW2086569882%7CW2087636597%7CW2088180052%7CW2107557001%7CW2117847125%7CW2120400073%7CW2122056698%7CW2135119740%7CW2136419435%7CW2140996251%7CW2142608882%7CW2148194409%7CW2149225338%7CW2151271761%7CW2151324155%7CW2155925158%7CW2159604534%7CW2163223893%7CW2164671692%7CW2165196939%7CW2169567320%7CW2172023446%7CW2314790983%7CW2917017648%7CW3150264905%7CW3150857863%7CW4240163445&per-page=200&select=id%2Cdoi
+  response:
+    body:
+      string: '{"meta": {"count": 51, "db_response_time_ms": 48, "page": 1, "per_page":
+        200, "groups_count": null, "cost_usd": 0.0001}, "results": [{"id": "https://openalex.org/W1980309199",
+        "doi": "https://doi.org/10.1007/bf02172145"}, {"id": "https://openalex.org/W2117847125",
+        "doi": "https://doi.org/10.1016/s0140-6736(97)11096-0"}, {"id": "https://openalex.org/W2136419435",
+        "doi": "https://doi.org/10.1016/s0140-6736(99)01239-8"}, {"id": "https://openalex.org/W2073545687",
+        "doi": "https://doi.org/10.1056/nejmoa021134"}, {"id": "https://openalex.org/W2018553787",
+        "doi": "https://doi.org/10.1097/01.chi.0000227880.42780.0e"}, {"id": "https://openalex.org/W2140996251",
+        "doi": "https://doi.org/10.1542/peds.2005-2993"}, {"id": "https://openalex.org/W2148194409",
+        "doi": "https://doi.org/10.1136/bmj.322.7284.460"}, {"id": "https://openalex.org/W2165196939",
+        "doi": "https://doi.org/10.1136/bmj.324.7334.393"}, {"id": "https://openalex.org/W2087636597",
+        "doi": "https://doi.org/10.1001/jama.285.9.1183"}, {"id": "https://openalex.org/W1973088910",
+        "doi": "https://doi.org/10.1056/nejmoa003077"}, {"id": "https://openalex.org/W2151324155",
+        "doi": "https://doi.org/10.1542/peds.108.4.e58"}, {"id": "https://openalex.org/W1975331319",
+        "doi": "https://doi.org/10.1111/j.1469-7610.2005.01425.x"}, {"id": "https://openalex.org/W2107557001",
+        "doi": "https://doi.org/10.1016/s0140-6736(04)17020-7"}, {"id": "https://openalex.org/W3150264905",
+        "doi": "https://doi.org/10.1007/978-0-387-79061-9_4496"}, {"id": "https://openalex.org/W2056339438",
+        "doi": "https://doi.org/10.1016/s0140-6736(98)24018-9"}, {"id": "https://openalex.org/W2072979656",
+        "doi": "https://doi.org/10.1016/s0264-410x(01)00097-4"}, {"id": "https://openalex.org/W2135119740",
+        "doi": "https://doi.org/10.1007/s10875-004-6241-6"}, {"id": "https://openalex.org/W2033012158",
+        "doi": "https://doi.org/10.1016/j.jneuroim.2005.12.007"}, {"id": "https://openalex.org/W2027412542",
+        "doi": "https://doi.org/10.1038/sj.mp.4001077"}, {"id": "https://openalex.org/W2036955930",
+        "doi": "https://doi.org/10.1023/b:joci.0000010427.05143.bb"}, {"id": "https://openalex.org/W2122056698",
+        "doi": "https://doi.org/10.1542/peds.110.5.957"}, {"id": "https://openalex.org/W2064726557",
+        "doi": "https://doi.org/10.1207/s15326942dn2703_2"}, {"id": "https://openalex.org/W2000764724",
+        "doi": "https://doi.org/10.1007/s10803-005-0070-1"}, {"id": "https://openalex.org/W2164671692",
+        "doi": "https://doi.org/10.1017/s0033291703001259"}, {"id": "https://openalex.org/W3150857863",
+        "doi": null}, {"id": "https://openalex.org/W2149225338", "doi": "https://doi.org/10.1136/adc.2007.122937"},
+        {"id": "https://openalex.org/W2159604534", "doi": "https://doi.org/10.1111/j.1572-0241.2000.03248.x"},
+        {"id": "https://openalex.org/W2053397400", "doi": "https://doi.org/10.1097/00006454-200012000-00002"},
+        {"id": "https://openalex.org/W1988377546", "doi": "https://doi.org/10.1067/mpd.2001.111323"},
+        {"id": "https://openalex.org/W2163223893", "doi": "https://doi.org/10.1136/mp.55.2.84"},
+        {"id": "https://openalex.org/W2055607877", "doi": "https://doi.org/10.1097/00004703-200604002-00010"},
+        {"id": "https://openalex.org/W2169567320", "doi": "https://doi.org/10.1542/peds.113.2.259"},
+        {"id": "https://openalex.org/W2014563507", "doi": "https://doi.org/10.1002/path.1873"},
+        {"id": "https://openalex.org/W2172023446", "doi": "https://doi.org/10.1136/adc.88.8.666"},
+        {"id": "https://openalex.org/W2023422638", "doi": "https://doi.org/10.1007/s10803-005-0071-0"},
+        {"id": "https://openalex.org/W2088180052", "doi": "https://doi.org/10.1046/j.1365-2036.2002.01206.x"},
+        {"id": "https://openalex.org/W2142608882", "doi": "https://doi.org/10.1542/peds.2006-1262"},
+        {"id": "https://openalex.org/W1991698391", "doi": "https://doi.org/10.1007/s10803-006-0157-3"},
+        {"id": "https://openalex.org/W2120400073", "doi": "https://doi.org/10.1023/a:1005443726670"},
+        {"id": "https://openalex.org/W1965476953", "doi": "https://doi.org/10.1097/00042737-200508000-00009"},
+        {"id": "https://openalex.org/W2063995473", "doi": "https://doi.org/10.1002/jmv.20585"},
+        {"id": "https://openalex.org/W2151271761", "doi": "https://doi.org/10.1186/1471-2458-1-2"},
+        {"id": "https://openalex.org/W2086569882", "doi": "https://doi.org/10.1038/sj.mp.4001178"},
+        {"id": "https://openalex.org/W2043943811", "doi": "https://doi.org/10.1016/s0140-6736(05)73676-x"},
+        {"id": "https://openalex.org/W4240163445", "doi": "https://doi.org/10.1136/mp.56.4.248"},
+        {"id": "https://openalex.org/W2314790983", "doi": "https://doi.org/10.7883/yoken.jjid.2001.78"},
+        {"id": "https://openalex.org/W2917017648", "doi": "https://doi.org/10.1542/peds.2007-3280"},
+        {"id": "https://openalex.org/W2155925158", "doi": "https://doi.org/10.1099/vir.0.80125-0"},
+        {"id": "https://openalex.org/W2062944040", "doi": "https://doi.org/10.1097/00042737-200605000-00023"},
+        {"id": "https://openalex.org/W148762150", "doi": null}, {"id": "https://openalex.org/W1981989135",
+        "doi": "https://doi.org/10.1016/s0016-5085(98)81560-6"}], "group_by": []}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 9f6e63ca6fe80c81-CDG
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 May 2026 08:31:36 GMT
+      Nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      Report-To:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=74Xv%2FR6Ss%2BGxLV4WMjaC1n41Q3yRcjFOaL9ddUM9pV4%3D\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\u0026ts=1777969896"}],"max_age":3600}'
+      Reporting-Endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=74Xv%2FR6Ss%2BGxLV4WMjaC1n41Q3yRcjFOaL9ddUM9pV4%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1777969896"
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 heroku-router
+      X-RateLimit-Cost-USD:
+      - '0.0001'
+      X-RateLimit-Credits-Used:
+      - '1'
+      X-RateLimit-Limit:
+      - '10000'
+      X-RateLimit-Limit-USD:
+      - '1'
+      X-RateLimit-Onetime-Remaining:
+      - '0'
+      X-RateLimit-Prepaid-Remaining-USD:
+      - '0'
+      X-RateLimit-Remaining:
+      - '9999'
+      X-RateLimit-Remaining-USD:
+      - '0.9999'
+      X-RateLimit-Reset:
+      - '55704'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After
+    status:
+      code: 200
+      message: OK
+version: 1

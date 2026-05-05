@@ -1,0 +1,63 @@
+{
+  "found": true,
+  "title": "Measuring Digital Vaccine Literacy: Development and Psychometric Assessment of the Digital Vaccine Literacy Scale",
+  "authors": [
+    {
+      "name": "Ilaria Montagni",
+      "orcid": "0000-0002-6517-2984"
+    },
+    {
+      "name": "Aude Pouymayou",
+      "orcid": null
+    },
+    {
+      "name": "Edwige Pereira",
+      "orcid": null
+    },
+    {
+      "name": "Christophe Tzourio",
+      "orcid": null
+    },
+    {
+      "name": "Stephane Schuck",
+      "orcid": null
+    },
+    {
+      "name": "Nathalie Texier",
+      "orcid": null
+    },
+    {
+      "name": "Juan Luis Gonzalez-Caballero",
+      "orcid": null
+    }
+  ],
+  "journal": {
+    "name": "Journal of Medical Internet Research",
+    "issn": "1438-8871"
+  },
+  "publication date": "2022-12-14",
+  "status": null,
+  "doi": "10.2196/39220",
+  "link": "https://hal.science/hal-03994069v1",
+  "document type": "article",
+  "document subtypes": null,
+  "open access": true,
+  "language": "en",
+  "cited by count": null,
+  "abstract": "BACKGROUND: The use of the internet to look for information about vaccines has skyrocketed in the last years, especially with the COVID-19 pandemic. Digital vaccine literacy (DVL) refers to understanding, trust, appraisal, and application of vaccine-related information online. OBJECTIVE: This study aims to develop a tool measuring DVL and assess its psychometric properties. METHODS: A 7-item online questionnaire was administered to 848 French adults. Different psychometric analyses were performed, including descriptive statistics, exploratory factor analysis, confirmatory factor analysis, and convergent and discriminant validity. RESULTS: We developed the 7-item DVL scale composed of 3 factors (understanding and trust official information; understanding and trust information in social media; and appraisal of vaccine information online in terms of evaluation of the information and its application for decision making). The mean DVL score of the baseline sample of 848 participants was 19.5 (SD 2.8) with a range of 7-28. The median score was 20. Scores were significantly different by gender (P=.24), age (P=.03), studying or working in the field of health (P=.01), and receiving regular seasonal flu shots (P=.01). CONCLUSIONS: The DVL tool showed good psychometric proprieties, resulting in a promising measure of DVL.",
+  "keywords": [
+    "Digital literacy",
+    "Reliability",
+    "Validity",
+    "Content",
+    "Online",
+    "Health literacy",
+    "Health information",
+    "Vaccine",
+    "Vaccination",
+    "Measurement",
+    "Literacy",
+    "Internet"
+  ],
+  "cited articles": null
+}

@@ -1,0 +1,89 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - arxiv.py/2.3.2
+    method: GET
+    uri: https://export.arxiv.org/api/query?id_list=2104.10635&max_results=100&sortBy=relevance&sortOrder=descending&start=0
+  response:
+    body:
+      string: "<?xml version='1.0' encoding='UTF-8'?>\n<feed xmlns:opensearch=\"http://a9.com/-/spec/opensearch/1.1/\"
+        xmlns:arxiv=\"http://arxiv.org/schemas/atom\" xmlns=\"http://www.w3.org/2005/Atom\">\n
+        \ <id>https://arxiv.org/api/sDlcKKhtPZ1OpntGtaEdRjuZTFs</id>\n  <title>arXiv
+        Query: search_query=&amp;id_list=2104.10635&amp;start=0&amp;max_results=100</title>\n
+        \ <updated>2026-05-05T08:31:39Z</updated>\n  <link href=\"https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=100&amp;id_list=2104.10635\"
+        type=\"application/atom+xml\"/>\n  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>\n
+        \ <opensearch:totalResults>1</opensearch:totalResults>\n  <opensearch:startIndex>0</opensearch:startIndex>\n
+        \ <entry>\n    <id>http://arxiv.org/abs/2104.10635v5</id>\n    <title>Online
+        misinformation is linked to early COVID-19 vaccination hesitancy and refusal</title>\n
+        \   <updated>2022-07-12T18:11:02Z</updated>\n    <link href=\"https://arxiv.org/abs/2104.10635v5\"
+        rel=\"alternate\" type=\"text/html\"/>\n    <link href=\"https://arxiv.org/pdf/2104.10635v5\"
+        rel=\"related\" type=\"application/pdf\" title=\"pdf\"/>\n    <summary>Widespread
+        uptake of vaccines is necessary to achieve herd immunity. However, uptake
+        rates have varied across U.S. states during the first six months of the COVID-19
+        vaccination program. Misbeliefs may play an important role in vaccine hesitancy,
+        and there is a need to understand relationships between misinformation, beliefs,
+        behaviors, and health outcomes. Here we investigate the extent to which COVID-19
+        vaccination rates and vaccine hesitancy are associated with levels of online
+        misinformation about vaccines. We also look for evidence of directionality
+        from online misinformation to vaccine hesitancy. We find a negative relationship
+        between misinformation and vaccination uptake rates. Online misinformation
+        is also correlated with vaccine hesitancy rates taken from survey data. Associations
+        between vaccine outcomes and misinformation remain significant when accounting
+        for political as well as demographic and socioeconomic factors. While vaccine
+        hesitancy is strongly associated with Republican vote share, we observe that
+        the effect of online misinformation on hesitancy is strongest across Democratic
+        rather than Republican counties. Granger causality analysis shows evidence
+        for a directional relationship from online misinformation to vaccine hesitancy.
+        Our results support a need for interventions that address misbeliefs, allowing
+        individuals to make better-informed health decisions.</summary>\n    <category
+        term=\"cs.SI\" scheme=\"http://arxiv.org/schemas/atom\"/>\n    <category term=\"physics.soc-ph\"
+        scheme=\"http://arxiv.org/schemas/atom\"/>\n    <published>2021-04-21T16:59:54Z</published>\n
+        \   <arxiv:primary_category term=\"cs.SI\"/>\n    <arxiv:journal_ref>Nature
+        Scientific Reports 2022</arxiv:journal_ref>\n    <author>\n      <name>Francesco
+        Pierri</name>\n    </author>\n    <author>\n      <name>Brea Perry</name>\n
+        \   </author>\n    <author>\n      <name>Matthew R. DeVerna</name>\n    </author>\n
+        \   <author>\n      <name>Kai-Cheng Yang</name>\n    </author>\n    <author>\n
+        \     <name>Alessandro Flammini</name>\n    </author>\n    <author>\n      <name>Filippo
+        Menczer</name>\n    </author>\n    <author>\n      <name>John Bryden</name>\n
+        \   </author>\n  </entry>\n</feed>\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3271'
+      Date:
+      - Tue, 05 May 2026 08:31:39 GMT
+      Strict-Transport-Security:
+      - max-age=300
+      X-Cache:
+      - MISS, MISS, MISS
+      X-Cache-Hits:
+      - 0, 0, 0
+      X-Served-By:
+      - cache-lga21993-LGA, cache-lga21922-LGA, cache-mrs10551-MRS
+      X-Timer:
+      - S1777969899.936875,VS0,VE323
+      content-type:
+      - application/atom+xml; charset=utf-8
+      server:
+      - Google Frontend
+      via:
+      - 1.1 varnish, 1.1 varnish, 1.1 varnish
+      x-cloud-trace-context:
+      - f1f1f0baa00a199e14d31e0fb448928f
+    status:
+      code: 200
+      message: OK
+version: 1

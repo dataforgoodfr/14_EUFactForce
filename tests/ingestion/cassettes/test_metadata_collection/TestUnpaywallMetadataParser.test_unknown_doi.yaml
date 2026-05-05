@@ -1,0 +1,57 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: https://api.unpaywall.org/v2/10.0000/does.not.exist
+  response:
+    body:
+      string: '<!doctype html>
+
+        <html lang=en>
+
+        <title>404 Not Found</title>
+
+        <h1>Not Found</h1>
+
+        <p>The requested URL was not found on the server. If you entered the URL manually
+        please check your spelling and try again.</p>
+
+        '
+    headers:
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, x-requested-with
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Length:
+      - '207'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Tue, 05 May 2026 08:31:40 GMT
+      Nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      Report-To:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=Mt%2BPiWoF8IYREYtPH4gVnZSK4Vz2nI5o4n%2FWbxXxiog%3D\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\u0026ts=1777969900"}],"max_age":3600}'
+      Reporting-Endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=Mt%2BPiWoF8IYREYtPH4gVnZSK4Vz2nI5o4n%2FWbxXxiog%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1777969900"
+      Server:
+      - Heroku
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 heroku-router
+    status:
+      code: 404
+      message: Not Found
+version: 1
