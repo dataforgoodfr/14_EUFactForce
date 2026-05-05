@@ -1,8 +1,7 @@
 # pages/pgp.py
 
 from dash import html, dcc
-from pages.pgpxd4g_graphs import get_figures
-
+from utils.pgpxd4g_graphs import get_figures
 
 def make_layout():
 
