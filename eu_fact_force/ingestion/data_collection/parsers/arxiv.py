@@ -13,13 +13,15 @@ class ArxivMetadataParser(MetadataParser):
         self._cache = {}
 
     def _search(self, doi: str):
-        if doi not in self._cache:
-            if doi.startswith(ARXIV_DOI_PREFIX):
-                search = arxiv.Search(id_list=[doi[len(ARXIV_DOI_PREFIX):]])
-            else:
-                search = arxiv.Search(query=f"doi:{doi}", max_results=1)
-            results = list(self.client.results(search))
-            self._cache[doi] = results[0] if results else None
+        if doi in self._cache:
+            return self._cache[doi]
+
+        if doi.startswith(ARXIV_DOI_PREFIX):
+            search = arxiv.Search(id_list=[doi[len(ARXIV_DOI_PREFIX):]])
+        else:
+            search = arxiv.Search(query=f"doi:{doi}", max_results=1)
+        results = list(self.client.results(search))
+        self._cache[doi] = results[0] if results else None
         return self._cache[doi]
 
     def get_metadata(self, doi: str) -> dict:

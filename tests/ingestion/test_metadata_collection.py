@@ -1,6 +1,5 @@
-"""Integration tests for metadata parsers and PDF download."""
+"""Tests for metadata parsers and PDF download."""
 import json
-import os
 from pathlib import Path
 
 import pytest
@@ -12,14 +11,13 @@ from eu_fact_force.ingestion.data_collection.parsers.openalex import OpenAlexMet
 from eu_fact_force.ingestion.data_collection.parsers.pubmed import PubMedMetadataParser
 from eu_fact_force.ingestion.data_collection.parsers.unpaywall import UnpaywallMetadataParser
 
-pytestmark = pytest.mark.integration
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
 TARGET_DOI = {
     "crossref": {
         "metadata": "10.1128/mbio.01735-25",
-        "pdf": "10.1007/s00431-021-04343-1"
+        "pdf": "10.1007/s00431-021-04343-1",
     },
     "openalex": "10.1371/journal.pone.0003140",
     "pubmed": "10.1177/2515690X20967323",
@@ -29,41 +27,37 @@ TARGET_DOI = {
     "fake": "10.0000/does.not.exist",
 }
 
-# ---------------------------------------------------------------------------
-# Schema
-# ---------------------------------------------------------------------------
-
 METADATA_SCHEMA = {
-    "found":             bool,
-    "title":             str,
-    "authors":           list,
-    "journal":           dict,
-    "publication date":      str,
-    "status":            (str, list),
-    "doi":               str,
-    "link":              str,
-    "document type":     str,
+    "found": bool,
+    "title": str,
+    "authors": list,
+    "journal": dict,
+    "publication date": str,
+    "status": (str, list),
+    "doi": str,
+    "link": str,
+    "document type": str,
     "document subtypes": list,
-    "open access":       bool,
-    "language":          str,
-    "cited by count":    int,
-    "abstract":          str,
-    "keywords":          list,
-    "cited articles":    list,
+    "open access": bool,
+    "language": str,
+    "cited by count": int,
+    "abstract": str,
+    "keywords": list,
+    "cited articles": list,
 }
 
 AUTHOR_SCHEMA = {"name": str, "orcid": str}
 JOURNAL_SCHEMA = {"name": str, "issn": str}
 
 
-def _check_schema(obj, schema, context=""):
+def _check_schema(obj: dict, schema: dict, context: str = "") -> None:
     for field, expected_type in schema.items():
         assert field in obj, f"{context}missing field '{field}'"
         value = obj[field]
         if field == "found":
-            assert isinstance(value, expected_type), (
-                f"{context}'{field}' must be {expected_type}, got {type(value).__name__}"
-            )
+            assert isinstance(
+                value, expected_type
+            ), f"{context}'{field}' must be {expected_type}, got {type(value).__name__}"
         elif value is not None:
             assert isinstance(value, expected_type), (
                 f"{context}'{field}' expected {expected_type}, "
@@ -71,7 +65,7 @@ def _check_schema(obj, schema, context=""):
             )
 
 
-def assert_valid_metadata(result):
+def assert_valid_metadata(result: dict) -> None:
     assert result.get("found") is True
     _check_schema(result, METADATA_SCHEMA)
     if result.get("journal") is not None:
@@ -87,7 +81,9 @@ def assert_valid_metadata(result):
             assert isinstance(kw, str), f"keyword should be str, got {type(kw)}"
     if result.get("document subtypes") is not None:
         for sub in result["document subtypes"]:
-            assert isinstance(sub, str), f"document subtype should be str, got {type(sub)}"
+            assert isinstance(
+                sub, str
+            ), f"document subtype should be str, got {type(sub)}"
 
 
 def _expected(name):
@@ -95,85 +91,84 @@ def _expected(name):
         return json.load(f)
 
 
-# ---------------------------------------------------------------------------
-# Crossref
-# ---------------------------------------------------------------------------
-
 class TestCrossrefMetadataParser:
     def setup_method(self):
         self.parser = CrossrefMetadataParser()
 
+    @pytest.mark.vcr
     def test_known_doi(self):
         result = self.parser.get_metadata(TARGET_DOI["crossref"]["metadata"])
         assert_valid_metadata(result)
         assert result == _expected("crossref_expected.json")
 
+    @pytest.mark.vcr
     def test_unknown_doi(self):
         assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
 
+    @pytest.mark.vcr
     def test_download_pdf(self, tmp_path):
-        success = self.parser.download_pdf(TARGET_DOI["crossref"]["pdf"], output_dir=str(tmp_path))
+        success = self.parser.download_pdf(
+            TARGET_DOI["crossref"]["pdf"], output_dir=str(tmp_path)
+        )
         assert success
         pdfs = list(tmp_path.glob("*.pdf"))
         assert pdfs and pdfs[0].stat().st_size > 0
 
-
-# ---------------------------------------------------------------------------
-# OpenAlex
-# ---------------------------------------------------------------------------
 
 class TestOpenAlexMetadataParser:
     def setup_method(self):
         self.parser = OpenAlexMetadataParser()
 
+    @pytest.mark.vcr
     def test_known_doi(self):
         result = self.parser.get_metadata(TARGET_DOI["openalex"])
         assert_valid_metadata(result)
         assert result == _expected("openalex_expected.json")
 
+    @pytest.mark.vcr
     def test_unknown_doi(self):
         assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
 
+    @pytest.mark.vcr
     def test_download_pdf(self, tmp_path):
-        success = self.parser.download_pdf(TARGET_DOI["openalex"], output_dir=str(tmp_path))
+        success = self.parser.download_pdf(
+            TARGET_DOI["openalex"], output_dir=str(tmp_path)
+        )
         assert success
         pdfs = list(tmp_path.glob("*.pdf"))
         assert pdfs and pdfs[0].stat().st_size > 0
 
 
-# ---------------------------------------------------------------------------
-# PubMed
-# ---------------------------------------------------------------------------
-
 class TestPubMedMetadataParser:
     def setup_method(self):
         self.parser = PubMedMetadataParser()
 
+    @pytest.mark.vcr
     def test_known_doi(self):
         result = self.parser.get_metadata(TARGET_DOI["pubmed"])
         assert_valid_metadata(result)
         assert result == _expected("pubmed_expected.json")
 
+    @pytest.mark.vcr
     def test_unknown_doi(self):
         assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
 
-
-# ---------------------------------------------------------------------------
-# HAL
-# ---------------------------------------------------------------------------
 
 class TestHALMetadataParser:
     def setup_method(self):
         self.parser = HALMetadataParser()
 
+    @pytest.mark.vcr
     def test_known_doi(self):
         result = self.parser.get_metadata(TARGET_DOI["hal"])
         assert_valid_metadata(result)
         assert result == _expected("hal_expected.json")
 
+    @pytest.mark.vcr
     def test_unknown_doi(self):
         assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
 
+    @pytest.mark.vcr
     def test_download_pdf(self, tmp_path):
         success = self.parser.download_pdf(TARGET_DOI["hal"], output_dir=str(tmp_path))
         assert success
@@ -181,53 +176,53 @@ class TestHALMetadataParser:
         assert pdfs and pdfs[0].stat().st_size > 0
 
 
-# ---------------------------------------------------------------------------
-# ArXiv
-# ---------------------------------------------------------------------------
-
 class TestArxivMetadataParser:
     def setup_method(self):
         self.parser = ArxivMetadataParser()
 
+    @pytest.mark.vcr
     def test_known_doi(self):
         result = self.parser.get_metadata(TARGET_DOI["arxiv"])
         assert_valid_metadata(result)
         assert result == _expected("arxiv_expected.json")
 
+    @pytest.mark.vcr
     def test_unknown_doi(self):
         assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
 
+    @pytest.mark.vcr
     def test_download_pdf(self, tmp_path):
-        success = self.parser.download_pdf(TARGET_DOI["arxiv"], output_dir=str(tmp_path))
+        success = self.parser.download_pdf(
+            TARGET_DOI["arxiv"], output_dir=str(tmp_path)
+        )
         assert success
         pdfs = list(tmp_path.glob("*.pdf"))
         assert pdfs and pdfs[0].stat().st_size > 0
 
 
-# ---------------------------------------------------------------------------
-# Unpaywall
-# ---------------------------------------------------------------------------
-
 class TestUnpaywallMetadataParser:
     def setup_method(self):
         self.parser = UnpaywallMetadataParser()
 
+    # UNPAYWALL_EMAIL is required when recording cassettes for the first time
+    # (run with --record-mode=new_episodes). Not needed during replay.
+    @pytest.mark.vcr
     def test_known_doi(self):
-        if not os.environ.get("UNPAYWALL_EMAIL"):
-            pytest.skip("UNPAYWALL_EMAIL not set")
         result = self.parser.get_metadata(TARGET_DOI["unpaywall"])
         assert_valid_metadata(result)
         assert result == _expected("unpaywall_expected.json")
 
+    @pytest.mark.vcr
     def test_unknown_doi(self):
-        if not os.environ.get("UNPAYWALL_EMAIL"):
-            pytest.skip("UNPAYWALL_EMAIL not set")
         assert self.parser.get_metadata(TARGET_DOI["fake"])["found"] is False
 
+    # UNPAYWALL_EMAIL is required when recording cassettes for the first time
+    # (run with --record-mode=new_episodes). Not needed during replay.
+    @pytest.mark.vcr
     def test_download_pdf(self, tmp_path):
-        if not os.environ.get("UNPAYWALL_EMAIL"):
-            pytest.skip("UNPAYWALL_EMAIL not set")
-        success = self.parser.download_pdf(TARGET_DOI["unpaywall"], output_dir=str(tmp_path))
+        success = self.parser.download_pdf(
+            TARGET_DOI["unpaywall"], output_dir=str(tmp_path)
+        )
         assert success
         pdfs = list(tmp_path.glob("*.pdf"))
         assert pdfs and pdfs[0].stat().st_size > 0

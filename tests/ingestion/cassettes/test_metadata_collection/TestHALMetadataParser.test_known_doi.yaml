@@ -1,0 +1,787 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: https://api.archives-ouvertes.fr/search/?fl=%2A&q=doiId_s%3A10.2196%2F39220
+  response:
+    body:
+      string: "{\n  \"response\":{\n    \"numFound\":1,\n    \"start\":0,\n    \"maxScore\":5.528298,\n
+        \   \"numFoundExact\":true,\n    \"docs\":[{\n      \"docid\":\"3994069\",\n
+        \     \"label_s\":\"Ilaria Montagni, Aude Pouymayou, Edwige Pereira, Christophe
+        Tzourio, Stephane Schuck, et al.. Measuring Digital Vaccine Literacy: Development
+        and Psychometric Assessment of the Digital Vaccine Literacy Scale. Journal
+        of Medical Internet Research, 2022, 24 (12), &#x27E8;10.2196/39220&#x27E9;.
+        &#x27E8;hal-03994069&#x27E9;\",\n      \"citationRef_s\":\"<i>Journal of Medical
+        Internet Research</i>, 2022, 24 (12), <a target=\\\"_blank\\\" href=\\\"https://dx.doi.org/10.2196/39220\\\">&#x27E8;10.2196/39220&#x27E9;</a>\",\n
+        \     \"citationFull_s\":\"Ilaria Montagni, Aude Pouymayou, Edwige Pereira,
+        Christophe Tzourio, Stephane Schuck, et al.. Measuring Digital Vaccine Literacy:
+        Development and Psychometric Assessment of the Digital Vaccine Literacy Scale.
+        <i>Journal of Medical Internet Research</i>, 2022, 24 (12), <a target=\\\"_blank\\\"
+        href=\\\"https://dx.doi.org/10.2196/39220\\\">&#x27E8;10.2196/39220&#x27E9;</a>.
+        <a target=\\\"_blank\\\" href=\\\"https://hal.science/hal-03994069v1\\\">&#x27E8;hal-03994069&#x27E9;</a>\",\n
+        \     \"label_bibtex\":\"@article{montagni:hal-03994069,\\n  TITLE = {{Measuring
+        Digital Vaccine Literacy: Development and Psychometric Assessment of the Digital
+        Vaccine Literacy Scale}},\\n  AUTHOR = {Montagni, Ilaria and Pouymayou, Aude
+        and Pereira, Edwige and Tzourio, Christophe and Schuck, Stephane and Texier,
+        Nathalie and Gonzalez-Caballero, Juan Luis},\\n  URL = {https://hal.science/hal-03994069},\\n
+        \ JOURNAL = {{Journal of Medical Internet Research}},\\n  PUBLISHER = {{JMIR
+        Publications}},\\n  VOLUME = {24},\\n  NUMBER = {12},\\n  YEAR = {2022},\\n
+        \ MONTH = Dec,\\n  DOI = {10.2196/39220},\\n  KEYWORDS = {Digital literacy
+        ; Reliability ; Validity ; Content ; Online ; Health literacy ; Health information
+        ; Vaccine ; Vaccination ; Measurement ; Literacy ; Internet},\\n  PDF = {https://hal.science/hal-03994069v1/file/BPH_JMIR_2022_Montagni.pdf},\\n
+        \ HAL_ID = {hal-03994069},\\n  HAL_VERSION = {v1},\\n}\\n\",\n      \"label_endnote\":\"%0
+        Journal Article\\n%T Measuring Digital Vaccine Literacy: Development and Psychometric
+        Assessment of the Digital Vaccine Literacy Scale\\n%+ Bordeaux population
+        health (BPH)\\n%+ Kappa Sant\xE9\\n%+ Kap Code\\n%+ Universidad de C\xE1diz
+        = University of C\xE1diz (UCA)\\n%A Montagni, Ilaria\\n%A Pouymayou, Aude\\n%A
+        Pereira, Edwige\\n%A Tzourio, Christophe\\n%A Schuck, Stephane\\n%A Texier,
+        Nathalie\\n%A Gonzalez-Caballero, Juan Luis\\n%< avec comit\xE9 de lecture\\n%@
+        1438-8871\\n%J Journal of Medical Internet Research\\n%I JMIR Publications\\n%V
+        24\\n%N 12\\n%8 2022-12-14\\n%D 2022\\n%R 10.2196/39220\\n%M 36515982\\n%K
+        Digital literacy\\n%K Reliability\\n%K Validity\\n%K Content\\n%K Online\\n%K
+        Health literacy\\n%K Health information\\n%K Vaccine\\n%K Vaccination\\n%K
+        Measurement\\n%K Literacy\\n%K Internet\\n%Z Life Sciences [q-bio]/Sant\xE9
+        publique et \xE9pid\xE9miologieJournal articles\\n%X BACKGROUND: The use of
+        the internet to look for information about vaccines has skyrocketed in the
+        last years, especially with the COVID-19 pandemic. Digital vaccine literacy
+        (DVL) refers to understanding, trust, appraisal, and application of vaccine-related
+        information online. OBJECTIVE: This study aims to develop a tool measuring
+        DVL and assess its psychometric properties. METHODS: A 7-item online questionnaire
+        was administered to 848 French adults. Different psychometric analyses were
+        performed, including descriptive statistics, exploratory factor analysis,
+        confirmatory factor analysis, and convergent and discriminant validity. RESULTS:
+        We developed the 7-item DVL scale composed of 3 factors (understanding and
+        trust official information; understanding and trust information in social
+        media; and appraisal of vaccine information online in terms of evaluation
+        of the information and its application for decision making). The mean DVL
+        score of the baseline sample of 848 participants was 19.5 (SD 2.8) with a
+        range of 7-28. The median score was 20. Scores were significantly different
+        by gender (P=.24), age (P=.03), studying or working in the field of health
+        (P=.01), and receiving regular seasonal flu shots (P=.01). CONCLUSIONS: The
+        DVL tool showed good psychometric proprieties, resulting in a promising measure
+        of DVL.\\n%G English\\n%2 https://hal.science/hal-03994069v1/document\\n%2
+        https://hal.science/hal-03994069v1/file/BPH_JMIR_2022_Montagni.pdf\\n%L hal-03994069\\n%U
+        https://hal.science/hal-03994069\\n%~ SANTE_PUB_INSERM\\n%~ U1219\\n%~ UNIVERSITE-BORDEAUX\\n\",\n
+        \     \"label_coins\":\"<span class=\\\"Z3988\\\" title=\\\"ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=journal&amp;rft.identifier=https%3A%2F%2Fhal.science%2Fhal-03994069&amp;rft.identifier=hal-03994069&amp;rft.identifier=doi%3A10.2196%2F39220&amp;rft.identifier=pubmed%3A36515982&amp;rft.title=Measuring%20Digital%20Vaccine%20Literacy%3A%20Development%20and%20Psychometric%20Assessment%20of%20the%20Digital%20Vaccine%20Literacy%20Scale&amp;rft.creator=Montagni%2C%20Ilaria&amp;rft.creator=Pouymayou%2C%20Aude&amp;rft.creator=Pereira%2C%20Edwige&amp;rft.creator=Tzourio%2C%20Christophe&amp;rft.creator=Schuck%2C%20Stephane&amp;rft.creator=Texier%2C%20Nathalie&amp;rft.creator=Gonzalez-Caballero%2C%20Juan%20Luis&amp;rft.subject=Digital%20literacy&amp;rft.subject=Reliability&amp;rft.subject=Validity&amp;rft.subject=Content&amp;rft.subject=Online&amp;rft.subject=Health%20literacy&amp;rft.subject=Health%20information&amp;rft.subject=Vaccine&amp;rft.subject=Vaccination&amp;rft.subject=Measurement&amp;rft.subject=Literacy&amp;rft.subject=Internet&amp;rft.language=en&amp;rft.date=2022-12-14&amp;rft.source=Journal%20of%20Medical%20Internet%20Research\\\"></span>\",\n
+        \     \"openAccess_bool\":true,\n      \"audience_s\":\"2\",\n      \"popularLevel_s\":\"0\",\n
+        \     \"peerReviewing_s\":\"1\",\n      \"domainAllCode_s\":[\"sdv.spee\"],\n
+        \     \"level0_domain_s\":[\"sdv\"],\n      \"domain_s\":[\"0.sdv\",\"1.sdv.spee\"],\n
+        \     \"level1_domain_s\":[\"sdv.spee\"],\n      \"fr_domainAllCodeLabel_fs\":[\"sdv.spee_FacetSep_Sciences
+        du Vivant [q-bio]/Sant\xE9 publique et \xE9pid\xE9miologie\"],\n      \"en_domainAllCodeLabel_fs\":[\"sdv.spee_FacetSep_Life
+        Sciences [q-bio]/Sant\xE9 publique et \xE9pid\xE9miologie\"],\n      \"es_domainAllCodeLabel_fs\":[\"sdv.spee_FacetSep_Life
+        Sciences [q-bio]/Sant\xE9 publique et \xE9pid\xE9miologie\"],\n      \"eu_domainAllCodeLabel_fs\":[\"sdv.spee_FacetSep_domain_sdv/domain_sdv.spee\"],\n
+        \     \"primaryDomain_s\":\"sdv.spee\",\n      \"en_title_s\":[\"Measuring
+        Digital Vaccine Literacy: Development and Psychometric Assessment of the Digital
+        Vaccine Literacy Scale\"],\n      \"title_s\":[\"Measuring Digital Vaccine
+        Literacy: Development and Psychometric Assessment of the Digital Vaccine Literacy
+        Scale\"],\n      \"en_keyword_s\":[\"Digital literacy\",\"Reliability\",\"Validity\",\"Content\",\"Online\",\"Health
+        literacy\",\"Health information\",\"Vaccine\",\"Vaccination\",\"Measurement\",\"Literacy\",\"Internet\"],\n
+        \     \"keyword_s\":[\"Digital literacy\",\"Reliability\",\"Validity\",\"Content\",\"Online\",\"Health
+        literacy\",\"Health information\",\"Vaccine\",\"Vaccination\",\"Measurement\",\"Literacy\",\"Internet\"],\n
+        \     \"abstract_s\":[\"BACKGROUND: The use of the internet to look for information
+        about vaccines has skyrocketed in the last years, especially with the COVID-19
+        pandemic. Digital vaccine literacy (DVL) refers to understanding, trust, appraisal,
+        and application of vaccine-related information online. OBJECTIVE: This study
+        aims to develop a tool measuring DVL and assess its psychometric properties.
+        METHODS: A 7-item online questionnaire was administered to 848 French adults.
+        Different psychometric analyses were performed, including descriptive statistics,
+        exploratory factor analysis, confirmatory factor analysis, and convergent
+        and discriminant validity. RESULTS: We developed the 7-item DVL scale composed
+        of 3 factors (understanding and trust official information; understanding
+        and trust information in social media; and appraisal of vaccine information
+        online in terms of evaluation of the information and its application for decision
+        making). The mean DVL score of the baseline sample of 848 participants was
+        19.5 (SD 2.8) with a range of 7-28. The median score was 20. Scores were significantly
+        different by gender (P=.24), age (P=.03), studying or working in the field
+        of health (P=.01), and receiving regular seasonal flu shots (P=.01). CONCLUSIONS:
+        The DVL tool showed good psychometric proprieties, resulting in a promising
+        measure of DVL.\"],\n      \"en_abstract_s\":[\"BACKGROUND: The use of the
+        internet to look for information about vaccines has skyrocketed in the last
+        years, especially with the COVID-19 pandemic. Digital vaccine literacy (DVL)
+        refers to understanding, trust, appraisal, and application of vaccine-related
+        information online. OBJECTIVE: This study aims to develop a tool measuring
+        DVL and assess its psychometric properties. METHODS: A 7-item online questionnaire
+        was administered to 848 French adults. Different psychometric analyses were
+        performed, including descriptive statistics, exploratory factor analysis,
+        confirmatory factor analysis, and convergent and discriminant validity. RESULTS:
+        We developed the 7-item DVL scale composed of 3 factors (understanding and
+        trust official information; understanding and trust information in social
+        media; and appraisal of vaccine information online in terms of evaluation
+        of the information and its application for decision making). The mean DVL
+        score of the baseline sample of 848 participants was 19.5 (SD 2.8) with a
+        range of 7-28. The median score was 20. Scores were significantly different
+        by gender (P=.24), age (P=.03), studying or working in the field of health
+        (P=.01), and receiving regular seasonal flu shots (P=.01). CONCLUSIONS: The
+        DVL tool showed good psychometric proprieties, resulting in a promising measure
+        of DVL.\"],\n      \"journalId_i\":1477,\n      \"journalTitle_s\":\"Journal
+        of Medical Internet Research\",\n      \"journalIdTitle_fs\":\"1477_FacetSep_Journal
+        of Medical Internet Research\",\n      \"journalTitleId_fs\":\"Journal of
+        Medical Internet Research_FacetSep_1477\",\n      \"journalTitleAbbr_s\":\"JMIR\",\n
+        \     \"journalPublisher_s\":\"JMIR Publications\",\n      \"journalIssn_s\":\"1438-8871\",\n
+        \     \"journalUrl_s\":\"http://www.jmir.org/\",\n      \"journalDate_s\":\"2020-10-24
+        18:34:34\",\n      \"journalValid_s\":\"VALID\",\n      \"journalSherpaColor_s\":\"blue\",\n
+        \     \"journalSherpaPrePrint_s\":\"unclear\",\n      \"journalSherpaPostPrint_s\":\"can\",\n
+        \     \"journalSherpaPreRest_s\":\"[]\",\n      \"journalSherpaPostRest_s\":\"[]\",\n
+        \     \"journalSherpaCondition_s\":\"[Creative Commons Attribution 2.0 License][Must
+        link to publisher version][In HTML or Word format]\",\n      \"journalSherpaDate_s\":\"2020-10-24\",\n
+        \     \"authIdFormPerson_s\":[\"1172811-1117987\",\"2404700-0\",\"1324063-0\",\"208353-758563\",\"2293926-0\",\"1352976-0\",\"2404701-0\"],\n
+        \     \"authIdForm_i\":[1172811,2404700,1324063,208353,2293926,1352976,2404701],\n
+        \     \"authIdPerson_i\":[1117987,0,0,758563,0,0,0],\n      \"authLastName_s\":[\"Montagni\",\"Pouymayou\",\"Pereira\",\"Tzourio\",\"Schuck\",\"Texier\",\"Gonzalez-Caballero\"],\n
+        \     \"authFirstName_s\":[\"Ilaria\",\"Aude\",\"Edwige\",\"Christophe\",\"Stephane\",\"Nathalie\",\"Juan
+        Luis\"],\n      \"authFullName_s\":[\"Ilaria Montagni\",\"Aude Pouymayou\",\"Edwige
+        Pereira\",\"Christophe Tzourio\",\"Stephane Schuck\",\"Nathalie Texier\",\"Juan
+        Luis Gonzalez-Caballero\"],\n      \"authLastNameFirstName_s\":[\"Montagni
+        Ilaria\",\"Pouymayou Aude\",\"Pereira Edwige\",\"Tzourio Christophe\",\"Schuck
+        Stephane\",\"Texier Nathalie\",\"Gonzalez-Caballero Juan Luis\"],\n      \"authIdLastNameFirstName_fs\":[\"1117987_FacetSep_Montagni
+        Ilaria\",\"0_FacetSep_Pouymayou Aude\",\"0_FacetSep_Pereira Edwige\",\"758563_FacetSep_Tzourio
+        Christophe\",\"0_FacetSep_Schuck Stephane\",\"0_FacetSep_Texier Nathalie\",\"0_FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"authFullNameIdFormPerson_fs\":[\"Ilaria Montagni_FacetSep_1172811-1117987\",\"Aude
+        Pouymayou_FacetSep_2404700-0\",\"Edwige Pereira_FacetSep_1324063-0\",\"Christophe
+        Tzourio_FacetSep_208353-758563\",\"Stephane Schuck_FacetSep_2293926-0\",\"Nathalie
+        Texier_FacetSep_1352976-0\",\"Juan Luis Gonzalez-Caballero_FacetSep_2404701-0\"],\n
+        \     \"authAlphaLastNameFirstNameId_fs\":[\"M_AlphaSep_Montagni Ilaria_FacetSep_1117987\",\"P_AlphaSep_Pouymayou
+        Aude_FacetSep_0\",\"P_AlphaSep_Pereira Edwige_FacetSep_0\",\"T_AlphaSep_Tzourio
+        Christophe_FacetSep_758563\",\"S_AlphaSep_Schuck Stephane_FacetSep_0\",\"T_AlphaSep_Texier
+        Nathalie_FacetSep_0\",\"G_AlphaSep_Gonzalez-Caballero Juan Luis_FacetSep_0\"],\n
+        \     \"authIdFullName_fs\":[\"1117987_FacetSep_Ilaria Montagni\",\"0_FacetSep_Aude
+        Pouymayou\",\"0_FacetSep_Edwige Pereira\",\"758563_FacetSep_Christophe Tzourio\",\"0_FacetSep_Stephane
+        Schuck\",\"0_FacetSep_Nathalie Texier\",\"0_FacetSep_Juan Luis Gonzalez-Caballero\"],\n
+        \     \"authFullNameId_fs\":[\"Ilaria Montagni_FacetSep_1117987\",\"Aude Pouymayou_FacetSep_0\",\"Edwige
+        Pereira_FacetSep_0\",\"Christophe Tzourio_FacetSep_758563\",\"Stephane Schuck_FacetSep_0\",\"Nathalie
+        Texier_FacetSep_0\",\"Juan Luis Gonzalez-Caballero_FacetSep_0\"],\n      \"authQuality_s\":[\"aut\",\"aut\",\"aut\",\"aut\",\"aut\",\"aut\",\"aut\"],\n
+        \     \"authEmailDomain_s\":[\"u-bordeaux.fr\",\"chups.jussieu.fr\"],\n      \"authIdHal_i\":[1117987,758563],\n
+        \     \"authIdRefIdExt_s\":[\"258573880\",\"069829209\"],\n      \"authFullNameFormIDPersonIDIDHal_fs\":[\"Ilaria
+        Montagni_FacetSep_1172811-1117987_FacetSep_\",\"Aude Pouymayou_FacetSep_2404700-0_FacetSep_\",\"Edwige
+        Pereira_FacetSep_1324063-0_FacetSep_\",\"Christophe Tzourio_FacetSep_208353-758563_FacetSep_\",\"Stephane
+        Schuck_FacetSep_2293926-0_FacetSep_\",\"Nathalie Texier_FacetSep_1352976-0_FacetSep_\",\"Juan
+        Luis Gonzalez-Caballero_FacetSep_2404701-0_FacetSep_\"],\n      \"authFullNamePersonIDIDHal_fs\":[\"Ilaria
+        Montagni_FacetSep_1117987_FacetSep_\",\"Aude Pouymayou_FacetSep_0_FacetSep_\",\"Edwige
+        Pereira_FacetSep_0_FacetSep_\",\"Christophe Tzourio_FacetSep_758563_FacetSep_\",\"Stephane
+        Schuck_FacetSep_0_FacetSep_\",\"Nathalie Texier_FacetSep_0_FacetSep_\",\"Juan
+        Luis Gonzalez-Caballero_FacetSep_0_FacetSep_\"],\n      \"authIdHalFullName_fs\":[\"_FacetSep_Ilaria
+        Montagni\",\"_FacetSep_Aude Pouymayou\",\"_FacetSep_Edwige Pereira\",\"_FacetSep_Christophe
+        Tzourio\",\"_FacetSep_Stephane Schuck\",\"_FacetSep_Nathalie Texier\",\"_FacetSep_Juan
+        Luis Gonzalez-Caballero\"],\n      \"authFullNameIdHal_fs\":[\"Ilaria Montagni_FacetSep_\",\"Aude
+        Pouymayou_FacetSep_\",\"Edwige Pereira_FacetSep_\",\"Christophe Tzourio_FacetSep_\",\"Stephane
+        Schuck_FacetSep_\",\"Nathalie Texier_FacetSep_\",\"Juan Luis Gonzalez-Caballero_FacetSep_\"],\n
+        \     \"authAlphaLastNameFirstNameIdHal_fs\":[\"M_AlphaSep_Montagni Ilaria_FacetSep_\",\"P_AlphaSep_Pouymayou
+        Aude_FacetSep_\",\"P_AlphaSep_Pereira Edwige_FacetSep_\",\"T_AlphaSep_Tzourio
+        Christophe_FacetSep_\",\"S_AlphaSep_Schuck Stephane_FacetSep_\",\"T_AlphaSep_Texier
+        Nathalie_FacetSep_\",\"G_AlphaSep_Gonzalez-Caballero Juan Luis_FacetSep_\"],\n
+        \     \"authLastNameFirstNameIdHalPersonid_fs\":[\"Montagni Ilaria_FacetSep__FacetSep_1117987\",\"Pouymayou
+        Aude_FacetSep__FacetSep_0\",\"Pereira Edwige_FacetSep__FacetSep_0\",\"Tzourio
+        Christophe_FacetSep__FacetSep_758563\",\"Schuck Stephane_FacetSep__FacetSep_0\",\"Texier
+        Nathalie_FacetSep__FacetSep_0\",\"Gonzalez-Caballero Juan Luis_FacetSep__FacetSep_0\"],\n
+        \     \"authIdHasPrimaryStructure_fs\":[\"1172811-1117987_FacetSep_Ilaria
+        Montagni_JoinSep_476572_FacetSep_Bordeaux population health\",\"2404700-0_FacetSep_Aude
+        Pouymayou_JoinSep_476572_FacetSep_Bordeaux population health\",\"1324063-0_FacetSep_Edwige
+        Pereira_JoinSep_476572_FacetSep_Bordeaux population health\",\"208353-758563_FacetSep_Christophe
+        Tzourio_JoinSep_476572_FacetSep_Bordeaux population health\",\"2293926-0_FacetSep_Stephane
+        Schuck_JoinSep_1081461_FacetSep_Kappa Sant\xE9\",\"2293926-0_FacetSep_Stephane
+        Schuck_JoinSep_1071189_FacetSep_Kap Code\",\"1352976-0_FacetSep_Nathalie Texier_JoinSep_1081461_FacetSep_Kappa
+        Sant\xE9\",\"2404701-0_FacetSep_Juan Luis Gonzalez-Caballero_JoinSep_474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz\"],\n      \"structPrimaryHasAuthId_fs\":[\"476572_FacetSep_Bordeaux
+        population health_JoinSep_1172811-1117987_FacetSep_Ilaria Montagni\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep_2404700-0_FacetSep_Aude Pouymayou\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep_1324063-0_FacetSep_Edwige Pereira\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep_208353-758563_FacetSep_Christophe Tzourio\",\"1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep_2293926-0_FacetSep_Stephane Schuck\",\"1071189_FacetSep_Kap
+        Code_JoinSep_2293926-0_FacetSep_Stephane Schuck\",\"1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep_1352976-0_FacetSep_Nathalie Texier\",\"474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep_2404701-0_FacetSep_Juan Luis
+        Gonzalez-Caballero\"],\n      \"structPrimaryHasAuthIdHal_fs\":[\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Montagni Ilaria\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Pouymayou Aude\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Pereira Edwige\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Tzourio Christophe\",\"1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_Schuck Stephane\",\"1071189_FacetSep_Kap Code_JoinSep__FacetSep_Schuck
+        Stephane\",\"1081461_FacetSep_Kappa Sant\xE9_JoinSep__FacetSep_Texier Nathalie\",\"474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep__FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"structPrimaryHasAlphaAuthId_fs\":[\"M_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep_1172811-1117987_FacetSep_Montagni Ilaria\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep_2404700-0_FacetSep_Pouymayou Aude\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep_1324063-0_FacetSep_Pereira Edwige\",\"T_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep_208353-758563_FacetSep_Tzourio Christophe\",\"S_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep_2293926-0_FacetSep_Schuck Stephane\",\"S_AlphaSep_1071189_FacetSep_Kap
+        Code_JoinSep_2293926-0_FacetSep_Schuck Stephane\",\"T_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep_1352976-0_FacetSep_Texier Nathalie\",\"G_AlphaSep_474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep_2404701-0_FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"structPrimaryHasAlphaAuthIdHal_fs\":[\"M_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Montagni Ilaria\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Pouymayou Aude\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Pereira Edwige\",\"T_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Tzourio Christophe\",\"S_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_Schuck Stephane\",\"S_AlphaSep_1071189_FacetSep_Kap
+        Code_JoinSep__FacetSep_Schuck Stephane\",\"T_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_Texier Nathalie\",\"G_AlphaSep_474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep__FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"structPrimaryHasAlphaAuthIdHalPersonid_fs\":[\"M_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_1117987_FacetSep_Montagni Ilaria\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_0_FacetSep_Pouymayou Aude\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_0_FacetSep_Pereira Edwige\",\"T_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_758563_FacetSep_Tzourio Christophe\",\"S_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_0_FacetSep_Schuck Stephane\",\"S_AlphaSep_1071189_FacetSep_Kap
+        Code_JoinSep__FacetSep_0_FacetSep_Schuck Stephane\",\"T_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_0_FacetSep_Texier Nathalie\",\"G_AlphaSep_474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep__FacetSep_0_FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"authIdHasStructure_fs\":[\"1172811-1117987_FacetSep_Ilaria
+        Montagni_JoinSep_476572_FacetSep_Bordeaux population health\",\"1172811-1117987_FacetSep_Ilaria
+        Montagni_JoinSep_259761_FacetSep_Universit\xE9 de Bordeaux\",\"1172811-1117987_FacetSep_Ilaria
+        Montagni_JoinSep_302259_FacetSep_Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie
+        et de D\xE9veloppement (ISPED)\",\"1172811-1117987_FacetSep_Ilaria Montagni_JoinSep_303623_FacetSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale\",\"2404700-0_FacetSep_Aude
+        Pouymayou_JoinSep_476572_FacetSep_Bordeaux population health\",\"2404700-0_FacetSep_Aude
+        Pouymayou_JoinSep_259761_FacetSep_Universit\xE9 de Bordeaux\",\"2404700-0_FacetSep_Aude
+        Pouymayou_JoinSep_302259_FacetSep_Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie
+        et de D\xE9veloppement (ISPED)\",\"2404700-0_FacetSep_Aude Pouymayou_JoinSep_303623_FacetSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale\",\"1324063-0_FacetSep_Edwige
+        Pereira_JoinSep_476572_FacetSep_Bordeaux population health\",\"1324063-0_FacetSep_Edwige
+        Pereira_JoinSep_259761_FacetSep_Universit\xE9 de Bordeaux\",\"1324063-0_FacetSep_Edwige
+        Pereira_JoinSep_302259_FacetSep_Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie
+        et de D\xE9veloppement (ISPED)\",\"1324063-0_FacetSep_Edwige Pereira_JoinSep_303623_FacetSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale\",\"208353-758563_FacetSep_Christophe
+        Tzourio_JoinSep_476572_FacetSep_Bordeaux population health\",\"208353-758563_FacetSep_Christophe
+        Tzourio_JoinSep_259761_FacetSep_Universit\xE9 de Bordeaux\",\"208353-758563_FacetSep_Christophe
+        Tzourio_JoinSep_302259_FacetSep_Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie
+        et de D\xE9veloppement (ISPED)\",\"208353-758563_FacetSep_Christophe Tzourio_JoinSep_303623_FacetSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale\",\"2293926-0_FacetSep_Stephane
+        Schuck_JoinSep_1081461_FacetSep_Kappa Sant\xE9\",\"2293926-0_FacetSep_Stephane
+        Schuck_JoinSep_1071189_FacetSep_Kap Code\",\"1352976-0_FacetSep_Nathalie Texier_JoinSep_1081461_FacetSep_Kappa
+        Sant\xE9\",\"2404701-0_FacetSep_Juan Luis Gonzalez-Caballero_JoinSep_474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz\"],\n      \"structHasAuthId_fs\":[\"476572_FacetSep_Bordeaux
+        population health_JoinSep_1172811-1117987_FacetSep_Ilaria Montagni\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep_1172811-1117987_FacetSep_Ilaria Montagni\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep_1172811-1117987_FacetSep_Ilaria
+        Montagni\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep_1172811-1117987_FacetSep_Ilaria Montagni\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep_2404700-0_FacetSep_Aude Pouymayou\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep_2404700-0_FacetSep_Aude Pouymayou\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep_2404700-0_FacetSep_Aude
+        Pouymayou\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep_2404700-0_FacetSep_Aude Pouymayou\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep_1324063-0_FacetSep_Edwige Pereira\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep_1324063-0_FacetSep_Edwige Pereira\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep_1324063-0_FacetSep_Edwige
+        Pereira\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep_1324063-0_FacetSep_Edwige Pereira\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep_208353-758563_FacetSep_Christophe Tzourio\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep_208353-758563_FacetSep_Christophe Tzourio\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep_208353-758563_FacetSep_Christophe
+        Tzourio\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep_208353-758563_FacetSep_Christophe Tzourio\",\"1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep_2293926-0_FacetSep_Stephane Schuck\",\"1071189_FacetSep_Kap
+        Code_JoinSep_2293926-0_FacetSep_Stephane Schuck\",\"1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep_1352976-0_FacetSep_Nathalie Texier\",\"474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep_2404701-0_FacetSep_Juan Luis
+        Gonzalez-Caballero\"],\n      \"structHasAuthIdHal_fs\":[\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Montagni Ilaria\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_Montagni Ilaria\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_Montagni
+        Ilaria\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep__FacetSep_Montagni Ilaria\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Pouymayou Aude\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_Pouymayou Aude\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_Pouymayou
+        Aude\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep__FacetSep_Pouymayou Aude\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Pereira Edwige\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_Pereira Edwige\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_Pereira
+        Edwige\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep__FacetSep_Pereira Edwige\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Tzourio Christophe\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_Tzourio Christophe\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_Tzourio
+        Christophe\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep__FacetSep_Tzourio Christophe\",\"1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_Schuck Stephane\",\"1071189_FacetSep_Kap Code_JoinSep__FacetSep_Schuck
+        Stephane\",\"1081461_FacetSep_Kappa Sant\xE9_JoinSep__FacetSep_Texier Nathalie\",\"474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep__FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"structHasAuthIdHalPersonid_s\":[\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_1117987_FacetSep_Montagni Ilaria\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_1117987_FacetSep_Montagni Ilaria\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_1117987_FacetSep_Montagni
+        Ilaria\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep__FacetSep_1117987_FacetSep_Montagni Ilaria\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_0_FacetSep_Pouymayou Aude\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_0_FacetSep_Pouymayou Aude\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_0_FacetSep_Pouymayou
+        Aude\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep__FacetSep_0_FacetSep_Pouymayou Aude\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_0_FacetSep_Pereira Edwige\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_0_FacetSep_Pereira Edwige\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_0_FacetSep_Pereira
+        Edwige\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep__FacetSep_0_FacetSep_Pereira Edwige\",\"476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_758563_FacetSep_Tzourio Christophe\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_758563_FacetSep_Tzourio Christophe\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_758563_FacetSep_Tzourio
+        Christophe\",\"303623_FacetSep_Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale_JoinSep__FacetSep_758563_FacetSep_Tzourio Christophe\",\"1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_0_FacetSep_Schuck Stephane\",\"1071189_FacetSep_Kap
+        Code_JoinSep__FacetSep_0_FacetSep_Schuck Stephane\",\"1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_0_FacetSep_Texier Nathalie\",\"474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep__FacetSep_0_FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"structHasAlphaAuthId_fs\":[\"M_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep_1172811-1117987_FacetSep_Montagni Ilaria\",\"M_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep_1172811-1117987_FacetSep_Montagni Ilaria\",\"M_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep_1172811-1117987_FacetSep_Montagni
+        Ilaria\",\"M_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9 et
+        de la Recherche M\xE9dicale_JoinSep_1172811-1117987_FacetSep_Montagni Ilaria\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep_2404700-0_FacetSep_Pouymayou Aude\",\"P_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep_2404700-0_FacetSep_Pouymayou Aude\",\"P_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep_2404700-0_FacetSep_Pouymayou
+        Aude\",\"P_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9 et de
+        la Recherche M\xE9dicale_JoinSep_2404700-0_FacetSep_Pouymayou Aude\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep_1324063-0_FacetSep_Pereira Edwige\",\"P_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep_1324063-0_FacetSep_Pereira Edwige\",\"P_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep_1324063-0_FacetSep_Pereira
+        Edwige\",\"P_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9 et
+        de la Recherche M\xE9dicale_JoinSep_1324063-0_FacetSep_Pereira Edwige\",\"T_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep_208353-758563_FacetSep_Tzourio Christophe\",\"T_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep_208353-758563_FacetSep_Tzourio Christophe\",\"T_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep_208353-758563_FacetSep_Tzourio
+        Christophe\",\"T_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9
+        et de la Recherche M\xE9dicale_JoinSep_208353-758563_FacetSep_Tzourio Christophe\",\"S_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep_2293926-0_FacetSep_Schuck Stephane\",\"S_AlphaSep_1071189_FacetSep_Kap
+        Code_JoinSep_2293926-0_FacetSep_Schuck Stephane\",\"T_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep_1352976-0_FacetSep_Texier Nathalie\",\"G_AlphaSep_474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep_2404701-0_FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"structHasAlphaAuthIdHal_fs\":[\"M_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Montagni Ilaria\",\"M_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_Montagni Ilaria\",\"M_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_Montagni
+        Ilaria\",\"M_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9 et
+        de la Recherche M\xE9dicale_JoinSep__FacetSep_Montagni Ilaria\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Pouymayou Aude\",\"P_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_Pouymayou Aude\",\"P_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_Pouymayou
+        Aude\",\"P_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9 et de
+        la Recherche M\xE9dicale_JoinSep__FacetSep_Pouymayou Aude\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Pereira Edwige\",\"P_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_Pereira Edwige\",\"P_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_Pereira
+        Edwige\",\"P_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9 et
+        de la Recherche M\xE9dicale_JoinSep__FacetSep_Pereira Edwige\",\"T_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_Tzourio Christophe\",\"T_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_Tzourio Christophe\",\"T_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_Tzourio
+        Christophe\",\"T_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9
+        et de la Recherche M\xE9dicale_JoinSep__FacetSep_Tzourio Christophe\",\"S_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_Schuck Stephane\",\"S_AlphaSep_1071189_FacetSep_Kap
+        Code_JoinSep__FacetSep_Schuck Stephane\",\"T_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_Texier Nathalie\",\"G_AlphaSep_474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep__FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"structHasAlphaAuthIdHalPersonid_fs\":[\"M_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_1117987_FacetSep_Montagni Ilaria\",\"M_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_1117987_FacetSep_Montagni Ilaria\",\"M_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_1117987_FacetSep_Montagni
+        Ilaria\",\"M_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9 et
+        de la Recherche M\xE9dicale_JoinSep__FacetSep_1117987_FacetSep_Montagni Ilaria\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_0_FacetSep_Pouymayou Aude\",\"P_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_0_FacetSep_Pouymayou Aude\",\"P_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_0_FacetSep_Pouymayou
+        Aude\",\"P_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9 et de
+        la Recherche M\xE9dicale_JoinSep__FacetSep_0_FacetSep_Pouymayou Aude\",\"P_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_0_FacetSep_Pereira Edwige\",\"P_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_0_FacetSep_Pereira Edwige\",\"P_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_0_FacetSep_Pereira
+        Edwige\",\"P_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9 et
+        de la Recherche M\xE9dicale_JoinSep__FacetSep_0_FacetSep_Pereira Edwige\",\"T_AlphaSep_476572_FacetSep_Bordeaux
+        population health_JoinSep__FacetSep_758563_FacetSep_Tzourio Christophe\",\"T_AlphaSep_259761_FacetSep_Universit\xE9
+        de Bordeaux_JoinSep__FacetSep_758563_FacetSep_Tzourio Christophe\",\"T_AlphaSep_302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_JoinSep__FacetSep_758563_FacetSep_Tzourio
+        Christophe\",\"T_AlphaSep_303623_FacetSep_Institut National de la Sant\xE9
+        et de la Recherche M\xE9dicale_JoinSep__FacetSep_758563_FacetSep_Tzourio Christophe\",\"S_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_0_FacetSep_Schuck Stephane\",\"S_AlphaSep_1071189_FacetSep_Kap
+        Code_JoinSep__FacetSep_0_FacetSep_Schuck Stephane\",\"T_AlphaSep_1081461_FacetSep_Kappa
+        Sant\xE9_JoinSep__FacetSep_0_FacetSep_Texier Nathalie\",\"G_AlphaSep_474042_FacetSep_Universidad
+        de C\xE1diz = University of C\xE1diz_JoinSep__FacetSep_0_FacetSep_Gonzalez-Caballero
+        Juan Luis\"],\n      \"authORCIDIdExt_s\":[\"0000-0002-6517-2984\"],\n      \"authGoogle
+        ScholarIdExt_s\":[\"https://scholar.google.fr/citations?user=hSRVkOMAAAAJ\"],\n
+        \     \"authResearcherIdIdExt_s\":[\"http://www.researcherid.com/rid/B-4015-2009\"],\n
+        \     \"authVIAFIdExt_s\":[\"311803248\"],\n      \"authISNIIdExt_s\":[\"0000000431065560\"],\n
+        \     \"labStructId_i\":[476572],\n      \"labStructIdName_fs\":[\"476572_FacetSep_Bordeaux
+        population health\"],\n      \"labStructNameId_fs\":[\"B_AlphaSep_Bordeaux
+        population health_FacetSep_476572\"],\n      \"labStructName_fs\":[\"B_AlphaSep_Bordeaux
+        population health\"],\n      \"labStructAcronym_s\":[\"BPH\"],\n      \"labStructName_s\":[\"Bordeaux
+        population health\"],\n      \"labStructAddress_s\":[\"Universit\xE9 de Bordeaux
+        - Case 11 - 146 rue L\xE9o Saignat  33076 Bordeaux cedex\"],\n      \"labStructCountry_s\":[\"fr\"],\n
+        \     \"labStructType_s\":[\"laboratory\"],\n      \"labStructValid_s\":[\"VALID\"],\n
+        \     \"labStructIdrefIdExt_s\":[\"197398162\"],\n      \"labStructIdrefIdExtUrl_s\":[\"https://www.idref.fr/197398162\"],\n
+        \     \"labStructRnsrIdExt_s\":[\"201622170H\"],\n      \"labStructRnsrIdExtUrl_s\":[\"https://appliweb.dgri.education.fr/rnsr/PresenteStruct.jsp?PUBLIC=OK&numNatStruct=201622170H\"],\n
+        \     \"labStructRorIdExt_s\":[\"https://ror.org/00xzzba89\"],\n      \"labStructRorIdExtUrl_s\":[\"https://ror.org/00xzzba89\"],\n
+        \     \"structId_i\":[476572,259761,302259,303623,1081461,1071189,474042],\n
+        \     \"structIdName_fs\":[\"476572_FacetSep_Bordeaux population health\",\"259761_FacetSep_Universit\xE9
+        de Bordeaux\",\"302259_FacetSep_Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie
+        et de D\xE9veloppement (ISPED)\",\"303623_FacetSep_Institut National de la
+        Sant\xE9 et de la Recherche M\xE9dicale\",\"1081461_FacetSep_Kappa Sant\xE9\",\"1071189_FacetSep_Kap
+        Code\",\"474042_FacetSep_Universidad de C\xE1diz = University of C\xE1diz\"],\n
+        \     \"structNameId_fs\":[\"B_AlphaSep_Bordeaux population health_FacetSep_476572\",\"U_AlphaSep_Universit\xE9
+        de Bordeaux_FacetSep_259761\",\"I_AlphaSep_Institut de Sant\xE9 Publique,
+        d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_FacetSep_302259\",\"I_AlphaSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale_FacetSep_303623\",\"K_AlphaSep_Kappa
+        Sant\xE9_FacetSep_1081461\",\"K_AlphaSep_Kap Code_FacetSep_1071189\",\"U_AlphaSep_Universidad
+        de C\xE1diz = University of C\xE1diz_FacetSep_474042\"],\n      \"structName_fs\":[\"B_AlphaSep_Bordeaux
+        population health\",\"U_AlphaSep_Universit\xE9 de Bordeaux\",\"I_AlphaSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)\",\"I_AlphaSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale\",\"K_AlphaSep_Kappa
+        Sant\xE9\",\"K_AlphaSep_Kap Code\",\"U_AlphaSep_Universidad de C\xE1diz =
+        University of C\xE1diz\"],\n      \"structAcronym_s\":[\"BPH\",\"UB\",\"INSERM\",\"UCA\"],\n
+        \     \"structName_s\":[\"Bordeaux population health\",\"Universit\xE9 de
+        Bordeaux\",\"Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement
+        (ISPED)\",\"Institut National de la Sant\xE9 et de la Recherche M\xE9dicale\",\"Kappa
+        Sant\xE9\",\"Kap Code\",\"Universidad de C\xE1diz = University of C\xE1diz\"],\n
+        \     \"structAddress_s\":[\"Universit\xE9 de Bordeaux - Case 11 - 146 rue
+        L\xE9o Saignat  33076 Bordeaux cedex\",\"35, place Pey Berland - 33076 Bordeaux\",\"101,
+        rue de Tolbiac, 75013 Paris\",\"4 rue de Cl\xE9ry 75002 Paris\",\"28 Rue d'Enghien,
+        75010 Paris\"],\n      \"structCountry_s\":[\"fr\",\"fr\",\"fr\",\"fr\",\"fr\",\"fr\",\"es\"],\n
+        \     \"structType_s\":[\"laboratory\",\"institution\",\"institution\",\"institution\",\"institution\",\"institution\",\"institution\"],\n
+        \     \"structValid_s\":[\"VALID\",\"VALID\",\"VALID\",\"VALID\",\"INCOMING\",\"VALID\",\"VALID\"],\n
+        \     \"structIdrefIdExt_s\":[\"197398162\",\"175206562\",\"026388278\"],\n
+        \     \"structIdrefIdExtUrl_s\":[\"https://www.idref.fr/197398162\",\"https://www.idref.fr/175206562\",\"https://www.idref.fr/026388278\"],\n
+        \     \"structRnsrIdExt_s\":[\"201622170H\"],\n      \"structRnsrIdExtUrl_s\":[\"https://appliweb.dgri.education.fr/rnsr/PresenteStruct.jsp?PUBLIC=OK&numNatStruct=201622170H\"],\n
+        \     \"structRorIdExt_s\":[\"https://ror.org/00xzzba89\",\"https://ror.org/057qpr032\",\"https://ror.org/02vjkv261\"],\n
+        \     \"structRorIdExtUrl_s\":[\"https://ror.org/00xzzba89\",\"https://ror.org/057qpr032\",\"https://ror.org/02vjkv261\"],\n
+        \     \"instStructId_i\":[259761,302259,303623,1081461,1071189,474042],\n
+        \     \"instStructIdName_fs\":[\"259761_FacetSep_Universit\xE9 de Bordeaux\",\"302259_FacetSep_Institut
+        de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)\",\"303623_FacetSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale\",\"1081461_FacetSep_Kappa
+        Sant\xE9\",\"1071189_FacetSep_Kap Code\",\"474042_FacetSep_Universidad de
+        C\xE1diz = University of C\xE1diz\"],\n      \"instStructNameId_fs\":[\"U_AlphaSep_Universit\xE9
+        de Bordeaux_FacetSep_259761\",\"I_AlphaSep_Institut de Sant\xE9 Publique,
+        d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)_FacetSep_302259\",\"I_AlphaSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale_FacetSep_303623\",\"K_AlphaSep_Kappa
+        Sant\xE9_FacetSep_1081461\",\"K_AlphaSep_Kap Code_FacetSep_1071189\",\"U_AlphaSep_Universidad
+        de C\xE1diz = University of C\xE1diz_FacetSep_474042\"],\n      \"instStructName_fs\":[\"U_AlphaSep_Universit\xE9
+        de Bordeaux\",\"I_AlphaSep_Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie
+        et de D\xE9veloppement (ISPED)\",\"I_AlphaSep_Institut National de la Sant\xE9
+        et de la Recherche M\xE9dicale\",\"K_AlphaSep_Kappa Sant\xE9\",\"K_AlphaSep_Kap
+        Code\",\"U_AlphaSep_Universidad de C\xE1diz = University of C\xE1diz\"],\n
+        \     \"instStructAcronym_s\":[\"UB\",\"INSERM\",\"UCA\"],\n      \"instStructName_s\":[\"Universit\xE9
+        de Bordeaux\",\"Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie et de
+        D\xE9veloppement (ISPED)\",\"Institut National de la Sant\xE9 et de la Recherche
+        M\xE9dicale\",\"Kappa Sant\xE9\",\"Kap Code\",\"Universidad de C\xE1diz =
+        University of C\xE1diz\"],\n      \"instStructAddress_s\":[\"35, place Pey
+        Berland - 33076 Bordeaux\",\"101, rue de Tolbiac, 75013 Paris\",\"4 rue de
+        Cl\xE9ry 75002 Paris\",\"28 Rue d'Enghien, 75010 Paris\"],\n      \"instStructCountry_s\":[\"fr\",\"fr\",\"fr\",\"fr\",\"fr\",\"es\"],\n
+        \     \"instStructType_s\":[\"institution\",\"institution\",\"institution\",\"institution\",\"institution\",\"institution\"],\n
+        \     \"instStructValid_s\":[\"VALID\",\"VALID\",\"VALID\",\"INCOMING\",\"VALID\",\"VALID\"],\n
+        \     \"instStructIdrefIdExt_s\":[\"175206562\",\"026388278\"],\n      \"instStructIdrefIdExtUrl_s\":[\"https://www.idref.fr/175206562\",\"https://www.idref.fr/026388278\"],\n
+        \     \"instStructRorIdExt_s\":[\"https://ror.org/057qpr032\",\"https://ror.org/02vjkv261\"],\n
+        \     \"instStructRorIdExtUrl_s\":[\"https://ror.org/057qpr032\",\"https://ror.org/02vjkv261\"],\n
+        \     \"structIsChildOf_fs\":[\"476572_laboratory_JoinSep_259761_FacetSep_Universit\xE9
+        de Bordeaux\",\"476572_Bordeaux population health_JoinSep_259761_FacetSep_Universit\xE9
+        de Bordeaux\",\"476572_laboratory_JoinSep_302259_FacetSep_Institut de Sant\xE9
+        Publique, d'\xC9pid\xE9miologie et de D\xE9veloppement (ISPED)\",\"476572_Bordeaux
+        population health_JoinSep_302259_FacetSep_Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie
+        et de D\xE9veloppement (ISPED)\",\"476572_laboratory_JoinSep_303623_FacetSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale\",\"476572_Bordeaux
+        population health_JoinSep_303623_FacetSep_Institut National de la Sant\xE9
+        et de la Recherche M\xE9dicale\"],\n      \"structIsParentOf_fs\":[\"259761_JoinSep_B_AlphaSep_476572_FacetSep_Bordeaux
+        population health\",\"302259_JoinSep_B_AlphaSep_476572_FacetSep_Bordeaux population
+        health\",\"303623_JoinSep_B_AlphaSep_476572_FacetSep_Bordeaux population health\"],\n
+        \     \"structIsParentOfType_fs\":[\"259761_JoinSep_laboratory_B_AlphaSep_476572_FacetSep_Bordeaux
+        population health\",\"302259_JoinSep_laboratory_B_AlphaSep_476572_FacetSep_Bordeaux
+        population health\",\"303623_JoinSep_laboratory_B_AlphaSep_476572_FacetSep_Bordeaux
+        population health\"],\n      \"labStructIsChildOf_fs\":[\"476572_Bordeaux
+        population health_JoinSep_259761_FacetSep_Universit\xE9 de Bordeaux\",\"476572_Bordeaux
+        population health_JoinSep_302259_FacetSep_Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie
+        et de D\xE9veloppement (ISPED)\",\"476572_Bordeaux population health_JoinSep_303623_FacetSep_Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale\"],\n      \"instStructIsParentOf_fs\":[\"259761_JoinSep_B_AlphaSep_476572_FacetSep_Bordeaux
+        population health\",\"302259_JoinSep_B_AlphaSep_476572_FacetSep_Bordeaux population
+        health\",\"303623_JoinSep_B_AlphaSep_476572_FacetSep_Bordeaux population health\"],\n
+        \     \"structCode_s\":[\"U1219\",\"U1219\"],\n      \"contributorId_i\":851509,\n
+        \     \"contributorFullName_s\":\"Oskar Admin\",\n      \"contributorIdFullName_fs\":\"851509_FacetSep_Oskar
+        Admin\",\n      \"contributorFullNameId_fs\":\"Oskar Admin_FacetSep_851509\",\n
+        \     \"language_s\":[\"en\"],\n      \"halId_s\":\"hal-03994069\",\n      \"uri_s\":\"https://hal.science/hal-03994069v1\",\n
+        \     \"version_i\":1,\n      \"status_i\":11,\n      \"instance_s\":\"hal\",\n
+        \     \"sid_i\":1,\n      \"submitType_s\":\"file\",\n      \"docType_s\":\"ART\",\n
+        \     \"oldDocType_s\":\"ART\",\n      \"thumbId_i\":9183721,\n      \"selfArchiving_bool\":false,\n
+        \     \"issue_s\":[\"12\"],\n      \"length_i\":0,\n      \"volume_s\":\"24\",\n
+        \     \"inPress_bool\":false,\n      \"doiId_s\":\"10.2196/39220\",\n      \"pubmedId_s\":\"36515982\",\n
+        \     \"modifiedDate_tdate\":\"2025-03-17T19:30:49Z\",\n      \"modifiedDate_s\":\"2025-03-17
+        19:30:49\",\n      \"modifiedDateY_i\":2025,\n      \"modifiedDateM_i\":3,\n
+        \     \"modifiedDateD_i\":17,\n      \"submittedDate_tdate\":\"2023-02-17T12:18:57Z\",\n
+        \     \"submittedDate_s\":\"2023-02-17 12:18:57\",\n      \"submittedDateY_i\":2023,\n
+        \     \"submittedDateM_i\":2,\n      \"submittedDateD_i\":17,\n      \"releasedDate_tdate\":\"2023-03-09T15:30:30Z\",\n
+        \     \"releasedDate_s\":\"2023-03-09 15:30:30\",\n      \"releasedDateY_i\":2023,\n
+        \     \"releasedDateM_i\":3,\n      \"releasedDateD_i\":9,\n      \"producedDate_tdate\":\"2022-12-14T00:00:00Z\",\n
+        \     \"producedDate_s\":\"2022-12-14\",\n      \"producedDateY_i\":2022,\n
+        \     \"producedDateM_i\":12,\n      \"producedDateD_i\":14,\n      \"publicationDate_tdate\":\"2022-12-14T00:00:00Z\",\n
+        \     \"publicationDate_s\":\"2022-12-14\",\n      \"publicationDateY_i\":2022,\n
+        \     \"publicationDateM_i\":12,\n      \"publicationDateD_i\":14,\n      \"owners_i\":[851509],\n
+        \     \"collId_i\":[1321,8617,12494],\n      \"collName_s\":[\"Sant\xE9 Publique
+        \xE0 l'Inserm\",\"Bordeaux Population Health\",\"Universit\xE9 de Bordeaux\"],\n
+        \     \"collCode_s\":[\"SANTE_PUB_INSERM\",\"U1219\",\"UNIVERSITE-BORDEAUX\"],\n
+        \     \"collCategory_s\":[\"INSTITUTION\",\"LABO\",\"INSTITUTION\"],\n      \"collIdName_fs\":[\"1321_FacetSep_Sant\xE9
+        Publique \xE0 l'Inserm\",\"8617_FacetSep_Bordeaux Population Health\",\"12494_FacetSep_Universit\xE9
+        de Bordeaux\"],\n      \"collNameId_fs\":[\"Sant\xE9 Publique \xE0 l'Inserm_FacetSep_1321\",\"Bordeaux
+        Population Health_FacetSep_8617\",\"Universit\xE9 de Bordeaux_FacetSep_12494\"],\n
+        \     \"collCodeName_fs\":[\"SANTE_PUB_INSERM_FacetSep_Sant\xE9 Publique \xE0
+        l'Inserm\",\"U1219_FacetSep_Bordeaux Population Health\",\"UNIVERSITE-BORDEAUX_FacetSep_Universit\xE9
+        de Bordeaux\"],\n      \"collCategoryCodeName_fs\":[\"INSTITUTION_JoinSep_SANTE_PUB_INSERM_FacetSep_Sant\xE9
+        Publique \xE0 l'Inserm\",\"LABO_JoinSep_U1219_FacetSep_Bordeaux Population
+        Health\",\"INSTITUTION_JoinSep_UNIVERSITE-BORDEAUX_FacetSep_Universit\xE9
+        de Bordeaux\"],\n      \"collNameCode_fs\":[\"Sant\xE9 Publique \xE0 l'Inserm_FacetSep_SANTE_PUB_INSERM\",\"Bordeaux
+        Population Health_FacetSep_U1219\",\"Universit\xE9 de Bordeaux_FacetSep_UNIVERSITE-BORDEAUX\"],\n
+        \     \"fileMain_s\":\"https://hal.science/hal-03994069/document\",\n      \"licence_s\":\"https://creativecommons.org/licenses/by/4.0/\",\n
+        \     \"files_s\":[\"https://hal.science/hal-03994069/file/BPH_JMIR_2022_Montagni.pdf\"],\n
+        \     \"fileLicenses_s\":[\"https://creativecommons.org/licenses/by/4.0/\"],\n
+        \     \"fileType_s\":[\"file\"],\n      \"isDoublon_bool\":false,\n      \"_version_\":1858679960284168192,\n
+        \     \"dateLastIndexed_tdate\":\"2026-03-03T22:02:20.539Z\",\n      \"label_xml\":\"<TEI
+        xmlns=\\\"http://www.tei-c.org/ns/1.0\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\"
+        xmlns:hal=\\\"http://hal.archives-ouvertes.fr/\\\" xmlns:gml=\\\"http://www.opengis.net/gml/3.3/\\\"
+        xmlns:gmlce=\\\"http://www.opengis.net/gml/3.3/ce\\\" version=\\\"1.1\\\"
+        xsi:schemaLocation=\\\"http://www.tei-c.org/ns/1.0 http://api.archives-ouvertes.fr/documents/aofr-sword.xsd\\\">
+        \ <teiHeader>    <fileDesc>      <titleStmt>        <title>HAL TEI export
+        of hal-03994069</title>      </titleStmt>      <publicationStmt>        <distributor>CCSD</distributor>
+        \       <availability status=\\\"restricted\\\">          <licence target=\\\"https://creativecommons.org/publicdomain/zero/1.0/\\\">CC0
+        1.0 - Universal</licence>        </availability>        <date when=\\\"2026-03-03T23:02:20+01:00\\\"/>
+        \     </publicationStmt>      <sourceDesc>        <p part=\\\"N\\\">HAL API
+        Platform</p>      </sourceDesc>    </fileDesc>  </teiHeader>  <text>    <body>
+        \     <listBibl>        <biblFull>          <titleStmt>            <title
+        xml:lang=\\\"en\\\">Measuring Digital Vaccine Literacy: Development and Psychometric
+        Assessment of the Digital Vaccine Literacy Scale</title>            <author
+        role=\\\"aut\\\">              <persName>                <forename type=\\\"first\\\">Ilaria</forename>
+        \               <surname>Montagni</surname>              </persName>              <email
+        type=\\\"md5\\\">80c10d23d47c704b17ea0505a216827d</email>              <email
+        type=\\\"domain\\\">u-bordeaux.fr</email>              <idno type=\\\"idhal\\\"
+        notation=\\\"numeric\\\">1117987</idno>              <idno type=\\\"halauthorid\\\"
+        notation=\\\"string\\\">1172811-1117987</idno>              <idno type=\\\"IDREF\\\">https://www.idref.fr/258573880</idno>
+        \             <affiliation ref=\\\"#struct-476572\\\"/>            </author>
+        \           <author role=\\\"aut\\\">              <persName>                <forename
+        type=\\\"first\\\">Aude</forename>                <surname>Pouymayou</surname>
+        \             </persName>              <idno type=\\\"halauthorid\\\">2404700-0</idno>
+        \             <affiliation ref=\\\"#struct-476572\\\"/>            </author>
+        \           <author role=\\\"aut\\\">              <persName>                <forename
+        type=\\\"first\\\">Edwige</forename>                <surname>Pereira</surname>
+        \             </persName>              <idno type=\\\"halauthorid\\\">1324063-0</idno>
+        \             <affiliation ref=\\\"#struct-476572\\\"/>            </author>
+        \           <author role=\\\"aut\\\">              <persName>                <forename
+        type=\\\"first\\\">Christophe</forename>                <surname>Tzourio</surname>
+        \             </persName>              <email type=\\\"md5\\\">ad023c0537b80e87a75b17eda0b46f63</email>
+        \             <email type=\\\"domain\\\">chups.jussieu.fr</email>              <idno
+        type=\\\"idhal\\\" notation=\\\"numeric\\\">758563</idno>              <idno
+        type=\\\"halauthorid\\\" notation=\\\"string\\\">208353-758563</idno>              <idno
+        type=\\\"ORCID\\\">https://orcid.org/0000-0002-6517-2984</idno>              <idno
+        type=\\\"IDREF\\\">https://www.idref.fr/069829209</idno>              <idno
+        type=\\\"GOOGLE SCHOLAR\\\">https://scholar.google.fr/citations?user=hSRVkOMAAAAJ</idno>
+        \             <idno type=\\\"RESEARCHERID\\\">http://www.researcherid.com/rid/B-4015-2009</idno>
+        \             <idno type=\\\"VIAF\\\">https://viaf.org/viaf/311803248</idno>
+        \             <idno type=\\\"ISNI\\\">http://isni.org/isni/0000000431065560</idno>
+        \             <idno type=\\\"RESEARCHERID\\\">http://www.researcherid.com/rid/http://www.researcherid.com/rid/B-4015-2009</idno>
+        \             <affiliation ref=\\\"#struct-476572\\\"/>            </author>
+        \           <author role=\\\"aut\\\">              <persName>                <forename
+        type=\\\"first\\\">Stephane</forename>                <surname>Schuck</surname>
+        \             </persName>              <idno type=\\\"halauthorid\\\">2293926-0</idno>
+        \             <affiliation ref=\\\"#struct-1081461\\\"/>              <affiliation
+        ref=\\\"#struct-1071189\\\"/>            </author>            <author role=\\\"aut\\\">
+        \             <persName>                <forename type=\\\"first\\\">Nathalie</forename>
+        \               <surname>Texier</surname>              </persName>              <idno
+        type=\\\"halauthorid\\\">1352976-0</idno>              <affiliation ref=\\\"#struct-1081461\\\"/>
+        \           </author>            <author role=\\\"aut\\\">              <persName>
+        \               <forename type=\\\"first\\\">Juan Luis</forename>                <surname>Gonzalez-Caballero</surname>
+        \             </persName>              <idno type=\\\"halauthorid\\\">2404701-0</idno>
+        \             <affiliation ref=\\\"#struct-474042\\\"/>            </author>
+        \           <editor role=\\\"depositor\\\">              <persName>                <forename>Oskar</forename>
+        \               <surname>Admin</surname>              </persName>              <email
+        type=\\\"md5\\\">d49c5a880544a575d14059bbcdef4ae8</email>              <email
+        type=\\\"domain\\\">oskar-bordeaux.fr</email>            </editor>          </titleStmt>
+        \         <editionStmt>            <edition n=\\\"v1\\\" type=\\\"current\\\">
+        \             <date type=\\\"whenSubmitted\\\">2023-02-17 12:18:57</date>
+        \             <date type=\\\"whenModified\\\">2025-03-17 19:30:49</date>              <date
+        type=\\\"whenReleased\\\">2023-03-09 15:30:30</date>              <date type=\\\"whenProduced\\\">2022-12-14</date>
+        \             <date type=\\\"whenEndEmbargoed\\\">2023-02-17</date>              <ref
+        type=\\\"file\\\" target=\\\"https://hal.science/hal-03994069v1/document\\\">
+        \               <date notBefore=\\\"2023-02-17\\\"/>              </ref>              <ref
+        type=\\\"file\\\" subtype=\\\"greenPublisher\\\" n=\\\"1\\\" target=\\\"https://hal.science/hal-03994069v1/file/BPH_JMIR_2022_Montagni.pdf\\\"
+        id=\\\"file-3994069-3482300\\\">                <date notBefore=\\\"2023-02-17\\\"/>
+        \             </ref>            </edition>            <respStmt>              <resp>contributor</resp>
+        \             <name key=\\\"851509\\\">                <persName>                  <forename>Oskar</forename>
+        \                 <surname>Admin</surname>                </persName>                <email
+        type=\\\"md5\\\">d49c5a880544a575d14059bbcdef4ae8</email>                <email
+        type=\\\"domain\\\">oskar-bordeaux.fr</email>              </name>            </respStmt>
+        \         </editionStmt>          <publicationStmt>            <distributor>CCSD</distributor>
+        \           <idno type=\\\"halId\\\">hal-03994069</idno>            <idno
+        type=\\\"halUri\\\">https://hal.science/hal-03994069</idno>            <idno
+        type=\\\"halBibtex\\\">montagni:hal-03994069</idno>            <idno type=\\\"halRefHtml\\\">&lt;i&gt;Journal
+        of Medical Internet Research&lt;/i&gt;, 2022, 24 (12), &lt;a target=\\\"_blank\\\"
+        href=\\\"https://dx.doi.org/10.2196/39220\\\"&gt;&amp;#x27E8;10.2196/39220&amp;#x27E9;&lt;/a&gt;</idno>
+        \           <idno type=\\\"halRef\\\">Journal of Medical Internet Research,
+        2022, 24 (12), &amp;#x27E8;10.2196/39220&amp;#x27E9;</idno>            <availability
+        status=\\\"restricted\\\">              <licence target=\\\"https://creativecommons.org/licenses/by/4.0/\\\">CC
+        BY 4.0 - Attribution<ref corresp=\\\"#file-3994069-3482300\\\"/></licence>
+        \           </availability>          </publicationStmt>          <seriesStmt>
+        \           <idno type=\\\"stamp\\\" n=\\\"SANTE_PUB_INSERM\\\" corresp=\\\"INSERM\\\">Sant\xE9
+        Publique \xE0 l'Inserm</idno>            <idno type=\\\"stamp\\\" n=\\\"U1219\\\"
+        corresp=\\\"INSERM\\\">Bordeaux Population Health</idno>            <idno
+        type=\\\"stamp\\\" n=\\\"UNIVERSITE-BORDEAUX\\\">Universit\xE9 de Bordeaux</idno>
+        \         </seriesStmt>          <notesStmt>            <note type=\\\"audience\\\"
+        n=\\\"2\\\">International</note>            <note type=\\\"popular\\\" n=\\\"0\\\">No</note>
+        \           <note type=\\\"peer\\\" n=\\\"1\\\">Yes</note>          </notesStmt>
+        \         <sourceDesc>            <biblStruct>              <analytic>                <title
+        xml:lang=\\\"en\\\">Measuring Digital Vaccine Literacy: Development and Psychometric
+        Assessment of the Digital Vaccine Literacy Scale</title>                <author
+        role=\\\"aut\\\">                  <persName>                    <forename
+        type=\\\"first\\\">Ilaria</forename>                    <surname>Montagni</surname>
+        \                 </persName>                  <email type=\\\"md5\\\">80c10d23d47c704b17ea0505a216827d</email>
+        \                 <email type=\\\"domain\\\">u-bordeaux.fr</email>                  <idno
+        type=\\\"idhal\\\" notation=\\\"numeric\\\">1117987</idno>                  <idno
+        type=\\\"halauthorid\\\" notation=\\\"string\\\">1172811-1117987</idno>                  <idno
+        type=\\\"IDREF\\\">https://www.idref.fr/258573880</idno>                  <affiliation
+        ref=\\\"#struct-476572\\\"/>                </author>                <author
+        role=\\\"aut\\\">                  <persName>                    <forename
+        type=\\\"first\\\">Aude</forename>                    <surname>Pouymayou</surname>
+        \                 </persName>                  <idno type=\\\"halauthorid\\\">2404700-0</idno>
+        \                 <affiliation ref=\\\"#struct-476572\\\"/>                </author>
+        \               <author role=\\\"aut\\\">                  <persName>                    <forename
+        type=\\\"first\\\">Edwige</forename>                    <surname>Pereira</surname>
+        \                 </persName>                  <idno type=\\\"halauthorid\\\">1324063-0</idno>
+        \                 <affiliation ref=\\\"#struct-476572\\\"/>                </author>
+        \               <author role=\\\"aut\\\">                  <persName>                    <forename
+        type=\\\"first\\\">Christophe</forename>                    <surname>Tzourio</surname>
+        \                 </persName>                  <email type=\\\"md5\\\">ad023c0537b80e87a75b17eda0b46f63</email>
+        \                 <email type=\\\"domain\\\">chups.jussieu.fr</email>                  <idno
+        type=\\\"idhal\\\" notation=\\\"numeric\\\">758563</idno>                  <idno
+        type=\\\"halauthorid\\\" notation=\\\"string\\\">208353-758563</idno>                  <idno
+        type=\\\"ORCID\\\">https://orcid.org/0000-0002-6517-2984</idno>                  <idno
+        type=\\\"IDREF\\\">https://www.idref.fr/069829209</idno>                  <idno
+        type=\\\"GOOGLE SCHOLAR\\\">https://scholar.google.fr/citations?user=hSRVkOMAAAAJ</idno>
+        \                 <idno type=\\\"RESEARCHERID\\\">http://www.researcherid.com/rid/B-4015-2009</idno>
+        \                 <idno type=\\\"VIAF\\\">https://viaf.org/viaf/311803248</idno>
+        \                 <idno type=\\\"ISNI\\\">http://isni.org/isni/0000000431065560</idno>
+        \                 <idno type=\\\"RESEARCHERID\\\">http://www.researcherid.com/rid/http://www.researcherid.com/rid/B-4015-2009</idno>
+        \                 <affiliation ref=\\\"#struct-476572\\\"/>                </author>
+        \               <author role=\\\"aut\\\">                  <persName>                    <forename
+        type=\\\"first\\\">Stephane</forename>                    <surname>Schuck</surname>
+        \                 </persName>                  <idno type=\\\"halauthorid\\\">2293926-0</idno>
+        \                 <affiliation ref=\\\"#struct-1081461\\\"/>                  <affiliation
+        ref=\\\"#struct-1071189\\\"/>                </author>                <author
+        role=\\\"aut\\\">                  <persName>                    <forename
+        type=\\\"first\\\">Nathalie</forename>                    <surname>Texier</surname>
+        \                 </persName>                  <idno type=\\\"halauthorid\\\">1352976-0</idno>
+        \                 <affiliation ref=\\\"#struct-1081461\\\"/>                </author>
+        \               <author role=\\\"aut\\\">                  <persName>                    <forename
+        type=\\\"first\\\">Juan Luis</forename>                    <surname>Gonzalez-Caballero</surname>
+        \                 </persName>                  <idno type=\\\"halauthorid\\\">2404701-0</idno>
+        \                 <affiliation ref=\\\"#struct-474042\\\"/>                </author>
+        \             </analytic>              <monogr>                <idno type=\\\"halJournalId\\\"
+        status=\\\"VALID\\\">1477</idno>                <idno type=\\\"issn\\\">1438-8871</idno>
+        \               <title level=\\\"j\\\">Journal of Medical Internet Research</title>
+        \               <imprint>                  <publisher>JMIR Publications</publisher>
+        \                 <biblScope unit=\\\"volume\\\">24</biblScope>                  <biblScope
+        unit=\\\"issue\\\">12</biblScope>                  <date type=\\\"datePub\\\">2022-12-14</date>
+        \               </imprint>              </monogr>              <idno type=\\\"doi\\\">10.2196/39220</idno>
+        \             <idno type=\\\"pubmed\\\">36515982</idno>            </biblStruct>
+        \         </sourceDesc>          <profileDesc>            <langUsage>              <language
+        ident=\\\"en\\\">English</language>            </langUsage>            <textClass>
+        \             <keywords scheme=\\\"author\\\">                <term xml:lang=\\\"en\\\">Digital
+        literacy</term>                <term xml:lang=\\\"en\\\">Reliability</term>
+        \               <term xml:lang=\\\"en\\\">Validity</term>                <term
+        xml:lang=\\\"en\\\">Content</term>                <term xml:lang=\\\"en\\\">Online</term>
+        \               <term xml:lang=\\\"en\\\">Health literacy</term>                <term
+        xml:lang=\\\"en\\\">Health information</term>                <term xml:lang=\\\"en\\\">Vaccine</term>
+        \               <term xml:lang=\\\"en\\\">Vaccination</term>                <term
+        xml:lang=\\\"en\\\">Measurement</term>                <term xml:lang=\\\"en\\\">Literacy</term>
+        \               <term xml:lang=\\\"en\\\">Internet</term>              </keywords>
+        \             <classCode scheme=\\\"halDomain\\\" n=\\\"sdv.spee\\\">Life
+        Sciences [q-bio]/Sant\xE9 publique et \xE9pid\xE9miologie</classCode>              <classCode
+        scheme=\\\"halTypology\\\" n=\\\"ART\\\">Journal articles</classCode>              <classCode
+        scheme=\\\"halOldTypology\\\" n=\\\"ART\\\">Journal articles</classCode>              <classCode
+        scheme=\\\"halTreeTypology\\\" n=\\\"ART\\\">Journal articles</classCode>
+        \           </textClass>            <abstract xml:lang=\\\"en\\\">              <p>BACKGROUND:
+        The use of the internet to look for information about vaccines has skyrocketed
+        in the last years, especially with the COVID-19 pandemic. Digital vaccine
+        literacy (DVL) refers to understanding, trust, appraisal, and application
+        of vaccine-related information online. OBJECTIVE: This study aims to develop
+        a tool measuring DVL and assess its psychometric properties. METHODS: A 7-item
+        online questionnaire was administered to 848 French adults. Different psychometric
+        analyses were performed, including descriptive statistics, exploratory factor
+        analysis, confirmatory factor analysis, and convergent and discriminant validity.
+        RESULTS: We developed the 7-item DVL scale composed of 3 factors (understanding
+        and trust official information; understanding and trust information in social
+        media; and appraisal of vaccine information online in terms of evaluation
+        of the information and its application for decision making). The mean DVL
+        score of the baseline sample of 848 participants was 19.5 (SD 2.8) with a
+        range of 7-28. The median score was 20. Scores were significantly different
+        by gender (P=.24), age (P=.03), studying or working in the field of health
+        (P=.01), and receiving regular seasonal flu shots (P=.01). CONCLUSIONS: The
+        DVL tool showed good psychometric proprieties, resulting in a promising measure
+        of DVL.</p>            </abstract>          </profileDesc>        </biblFull>
+        \     </listBibl>    </body>    <back>      <listOrg type=\\\"structures\\\">
+        \       <org type=\\\"laboratory\\\" xml:id=\\\"struct-476572\\\" status=\\\"VALID\\\">
+        \         <idno type=\\\"IdRef\\\">197398162</idno>          <idno type=\\\"RNSR\\\">201622170H</idno>
+        \         <idno type=\\\"ROR\\\">https://ror.org/00xzzba89</idno>          <orgName>Bordeaux
+        population health</orgName>          <orgName type=\\\"acronym\\\">BPH</orgName>
+        \         <desc>            <address>              <addrLine>Universit\xE9
+        de Bordeaux - Case 11 - 146 rue L\xE9o Saignat  33076 Bordeaux cedex</addrLine>
+        \             <country key=\\\"FR\\\"/>            </address>          </desc>
+        \         <listRelation>            <relation active=\\\"#struct-259761\\\"
+        type=\\\"direct\\\"/>            <relation active=\\\"#struct-302259\\\" type=\\\"direct\\\"/>
+        \           <relation name=\\\"U1219\\\" active=\\\"#struct-303623\\\" type=\\\"direct\\\"/>
+        \         </listRelation>        </org>        <org type=\\\"institution\\\"
+        xml:id=\\\"struct-1081461\\\" status=\\\"INCOMING\\\">          <orgName>Kappa
+        Sant\xE9</orgName>          <desc>            <address>              <addrLine>4
+        rue de Cl\xE9ry 75002 Paris</addrLine>              <country key=\\\"FR\\\"/>
+        \           </address>            <ref type=\\\"url\\\">https://www.kappasante.com/</ref>
+        \         </desc>        </org>        <org type=\\\"institution\\\" xml:id=\\\"struct-1071189\\\"
+        status=\\\"VALID\\\">          <orgName>Kap Code</orgName>          <desc>
+        \           <address>              <addrLine>28 Rue d'Enghien, 75010 Paris</addrLine>
+        \             <country key=\\\"FR\\\"/>            </address>            <ref
+        type=\\\"url\\\">https://www.kapcode.fr/</ref>          </desc>        </org>
+        \       <org type=\\\"institution\\\" xml:id=\\\"struct-474042\\\" status=\\\"VALID\\\">
+        \         <orgName>Universidad de C\xE1diz = University of C\xE1diz</orgName>
+        \         <orgName type=\\\"acronym\\\">UCA</orgName>          <date type=\\\"start\\\">2016-12-01</date>
+        \         <desc>            <address>              <country key=\\\"ES\\\"/>
+        \           </address>            <ref type=\\\"url\\\">http://www.uca.es/es/</ref>
+        \         </desc>        </org>        <org type=\\\"institution\\\" xml:id=\\\"struct-259761\\\"
+        status=\\\"VALID\\\">          <idno type=\\\"IdRef\\\">175206562</idno>          <idno
+        type=\\\"ROR\\\">https://ror.org/057qpr032</idno>          <orgName>Universit\xE9
+        de Bordeaux</orgName>          <orgName type=\\\"acronym\\\">UB</orgName>
+        \         <desc>            <address>              <addrLine>35, place Pey
+        Berland - 33076 Bordeaux</addrLine>              <country key=\\\"FR\\\"/>
+        \           </address>            <ref type=\\\"url\\\">http://www.u-bordeaux.fr/</ref>
+        \         </desc>        </org>        <org type=\\\"institution\\\" xml:id=\\\"struct-302259\\\"
+        status=\\\"VALID\\\">          <orgName>Institut de Sant\xE9 Publique, d'\xC9pid\xE9miologie
+        et de D\xE9veloppement (ISPED)</orgName>          <desc>            <address>
+        \             <country key=\\\"FR\\\"/>            </address>          </desc>
+        \       </org>        <org type=\\\"institution\\\" xml:id=\\\"struct-303623\\\"
+        status=\\\"VALID\\\">          <idno type=\\\"IdRef\\\">026388278</idno>          <idno
+        type=\\\"ROR\\\">https://ror.org/02vjkv261</idno>          <orgName>Institut
+        National de la Sant\xE9 et de la Recherche M\xE9dicale</orgName>          <orgName
+        type=\\\"acronym\\\">INSERM</orgName>          <desc>            <address>
+        \             <addrLine>101, rue de Tolbiac, 75013 Paris</addrLine>              <country
+        key=\\\"FR\\\"/>            </address>            <ref type=\\\"url\\\">http://www.inserm.fr</ref>
+        \         </desc>        </org>      </listOrg>    </back>  </text></TEI>\"\n
+        \   }]\n  }\n}"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 05 May 2026 08:31:38 GMT
+      environment:
+      - production
+      served-by:
+      - 192.168.176.67 D=128229
+      server:
+      - Apache
+      strict-transport-security:
+      - max-age=63072000
+      transfer-encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+version: 1

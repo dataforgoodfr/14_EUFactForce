@@ -12,13 +12,15 @@ class CrossrefMetadataParser(MetadataParser):
         self._cache = {}
 
     def _get_doc(self, doi: str):
-        if doi not in self._cache:
-            response = self.session.get(self.url.format(doi=doi), timeout=10)
-            if response.status_code == 404:
-                self._cache[doi] = None
-            else:
-                response.raise_for_status()
-                self._cache[doi] = response.json().get("message", {})
+        if doi in self._cache:
+            return self._cache[doi]
+        
+        response = self.session.get(self.url.format(doi=doi), timeout=10)
+        if response.status_code == 404:
+            self._cache[doi] = None
+        else:
+            response.raise_for_status()
+            self._cache[doi] = response.json().get("message", {})
         return self._cache[doi]
 
     def _get_authors(self, doc):

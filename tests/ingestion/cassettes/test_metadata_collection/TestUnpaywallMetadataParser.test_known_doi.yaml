@@ -1,0 +1,59 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: https://api.unpaywall.org/v2/10.31234/osf.io/tg7xr
+  response:
+    body:
+      string: '{"best_oa_location":{"endpoint_id":null,"evidence":"deprecated","host_type":null,"is_best":true,"license":"cc-by","oa_date":"2021-10-29","pmh_id":null,"repository_institution":null,"updated":"deprecated","url":"https://osf.io/tg7xr/download","url_for_landing_page":"https://doi.org/10.31234/osf.io/tg7xr","url_for_pdf":"https://osf.io/tg7xr/download","version":"acceptedVersion"},"data_standard":2,"doi":"10.31234/osf.io/tg7xr","doi_url":"https://doi.org/10.31234/osf.io/tg7xr","first_oa_location":{"endpoint_id":null,"evidence":"deprecated","host_type":null,"is_best":true,"license":"cc-by","oa_date":"2021-10-29","pmh_id":null,"repository_institution":null,"updated":"deprecated","url":"https://osf.io/tg7xr/download","url_for_landing_page":"https://doi.org/10.31234/osf.io/tg7xr","url_for_pdf":"https://osf.io/tg7xr/download","version":"acceptedVersion"},"genre":"posted-content","has_repository_copy":true,"is_oa":true,"is_paratext":false,"journal_is_in_doaj":false,"journal_is_oa":false,"journal_issn_l":null,"journal_issns":null,"journal_name":null,"oa_locations":[{"endpoint_id":null,"evidence":"deprecated","host_type":null,"is_best":true,"license":"cc-by","oa_date":"2021-10-29","pmh_id":null,"repository_institution":null,"updated":"deprecated","url":"https://osf.io/tg7xr/download","url_for_landing_page":"https://doi.org/10.31234/osf.io/tg7xr","url_for_pdf":"https://osf.io/tg7xr/download","version":"acceptedVersion"},{"endpoint_id":"b7064513e7c391b7fb9","evidence":"deprecated","host_type":"repository","is_best":false,"license":"cc-by","oa_date":"2021-10-29","pmh_id":"oai:share.osf.io:b35f7aef-91de-4003-b436-0874bd5cf328","repository_institution":"Center
+        for Open Science","updated":"deprecated","url":"https://osf.io/tg7xr","url_for_landing_page":"https://osf.io/tg7xr","url_for_pdf":null,"version":"submittedVersion"}],"oa_locations_embargoed":[],"oa_status":"gold","published_date":"2021-10-29","publisher":"Center
+        for Open Science","title":"Do Attitudes, Trust, and Acceptance of Pseudoscience
+        and  Conspiracy Theories Predict COVID-19 Vaccination Status?","updated":"2026-02-09T15:04:13Z","year":2021,"z_authors":[{"author_position":"first","is_corresponding":true,"raw_affiliation_strings":["Saint
+        Louis University, School for Professional Studies, 3840 Lindell Blvd., St.
+        Louis, MO 63108","School for Professional Studies, Saint Louis University,
+        St. Louis, MO, USA"],"raw_author_name":"Matthew J Grawitch"},{"author_position":"last","is_corresponding":false,"raw_affiliation_strings":["Department
+        of Psychology, Saint Louis University, St. Louis, MO, USA","School for Professional
+        Studies, Saint Louis University, St. Louis, MO, USA"],"raw_author_name":"Kristi
+        Lavigne"}]}
+
+        '
+    headers:
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, x-requested-with
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '809'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 May 2026 08:31:39 GMT
+      Nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      Report-To:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=Iji%2BeyG2tKlwKq7od3HkgPH58CxUBsvIe3I71k2zxPk%3D\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\u0026ts=1777969899"}],"max_age":3600}'
+      Reporting-Endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=Iji%2BeyG2tKlwKq7od3HkgPH58CxUBsvIe3I71k2zxPk%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1777969899"
+      Server:
+      - Heroku
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 heroku-router
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -16,24 +16,26 @@ class PubMedMetadataParser(MetadataParser):
         self.pmcid = None
 
     def _get_response(self, doi: str):
-        if doi not in self._cache:
-            search = self.session.get(
-                self.search_url,
-                params={"db": "pubmed", "retmode": "json", "term": doi + "[DOI]"},
+        if doi in self._cache:
+            return self._cache[doi]
+            
+        search = self.session.get(
+            self.search_url,
+            params={"db": "pubmed", "retmode": "json", "term": doi + "[DOI]"},
+            timeout=10,
+        )
+        search.raise_for_status()
+        ids = search.json().get("esearchresult", {}).get("idlist", [])
+        if not ids:
+            self._cache[doi] = None
+        else:
+            response = self.session.get(
+                self.fetch_url,
+                params={"db": "pubmed", "id": ids[0], "retmode": "xml", "rettype": "abstract"},
                 timeout=10,
             )
-            search.raise_for_status()
-            ids = search.json().get("esearchresult", {}).get("idlist", [])
-            if not ids:
-                self._cache[doi] = None
-            else:
-                response = self.session.get(
-                    self.fetch_url,
-                    params={"db": "pubmed", "id": ids[0], "retmode": "xml", "rettype": "abstract"},
-                    timeout=10,
-                )
-                response.raise_for_status()
-                self._cache[doi] = ET.fromstring(response.content)
+            response.raise_for_status()
+            self._cache[doi] = ET.fromstring(response.content)
         return self._cache[doi]
 
     def _get_authors(self, article):

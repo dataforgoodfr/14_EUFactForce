@@ -15,20 +15,22 @@ class UnpaywallMetadataParser(MetadataParser):
         self._cache = {}
 
     def _get_doc(self, doi: str):
-        if doi not in self._cache:
-            email = os.environ.get("UNPAYWALL_EMAIL", "")
-            if not email:
-                self.logger.warning("UNPAYWALL_EMAIL not set, skipping.")
+        if doi in self._cache:
+            return self._cache[doi]
+        
+        email = os.environ.get("UNPAYWALL_EMAIL", "")
+        if not email:
+            self.logger.warning("UNPAYWALL_EMAIL not set, skipping.")
+            self._cache[doi] = None
+        else:
+            response = self.session.get(
+                self.url.format(doi=doi, email=email), timeout=10
+            )
+            if response.status_code == 404:
                 self._cache[doi] = None
             else:
-                response = self.session.get(
-                    self.url.format(doi=doi, email=email), timeout=10
-                )
-                if response.status_code == 404:
-                    self._cache[doi] = None
-                else:
-                    response.raise_for_status()
-                    self._cache[doi] = response.json() or None
+                response.raise_for_status()
+                self._cache[doi] = response.json() or None
         return self._cache[doi]
 
     def _get_link(self, doc):

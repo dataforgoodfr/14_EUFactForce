@@ -12,10 +12,12 @@ class HALMetadataParser(MetadataParser):
         self._cache = {}
 
     def _get_docs(self, doi: str):
-        if doi not in self._cache:
-            response = self.session.get(self.url.format(doi=doi), timeout=10)
-            response.raise_for_status()
-            self._cache[doi] = response.json().get("response", {}).get("docs", [])
+        if doi in self._cache:
+            return self._cache[doi]
+
+        response = self.session.get(self.url.format(doi=doi), timeout=10)
+        response.raise_for_status()
+        self._cache[doi] = response.json().get("response", {}).get("docs", [])
         return self._cache[doi]
 
     def _get_type(self, doc):

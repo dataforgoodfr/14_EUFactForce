@@ -1,0 +1,39 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: https://api.archives-ouvertes.fr/search/?fl=%2A&q=doiId_s%3A10.0000%2Fdoes.not.exist
+  response:
+    body:
+      string: "{\n  \"response\":{\n    \"numFound\":0,\n    \"start\":0,\n    \"maxScore\":0.0,\n
+        \   \"numFoundExact\":true,\n    \"docs\":[ ]\n  }\n}"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      content-length:
+      - '116'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 05 May 2026 08:31:38 GMT
+      environment:
+      - production
+      served-by:
+      - 192.168.176.69 D=96743
+      server:
+      - Apache
+      strict-transport-security:
+      - max-age=63072000
+    status:
+      code: 200
+      message: OK
+version: 1
