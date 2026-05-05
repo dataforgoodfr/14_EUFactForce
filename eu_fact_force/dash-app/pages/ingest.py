@@ -18,7 +18,7 @@ def make_layout():
                             "fontWeight": "700",
                             "fontSize": "1.9rem",
                             "marginBottom": "20px",
-                            "color": EUPHAColors.dark_blue
+                            "color": EUPHAColors.primary
                         }
                     ),
 
@@ -122,7 +122,7 @@ def make_layout():
                             'lineHeight': '80px',
                             'borderWidth': '2px',
                             'borderStyle': 'dashed',
-                            'borderColor': EUPHAColors.dark_blue,
+                            'borderColor': EUPHAColors.primary,
                             'textAlign': 'center',
                             'borderRadius': '10px',
                             'marginBottom': '20px',
@@ -228,8 +228,8 @@ def make_layout():
                 size="lg",
                 className="w-100 mb-4",
                 style={
-                    "backgroundColor": EUPHAColors.dark_blue,
-                    "borderColor": EUPHAColors.dark_blue,
+                    "backgroundColor": EUPHAColors.light_bg,
+                    "borderColor": EUPHAColors.primary,
                     "color": "white",
                     "fontWeight": "600",
                     "borderRadius": "10px"
