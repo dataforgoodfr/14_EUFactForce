@@ -231,7 +231,7 @@ def get_search_data(n_clicks, search_text):
             list(set(filters["authors"])),
             min(filters["date"]) if filters["date"] else None,
             max(filters["date"]) if filters["date"] else None,
-            list(set(filters["node_types"])),
+            list(set([x for x in filters["node_types"] if x not in ['chunk', 'author']])),
             list(set(filters["chunk_types"])),
             list(set(filters["keywords"])),
             list(set(filters["documents"])),
