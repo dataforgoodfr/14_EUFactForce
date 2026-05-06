@@ -71,6 +71,36 @@ hr {
     background-color: var(--color-gray) !important;
 }
 
+/* Button (primary outline) */
+.btn-outline-primary {
+    border-color: var(--color-dark-blue) !important;
+    color: var(--color-dark-blue) !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-primary:hover {
+    border-color: var(--color-dark-blue) !important;
+    color: var(--color-white) !important;
+    background-color: var(--color-dark-blue) !important;
+}
+
+.btn-outline-primary:active {
+    border-color: var(--color-dark-blue) !important;
+    color: var(--color-white) !important;
+    background-color: var(--color-dark-blue) !important;
+}
+
+.btn-outline-primary.active {
+    border-color: var(--color-dark-blue) !important;
+    color: var(--color-white) !important;
+    background-color: var(--color-dark-blue) !important;
+}
+
+.btn-outline-primary:disabled {
+    border-color: var(--color-gray) !important;
+    color: var(--color-gray) !important;
+    background-color: transparent !important;
+}
 
 /* Offcanevas */
 .offcanvas-header {
