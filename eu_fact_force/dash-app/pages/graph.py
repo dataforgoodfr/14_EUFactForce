@@ -154,6 +154,6 @@ def make_layout():
     )
 
     return html.Div(
-        [search_bar, results], 
+        [search_bar, html.Br(), results], 
         style={"fontFamily": "system-ui, -apple-system, sans-serif"}
     )
