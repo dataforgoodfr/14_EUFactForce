@@ -34,6 +34,7 @@ stylesheet = [
             "width": "90px",
             "height": "90px",
             "font-size": "16px",
+            "color": EUPHAColors.white,
             "border-width": 3,
             "border-color": "#1b5e20",
         },
@@ -88,7 +89,7 @@ stylesheet = [
         "selector": "edge",
         "style": {
             "width": 1,
-            "line-color": "#999",
+            "line-color": EUPHAColors.primary,
             "opacity": 0.4,
         },
     },
