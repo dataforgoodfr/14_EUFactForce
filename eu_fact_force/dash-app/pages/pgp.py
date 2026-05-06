@@ -1,48 +1,47 @@
 # pages/pgp.py
 
-from dash import html, dcc
+from dash import dcc, html
+from utils.colors import EUPHAColors
 from utils.pgpxd4g_graphs import get_figures
+
 
 def make_layout():
 
     trend, lang, source, themes = get_figures()
 
     return html.Div(
-        style={
-            "backgroundColor": "#F4F6F8",
-            "padding": "20px",
-            "fontFamily": "Arial",
-        },
         children=[
-
             # HEADER
             html.Div(
-                "PGP Dashboard",
+                [
+                    html.H1(
+                        "PGP Dashboard",
+                        style={
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                            "textAlign": "center",
+                            "fontSize": "22px",
+                            "fontWeight": "bold",
+                        },
+                    ),
+                    html.P(
+                        "This dashboard summarizes posting dynamics, linguistic distribution, platform sources, and key thematic patterns extracted from the dataset.",
+                        style={
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                            "textAlign": "center",
+                            "fontSize": "14px",
+                            "fontStyle": "italic",
+                        },
+                    ),
+                ],
                 style={
-                    "backgroundColor": "#0B5FA5",
-                    "color": "white",
-                    "padding": "15px",
-                    "borderRadius": "10px",
-                    "textAlign": "center",
-                    "fontSize": "22px",
-                    "fontWeight": "bold",
+                    "borderRadius": "16px",
+                    "padding": "20px",
+                    "backgroundColor": EUPHAColors.white,
+                    "color": EUPHAColors.text_main,
+                    "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
                 },
             ),
-
-           
-            html.Div(
-                  "This dashboard summarizes posting dynamics, linguistic distribution, platform sources, and key thematic patterns extracted from the dataset.",
-                style={
-                    "textAlign": "center",
-                    "marginTop": "6px",
-                    "marginBottom": "16px",
-                    "color": "#6B7280",
-                    "fontSize": "12.5px",
-                    "fontStyle": "italic",
-                },
-            ),
-        
-            
+            html.Br(),
             # GRAPHS GRID PROPRE
             html.Div(
                 style={
@@ -51,12 +50,50 @@ def make_layout():
                     "gap": "15px",
                 },
                 children=[
-
-                    dcc.Graph(figure=trend),
-                    dcc.Graph(figure=lang),
-
-                    dcc.Graph(figure=source),
-                    dcc.Graph(figure=themes),
+                    html.Div(
+                        dcc.Graph(figure=trend),
+                        style={
+                            "borderRadius": "16px",
+                            "padding": "20px",
+                            "backgroundColor": EUPHAColors.white,
+                            "color": EUPHAColors.text_main,
+                            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                        },
+                    ),
+                    html.Div(
+                        dcc.Graph(figure=lang),
+                        style={
+                            "borderRadius": "16px",
+                            "padding": "20px",
+                            "backgroundColor": EUPHAColors.white,
+                            "color": EUPHAColors.text_main,
+                            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                        },
+                    ),
+                    html.Div(
+                        dcc.Graph(figure=source),
+                        style={
+                            "borderRadius": "16px",
+                            "padding": "20px",
+                            "backgroundColor": EUPHAColors.white,
+                            "color": EUPHAColors.text_main,
+                            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                        },
+                    ),
+                    html.Div(
+                        dcc.Graph(figure=themes),
+                        style={
+                            "borderRadius": "16px",
+                            "padding": "20px",
+                            "backgroundColor": EUPHAColors.white,
+                            "color": EUPHAColors.text_main,
+                            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                        },
+                    ),
                 ],
             ),
         ],
