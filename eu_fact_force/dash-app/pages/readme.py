@@ -1,4 +1,4 @@
-from dash import dcc, html
+from dash import html
 from utils.colors import EUPHAColors 
 
 def make_layout():

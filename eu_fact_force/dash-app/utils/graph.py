@@ -188,7 +188,7 @@ def format_node_metadata(node_data):
     elif node_data["type"] == "chunk":
         score = round(node_data['metadata'].get('score', 0), 2)
         return html.Div([
-            html.H5(f"Extracted Segment", className="fw-bold mb-1", style={"color": EUPHAColors.text_dark}),
+            html.H5("Extracted Segment", className="fw-bold mb-1", style={"color": EUPHAColors.text_dark}),
             html.P(f"Relevance Score: {score}", className="text-muted small mb-3"),
             
             html.Div(
