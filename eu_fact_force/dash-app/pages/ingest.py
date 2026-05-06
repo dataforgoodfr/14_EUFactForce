@@ -10,27 +10,17 @@ def make_layout():
         [
             html.Div(
                 [
-
-                    html.H3(
-                        "EU Fact Force",
-                        className="text-center",
-                        style={
-                            "fontWeight": "700",
-                            "fontSize": "1.9rem",
-                            "marginBottom": "20px",
-                            "color": EUPHAColors.primary
-                        }
-                    ),
-
                     html.Hr(style={"margin": "1.2rem 0"}),
 
-                    html.H5(
+                    html.H3(
                         "How it works",
                         style={
-                            "fontWeight": "500",
+                            "color": EUPHAColors.text_dark, 
+                            "margin": "0",
                             "marginBottom": "12px",
-                            "marginTop": "45px"
-                        }
+                            "marginTop": "45px",
+                            "fontWeight": "500",
+                            "fontSize": "20px"}
                     ),
 
                     html.Ol(
@@ -53,15 +43,20 @@ def make_layout():
                 }
             )
         ],
-        style={
-            "padding": "2rem 1rem",
-            "backgroundColor": EUPHAColors.white,
+        style=
+        {
+            "borderRadius": "16px",
+            "borderRight": "1px solid",
             "height": "100vh",
             "position": "fixed",
             "top": 0,
             "left": 0,
             "width": "16%",
-            "borderRight": "1px solid #dee2e6"
+            "padding": "2rem 1rem",
+            "backgroundColor": EUPHAColors.white, 
+            "color": EUPHAColors.text_main,
+            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+            "fontFamily": "system-ui, -apple-system, sans-serif" 
         }
     )
 
@@ -74,37 +69,45 @@ def make_layout():
                         "EU Fact Force - Article uploading page",
                         className="mb-3 text-center",
                         style={
-                            "fontWeight": "700",
-                            "fontSize": "2.5rem",
-                            "lineHeight": "1.15"
+                            "color": EUPHAColors.text_main,
+                            "fontWeight": "800",
+                            "marginBottom": "10px", 
+                            "fontSize": "36px"
                         }
                     ),
                     html.H3(
                         "Welcome to EU Fact Force articles uploading pages",
                         className="text-center mb-4",
                         style={
-                            "color": EUPHAColors.black,
-                            "fontWeight": "500",
-                            "fontSize": "1.5rem",
-                            "lineHeight": "1.3"
+                            "color": EUPHAColors.primary, 
+                            "fontStyle": "normal", 
+                            "fontWeight": "500", 
+                            "marginTop": "0px", 
+                            "fontSize": "22px"
                         }
                     ),
                     html.P(
                         "Thank you for collaborating with us, you will find here a page where you can upload and declare authors of your papers in attempt to build a safer and healthier community! Thank you for your contribution!",
                         className="text-center mb-5",
                         style={
-                            "maxWidth": "900px",
-                            "margin": "0 auto",
-                            "fontSize": "1.1rem",
-                            "lineHeight": "1.7",
-                            "color": EUPHAColors.black
+                            "fontSize": "17px", 
+                            "color": EUPHAColors.text_main, 
+                            "marginTop": "20px", 
+                            "lineHeight": "1.6", 
+                            "maxWidth": "800px",
+                            "margin": "20px auto 0 auto"
                         }
                     ),
                 ],
+                
                 style={
-                    "maxWidth": "1100px",
-                    "margin": "0 auto 2rem auto"
-                }
+                    "borderRadius": "16px",
+                    "padding": "60px",
+                    "backgroundColor": EUPHAColors.white, 
+                    "color": EUPHAColors.text_main,
+                    "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+                    "fontFamily": "system-ui, -apple-system, sans-serif" 
+                },
             ),
 
             dbc.Card([
@@ -238,11 +241,15 @@ def make_layout():
 
             html.Div(id='final-output', className="mt-4 pb-5")
         ],
-        style={
+        style=
+        {
             "marginLeft": "16%",
-            "padding": "5rem 1.5rem 2rem 1.5rem",
-            "width": "84%",
-            "backgroundColor": "#ffffff"
+            "borderRadius": "16px",
+            "padding": "60px",
+            "backgroundColor": EUPHAColors.white, 
+            "color": EUPHAColors.text_main,
+            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+            "fontFamily": "system-ui, -apple-system, sans-serif" 
         }
     )
 
