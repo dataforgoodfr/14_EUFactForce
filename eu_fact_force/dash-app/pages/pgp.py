@@ -1,59 +1,63 @@
-from dash import html
+# pages/pgp.py
 
-def create_layout():
+from dash import html, dcc
+from utils.pgpxd4g_graphs import get_figures
+
+def make_layout():
+
+    trend, lang, source, themes = get_figures()
+
     return html.Div(
         style={
-            "backgroundColor": "#FFFFFF",
+            "backgroundColor": "#F4F6F8",
+            "padding": "20px",
             "fontFamily": "Arial",
-            "padding": "20px"
         },
-
         children=[
 
+            # HEADER
             html.Div(
-                children=[
-                    html.H1(
-                        "PGP Dashboard",
-                        style={
-                            "color": "white",
-                            "textAlign": "center",
-                            "margin": "0"
-                        }
-                    )
-                ],
+                "PGP Dashboard",
                 style={
-                    "backgroundColor": "#00669B",
+                    "backgroundColor": "#0B5FA5",
+                    "color": "white",
                     "padding": "15px",
-                    "borderRadius": "8px"
-                }
+                    "borderRadius": "10px",
+                    "textAlign": "center",
+                    "fontSize": "22px",
+                    "fontWeight": "bold",
+                },
             ),
 
-            html.Br(),
-
+           
             html.Div(
-                children=[
-                    html.H3("Filters"),
-                    html.P("Add dropdowns / filters here")
-                ],
+                  "This dashboard summarizes posting dynamics, linguistic distribution, platform sources, and key thematic patterns extracted from the dataset.",
                 style={
-                    "backgroundColor": "#E6F4F9",
-                    "padding": "15px",
-                    "borderRadius": "8px"
-                }
+                    "textAlign": "center",
+                    "marginTop": "6px",
+                    "marginBottom": "16px",
+                    "color": "#6B7280",
+                    "fontSize": "12.5px",
+                    "fontStyle": "italic",
+                },
             ),
-
-            html.Br(),
-
+        
+            
+            # GRAPHS GRID PROPRE
             html.Div(
-                children=[
-                    html.H3("Visualizations"),
-                    html.P("Graphs will be added here")
-                ],
                 style={
-                    "backgroundColor": "#F5F5F5",
-                    "padding": "20px",
-                    "borderRadius": "8px"
-                }
-            )
-        ]
+                    "display": "grid",
+                    "gridTemplateColumns": "1fr 1fr",
+                    "gap": "15px",
+                },
+                children=[
+
+                    dcc.Graph(figure=trend),
+                    dcc.Graph(figure=lang),
+
+                    dcc.Graph(figure=source),
+                    dcc.Graph(figure=themes),
+                ],
+            ),
+        ],
     )
