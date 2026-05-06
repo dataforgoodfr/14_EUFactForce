@@ -29,7 +29,7 @@ app = Dash(
 )
 
 # Dash params
-DASHBOARD_NAME = "EU Fact Force"
+DASHBOARD_NAME = "EU Health Fact Force"
 
 # Custom dash app tab and logo
 app.title = DASHBOARD_NAME
@@ -37,10 +37,10 @@ app._favicon = "logo-eupha-u-blue.png"
 
 # App pages
 pages = {
-    "Readme": {"href": "/", "content": readme},
-    "Ingestion": {"href": "/ingest", "content": ingest},
-    "Graph": {"href": "/graph", "content": graph},
-    "PGP Dashboard": {"href": "/pgp", "content": pgp},
+    "Our purpose": {"href": "/", "content": readme},
+    "Upload your research": {"href": "/ingest", "content": ingest},
+    "Explore the science": {"href": "/graph", "content": graph},
+    "PGP Data integration": {"href": "/pgp", "content": pgp},
 }
 
 # Header and navigation
@@ -48,16 +48,21 @@ nav_pages = [
     dbc.NavLink(
         page,
         href=pages[page]["href"],
-        style={"color": EUPHAColors.white},
+        style={
+            "color": EUPHAColors.white,
+            "font-weight": "500",
+            "font-family": "system-ui, -apple-system, sans-serif",
+            "margin": "0 5px"
+        },
         active="exact",
     )
     for page in pages
 ]
 
 nav_col = dbc.Col(
-    [dbc.Nav(nav_pages, vertical=False, pills=True, justified=True)],
-    width=4,
-    align="center",
+    [dbc.Nav(nav_pages, vertical=False, pills=True)],
+    width="auto",
+    className="d-flex justify-content-center", 
     style={"padding": "0rem"},
 )
 
@@ -69,9 +74,9 @@ header = html.Div(
                     [
                         html.Img(
                             src="assets/logo-eupha-white.png",
-                            alt="image",
-                            height=50,
-                            style={"padding-right": "10px"},
+                            alt="EUPHA logo",
+                            height=45,
+                            style={"padding-right": "15px"},
                         ),
                         html.H1(
                             DASHBOARD_NAME,
@@ -80,16 +85,18 @@ header = html.Div(
                                 "font-weight": "bold",
                                 "margin": "0",
                                 "padding": "0",
+                                "font-size": "24px", 
+                                "white-space": "nowrap", 
+                                "font-family": "system-ui, -apple-system, sans-serif"
                             },
                         ),
                     ],
                     style={
                         "display": "flex",
                         "alignItems": "center",
-                        "gap": "0px",
                     },
                 ),
-                width=4,
+                width="auto",
             ),
             nav_col,
             dbc.Col(
@@ -97,39 +104,42 @@ header = html.Div(
                     [
                         html.Img(
                             src="assets/logo-d4g.png",
-                            alt="image",
-                            height=50,
-                            style={"padding-right": "10px"},
+                            alt="Data for Good logo",
+                            height=45,
                         )
                     ],
                     style={
                         "display": "flex",
                         "alignItems": "center",
-                        "gap": "0px",
                     },
                 ),
-                width=4,
-                className="d-grid gap-2 d-md-flex justify-content-md-end",
+                width="auto",
+                className="d-flex justify-content-end",
             ),
         ],
         className="g-0",
+        align="center",
+        justify="between"
     ),
     style={
-        "padding": "1rem",
-        "background-color": EUPHAColors.dark_blue,
+        "padding": "15px 30px",
+        "background-color": EUPHAColors.primary,
         "position": "fixed",
+        "top": "O",
         "width": "100%",
         "zIndex": 1000,
+        "box-shadow": "0 4px 6px -1px rgba(0,0,0,0.1)"
     },
 )
 
 # Content
 content = html.Div(
     style={
-        "margin-left": "1rem",
-        "margin-right": "1rem",
+        "margin-left": "auto",
+        "margin-right": "auto",
+        "max-width": "1600px",
         "padding": "1rem",
-        "padding-top": "120px",
+        "padding-top": "110px",
     },
     id="page-content",
 )
@@ -221,7 +231,7 @@ def get_search_data(n_clicks, search_text):
             list(set(filters["authors"])),
             min(filters["date"]) if filters["date"] else None,
             max(filters["date"]) if filters["date"] else None,
-            list(set(filters["node_types"])),
+            list(set([x for x in filters["node_types"] if x not in ['chunk', 'author']])),
             list(set(filters["chunk_types"])),
             list(set(filters["keywords"])),
             list(set(filters["documents"])),
@@ -499,6 +509,7 @@ def toggle_offcanvas(node_data, is_open):
             format_node_metadata(node_data),
             {"--header-bg": dict_node_type_colors[node_type], "width": "50%"},
         ]
+
 
 
 # --------------------

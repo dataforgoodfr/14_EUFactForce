@@ -1,48 +1,70 @@
 # pages/pgp.py
 
-from dash import html, dcc
+from dash import dcc, html
+from utils.colors import EUPHAColors
 from utils.pgpxd4g_graphs import get_figures
+
 
 def make_layout():
 
     trend, lang, source, themes = get_figures()
 
     return html.Div(
-        style={
-            "backgroundColor": "#F4F6F8",
-            "padding": "20px",
-            "fontFamily": "Arial",
-        },
         children=[
-
             # HEADER
             html.Div(
-                "PGP Dashboard",
+                [
+                    html.H1(
+                        "EU Fact Force - PGP Dashboard",
+                        className="mb-3 text-center",
+                        style={
+                            "color": EUPHAColors.text_main,
+                            "fontWeight": "800",
+                            "marginBottom": "10px", 
+                            "fontSize": "36px"
+                        }
+                    ),
+                    html.P(
+                        "This dashboard visualizes social media conversations surrounding vaccines, utilizing data provided by "
+                        "The Public Good Projects (PGP) via the Quid API. It tracks posting dynamics, linguistic distribution, "
+                        "and thematic patterns based on specific query logic.",
+                        className="text-center mb-5",
+                        style={
+                            "fontSize": "17px", 
+                            "color": EUPHAColors.text_main,
+                            "lineHeight": "1.6", 
+                            "maxWidth": "800px",
+                            "margin": "20px auto 0 auto"
+                        },
+                    ),
+                    html.P([
+                            html.B("Please note:"),
+                            " this system tracks conversation volume using ",
+                            html.B("keywords"),
+                            ", meaning it highlights how much a topic is being discussed, but does not measure sentiment "
+                            "or what users actually believe. Currently, this dashboard serves as a prototype built from a static data "
+                            "export. It will soon be fully integrated into the platform through an automated API workflow for daily "
+                            "updates."
+                        ],
+                        style={
+                            "textAlign": "center",
+                            "fontSize": "14px",
+                            "fontStyle": "italic",
+                            "marginBottom": "8px",
+                            
+                        }
+                    ),
+                ],
                 style={
-                    "backgroundColor": "#0B5FA5",
-                    "color": "white",
-                    "padding": "15px",
-                    "borderRadius": "10px",
-                    "textAlign": "center",
-                    "fontSize": "22px",
-                    "fontWeight": "bold",
+                    "fontFamily": "system-ui, -apple-system, sans-serif",
+                    "borderRadius": "16px",
+                    "padding": "20px",
+                    "backgroundColor": EUPHAColors.white,
+                    "color": EUPHAColors.text_main,
+                    "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
                 },
             ),
-
-           
-            html.Div(
-                  "This dashboard summarizes posting dynamics, linguistic distribution, platform sources, and key thematic patterns extracted from the dataset.",
-                style={
-                    "textAlign": "center",
-                    "marginTop": "6px",
-                    "marginBottom": "16px",
-                    "color": "#6B7280",
-                    "fontSize": "12.5px",
-                    "fontStyle": "italic",
-                },
-            ),
-        
-            
+            html.Br(),
             # GRAPHS GRID PROPRE
             html.Div(
                 style={
@@ -51,13 +73,60 @@ def make_layout():
                     "gap": "15px",
                 },
                 children=[
-
-                    dcc.Graph(figure=trend),
-                    dcc.Graph(figure=lang),
-
-                    dcc.Graph(figure=source),
-                    dcc.Graph(figure=themes),
+                    html.Div(
+                        dcc.Graph(figure=trend),
+                        style={
+                            "borderRadius": "16px",
+                            "padding": "20px",
+                            "backgroundColor": EUPHAColors.white,
+                            "color": EUPHAColors.text_main,
+                            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                        },
+                    ),
+                    html.Div(
+                        dcc.Graph(figure=lang),
+                        style={
+                            "borderRadius": "16px",
+                            "padding": "20px",
+                            "backgroundColor": EUPHAColors.white,
+                            "color": EUPHAColors.text_main,
+                            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                        },
+                    ),
+                    html.Div(
+                        dcc.Graph(figure=source),
+                        style={
+                            "borderRadius": "16px",
+                            "padding": "20px",
+                            "backgroundColor": EUPHAColors.white,
+                            "color": EUPHAColors.text_main,
+                            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                        },
+                    ),
+                    html.Div(
+                        dcc.Graph(figure=themes),
+                        style={
+                            "borderRadius": "16px",
+                            "padding": "20px",
+                            "backgroundColor": EUPHAColors.white,
+                            "color": EUPHAColors.text_main,
+                            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                        },
+                    ),
                 ],
             ),
         ],
+        style=
+        {
+            "borderRadius": "16px",
+            "padding": "60px",
+            "backgroundColor": EUPHAColors.white, 
+            "color": EUPHAColors.text_main,
+            "boxShadow": "0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025)",
+            "fontFamily": "system-ui, -apple-system, sans-serif" 
+        }
     )
