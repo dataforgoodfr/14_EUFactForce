@@ -1,6 +1,6 @@
 import os
 import requests
-from dash import dcc, html
+from dash import html
 import dash_bootstrap_components as dbc
 from .colors import EUPHAColors
 
