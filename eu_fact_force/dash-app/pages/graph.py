@@ -67,7 +67,13 @@ def make_layout():
             cyto.Cytoscape(
                 id="graph-cytoscape",
                 stylesheet=stylesheet,
-                layout={"name": "cose", "padding": 40},
+                layout={
+                    "name": "cose", 
+                    "padding": 40,
+                    "avoidOverlap": True,
+                    "nodeRepulsion": 400000,
+                    "idealEdgeLength": 100
+                },
                 style={"width": "100%", "height": "550px", "backgroundColor": EUPHAColors.white},
                 zoomingEnabled=True,
                 userZoomingEnabled=True,
