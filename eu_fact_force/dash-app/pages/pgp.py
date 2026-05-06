@@ -28,12 +28,13 @@ def make_layout():
                         "This dashboard visualizes social media conversations surrounding vaccines, utilizing data provided by "
                         "The Public Good Projects (PGP) via the Quid API. It tracks posting dynamics, linguistic distribution, "
                         "and thematic patterns based on specific query logic.",
+                        className="text-center mb-5",
                         style={
-                            "fontFamily": "system-ui, -apple-system, sans-serif",
-                            "textAlign": "center",
-                            "fontSize": "14px",
-                            "fontStyle": "italic",
-                            "marginBottom": "8px",
+                            "fontSize": "17px", 
+                            "color": EUPHAColors.text_main,
+                            "lineHeight": "1.6", 
+                            "maxWidth": "800px",
+                            "margin": "20px auto 0 auto"
                         },
                     ),
                     html.P([
@@ -45,17 +46,17 @@ def make_layout():
                             "export. It will soon be fully integrated into the platform through an automated API workflow for daily "
                             "updates."
                         ],
-                        className="text-center mb-5",
                         style={
-                            "fontSize": "17px", 
-                            "color": EUPHAColors.text_main,
-                            "lineHeight": "1.6", 
-                            "maxWidth": "800px",
-                            "margin": "20px auto 0 auto"
+                            "textAlign": "center",
+                            "fontSize": "14px",
+                            "fontStyle": "italic",
+                            "marginBottom": "8px",
+                            
                         }
                     ),
                 ],
                 style={
+                    "fontFamily": "system-ui, -apple-system, sans-serif",
                     "borderRadius": "16px",
                     "padding": "20px",
                     "backgroundColor": EUPHAColors.white,
