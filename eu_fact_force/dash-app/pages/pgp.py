@@ -25,12 +25,30 @@ def make_layout():
                         }
                     ),
                     html.P(
-                        "This dashboard summarizes posting dynamics, linguistic distribution, platform sources, and key thematic patterns extracted from the dataset.",
+                        "This dashboard visualizes social media conversations surrounding vaccines, utilizing data provided by "
+                        "The Public Good Projects (PGP) via the Quid API. It tracks posting dynamics, linguistic distribution, "
+                        "and thematic patterns based on specific query logic.",
+                        style={
+                            "fontFamily": "system-ui, -apple-system, sans-serif",
+                            "textAlign": "center",
+                            "fontSize": "14px",
+                            "fontStyle": "italic",
+                            "marginBottom": "8px",
+                        },
+                    ),
+                    html.P([
+                            html.B("Please note:"),
+                            " this system tracks conversation volume using ",
+                            html.B("keywords"),
+                            ", meaning it highlights how much a topic is being discussed, but does not measure sentiment "
+                            "or what users actually believe. Currently, this dashboard serves as a prototype built from a static data "
+                            "export. It will soon be fully integrated into the platform through an automated API workflow for daily "
+                            "updates."
+                        ],
                         className="text-center mb-5",
                         style={
                             "fontSize": "17px", 
-                            "color": EUPHAColors.text_main, 
-                            "marginTop": "20px", 
+                            "color": EUPHAColors.text_main,
                             "lineHeight": "1.6", 
                             "maxWidth": "800px",
                             "margin": "20px auto 0 auto"
