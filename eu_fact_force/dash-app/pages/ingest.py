@@ -256,8 +256,7 @@ def make_layout():
     return html.Div([
         dcc.Store(id='session-store', data={}),
         sidebar, main_content],
-        style={"fontFamily": "system-ui, -apple-system, sans-serif",
-            "backgroundColor": "#f5f7fa"})
+        style={"fontFamily": "system-ui, -apple-system, sans-serif"})
 
 
 
