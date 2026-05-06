@@ -110,6 +110,8 @@ def make_layout():
                 },
             ),
 
+            html.Br(),
+
             dbc.Card([
                 dbc.CardBody([
                     html.H4(
