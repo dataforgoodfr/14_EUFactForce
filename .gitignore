@@ -184,3 +184,19 @@ data/*
 !data/seed/
 staticfiles/
 .DS_Store
+
+
+# Open Tofu stuffs
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.tfstate.lock.info
+*.tfvars
+*.tfvars.json
+!example.tfvars
+*.tfplan
+tfplan
+
+# Backend config files generated from bootstrap outputs
+backend*.hcl

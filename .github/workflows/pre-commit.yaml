@@ -35,6 +35,10 @@ jobs:
       with:
         path: ~/.cache/pre-commit
         key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+    - uses: opentofu/setup-opentofu@v1
+      with:
+        tofu_wrapper: false
+    - uses: terraform-linters/setup-tflint@v4
     - uses: pre-commit/action@v3.0.0
     - name: Install uv
       run: pip install uv
