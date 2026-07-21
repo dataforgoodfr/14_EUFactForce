@@ -1,0 +1,10 @@
+# Usage :
+#   export AWS_ACCESS_KEY_ID=...  AWS_SECRET_ACCESS_KEY=...
+#   tofu init -backend-config=cellar.tfbackend
+
+bucket = "eufactforce-tofu-state"
+
+
+endpoints = {
+  s3 = "https://cellar.pick.the.right.endpoint.com"
+}
