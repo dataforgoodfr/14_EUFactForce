@@ -1,0 +1,45 @@
+name: tofu-apply
+
+on:
+  push:
+    branches: [main]
+    paths: ["infra/**", ".github/workflows/tofu-apply.yml"]
+  workflow_dispatch: {}
+
+# Sérialise les apply: deux runs concurrents ne peuvent pas clobber le state.
+concurrency:
+  group: tofu-apply
+  cancel-in-progress: false
+
+env:
+  TOFU_VERSION: "1.10.0"
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: ${{ env.TOFU_VERSION }}
+
+      - name: tofu init
+        working-directory: infra
+        run: |
+          tofu init \
+            -backend-config=cellar.tfbackend \
+            -backend-config="access_key=${{ secrets.TFSTATE_KEY_ID }}" \
+            -backend-config="secret_key=${{ secrets.TFSTATE_KEY_SECRET }}" \
+            -input=false
+
+      - name: tofu apply
+        working-directory: infra
+        env:
+          TF_VAR_organisation:                ${{ secrets.CC_ORGANISATION }}
+          TF_VAR_cc_token:                    ${{ secrets.CC_TOKEN }}
+          TF_VAR_cc_secret:                   ${{ secrets.CC_SECRET }}
+          TF_VAR_cc_consumer_key:             ${{ secrets.CC_CONSUMER_KEY }}
+          TF_VAR_cc_consumer_secret:          ${{ secrets.CC_CONSUMER_SECRET }}
+          TF_VAR_state_encryption_passphrase: ${{ secrets.TF_STATE_PASSPHRASE }}
+        run: tofu apply -input=false -auto-approve -lock-timeout=5m

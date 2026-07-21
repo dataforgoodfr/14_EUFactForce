@@ -1,0 +1,46 @@
+name: tofu-plan
+
+on:
+  pull_request:
+    paths: ["infra/**", ".github/workflows/tofu-plan.yml"]
+
+env:
+  TOFU_VERSION: "1.10.0"
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: ${{ env.TOFU_VERSION }}
+
+      - name: tofu fmt (check)
+        working-directory: infra
+        run: tofu fmt -check -recursive
+
+      - name: tofu init
+        working-directory: infra
+        run: |
+          tofu init \
+            -backend-config=cellar.tfbackend \
+            -backend-config="access_key=${{ secrets.TFSTATE_KEY_ID }}" \
+            -backend-config="secret_key=${{ secrets.TFSTATE_KEY_SECRET }}" \
+            -input=false
+
+      - name: tofu validate
+        working-directory: infra
+        run: tofu validate
+
+      - name: tofu plan
+        working-directory: infra
+        env:
+          TF_VAR_organisation:                ${{ secrets.CC_ORGANISATION }}
+          TF_VAR_cc_token:                    ${{ secrets.CC_TOKEN }}
+          TF_VAR_cc_secret:                   ${{ secrets.CC_SECRET }}
+          TF_VAR_cc_consumer_key:             ${{ secrets.CC_CONSUMER_KEY }}
+          TF_VAR_cc_consumer_secret:          ${{ secrets.CC_CONSUMER_SECRET }}
+          TF_VAR_state_encryption_passphrase: ${{ secrets.TF_STATE_PASSPHRASE }}
+        run: tofu plan -input=false -lock-timeout=5m
